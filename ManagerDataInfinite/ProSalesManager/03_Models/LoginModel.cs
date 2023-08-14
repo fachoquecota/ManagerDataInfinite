@@ -4,7 +4,7 @@
     {
         //[Required]
         //[MaxLength(50)]
-        public string? Correo { get; set; }
+        public string? email { get; set; }
         //[Required]
         //[MaxLength(50)]
         public string? Password { get; set; }

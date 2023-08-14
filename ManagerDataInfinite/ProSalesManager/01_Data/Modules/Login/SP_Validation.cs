@@ -21,7 +21,7 @@ namespace ProSalesManager._01_Data.Modules.Login
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_LoginValidator", conexion);
-                    cmd.Parameters.AddWithValue("@vcCorreo", loginModel.Correo);
+                    cmd.Parameters.AddWithValue("@vcCorreo", loginModel.email);
                     cmd.Parameters.AddWithValue("@vcPassword", loginModel.Password);
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (var dr = cmd.ExecuteReader())

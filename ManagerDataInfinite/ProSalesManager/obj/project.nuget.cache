@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Wz9Wsu9lV1o3EnEyqbP3/mzh3Th+mqkxhiqPBG3ZEsKiMfU8g7RlYGCW0VDvHmsxJnrQO/V2r7x/DJhdNS5cxg==",
+  "dgSpecHash": "HZZSaP7oUI84T3/rhUj7u4+Cs73bOAg5DAVuT/xbBuDppt9Q198ehis/jE82xQcgCkCfov6XbltNjKaKXHMg9g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fchoquecota\\Documents\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
+  "projectFilePath": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fchoquecota\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.18\\microsoft.aspnetcore.authentication.jwtbearer.6.0.18.nupkg.sha512",
     "C:\\Users\\fchoquecota\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

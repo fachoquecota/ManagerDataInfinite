@@ -1,9 +1,10 @@
 ﻿using ProSalesManager._01_Data.Modules.Supplier.Interfaces;
+using ProSalesManager._02_Busnisess.Suppliers.Interfaces;
 using ProSalesManager._03_Models;
 
 namespace ProSalesManager._02_Busnisess.Suppliers
 {
-    public class B_Proveedores
+    public class B_Proveedores : IB_Proveedores
     {
         private readonly ISP_Proveedores _sP_Proveedores;
         public B_Proveedores(ISP_Proveedores sP_Proveedores)

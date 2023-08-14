@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fchoquecota\\Documents\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj": {}
+    "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fchoquecota\\Documents\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj": {
+    "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fchoquecota\\Documents\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
+        "projectUniqueName": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
         "projectName": "ProSalesManager",
-        "projectPath": "C:\\Users\\fchoquecota\\Documents\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
+        "projectPath": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
         "packagesPath": "C:\\Users\\fchoquecota\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fchoquecota\\Documents\\ManagerDataInfinite\\ProSalesManager\\obj\\",
+        "outputPath": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

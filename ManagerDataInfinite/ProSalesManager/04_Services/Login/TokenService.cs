@@ -21,7 +21,7 @@ namespace ProSalesManager._04_Services.Login
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, admin.Correo)
+                new Claim(ClaimTypes.Name, admin.email)
             };
 
             var keyString = _configuration.GetSection("JWT:Key").Value;

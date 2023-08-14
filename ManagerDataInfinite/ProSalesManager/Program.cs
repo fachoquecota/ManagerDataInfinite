@@ -19,6 +19,10 @@ using ProSalesManager._02_Busnisess.Customers.Interfaces;
 using ProSalesManager._02_Busnisess.Customers;
 using ProSalesManager._01_Data.Modules.Customers.Interfaces;
 using ProSalesManager._01_Data.Modules.Customers;
+using ProSalesManager._01_Data.Modules.Supplier.Interfaces;
+using ProSalesManager._01_Data.Modules.Supplier;
+using ProSalesManager._02_Busnisess.Suppliers.Interfaces;
+using ProSalesManager._02_Busnisess.Suppliers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +45,9 @@ builder.Services.AddScoped<IB_Productos, B_Productos>();
 
 builder.Services.AddScoped<ISP_Clientes, SP_Clientes>();
 builder.Services.AddScoped<IB_Clientes, B_Clientes>();
+
+builder.Services.AddScoped<ISP_Proveedores, SP_Proveedores>();
+builder.Services.AddScoped<IB_Proveedores, B_Proveedores>();
 
 //builder.Services.AddCors(options =>
 //{
