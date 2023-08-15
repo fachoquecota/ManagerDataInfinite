@@ -35,8 +35,8 @@ namespace ProSalesManager.Controllers
                 response = _tokenService.GenerateToken(loginModel);
                 return new
                 {
-                    Result = result.value,
-                    message = response
+                    result = result.value,
+                    accessToken = response
                 };
             }
             else
