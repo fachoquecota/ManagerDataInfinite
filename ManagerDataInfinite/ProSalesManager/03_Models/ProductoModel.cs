@@ -13,5 +13,7 @@
         public string imagenCarpeta { get; set; }
         public string imagenNombre { get; set; }
         public bool Activo { get; set; }
+        public DateTime horaCreacion { get; set; }
+        public DateTime horaActualizacion { get; set; }
     }
 }
