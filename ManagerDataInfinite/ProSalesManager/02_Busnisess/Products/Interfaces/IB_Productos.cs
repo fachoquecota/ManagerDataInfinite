@@ -4,7 +4,7 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
 {
     public interface IB_Productos
     {
-        List<ProductoModel> Productos(string usuarioNavegacion);
+        List<ProductResponse> GetAllProductsDetails(bool Activo);
         bool UpdateProductos(ProductoModel oProductoModel);
         bool InsertProducto(ProductoModel oProductoModel);
     }

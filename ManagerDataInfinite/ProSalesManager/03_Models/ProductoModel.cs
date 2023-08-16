@@ -12,8 +12,18 @@
         public int idEmpresa { get; set; }
         public string imagenCarpeta { get; set; }
         public string imagenNombre { get; set; }
-        public bool Activo { get; set; }
         public DateTime horaCreacion { get; set; }
         public DateTime horaActualizacion { get; set; }
+        public bool Activo { get; set; }
+        public List<string> Images { get; set; } = new List<string>();
+        public List<string> Sizes { get; set; } = new List<string>();
+        public List<string> Tags { get; set; } = new List<string>();
+        public string Descripcion { get; set; }
+        public string Genero { get; set; }
+        public string NewLabelContent { get; set; }
+        public bool NewLabelEnabled { get; set; }
+        public string SaleLabelContent { get; set; }
+        public bool SaleLabelEnabled { get; set; }
     }
+
 }

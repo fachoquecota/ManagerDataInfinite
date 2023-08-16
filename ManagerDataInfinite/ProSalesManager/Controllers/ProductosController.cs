@@ -7,7 +7,7 @@ using ProSalesManager._04_Services.Login.Interfaces;
 
 namespace ProSalesManager.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductosController : ControllerBase
@@ -24,9 +24,9 @@ namespace ProSalesManager.Controllers
         [Route("GetProductos")]
         public dynamic GetProducts()
         {
-            var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-            var correo = _tokenService.GetCorreoFromToken(correoToken);
-            var result = _Products.Productos(correo);
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.GetAllProductsDetails(true);
 
             if (result is null)
                 return BadRequest(new { message = "No se encontró datos de Productos" });
@@ -34,22 +34,22 @@ namespace ProSalesManager.Controllers
             return new
             {
                 //message = jwtToken
-                message = result
+                products = result
             };
         }
-        [HttpPut]
-        [Route("PutProductos")]
-        public dynamic PutProducts([FromBody]ProductoModel oProductoModel)
-        {
-            bool result = _Products.UpdateProductos(oProductoModel);
-            return Ok(result);
-        }
-        [HttpPost]
-        [Route("PostProductos")]
-        public dynamic PostProducts([FromBody] ProductoModel oProductoModel)
-        {
-            bool result = _Products.InsertProducto(oProductoModel);
-            return Ok(result);
-        }
+        //[HttpPut]
+        //[Route("PutProductos")]
+        //public dynamic PutProducts([FromBody]ProductoModel oProductoModel)
+        //{
+        //    bool result = _Products.UpdateProductos(oProductoModel);
+        //    return Ok(result);
+        //}
+        //[HttpPost]
+        //[Route("PostProductos")]
+        //public dynamic PostProducts([FromBody] ProductoModel oProductoModel)
+        //{
+        //    bool result = _Products.InsertProducto(oProductoModel);
+        //    return Ok(result);
+        //}
     }
 }

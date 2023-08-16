@@ -3,6 +3,7 @@ using ProSalesManager._01_Data.Connection;
 using ProSalesManager._01_Data.Modules.Products.Interfaces;
 using ProSalesManager._03_Models;
 using ProSalesManager._03_Models.ReservedModels;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,7 +11,7 @@ namespace ProSalesManager._01_Data.Modules.Products
 {
     public class SP_Productos : ISP_Productos
     {
-        public List<ProductoModel> ProductosLista(string usuarioNavegacion)
+        public List<ProductoModel> ProductosLista(bool Activo)
         {
             var oList = new List<ProductoModel>();
             try
@@ -20,7 +21,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Select_Productos", conexion);
-                    cmd.Parameters.AddWithValue("@vcCorreo", usuarioNavegacion);
+                    cmd.Parameters.AddWithValue("@btActivo", Activo);
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (var dr = cmd.ExecuteReader())
                     {
@@ -35,12 +36,19 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 cantidad = Convert.ToInt32(dr["cantidad"]),
                                 idProveedor = Convert.ToInt32(dr["idProveedor"]),
                                 fechaIngreso = Convert.ToDateTime(dr["fechaIngreso"]),
-                                idEmpresa = Convert.ToInt32(dr["idEmpresa"]),
                                 imagenCarpeta = dr["imagenCarpeta"].ToString(),
                                 imagenNombre = dr["imagenNombre"].ToString(),
+                                Images = dr["Images"].ToString().Split(',').ToList(),
+                                Sizes = dr["Sizes"].ToString().Split(',').ToList(),
+                                Tags = dr["Tags"].ToString().Split(',').ToList(),
                                 horaCreacion = Convert.ToDateTime(dr["horaCreacion"]),
                                 horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
-                                Activo = Convert.ToBoolean(dr["Activo"])
+                                Activo = Convert.ToBoolean(dr["Activo"]),
+                                Genero = dr["Genero"].ToString(),
+                                NewLabelContent = dr["NewLabelContent"].ToString(),
+                                NewLabelEnabled = Convert.ToBoolean(dr["NewLabelEnabled"]),
+                                SaleLabelContent = dr["SaleLabelContent"].ToString(),
+                                SaleLabelEnabled = Convert.ToBoolean(dr["SaleLabelEnabled"])
                             });
                         }
                     }
@@ -63,6 +71,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Select_AllImagenes", conexion);
+                    cmd.Parameters.AddWithValue("@intIdProducto", idProducto);
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (var dr = cmd.ExecuteReader())
                     {
@@ -97,6 +106,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Select_AllTags", conexion);
+                    cmd.Parameters.AddWithValue("@intIdProducto", idProducto);
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (var dr = cmd.ExecuteReader())
                     {
@@ -130,6 +140,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Select_AllSizes", conexion);
+                    cmd.Parameters.AddWithValue("@intIdProducto", idProducto);
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (var dr = cmd.ExecuteReader())
                     {
@@ -163,6 +174,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Select_AllDescripciones", conexion);
+                    cmd.Parameters.AddWithValue("@intIdProducto", idProducto);
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (var dr = cmd.ExecuteReader())
                     {
@@ -391,7 +403,6 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
             return rpta;
         }
-
         public bool InsertTag(TagModel oTagModel)
         {
             bool rpta = false;
