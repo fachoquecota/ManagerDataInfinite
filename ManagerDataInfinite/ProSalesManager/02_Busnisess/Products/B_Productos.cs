@@ -48,11 +48,6 @@ namespace ProSalesManager._02_Busnisess.Products
             }
             return responseList;
         }
-
-
-
-
-
         //public List<ProductoModel> GetAllProductsDetails(string usuarioNavegacion)
         //{
         //    var resultSP = _sP_Products.ProductosLista(usuarioNavegacion);
