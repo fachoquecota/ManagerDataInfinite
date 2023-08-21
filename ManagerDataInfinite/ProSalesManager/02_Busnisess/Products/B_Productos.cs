@@ -22,12 +22,14 @@ namespace ProSalesManager._02_Busnisess.Products
                 var productResponse = new ProductResponse
                 {
                     Id = product.idProducto,
+                    Genero = product.Genero,
                     Producto = product.producto,
                     Marca = product.marca,
                     Precio = product.precio,
                     Cantidad = product.cantidad,
                     Sizes = product.Sizes,
                     Images = product.Images,
+                    Colores = product.Colores,
                     Tags = product.Tags,
                     Descripcion = product.Descripcion,
                     NewLabel = new LabelModel
@@ -39,7 +41,8 @@ namespace ProSalesManager._02_Busnisess.Products
                     {
                         Enabled = product.SaleLabelEnabled,
                         Content = product.SaleLabelContent
-                    }
+                    },
+                    Activo = product.Activo
                 };
                 responseList.Add(productResponse);
             }

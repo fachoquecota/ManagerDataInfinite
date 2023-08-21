@@ -20,6 +20,7 @@
         public List<string> Tags { get; set; } = new List<string>();
         public string Descripcion { get; set; }
         public string Genero { get; set; }
+        public List<string>Colores { get; set; } = new List<string>();
         public string NewLabelContent { get; set; }
         public bool NewLabelEnabled { get; set; }
         public string SaleLabelContent { get; set; }

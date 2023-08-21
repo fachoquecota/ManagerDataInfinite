@@ -45,6 +45,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
                                 Activo = Convert.ToBoolean(dr["Activo"]),
                                 Genero = dr["Genero"].ToString(),
+                                Colores = dr["Colores"].ToString().Split(',').ToList(),
                                 NewLabelContent = dr["NewLabelContent"].ToString(),
                                 NewLabelEnabled = Convert.ToBoolean(dr["NewLabelEnabled"]),
                                 SaleLabelContent = dr["SaleLabelContent"].ToString(),
