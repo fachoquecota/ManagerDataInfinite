@@ -1,11 +1,15 @@
 ﻿using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 
 namespace ProSalesManager._02_Busnisess.Products.Interfaces
 {
     public interface IB_Productos
     {
         List<ProductResponse> GetAllProductsDetails(bool Activo);
+        //Crud
+        List<CrudProductoModel> ProductosListaCrud();
         bool UpdateProductos(ProductoModel oProductoModel);
         bool InsertProducto(ProductoModel oProductoModel);
+
     }
 }

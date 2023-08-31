@@ -2,6 +2,7 @@
 using ProSalesManager._01_Data.Connection;
 using ProSalesManager._01_Data.Modules.Products.Interfaces;
 using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 using ProSalesManager._03_Models.ReservedModels;
 using System;
 using System.Data;
@@ -11,6 +12,7 @@ namespace ProSalesManager._01_Data.Modules.Products
 {
     public class SP_Productos : ISP_Productos
     {
+        // Public Page
         public List<ProductoModel> ProductosLista(bool Activo)
         {
             var oList = new List<ProductoModel>();
@@ -62,6 +64,54 @@ namespace ProSalesManager._01_Data.Modules.Products
                 return oList;
             }
         }
+
+        // Crud Page
+        public List<CrudProductoModel> ProductosListaCrud()
+        {
+            var oList = new List<CrudProductoModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Crud_Select_Productos", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new CrudProductoModel()
+                            {
+                                idProducto = Convert.ToInt32(dr["idProducto"]),
+                                producto = dr["producto"].ToString(),
+                                marca = dr["marca"].ToString(),
+                                precio = Convert.ToDecimal(dr["precio"]),
+                                cantidad = Convert.ToInt32(dr["cantidad"]),
+                                idProveedor = Convert.ToInt32(dr["idProveedor"]),
+                                fechaIngreso = Convert.ToDateTime(dr["fechaIngreso"]),
+                                idEmpresa = Convert.ToInt32(dr["idEmpresa"]),
+                                imagenCarpeta = dr["imagenCarpeta"].ToString(),
+                                imagenNombre = dr["imagenNombre"].ToString(),
+                                horaCreacion = Convert.ToDateTime(dr["horaCreacion"]),
+                                horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
+                                Activo = Convert.ToBoolean(dr["Activo"]),
+                                idGenero = Convert.ToInt32(dr["idGenero"]),
+                                idCategoria = Convert.ToInt32(dr["idCategoria"])
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+
         public List<ImagenModel> ImagenesLista(int idProducto)
         {
             var oList = new List<ImagenModel>();

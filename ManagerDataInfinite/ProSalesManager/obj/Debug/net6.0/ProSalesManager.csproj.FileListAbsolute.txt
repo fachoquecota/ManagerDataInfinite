@@ -85,3 +85,44 @@ C:\Users\fchoquecota\Documents\Proy\ManagerDataInfinite\ProSalesManager\obj\Debu
 C:\Users\fchoquecota\Documents\Proy\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.pdb
 C:\Users\fchoquecota\Documents\Proy\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.genruntimeconfig.cache
 C:\Users\fchoquecota\Documents\Proy\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ref\ProSalesManager.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\appsettings.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\ProSalesManager.exe
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\ProSalesManager.deps.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\ProSalesManager.runtimeconfig.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\ProSalesManager.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\ProSalesManager.pdb
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.csproj.AssemblyReference.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.AssemblyInfoInputs.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.AssemblyInfo.cs
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\scopedcss\bundle\ProSalesManager.styles.css
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.csproj.CopyComplete
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\refint\ProSalesManager.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.pdb
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.genruntimeconfig.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ref\ProSalesManager.dll
