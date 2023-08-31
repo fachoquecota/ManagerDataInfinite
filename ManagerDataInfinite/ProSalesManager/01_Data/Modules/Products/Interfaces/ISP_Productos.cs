@@ -1,4 +1,5 @@
 ﻿using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 
 namespace ProSalesManager._01_Data.Modules.Products.Interfaces
 {
@@ -19,5 +20,9 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         bool InsertTag(TagModel oTagModel);
         bool InsertSize(SizeModel oSizeModel);
         bool InsertDescripcion(DescripcionModel oDescripcionModel);
+
+
+        //CRUD
+        List<CrudProductoModel> ProductosListaCrud();
     }
 }

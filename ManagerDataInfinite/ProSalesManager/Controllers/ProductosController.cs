@@ -37,6 +37,24 @@ namespace ProSalesManager.Controllers
                 products = result
             };
         }
+
+        [HttpGet]
+        [Route("GetCrudProductos")]
+        public dynamic GetCrudProductos()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.ProductosListaCrud();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de Productos" });
+
+            return new
+            {
+                //message = jwtToken
+                products = result
+            };
+        }
         //[HttpPut]
         //[Route("PutProductos")]
         //public dynamic PutProducts([FromBody]ProductoModel oProductoModel)

@@ -1,6 +1,7 @@
 ﻿using ProSalesManager._01_Data.Modules.Products.Interfaces;
 using ProSalesManager._02_Busnisess.Products.Interfaces;
 using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 
 namespace ProSalesManager._02_Busnisess.Products
 {
@@ -50,7 +51,13 @@ namespace ProSalesManager._02_Busnisess.Products
         }
 
 
+        //CRUD
+        public List<CrudProductoModel> ProductosListaCrud()
+        {
+            var productsList = _sP_Products.ProductosListaCrud();
+            return productsList;
 
+        }
 
 
         //public List<ProductoModel> GetAllProductsDetails(string usuarioNavegacion)
