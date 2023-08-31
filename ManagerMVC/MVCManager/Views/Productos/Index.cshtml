@@ -1,0 +1,64 @@
+﻿@model List<ProductoModel>
+@{
+    int paginaActual = ViewBag.PaginaActual;
+    int totalPaginas = (int)Math.Round((double)ViewBag.TotalPaginas);
+}
+
+<!-- Búsqueda -->
+<div class="mb-4 flex">
+    <form method="get" class="flex-auto">
+        <input type="text" name="busqueda" placeholder="Buscar productos" class="p-2 border rounded" />
+        <button type="submit" class="p-2 bg-blue-500 text-white rounded">Buscar</button>
+    </form>
+</div>
+
+<!-- Tabla -->
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+            <tr class="bg-gray-100 text-left">
+                <th class="py-2 px-4 border-b">ID</th>
+                <th class="py-2 px-4 border-b">Producto</th>
+                <th class="py-2 px-4 border-b">Marca</th>
+                <th class="py-2 px-4 border-b">Precio</th>
+                <th class="py-2 px-4 border-b">Cantidad</th>
+                <th class="py-2 px-4 border-b">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in Model)
+            {
+                <tr>
+                    <td class="py-2 px-4 border-b">@producto.IdProducto</td>
+                    <td class="py-2 px-4 border-b">@producto.Producto</td>
+                    <td class="py-2 px-4 border-b">@producto.Marca</td>
+                    <td class="py-2 px-4 border-b">@producto.Precio</td>
+                    <td class="py-2 px-4 border-b">@producto.Cantidad</td>
+                    <td class="py-2 px-4 border-b">
+                        <button data-id="@producto.IdProducto" class="open-modal text-blue-500 hover:underline">Editar</button> |
+                        <a href="@Url.Action("Eliminar", "Productos", new { id = producto.IdProducto })" class="text-red-500 hover:underline">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!-- Modal -->
+<div id="editModal" class="fixed inset-0 flex items-center justify-center p-4 hidden">
+    <div class="bg-white p-8 rounded-lg w-1/2">
+        <h2 class="text-2xl mb-4">Editar Producto</h2>
+        <!-- Aquí irán los campos del formulario -->
+        <div id="modalContent">
+            <!-- Los datos del producto se cargarán aquí -->
+        </div>
+        <button id="closeModal" class="mt-4 bg-red-500 text-white p-2 rounded">Cerrar</button>
+    </div>
+</div>
+
+<!-- Paginación -->
+<div class="mt-4">
+    @for (int i = 1; i <= totalPaginas; i++)
+    {
+        <a href="@Url.Action("Index", "Productos", new { pagina = i })" class="@(i == paginaActual ? "bg-blue-500 text-white" : "text-blue-500") px-3 py-2 rounded-full mx-1">@i</a>
+    }
+</div>

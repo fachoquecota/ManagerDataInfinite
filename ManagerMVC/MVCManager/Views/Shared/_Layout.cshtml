@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body class="bg-gray-100 h-screen text-gray-800">
+    <div class="flex flex-col h-full">
+        <!-- Barra superior -->
+        <div class="bg-black text-gray-400 p-4">
+            <div class="flex justify-between items-center relative">
+                <!-- Nombre de la empresa e imagen -->
+                <div class="flex items-center">
+                    <img src="~/images/configuration/logo.jfif" alt="Company Logo" class="w-8 h-8 rounded-full mr-2">
+                    <span>Nombre de Empresa Ejemplo</span>
+                </div>
+                <!-- Nombre del usuario e imagen -->
+                <div class="flex items-center cursor-pointer" id="userMenuBtn">
+                    <span class="mr-2">Nombre del Usuario</span>
+                    <img src="~/images/configuration/user.png" alt="User Photo" class="w-8 h-8 rounded-full">
+                </div>
+                <!-- Menú desplegable -->
+                <div class="absolute top-full right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg hidden" id="userMenu">
+                    <ul>
+                        <li><a href="/Configuracion" class="block px-4 py-2 hover:bg-gray-200">Configuración</a></li>
+                        <li><a href="/CerrarSesion" class="block px-4 py-2 hover:bg-gray-200">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Contenido principal -->
+        <div class="flex-grow flex">
+            <!-- Barra lateral -->
+            <div class="w-64 bg-black text-gray-400 p-4 h-full flex flex-col">
+                <nav>
+                    <ul>
+                        <li class="flex items-center">
+                            <i class="fas fa-home mr-2"></i>
+                            <a href="/" class="block px-4 py-2 hover:bg-gray-700">Inicio</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-box mr-2"></i>
+                            <a href="/Productos" class="block px-4 py-2 hover:bg-gray-700">Productos</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <a href="/Home/Privacy" class="block px-4 py-2 hover:bg-gray-700">Privacidad</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="flex-grow"></div>
+                <div class="text-center text-sm text-gray-400">
+                    <!-- Información adicional -->
+                </div>
+            </div>
+            <!-- Contenido de la página -->
+            <div class="flex-grow p-6 overflow-y-auto bg-gray-100">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Código JavaScript para mostrar/ocultar el menú desplegable
+        document.addEventListener('DOMContentLoaded', function () {
+            const userMenuBtn = document.getElementById('userMenuBtn');
+            const userMenu = document.getElementById('userMenu');
+
+            userMenuBtn.addEventListener('click', function (event) {
+                userMenu.classList.toggle('hidden');
+                event.stopPropagation();
+            });
+
+            // Cerrar el menú al hacer clic fuera de él
+            document.body.addEventListener('click', function () {
+                userMenu.classList.add('hidden');
+            });
+
+            // Evitar que el evento del cuerpo se dispare cuando se hace clic en el menú
+            userMenu.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>

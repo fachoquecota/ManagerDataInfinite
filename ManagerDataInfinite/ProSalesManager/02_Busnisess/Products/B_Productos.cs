@@ -51,6 +51,7 @@ namespace ProSalesManager._02_Busnisess.Products
         }
 
 
+
         //CRUD
         public List<CrudProductoModel> ProductosListaCrud()
         {
