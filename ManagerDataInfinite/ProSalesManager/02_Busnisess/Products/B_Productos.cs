@@ -59,7 +59,26 @@ namespace ProSalesManager._02_Busnisess.Products
             return productsList;
 
         }
-
+        public List<CrudProductoModel> ProductosByIDCrud(int idProducto)
+        {
+            var product = _sP_Products.ProductosByIDCrud(idProducto);
+            return product;
+        }
+        public List<ComboBox> ProveedorCrudCB()
+        {
+            var proveedorcb = _sP_Products.ProveedorCrudCB();
+            return proveedorcb;
+        }
+        public List<ComboBox> GeneroCrudCB()
+        {
+            var generocb = _sP_Products.GeneroCrudCB();
+            return generocb;
+        }
+        public List<ComboBox> CategoriaCrudCB()
+        {
+            var categoriacb = _sP_Products.CategoriaCrudCB();
+            return categoriacb;
+        }
 
         //public List<ProductoModel> GetAllProductsDetails(string usuarioNavegacion)
         //{

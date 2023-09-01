@@ -24,5 +24,9 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
 
         //CRUD
         List<CrudProductoModel> ProductosListaCrud();
+        List<CrudProductoModel> ProductosByIDCrud(int idProducto);
+        List<ComboBox> ProveedorCrudCB();
+        List<ComboBox> GeneroCrudCB();
+        List<ComboBox> CategoriaCrudCB();
     }
 }

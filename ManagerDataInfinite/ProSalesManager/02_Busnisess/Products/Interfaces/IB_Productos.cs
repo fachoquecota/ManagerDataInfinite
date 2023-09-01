@@ -8,6 +8,12 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
         List<ProductResponse> GetAllProductsDetails(bool Activo);
         //Crud
         List<CrudProductoModel> ProductosListaCrud();
+        List<CrudProductoModel> ProductosByIDCrud(int idProducto);
+        List<ComboBox> ProveedorCrudCB();
+        List<ComboBox> GeneroCrudCB();
+        List<ComboBox> CategoriaCrudCB();
+
+
         bool UpdateProductos(ProductoModel oProductoModel);
         bool InsertProducto(ProductoModel oProductoModel);
 

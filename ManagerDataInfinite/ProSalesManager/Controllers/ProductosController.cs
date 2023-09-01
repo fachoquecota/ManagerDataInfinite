@@ -55,6 +55,75 @@ namespace ProSalesManager.Controllers
                 products = result
             };
         }
+
+        [HttpGet]
+        [Route("GetCrudProductoById")]
+        public dynamic GetCrudProductoById(int idProducto)
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.ProductosByIDCrud(idProducto);
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos del Producto" });
+
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpGet]
+        [Route("GetCrudProveedorCrudCB")]
+        public dynamic GetCrudProveedorCrudCB()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.ProveedorCrudCB();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos del Proveedor" });
+
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpGet]
+        [Route("GetCrudGeneroCrudCB")]
+        public dynamic GetCrudGeneroCrudCB()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.GeneroCrudCB();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos del Genero" });
+
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpGet]
+        [Route("GetCrudCategoriaCrudCB")]
+        public dynamic GetCrudCategoriaCrudCB()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.CategoriaCrudCB();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de categoria" });
+
+            return new
+            {
+                result = result
+            };
+        }
+
+
+
+
         //[HttpPut]
         //[Route("PutProductos")]
         //public dynamic PutProducts([FromBody]ProductoModel oProductoModel)

@@ -2,6 +2,10 @@
 using MVCManager.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Linq;
+using System;
 
 namespace MVCManager.Controllers
 {
@@ -33,5 +37,52 @@ namespace MVCManager.Controllers
             return View("Error");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetProveedores()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetCrudProveedorCrudCB");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetGeneros()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetCrudGeneroCrudCB");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetCategorias()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetCrudCategoriaCrudCB");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProductoById(int idProducto)
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5172/api/Productos/GetCrudProductoById?idProducto={idProducto}");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return NotFound();
+        }
     }
 }

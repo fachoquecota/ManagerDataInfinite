@@ -65,6 +65,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
         }
 
+
         // Crud Page
         public List<CrudProductoModel> ProductosListaCrud()
         {
@@ -111,6 +112,154 @@ namespace ProSalesManager._01_Data.Modules.Products
                 return oList;
             }
         }
+        public List<CrudProductoModel> ProductosByIDCrud(int idProducto)
+        {
+            var oList = new List<CrudProductoModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Productos_byId", conexion);
+                    cmd.Parameters.AddWithValue("@idProducto", idProducto);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new CrudProductoModel()
+                            {
+                                idProducto = Convert.ToInt32(dr["idProducto"]),
+                                producto = dr["producto"].ToString(),
+                                marca = dr["marca"].ToString(),
+                                precio = Convert.ToDecimal(dr["precio"]),
+                                cantidad = Convert.ToInt32(dr["cantidad"]),
+                                idProveedor = Convert.ToInt32(dr["idProveedor"]),
+                                fechaIngreso = Convert.ToDateTime(dr["fechaIngreso"]),
+                                idEmpresa = Convert.ToInt32(dr["idEmpresa"]),
+                                imagenCarpeta = dr["imagenCarpeta"].ToString(),
+                                imagenNombre = dr["imagenNombre"].ToString(),
+                                horaCreacion = Convert.ToDateTime(dr["horaCreacion"]),
+                                horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
+                                Activo = Convert.ToBoolean(dr["Activo"]),
+                                idGenero = Convert.ToInt32(dr["idGenero"]),
+                                idCategoria = Convert.ToInt32(dr["idCategoria"])
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+        public List<ComboBox> ProveedorCrudCB()
+        {
+            var oList = new List<ComboBox>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Proveedores_ComboBox", conexion);
+                    
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ComboBox()
+                            {
+                                id = Convert.ToInt32(dr["idProveedor"]),
+                                descripcion = dr["proveedor"].ToString(),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+        public List<ComboBox> GeneroCrudCB()
+        {
+            var oList = new List<ComboBox>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Genero_ComboBox", conexion);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ComboBox()
+                            {
+                                id = Convert.ToInt32(dr["idGenero"]),
+                                descripcion = dr["descripcion"].ToString(),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+        public List<ComboBox> CategoriaCrudCB()
+        {
+            var oList = new List<ComboBox>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Categoria_ComboBox", conexion);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ComboBox()
+                            {
+                                id = Convert.ToInt32(dr["idCategoria"]),
+                                descripcion = dr["descripcion"].ToString(),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+
+
 
         public List<ImagenModel> ImagenesLista(int idProducto)
         {
