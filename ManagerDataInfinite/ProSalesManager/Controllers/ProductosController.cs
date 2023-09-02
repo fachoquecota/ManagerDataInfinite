@@ -38,7 +38,6 @@ namespace ProSalesManager.Controllers
                 products = result
             };
         }
-
         [HttpGet]
         [Route("GetCrudProductos")]
         public dynamic GetCrudProductos()
@@ -56,7 +55,6 @@ namespace ProSalesManager.Controllers
                 products = result
             };
         }
-
         [HttpGet]
         [Route("GetCrudProductoById")]
         public dynamic GetCrudProductoById(int idProducto)

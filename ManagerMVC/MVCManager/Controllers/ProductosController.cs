@@ -9,6 +9,7 @@ using System;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Text;
+using Newtonsoft.Json.Linq;
 
 namespace MVCManager.Controllers
 {
@@ -87,18 +88,45 @@ namespace MVCManager.Controllers
             }
             return NotFound();
         }
+        private async Task<ProductoModel> FetchProductoById(int idProducto)
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5172/api/Productos/GetCrudProductoById?idProducto={idProducto}");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                if (!string.IsNullOrEmpty(content))
+                {
+                    var jsonObject = JObject.Parse(content);
+                    var resultArray = jsonObject["result"];
+                    if (resultArray != null)
+                    {
+                        var firstResult = resultArray.FirstOrDefault();
+                        if (firstResult != null)
+                        {
+                            var producto = firstResult.ToObject<ProductoModel>();
+                            return producto;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
         [HttpPost]
         public async Task<IActionResult> UpdateProducto(ProductoModel model, IFormFile nuevaImagen)
         {
-            if (Request.Form.ContainsKey("activo"))
+
+            // Mantener los datos previos de la imagen si no se selecciona una nueva
+            if (nuevaImagen == null)
             {
-                model.Activo = true;
+                var existingData = await FetchProductoById(model.IdProducto);
+                if (existingData != null)
+                {
+                    model.ImagenCarpeta = existingData.ImagenCarpeta;
+                    model.ImagenNombre = existingData.ImagenNombre;
+                }
             }
             else
-            {
-                model.Activo = false;
-            }
-            if (nuevaImagen != null)
             {
                 var folderPath = Path.Combine("wwwroot", "images", "ProductoPrincipal", model.IdProducto.ToString());
                 if (!Directory.Exists(folderPath))

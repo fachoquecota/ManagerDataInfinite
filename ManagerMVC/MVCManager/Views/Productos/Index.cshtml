@@ -11,8 +11,13 @@
         <button type="submit" class="p-2 bg-blue-500 text-white rounded">Buscar</button>
     </form>
 </div>
-
+<div id="loadingSpinner" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black opacity-50 flex items-center justify-center">
+  <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+</div>
 <!-- Tabla -->
+<div id="notification" class="hidden bg-green-500 text-white py-2 px-4 fixed top-0 left-0 right-0 text-center">
+  Producto guardado con éxito: <span id="productoGuardado"></span>
+</div>
 <div class="overflow-x-auto">
     <table class="min-w-full bg-white border border-gray-300">
         <thead>
@@ -43,6 +48,7 @@
         </tbody>
     </table>
 </div>
+
 <!-- Modal -->
 <div id="editModal" class="fixed inset-0 flex items-center justify-center p-4 hidden overflow-y-auto">
     <div class="bg-black opacity-50 absolute inset-0"></div>
@@ -71,10 +77,10 @@
                     <label for="idProveedor" class="block text-sm font-medium text-gray-600">ID Proveedor</label>
                     <select id="idProveedor" name="idProveedor" class="mt-1 p-2 w-full border rounded-md"></select>
                 </div>
-                <div class="w-1/2 px-2 mb-4">
+@*                <div class="w-1/2 px-2 mb-4">
                     <label for="fechaIngreso" class="block text-sm font-medium text-gray-600">Fecha de Ingreso</label>
                     <input type="date" id="fechaIngreso" name="fechaIngreso" class="mt-1 p-2 w-full border rounded-md">
-                </div>
+                </div>*@
                 <!-- Columna 2 -->
 
                 <div class="w-1/2 px-2 mb-4">
@@ -85,13 +91,19 @@
                     <label for="horaActualizacion" class="block text-sm font-medium text-gray-600">Hora de Actualización</label>
                     <input type="datetime-local" id="horaActualizacion" name="horaActualizacion" class="mt-1 p-2 w-full border rounded-md">
                 </div>
-                <div class="w-1/2 px-2 mb-4">
-                    <label for="activo" class="block text-sm font-medium text-gray-600">Activo</label>
-                    <!-- Campo oculto para enviar 'false' si el checkbox no está marcado -->
-                    <input type="hidden" name="activo" value="false">
-                    <!-- El checkbox para enviar 'true' si está marcado -->
-                    <input type="checkbox" id="activo" name="activo" value="true" class="mt-1">
-                </div>
+<div class="w-1/2 px-2 mb-4 switch-container">
+    <label for="activo" class="block text-sm font-medium text-gray-600 mb-2">Estado</label>
+    <label class="switch">
+        <!-- Campo oculto para enviar 'false' si el switch está en "Apagado" -->
+        <input type="hidden" name="activo" value="false">
+        <!-- El switch -->
+        <input type="checkbox" id="activo" name="activo" class="switch-input">
+        <span class="slider"></span>
+    </label>
+</div>
+
+
+
 
                 <div class="w-1/2 px-2 mb-4">
                     <label for="idGenero" class="block text-sm font-medium text-gray-600">ID Género</label>
@@ -120,7 +132,79 @@
 </div>
 
 
+<style>
+    .switch-container {
+    display: flex;
+    flex-direction: column;
+}
 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch-input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.switch-input:checked + .slider {
+    background-color: #2196F3;
+}
+
+.switch-input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.switch-input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Estilos del texto "ON" y "OFF" */
+.slider:before {
+    color: white;
+    content: "OFF";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.switch-input:checked + .slider:before {
+    content: "ON";
+}
+
+
+</style>
 
 
 
@@ -137,9 +221,17 @@
     document.querySelectorAll('.open-modal').forEach(button => {
         button.addEventListener('click', async function(e) {
             const id = e.target.getAttribute('data-id');
+            // Mostrar el spinner de carga
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            loadingSpinner.classList.remove('hidden');
+
             
+            // Ocultar el modal anterior si está abierto
+            const editModal = document.getElementById('editModal');
+            editModal.classList.add('hidden');
             // Hacer una llamada AJAX para obtener los datos del producto
             const response = await fetch(`/Productos/GetProductoById?idProducto=${id}`);
+            
             if (response.ok) {
                 const data = await response.json();
                 const producto = data.result[0];
@@ -149,7 +241,7 @@
                 document.getElementById('marca').value = producto.marca;
                 document.getElementById('precio').value = producto.precio;
                 document.getElementById('cantidad').value = producto.cantidad;
-                document.getElementById('fechaIngreso').value = producto.fechaIngreso;
+                //document.getElementById('fechaIngreso').value = producto.fechaIngreso;
                 
                 
                 document.getElementById('horaCreacion').value = producto.horaCreacion;
@@ -170,6 +262,7 @@
 
                 // Mostrar el modal
                 document.getElementById('editModal').classList.remove('hidden');
+                loadingSpinner.classList.add('hidden');
             }
         });
     });
@@ -211,7 +304,7 @@
     const idProducto = parseInt(document.getElementById('modalTitleId').innerText, 10);
     const formData = new FormData(document.getElementById('editForm'));
     formData.append('IdProducto', idProducto);
-    formData.set('activo', document.getElementById('activo').checked);
+    formData.set('activo', document.getElementById('activo').checked ? 'true' : 'false');
 
     const response = await fetch('/Productos/UpdateProducto', {
         method: 'POST',
@@ -219,21 +312,29 @@
     });
 
     if (response.ok) {
-        const data = await response.json();
-        if (data.success) {
-            // Cerrar el modal y actualizar la vista
-            document.getElementById('editModal').classList.add('hidden');
-            // Aquí podrías recargar la página o actualizar la tabla de productos
-        } else {
-            // Manejar errores
-            alert('No se pudo actualizar el producto.');
-        }
-    } else {
+      const data = await response.json();
+      if (data.success) {
+        // Mostrar la notificación con el nombre del producto
+        document.getElementById('editModal').classList.add('hidden');
+        const productoGuardado = document.getElementById('productoGuardado');
+        productoGuardado.innerText = document.getElementById('producto').value;
+        const notification = document.getElementById('notification');
+        notification.classList.remove('hidden');
+
+        // Cerrar la notificación después de unos segundos (opcional)
+        setTimeout(() => {
+          notification.classList.add('hidden');
+        }, 5000); // La notificación se ocultará después de 5 segundos
+      } else {
         // Manejar errores
-        alert('Ocurrió un error al actualizar el producto.');
+        alert('No se pudo actualizar el producto.');
+      }
+    } else {
+      // Manejar errores
+      alert('Ocurrió un error al actualizar el producto.');
     }
-});
-});
+    });
+    });
 
 
 </script>
