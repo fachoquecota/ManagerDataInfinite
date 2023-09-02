@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProSalesManager._02_Busnisess.Products.Interfaces;
 using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 using ProSalesManager._04_Services.Login.Interfaces;
 
 namespace ProSalesManager.Controllers
@@ -120,7 +121,21 @@ namespace ProSalesManager.Controllers
                 result = result
             };
         }
+        [HttpPut]
+        [Route("PutCrudProducto")]
+        public dynamic PutCrudProducto(CrudProductoModel oCrudProductoModel)
+        {
+            var result = _Products.UpdateProducto(oCrudProductoModel);
 
+            if (result is false)
+                return BadRequest(new { message = "No se actualizó" });
+
+            return new
+            {
+                result = result,
+                message = "Actualizado"
+            };
+        }
 
 
 

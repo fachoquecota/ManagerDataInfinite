@@ -10,7 +10,6 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         List<TagModel> TagsLista(int idProducto);
         List<SizeModel> SizesLista(int idProducto);
         List<DescripcionModel> DescripcionesLista(int idProducto);
-        bool UpdateProducto(ProductoModel oProductoModel);
         bool UpdateImagenes(ImagenModel oImagenModel);
         bool UpdateTag(TagModel oTagModel);
         bool UpdateSize(SizeModel oSizeModel);
@@ -28,5 +27,6 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         List<ComboBox> ProveedorCrudCB();
         List<ComboBox> GeneroCrudCB();
         List<ComboBox> CategoriaCrudCB();
+        bool UpdateProducto(CrudProductoModel oCrudProductoModel);
     }
 }

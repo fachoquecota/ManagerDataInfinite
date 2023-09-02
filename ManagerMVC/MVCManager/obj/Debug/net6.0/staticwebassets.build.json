@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/WwYJJ7KfwszbHKyVMIe+7cyDUr/fEowqcvwzCzf6AY=",
+  "Hash": "2h1etYxYVmi4xVJZGzdVj+YCqhNsCDWgmcIAVgwcIfE=",
   "Source": "MVCManager",
   "BasePath": "_content/MVCManager",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Configuration\\user.png"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png",
+      "SourceId": "MVCManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "BasePath": "_content/MVCManager",
+      "RelativePath": "Images/ProductoPrincipal/1/Foto Digital__2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png"
     },
     {
       "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\site.js",

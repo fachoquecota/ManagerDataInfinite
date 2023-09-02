@@ -79,17 +79,16 @@ namespace ProSalesManager._02_Busnisess.Products
             var categoriacb = _sP_Products.CategoriaCrudCB();
             return categoriacb;
         }
-
+        public bool UpdateProducto(CrudProductoModel oCrudProductoModel)
+        {
+            var producto = _sP_Products.UpdateProducto(oCrudProductoModel);
+            return producto;
+        }
         //public List<ProductoModel> GetAllProductsDetails(string usuarioNavegacion)
         //{
         //    var resultSP = _sP_Products.ProductosLista(usuarioNavegacion);
         //    return resultSP;
         //}
-        public bool UpdateProductos(ProductoModel oProductoModel)
-        {
-            bool result = _sP_Products.UpdateProducto(oProductoModel);
-            return result;
-        }
         public bool InsertProducto(ProductoModel oProductoModel)
         {
             bool result = _sP_Products.InsertProducto(oProductoModel);

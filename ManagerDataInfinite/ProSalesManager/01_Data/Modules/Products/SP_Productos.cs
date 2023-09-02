@@ -259,7 +259,41 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
         }
 
+        public bool UpdateProducto(CrudProductoModel oCrudProductoModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Update_Productos", conexion);
+                    cmd.Parameters.AddWithValue("@inIdProducto", oCrudProductoModel.idProducto);
+                    cmd.Parameters.AddWithValue("@vcProducto", oCrudProductoModel.producto);
+                    cmd.Parameters.AddWithValue("@vcMarca", oCrudProductoModel.marca);
+                    cmd.Parameters.AddWithValue("@dcPrecio", oCrudProductoModel.precio);
+                    cmd.Parameters.AddWithValue("@inCantidad", oCrudProductoModel.cantidad);
+                    cmd.Parameters.AddWithValue("@inIdProveedor", oCrudProductoModel.idProveedor);
+                    cmd.Parameters.AddWithValue("@inIdEmpresa", 1);
+                    cmd.Parameters.AddWithValue("@vcImagenCarpeta", oCrudProductoModel.imagenCarpeta);
+                    cmd.Parameters.AddWithValue("@vcImagenNombre", oCrudProductoModel.imagenNombre);
+                    cmd.Parameters.AddWithValue("@btActivo", oCrudProductoModel.Activo);
+                    cmd.Parameters.AddWithValue("@inIdGenero", oCrudProductoModel.idGenero);
+                    cmd.Parameters.AddWithValue("@inIdCategoria", oCrudProductoModel.idCategoria);
 
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
 
         public List<ImagenModel> ImagenesLista(int idProducto)
         {
@@ -399,40 +433,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
         }
 
-        public bool UpdateProducto(ProductoModel oProductoModel)
-        {
-            bool rpta = false;
-            try
-            {
-                var cn = new DataConnection();
-                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
-                {
-                    conexion.Open();
-                    SqlCommand cmd = new SqlCommand("SP_Update_Producto", conexion);
-                    cmd.Parameters.AddWithValue("@idProducto", oProductoModel.idProducto);
-                    cmd.Parameters.AddWithValue("@producto", oProductoModel.producto);
-                    cmd.Parameters.AddWithValue("@marca", oProductoModel.marca);
-                    cmd.Parameters.AddWithValue("@precio", oProductoModel.precio);
-                    cmd.Parameters.AddWithValue("@cantidad", oProductoModel.cantidad);
-                    cmd.Parameters.AddWithValue("@idProveedor", oProductoModel.idProveedor);
-                    cmd.Parameters.AddWithValue("@fechaIngreso", oProductoModel.fechaIngreso);
-                    cmd.Parameters.AddWithValue("@idEmpresa", oProductoModel.idEmpresa);
-                    cmd.Parameters.AddWithValue("@imagenCarpeta", oProductoModel.imagenCarpeta);
-                    cmd.Parameters.AddWithValue("@imagenNombre", oProductoModel.imagenNombre);
-                    cmd.Parameters.AddWithValue("@Activo", oProductoModel.Activo);
-
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.ExecuteNonQuery();
-                }
-                rpta = true;
-            }
-            catch (Exception ex)
-            {
-                ErrorResult.ErrorMessage = ex.Message;
-                return rpta;
-            }
-            return rpta;
-        }
+        
         public bool UpdateImagenes(ImagenModel oImagenModel)
         {
             bool rpta = false;
