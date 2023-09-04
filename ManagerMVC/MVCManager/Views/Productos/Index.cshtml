@@ -53,12 +53,21 @@
 </div>
 
 <!-- Modal -->
+<!-- Modal -->
 <div id="editModal" class="fixed inset-0 flex items-center justify-center p-4 hidden overflow-y-auto">
     <div class="bg-black opacity-50 absolute inset-0"></div>
     <div class="bg-white p-4 rounded-lg w-full md:w-3/4 lg:w-1/2 relative z-10 overflow-y-auto max-h-screen"> 
         <h2 class="text-2xl mb-4">Editar Producto: <span id="modalTitleId"></span></h2>
+        <div class="flex mb-4">
+            <button class="tab-button active" data-target="tab1">Tab 1</button>
+            <button class="tab-button" data-target="tab2">Tab 2</button>
+            <button class="tab-button" data-target="tab3">Tab 3</button>
+            <button class="tab-button" data-target="tab4">Tab 4</button>
+        </div>
         <div id="modalContent">
-            <form id="editForm" class="flex flex-col md:flex-row flex-wrap -mx-2">
+            <div id="tab1" class="tab-content active">
+                <!-- Aquí va el contenido del Tab 1 (el contenido original del modal) -->
+<form id="editForm" class="flex flex-col md:flex-row flex-wrap -mx-2">
                 <!-- Columna 1 -->
                 <div class="w-1/2 px-2 mb-4">
                     <label for="producto" class="block text-sm font-medium text-gray-600">Producto</label>
@@ -112,6 +121,19 @@
                 <button type="button" id="eliminarImagen" class="bg-red-500 text-white p-2 rounded">Eliminar Imagen</button>
             </div>
             </form>
+            </div>
+            <div id="tab2" class="tab-content">
+                <!-- Aquí va el contenido del Tab 2 -->
+                <p>Mensaje de prueba para el Tab 2</p>
+            </div>
+            <div id="tab3" class="tab-content">
+                <!-- Aquí va el contenido del Tab 3 -->
+                <p>Mensaje de prueba para el Tab 3</p>
+            </div>
+            <div id="tab4" class="tab-content">
+                <!-- Aquí va el contenido del Tab 4 -->
+                <p>Mensaje de prueba para el Tab 4</p>
+            </div>
         </div>
         <div class="flex justify-end mt-4">
             <button id="saveChanges" class="bg-blue-500 text-white p-2 rounded mr-2">Guardar Cambios</button>
@@ -119,6 +141,7 @@
         </div>
     </div>
 </div>
+
 <!-- Modal de Confirmación de Eliminación -->
 <div id="deleteModal" class="fixed inset-0 flex items-center justify-center p-4 hidden overflow-y-auto">
     <div class="bg-black opacity-50 absolute inset-0"></div>
@@ -136,7 +159,25 @@
 
 
 <style>
-    .switch-container {
+.tab-button {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+.switch-container {
     display: flex;
     flex-direction: column;
 }
@@ -231,123 +272,140 @@
     });
 
     document.addEventListener("DOMContentLoaded", function() {
-    // Escuchar clics en los botones "Editar"
-    document.querySelectorAll('.open-modal').forEach(button => {
-        button.addEventListener('click', async function(e) {
-            const id = e.target.getAttribute('data-id');
-            // Mostrar el spinner de carga
-            const loadingSpinner = document.getElementById('loadingSpinner');
-            loadingSpinner.classList.remove('hidden');
+        // Manejo de pestañas
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
 
-            
-            // Ocultar el modal anterior si está abierto
-            const editModal = document.getElementById('editModal');
-            editModal.classList.add('hidden');
-            // Hacer una llamada AJAX para obtener los datos del producto
-            const response = await fetch(`/Productos/GetProductoById?idProducto=${id}`);
-            
-            if (response.ok) {
-                const data = await response.json();
-                const producto = data.result[0];
-                
-                // Llenar los campos del formulario en el modal
-                document.getElementById('producto').value = producto.producto;
-                document.getElementById('marca').value = producto.marca;
-                document.getElementById('precio').value = producto.precio;
-                document.getElementById('cantidad').value = producto.cantidad;
-                //document.getElementById('fechaIngreso').value = producto.fechaIngreso;
-                
-                
-                
-                
-                document.getElementById('activo').checked = producto.activo;
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
 
-                // Actualizar la imagen actual
-                const imagenActual = document.getElementById('imagenActual');
-                imagenActual.src = producto.imagenCarpeta + producto.imagenNombre;
+                // Desactivar todos los botones y ocultar todo el contenido
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
 
-                // Actualizar el título del modal con el ID del producto
-                document.getElementById('modalTitleId').innerText = producto.idProducto;
-
-                // Llenar los combobox
-                await fillComboBox('idProveedor', '/Productos/GetProveedores', producto.idProveedor);
-                await fillComboBox('idGenero', '/Productos/GetGeneros', producto.idGenero);
-                await fillComboBox('idCategoria', '/Productos/GetCategorias', producto.idCategoria);
-
-                // Mostrar el modal
-                document.getElementById('editModal').classList.remove('hidden');
-                loadingSpinner.classList.add('hidden');
-            }
+                // Activar el botón clickeado y mostrar su contenido
+                this.classList.add('active');
+                document.getElementById(target).classList.add('active');
+            });
         });
-    });
+        // Escuchar clics en los botones "Editar"
+        document.querySelectorAll('.open-modal').forEach(button => {
+            button.addEventListener('click', async function(e) {
+                const id = e.target.getAttribute('data-id');
+                // Mostrar el spinner de carga
+                const loadingSpinner = document.getElementById('loadingSpinner');
+                loadingSpinner.classList.remove('hidden');
 
-    // Función para llenar un combobox
-    async function fillComboBox(selectId, apiUrl, selectedValue) {
-        const response = await fetch(apiUrl);
-        if (response.ok) {
-            const data = await response.json();
-            const items = data.result;
-            const select = document.getElementById(selectId);
-            select.innerHTML = '';
-            items.forEach(item => {
-                const option = document.createElement('option');
-                option.value = item.id;
-                option.text = item.descripcion;
-                select.appendChild(option);
+            
+                // Ocultar el modal anterior si está abierto
+                const editModal = document.getElementById('editModal');
+                editModal.classList.add('hidden');
+                // Hacer una llamada AJAX para obtener los datos del producto
+                const response = await fetch(`/Productos/GetProductoById?idProducto=${id}`);
+            
+                if (response.ok) {
+                    const data = await response.json();
+                    const producto = data.result[0];
+                
+                    // Llenar los campos del formulario en el modal
+                    document.getElementById('producto').value = producto.producto;
+                    document.getElementById('marca').value = producto.marca;
+                    document.getElementById('precio').value = producto.precio;
+                    document.getElementById('cantidad').value = producto.cantidad;
+                    //document.getElementById('fechaIngreso').value = producto.fechaIngreso;
+                
+                
+                
+                
+                    document.getElementById('activo').checked = producto.activo;
+
+                    // Actualizar la imagen actual
+                    const imagenActual = document.getElementById('imagenActual');
+                    imagenActual.src = producto.imagenCarpeta + producto.imagenNombre;
+
+                    // Actualizar el título del modal con el ID del producto
+                    document.getElementById('modalTitleId').innerText = producto.idProducto;
+
+                    // Llenar los combobox
+                    await fillComboBox('idProveedor', '/Productos/GetProveedores', producto.idProveedor);
+                    await fillComboBox('idGenero', '/Productos/GetGeneros', producto.idGenero);
+                    await fillComboBox('idCategoria', '/Productos/GetCategorias', producto.idCategoria);
+
+                    // Mostrar el modal
+                    document.getElementById('editModal').classList.remove('hidden');
+                    loadingSpinner.classList.add('hidden');
+                }
             });
-            select.value = selectedValue;
-        }
-    }
-        document.getElementById('nuevaImagen').addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.addEventListener('load', function() {
-                document.getElementById('imagenActual').setAttribute('src', this.result);
+        });
+
+        // Función para llenar un combobox
+        async function fillComboBox(selectId, apiUrl, selectedValue) {
+                const response = await fetch(apiUrl);
+                if (response.ok) {
+                    const data = await response.json();
+                    const items = data.result;
+                    const select = document.getElementById(selectId);
+                    select.innerHTML = '';
+                    items.forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item.id;
+                        option.text = item.descripcion;
+                        select.appendChild(option);
+                    });
+                    select.value = selectedValue;
+                }
+            }
+            document.getElementById('nuevaImagen').addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.addEventListener('load', function() {
+                        document.getElementById('imagenActual').setAttribute('src', this.result);
+                    });
+                    reader.readAsDataURL(file);
+                }
             });
-            reader.readAsDataURL(file);
-        }
-    });
-    // Cerrar el modal
-    document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('editModal').classList.add('hidden');
-    });
+        // Cerrar el modal
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('editModal').classList.add('hidden');
+        });
 
-    // Guardar cambios (aquí podrías enviar los datos al servidor)
-    document.getElementById('saveChanges').addEventListener('click', async function() {
-    const idProducto = parseInt(document.getElementById('modalTitleId').innerText, 10);
-    const formData = new FormData(document.getElementById('editForm'));
-    formData.append('IdProducto', idProducto);
-    formData.set('activo', document.getElementById('activo').checked ? 'true' : 'false');
+        // Guardar cambios (aquí podrías enviar los datos al servidor)
+        document.getElementById('saveChanges').addEventListener('click', async function() {
+            const idProducto = parseInt(document.getElementById('modalTitleId').innerText, 10);
+            const formData = new FormData(document.getElementById('editForm'));
+            formData.append('IdProducto', idProducto);
+            formData.set('activo', document.getElementById('activo').checked ? 'true' : 'false');
 
-    const response = await fetch('/Productos/UpdateProducto', {
-        method: 'POST',
-        body: formData
-    });
+            const response = await fetch('/Productos/UpdateProducto', {
+                method: 'POST',
+                body: formData
+            });
 
-    if (response.ok) {
-      const data = await response.json();
-      if (data.success) {
-        // Mostrar la notificación con el nombre del producto
-        document.getElementById('editModal').classList.add('hidden');
-        const productoGuardado = document.getElementById('productoGuardado');
-        productoGuardado.innerText = document.getElementById('producto').value;
-        const notification = document.getElementById('notification');
-        notification.classList.remove('hidden');
+            if (response.ok) {
+              const data = await response.json();
+              if (data.success) {
+                // Mostrar la notificación con el nombre del producto
+                document.getElementById('editModal').classList.add('hidden');
+                const productoGuardado = document.getElementById('productoGuardado');
+                productoGuardado.innerText = document.getElementById('producto').value;
+                const notification = document.getElementById('notification');
+                notification.classList.remove('hidden');
 
-        // Cerrar la notificación después de unos segundos (opcional)
-        setTimeout(() => {
-          notification.classList.add('hidden');
-        }, 5000); // La notificación se ocultará después de 5 segundos
-      } else {
-        // Manejar errores
-        alert('No se pudo actualizar el producto.');
-      }
-    } else {
-      // Manejar errores
-      alert('Ocurrió un error al actualizar el producto.');
-    }
-    });
+                // Cerrar la notificación después de unos segundos (opcional)
+                setTimeout(() => {
+                  notification.classList.add('hidden');
+                }, 5000); // La notificación se ocultará después de 5 segundos
+              } else {
+                // Manejar errores
+                alert('No se pudo actualizar el producto.');
+              }
+            } else {
+              // Manejar errores
+              alert('Ocurrió un error al actualizar el producto.');
+            }
+            });
     });
 
 
