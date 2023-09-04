@@ -134,6 +134,21 @@ namespace ProSalesManager.Controllers
                 message = "Actualizado"
             };
         }
+        [HttpDelete]
+        [Route("DeleteCrudProducto")]
+        public dynamic DeleteCrudProducto(int idProducto)
+        {
+            var result = _Products.DeleteProducto(idProducto);
+
+            if (result is false)
+                return BadRequest(new { message = "Se eliminó" });
+
+            return new
+            {
+                result = result,
+                message = "Eliminado"
+            };
+        }
 
 
 

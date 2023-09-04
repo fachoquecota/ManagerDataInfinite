@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dEMWsfYw4HOw9vi4wEZZ6Odb95X0bggXdkWzgATtQFU=",
+  "Hash": "KjZB3rBUUDv9kFXfb5CBWl5jQZsPXUiKS28luSs9iUw=",
   "Source": "MVCManager",
   "BasePath": "_content/MVCManager",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png",
+      "SourceId": "MVCManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "BasePath": "_content/MVCManager",
+      "RelativePath": "Images/ProductoPrincipal/8/Tramite de Solicitud por Renovación 1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png"
     },
     {
       "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\site.js",

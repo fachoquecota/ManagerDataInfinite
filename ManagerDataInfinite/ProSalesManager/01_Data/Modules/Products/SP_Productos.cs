@@ -294,6 +294,29 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
             return rpta;
         }
+        public bool DeleteProducto(int idProducto)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Delete_Producto", conexion);
+                    cmd.Parameters.AddWithValue("@inIdProducto", idProducto);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
 
         public List<ImagenModel> ImagenesLista(int idProducto)
         {

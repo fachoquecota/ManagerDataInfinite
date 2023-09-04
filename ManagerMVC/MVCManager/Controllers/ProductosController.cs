@@ -157,5 +157,17 @@ namespace MVCManager.Controllers
             }
             return Json(new { success = false });
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProducto(int idProducto)
+        {
+            HttpResponseMessage response = await _httpClient.DeleteAsync($"http://localhost:5172/api/Productos/DeleteCrudProducto?idProducto={idProducto}");
+            if (response.IsSuccessStatusCode)
+            {
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
+        }
+
     }
 }

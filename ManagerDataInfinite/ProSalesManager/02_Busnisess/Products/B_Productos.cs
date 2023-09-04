@@ -84,6 +84,11 @@ namespace ProSalesManager._02_Busnisess.Products
             var producto = _sP_Products.UpdateProducto(oCrudProductoModel);
             return producto;
         }
+        public bool DeleteProducto(int idProducto)
+        {
+            var producto = _sP_Products.DeleteProducto(idProducto);
+            return producto;
+        }
         //public List<ProductoModel> GetAllProductsDetails(string usuarioNavegacion)
         //{
         //    var resultSP = _sP_Products.ProductosLista(usuarioNavegacion);
