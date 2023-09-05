@@ -13,6 +13,34 @@
       "PackagePath": "staticwebassets\\Images\\Configuration\\user.png"
     },
     {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\1\\Foto Digital.png"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Tramite de Solicitud por Renovación 1.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\1\\Tramite de Solicitud por Renovación 1.png"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\Foto Digital__2.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\Foto Digital__2.png"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png"
+    },
+    {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
