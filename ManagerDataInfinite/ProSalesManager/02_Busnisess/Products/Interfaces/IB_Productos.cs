@@ -14,8 +14,13 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
         List<ComboBox> CategoriaCrudCB();
         bool UpdateProducto(CrudProductoModel oCrudProductoModel);
         bool DeleteProducto(int idProducto);
-
         bool InsertProducto(ProductoModel oProductoModel);
 
+        //SizeDetalle
+        List<CrudSizeDetalleModel> SizeDetalleByIDCrud(int idProducto);
+        List<ComboBox> SizeCrudCB();
+        bool InsertSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel);
+        bool UpdateSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel);
+        bool DeleteSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel);
     }
 }

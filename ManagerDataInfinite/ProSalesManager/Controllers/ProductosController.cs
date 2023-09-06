@@ -150,21 +150,83 @@ namespace ProSalesManager.Controllers
             };
         }
 
+        //SizeDetalle
+        [HttpGet]
+        [Route("GetCrudSizeDetalleById")]
+        public dynamic GetCrudSizeDetalleById(int idProducto)
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.SizeDetalleByIDCrud(idProducto);
 
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos del Size Detalle" });
 
-        //[HttpPut]
-        //[Route("PutProductos")]
-        //public dynamic PutProducts([FromBody]ProductoModel oProductoModel)
-        //{
-        //    bool result = _Products.UpdateProductos(oProductoModel);
-        //    return Ok(result);
-        //}
-        //[HttpPost]
-        //[Route("PostProductos")]
-        //public dynamic PostProducts([FromBody] ProductoModel oProductoModel)
-        //{
-        //    bool result = _Products.InsertProducto(oProductoModel);
-        //    return Ok(result);
-        //}
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpGet]
+        [Route("GetSize_CrudCB")]
+        public dynamic GetSize_CrudCB()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.SizeCrudCB();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos del Genero" });
+
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpPut]
+        [Route("PutCrudSizeDetalle")]
+        public dynamic PutCrudProducto(CrudSizeDetalleModel oCrudSizeDetalleModel)
+        {
+            var result = _Products.UpdateSizeDetalle(oCrudSizeDetalleModel);
+
+            if (result is false)
+                return BadRequest(new { message = "No se actualizó" });
+
+            return new
+            {
+                result = result,
+                message = "Actualizado"
+            };
+        }
+        [HttpPost]
+        [Route("PostCrudSizeDetalle")]
+        public dynamic PostCrudSizeDetalle(CrudSizeDetalleModel oCrudSizeDetalleModel)
+        {
+            var result = _Products.InsertSizeDetalle(oCrudSizeDetalleModel);
+
+            if (result is false)
+                return BadRequest(new { message = "Se insertó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
+            };
+        }
+        [HttpDelete]
+        [Route("DeleteCrudSizeDetalle")]
+        public dynamic DeleteCrudSizeDetalle(CrudSizeDetalleModel oCrudSizeDetalleModel)
+        {
+            var result = _Products.DeleteSizeDetalle(oCrudSizeDetalleModel);
+
+            if (result is false)
+                return BadRequest(new { message = "Se eliminó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
+            };
+        }
     }
 }

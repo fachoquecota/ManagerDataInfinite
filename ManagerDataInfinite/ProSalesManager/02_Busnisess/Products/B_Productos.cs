@@ -2,6 +2,7 @@
 using ProSalesManager._02_Busnisess.Products.Interfaces;
 using ProSalesManager._03_Models;
 using ProSalesManager._03_Models.ModelsCrud;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ProSalesManager._02_Busnisess.Products
 {
@@ -89,6 +90,36 @@ namespace ProSalesManager._02_Busnisess.Products
             var producto = _sP_Products.DeleteProducto(idProducto);
             return producto;
         }
+
+
+        public List<CrudSizeDetalleModel> SizeDetalleByIDCrud(int idProducto)
+        {
+            var sizeDetalle = _sP_Products.SizeDetalleByIDCrud(idProducto);
+            return sizeDetalle;
+        }
+        public List<ComboBox> SizeCrudCB()
+        {
+            var sizeCrudCB = _sP_Products.SizeCrudCB();
+            return sizeCrudCB;
+        }
+        public bool InsertSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel)
+        {
+            var insertSizeDetalle = _sP_Products.InsertSizeDetalle(oSizeDetalleModel);
+            return insertSizeDetalle;
+        }
+        public bool UpdateSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel)
+        {
+            var updateSizeDetalle = _sP_Products.UpdateSizeDetalle(oSizeDetalleModel);
+            return updateSizeDetalle;
+        }
+        public bool DeleteSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel)
+        {
+            var deleteSizeDetalle = _sP_Products.DeleteSizeDetalle(oSizeDetalleModel);
+            return deleteSizeDetalle;
+        }
+
+
+
         //public List<ProductoModel> GetAllProductsDetails(string usuarioNavegacion)
         //{
         //    var resultSP = _sP_Products.ProductosLista(usuarioNavegacion);
