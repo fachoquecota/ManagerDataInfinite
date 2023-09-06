@@ -169,5 +169,30 @@ namespace MVCManager.Controllers
             return Json(new { success = false });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetCrudSizeDetalleById(int idProducto)
+        {
+            var response = await _httpClient.GetAsync($"http://localhost:5172/api/Productos/GetCrudSizeDetalleById?idProducto={idProducto}");
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                return Content(result, "application/json");
+            }
+            return BadRequest();
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetSize_CrudCB()
+        {
+            var response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetSize_CrudCB");
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                return Content(result, "application/json");
+            }
+            return BadRequest();
+        }
+
     }
 }

@@ -5,6 +5,7 @@
 }
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/Producto.js"></script>
 
 </head>
 <!-- Búsqueda -->
@@ -43,7 +44,7 @@
                     <td class="py-2 px-4 border-b">@producto.Precio</td>
                     <td class="py-2 px-4 border-b">@producto.Cantidad</td>
                     <td class="py-2 px-4 border-b">
-                        <button data-id="@producto.IdProducto" class="open-modal text-blue-500 hover:underline">Editar</button> |
+                        <button data-id="@producto.IdProducto" class="open-modal text-blue-500 hover:underline">Editar</button>
                         <button data-id="@producto.IdProducto" class="delete-product text-red-500 hover:underline">Eliminar</button>
                     </td>
                 </tr>
@@ -123,9 +124,23 @@
             </form>
             </div>
             <div id="tab2" class="tab-content">
-                <!-- Aquí va el contenido del Tab 2 -->
-                <p>Mensaje de prueba para el Tab 2</p>
+                <h3>Tamaños del Producto</h3>
+                <table id="sizeTable" class="min-w-full bg-white border border-gray-300">
+                    <thead>
+                        <tr class="bg-gray-100 text-left">
+                            <th class="py-2 px-4 border-b text-center">ID Detalle</th>
+                            <th class="py-2 px-4 border-b">Tamaño</th>
+                            <th class="py-2 px-4 border-b">Activo</th>
+                            <th class="py-2 px-4 border-b text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sizeTableBody">
+                        <!-- Los registros se añadirán aquí -->
+                    </tbody>
+                </table>
+                <button id="addSizeRow">+</button>
             </div>
+
             <div id="tab3" class="tab-content">
                 <!-- Aquí va el contenido del Tab 3 -->
                 <p>Mensaje de prueba para el Tab 3</p>
@@ -259,7 +274,7 @@
         <a href="@Url.Action("Index", "Productos", new { pagina = i })" class="@(i == paginaActual ? "bg-blue-500 text-white" : "text-blue-500") px-3 py-2 rounded-full mx-1">@i</a>
     }
 </div>
-<script>
+@*<script>
 
     document.querySelectorAll('.delete-product').forEach(button => {
         button.addEventListener('click', function () {
@@ -457,3 +472,4 @@
     });
 </script>
 
+*@

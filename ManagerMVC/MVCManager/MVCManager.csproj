@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\Images\Configuration\user.png" />
+    <None Include="wwwroot\js\Producto.js" />
   </ItemGroup>
 
   <ItemGroup>
