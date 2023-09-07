@@ -6,6 +6,9 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/Producto.js"></script>
+    <script src="/js/Imagen.js"></script>
+    <script src="/js/Tags.js"></script>
+    <script src="/js/Color.js"></script>
 
 </head>
 <!-- Búsqueda -->
@@ -64,6 +67,7 @@
             <button class="tab-button" data-target="tab2">Tab 2</button>
             <button class="tab-button" data-target="tab3">Tab 3</button>
             <button class="tab-button" data-target="tab4">Tab 4</button>
+            <button class="tab-button" data-target="tab5">Tab 5</button>
         </div>
         <div id="modalContent">
             <div id="tab1" class="tab-content active">
@@ -138,17 +142,110 @@
                         <!-- Los registros se añadirán aquí -->
                     </tbody>
                 </table>
-                <button id="addSizeRow">+</button>
+                <button id="addSizeRow" class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-full h-12 w-12 flex items-center justify-center shadow-lg">
+                  <span class="text-2xl">+</span>
+                </button>
+
             </div>
 
+           <!-- Tab 3 Content -->
             <div id="tab3" class="tab-content">
-                <!-- Aquí va el contenido del Tab 3 -->
-                <p>Mensaje de prueba para el Tab 3</p>
+                <h2 class="text-2xl font-semibold mb-4">Mantenimiento de Imágenes</h2>
+
+                <!-- Agregar nueva imagen -->
+                <div class="mb-6">
+                    <label for="newImage" class="block text-sm font-medium text-gray-600">Agregar nueva imagen:</label>
+                    <input type="file" id="newImage" name="newImage" accept="image/jpeg, image/png, image/jpg" class="mt-1 p-2 border rounded-md">
+                    <button id="addNewImage" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+                        Agregar
+                    </button>
+                </div>
+
+                <!-- Contenedor de previsualización -->
+                <div id="previewContainer" class="grid grid-cols-3 gap-4">
+                    <!-- Aquí se insertarán las imágenes previsualizadas -->
+                </div>
+
+                <!-- Listado de imágenes -->
+                <div class="grid grid-cols-3 gap-4">
+                    <!-- Aquí se insertarán las imágenes -->
+                </div>
+
+                <!-- Template para una imagen -->
+                <template id="imageTemplate">
+                    <div class="image-container relative">
+                        <img src="" alt="Producto" class="w-full h-48 object-cover rounded">
+                        <div class="absolute top-0 right-0 p-2">
+                            <button class="updateImage bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded">
+                                Editar
+                            </button>
+                            <button class="deleteImage bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </template>
             </div>
+
+
+            <!-- Tab 4 Content -->
             <div id="tab4" class="tab-content">
-                <!-- Aquí va el contenido del Tab 4 -->
-                <p>Mensaje de prueba para el Tab 4</p>
+                <h2 class="text-2xl font-semibold mb-4">Mantenimiento de Tags</h2>
+
+                <!-- Agregar nuevo Tag -->
+                <div class="mb-6">
+                    <label for="newTag" class="block text-sm font-medium text-gray-600">Agregar nuevo Tag:</label>
+                    <input type="text" id="newTag" name="newTag" class="mt-1 p-2 border rounded-md">
+                    <button id="addNewTag" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+                        Agregar
+                    </button>
+                </div>
+
+                <!-- Tabla de Tags -->
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="text-center py-2 px-3 border">ID Tag</th>
+                            <th class="text-center py-2 px-3 border">Descripción</th>
+                            <th class="text-center py-2 px-3 border">Activo</th>
+                            <th class="text-center py-2 px-3 border">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tagTableBody">
+                        <!-- Aquí se insertarán las filas de la tabla -->
+                    </tbody>
+                </table>
             </div>
+            <!-- Tab 5 Content -->
+            <div id="tab5" class="tab-content">
+                <h2 class="text-2xl font-semibold mb-4">Mantenimiento de Colores</h2>
+
+                <!-- Agregar nuevo color -->
+                <div class="mb-6">
+                    <label for="newColor" class="block text-sm font-medium text-gray-600">Agregar nuevo color:</label>
+                    <input type="text" id="newColor" name="newColor" class="mt-1 p-2 border rounded-md">
+                    <button id="addNewColor" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+                        Agregar
+                    </button>
+                </div>
+
+                <!-- Tabla de colores -->
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="text-left py-3 px-4">ID Color Detalle</th>
+                            <th class="text-left py-3 px-4">ID Color</th>
+                            <th class="text-left py-3 px-4">Código</th>
+                            <th class="text-left py-3 px-4">Descripción</th>
+                            <th class="text-left py-3 px-4">Activo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="colorTableBody">
+                        <!-- Aquí se insertarán las filas de la tabla -->
+                    </tbody>
+                </table>
+            </div>
+
         </div>
         <div class="flex justify-end mt-4">
             <button id="saveChanges" class="bg-blue-500 text-white p-2 rounded mr-2">Guardar Cambios</button>

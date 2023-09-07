@@ -98,6 +98,39 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append('IdProducto', idProducto);
         formData.set('activo', document.getElementById('activo').checked ? 'true' : 'false');
 
+        // Nueva sección para recopilar datos de la tabla
+        const toUpdate = [];
+        const toCreate = [];
+        const rows = document.querySelectorAll('#sizeTableBody tr');
+
+        rows.forEach(row => {
+            const idSizeDetalle = row.querySelector('td:nth-child(1)').innerText;
+            const idSize = row.querySelector('td:nth-child(2) select').value;
+            const activo = row.querySelector('td:nth-child(3) input[type="checkbox"]').checked;
+
+            const record = {
+                idSizeDetalle,
+                idSize,
+                activo
+            };
+
+            if (idSizeDetalle && idSizeDetalle !== 'Nuevo !') {
+                toUpdate.push(record);
+            } else {
+                toCreate.push(record);
+            }
+        });
+
+        const tableData = {
+            toUpdate,
+            toCreate
+        };
+
+        formData.append('TableData', JSON.stringify(tableData));
+        formData.append('DeletedItems', JSON.stringify(deletedItems));
+
+        // Fin de la nueva sección
+
         const response = await fetch('/Productos/UpdateProducto', {
             method: 'POST',
             body: formData
@@ -182,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // ID SizeDetalle (vacío en este caso)
         const cellIdSizeDetalle = document.createElement('td');
+        cellIdSizeDetalle.innerText = 'Nuevo !';
         cellIdSizeDetalle.className = 'text-center';
         row.appendChild(cellIdSizeDetalle);
 
@@ -225,8 +259,8 @@ document.addEventListener("DOMContentLoaded", function () {
         cellActions.className = 'text-center'; // Centrar el botón en la celda
 
         const removeButton = document.createElement('button');
-        removeButton.innerText = 'Quitar';
-        removeButton.className = 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded';
+        removeButton.innerText = 'Eliminar';
+        removeButton.className = 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded';
 
         // Evento para eliminar la fila
         removeButton.addEventListener('click', function () {
@@ -248,6 +282,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+let deletedItems = [];
+
 async function fillSizeTable(idProducto) {
     const response = await fetch(`/Productos/GetCrudSizeDetalleById?idProducto=${idProducto}`);
     if (response.ok) {
@@ -310,6 +346,10 @@ async function fillSizeTable(idProducto) {
             deleteButton.innerText = 'Eliminar';
             deleteButton.className = 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded';
             deleteButton.addEventListener('click', function () {
+                const idSizeDetalle = item.idSizeDetalle;
+                if (idSizeDetalle) {
+                    deletedItems.push(idSizeDetalle);
+                }
                 row.remove();  // Esto eliminará la fila de la tabla
             });
             cellActions.appendChild(deleteButton);

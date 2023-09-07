@@ -113,7 +113,7 @@ namespace MVCManager.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProducto(ProductoModel model, IFormFile nuevaImagen)
+        public async Task<IActionResult> UpdateProducto(ProductoModel model, IFormFile nuevaImagen, string TableData, string DeletedItems)
         {
 
             // Mantener los datos previos de la imagen si no se selecciona una nueva
@@ -146,6 +146,23 @@ namespace MVCManager.Controllers
                 model.ImagenNombre = fileName;
             }
 
+            // Código para manejar los datos de la tabla de tallas
+            List<SizeRecordModel> toUpdate = new List<SizeRecordModel>();
+            List<SizeRecordModel> toCreate = new List<SizeRecordModel>();
+            List<string> toDelete = new List<string>();
+
+            if (!string.IsNullOrEmpty(TableData))
+            {
+                dynamic tableData = JsonConvert.DeserializeObject(TableData);
+                toUpdate = JsonConvert.DeserializeObject<List<SizeRecordModel>>(tableData.toUpdate.ToString());
+                toCreate = JsonConvert.DeserializeObject<List<SizeRecordModel>>(tableData.toCreate.ToString());
+                toDelete = JsonConvert.DeserializeObject<List<string>>(DeletedItems);
+
+            }
+
+            // Aquí puedes procesar las listas toUpdate y toCreate como necesites
+
+            // Código para enviar los datos al API
             var json = JsonConvert.SerializeObject(model);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
