@@ -228,5 +228,102 @@ namespace ProSalesManager.Controllers
                 message = "insertado"
             };
         }
+
+        //TagDetalle
+        [HttpGet]
+        [Route("GetCrudTagById")]
+        public dynamic GetCrudTagById(int idProducto)
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.TagsByIDCrud(idProducto);
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de tag" });
+
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpPut]
+        [Route("PutCrudTag")]
+        public dynamic PutCrudTag(CrudTagDetalleModel oCrudTagDetalleModel)
+        {
+            var result = _Products.UpdateTagCrud(oCrudTagDetalleModel);
+
+            if (result is false)
+                return BadRequest(new { message = "No se actualizó" });
+
+            return new
+            {
+                result = result,
+                message = "Actualizado"
+            };
+        }
+        [HttpPost]
+        [Route("PostCrudTag")]
+        public dynamic PostCrudTag(CrudTagDetalleModel oCrudTagDetalleModel)
+        {
+            var result = _Products.InsertTagCrud(oCrudTagDetalleModel);
+
+            if (result is false)
+                return BadRequest(new { message = "Se insertó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
+            };
+        }
+        [HttpDelete]
+        [Route("DeleteCrudTag")]
+        public dynamic DeleteCrudTag(CrudTagDetalleModel oCrudTagDetalleModel)
+        {
+            var result = _Products.DeleteTagCrud(oCrudTagDetalleModel);
+
+            if (result is false)
+                return BadRequest(new { message = "Se eliminó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
+            };
+        }
+
+        //ColorDetalle
+        [HttpGet]
+        [Route("GetColor_CrudCB")]
+        public dynamic GetColor_CrudCB()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.ColorDetalleCrudCB();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos del color" });
+
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpGet]
+        [Route("GetCrudColorDetalleById")]
+        public dynamic GetCrudColorDetalleById(int idProducto)
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.ColorDetalleByIDCrud(idProducto);
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de Color" });
+
+            return new
+            {
+                result = result
+            };
+        }
     }
 }

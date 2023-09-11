@@ -22,5 +22,15 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
         bool InsertSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel);
         bool UpdateSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel);
         bool DeleteSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel);
+
+        //Tags
+        List<CrudTagDetalleModel> TagsByIDCrud(int idProducto);
+        bool InsertTagCrud(CrudTagDetalleModel oCrudTagDetalleModel);
+        bool UpdateTagCrud(CrudTagDetalleModel oCrudTagDetalleModel);
+        bool DeleteTagCrud(CrudTagDetalleModel oCrudTagDetalleModel);
+
+        //Color Detalle 
+        List<ComboBox> ColorDetalleCrudCB();
+        List<CrudColorDetalleModel> ColorDetalleByIDCrud(int idProducto);
     }
 }

@@ -67,6 +67,7 @@ namespace ProSalesManager._01_Data.Modules.Products
 
 
         // Crud Page
+        // Producto
         public List<CrudProductoModel> ProductosListaCrud()
         {
             var oList = new List<CrudProductoModel>();
@@ -318,6 +319,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             return rpta;
         }
 
+        //Size
         public List<CrudSizeDetalleModel> SizeDetalleByIDCrud(int idProducto)
         {
             var oList = new List<CrudSizeDetalleModel>();
@@ -464,7 +466,193 @@ namespace ProSalesManager._01_Data.Modules.Products
             return rpta;
         }
 
+        //Tags
+        public List<CrudTagDetalleModel> TagsByIDCrud(int idProducto)
+        {
+            var oList = new List<CrudTagDetalleModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Tag_byId", conexion);
+                    cmd.Parameters.AddWithValue("@inIdProducto", idProducto);
 
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new CrudTagDetalleModel()
+                            {
+                                idTags = Convert.ToInt32(dr["idTags"]),
+                                idProducto = Convert.ToInt32(dr["idProducto"]),
+                                descripcion = dr["descripcion"].ToString(),
+                                Activo = Convert.ToBoolean(dr["Activo"]),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+        public bool InsertTagCrud(CrudTagDetalleModel oCrudTagDetalleModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Insert_Tag", conexion);
+                    cmd.Parameters.AddWithValue("@inIdProducto", oCrudTagDetalleModel.idProducto);
+                    cmd.Parameters.AddWithValue("@vchDescripcion", oCrudTagDetalleModel.descripcion);
+                    cmd.Parameters.AddWithValue("@btActivo", oCrudTagDetalleModel.Activo);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+        public bool UpdateTagCrud(CrudTagDetalleModel oCrudTagDetalleModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Update_Tag", conexion);
+                    cmd.Parameters.AddWithValue("@inIdTags", oCrudTagDetalleModel.idTags);
+                    cmd.Parameters.AddWithValue("@inIdProducto", oCrudTagDetalleModel.idProducto);
+                    cmd.Parameters.AddWithValue("@vchDscripcion", oCrudTagDetalleModel.descripcion);
+                    cmd.Parameters.AddWithValue("@btActivo", oCrudTagDetalleModel.Activo);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+        public bool DeleteTagCrud(CrudTagDetalleModel oCrudTagDetalleModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Delete_Tag", conexion);
+                    cmd.Parameters.AddWithValue("@inIdTags", oCrudTagDetalleModel.idTags);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+
+        //Color
+        public List<ComboBox> ColorDetalleCrudCB()
+        {
+            var oList = new List<ComboBox>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Color_ComboBox", conexion);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ComboBox()
+                            {
+                                id = Convert.ToInt32(dr["idColor"]),
+                                descripcion = dr["descripcion"].ToString(),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+        public List<CrudColorDetalleModel> ColorDetalleByIDCrud(int idProducto)
+        {
+            var oList = new List<CrudColorDetalleModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_ColorDetalle_byId", conexion);
+                    cmd.Parameters.AddWithValue("@inIdProducto", idProducto);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new CrudColorDetalleModel()
+                            {
+                                idColorDetalle = Convert.ToInt32(dr["idColorDetalle"]),
+                                idProducto = Convert.ToInt32(dr["idProducto"]),
+                                idColor = Convert.ToInt32(dr["idColor"]),
+                                codigo = dr["codigo"].ToString(),
+                                Activo = Convert.ToBoolean(dr["Activo"]),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
 
         // No actualizado
         public List<ImagenModel> ImagenesLista(int idProducto)

@@ -211,5 +211,39 @@ namespace MVCManager.Controllers
             return BadRequest();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetTagsById(int idProducto)
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5172/api/Productos/GetCrudTagById?idProducto={idProducto}");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetCrudColorDetalleById(int idProducto)
+        {
+            var response = await _httpClient.GetAsync($"http://localhost:5172/api/Productos/GetCrudColorDetalleById?idProducto={idProducto}");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return Json(new { success = false });
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetColor_CrudCB()
+        {
+            var response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetColor_CrudCB");
+            if (response.IsSuccessStatusCode)
+            {
+
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return Json(new { success = false });
+        }
     }
 }

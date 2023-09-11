@@ -76,6 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Llenar la tabla de tallas
                 await fillSizeTable(id);
 
+                console.log("intento1");
+
+                await fillTagTable(id);
+                console.log("intento3");
+                await fillColorTable(id);
+
+
                 // Mostrar el modal
                 document.getElementById('editModal').classList.remove('hidden');
                 loadingSpinner.classList.add('hidden');

@@ -118,13 +118,36 @@ namespace ProSalesManager._02_Busnisess.Products
             return deleteSizeDetalle;
         }
 
+        public List<CrudTagDetalleModel> TagsByIDCrud(int idProducto)
+        {
+            var tags = _sP_Products.TagsByIDCrud(idProducto);
+            return tags;
+        }
+        public bool InsertTagCrud(CrudTagDetalleModel oCrudTagDetalleModel)
+        {
+            var insert =_sP_Products.InsertTagCrud(oCrudTagDetalleModel);
+            return insert;
+            
+        }
+        public bool UpdateTagCrud(CrudTagDetalleModel oCrudTagDetalleModel)
+        {
+            return _sP_Products.UpdateTagCrud(oCrudTagDetalleModel);
+        }
+        public bool DeleteTagCrud(CrudTagDetalleModel oCrudTagDetalleModel)
+        {
+           return _sP_Products.DeleteTagCrud(oCrudTagDetalleModel);
+        }
+
+        public List<ComboBox> ColorDetalleCrudCB()
+        {
+            return _sP_Products.ColorDetalleCrudCB();
+        }
+        public List<CrudColorDetalleModel> ColorDetalleByIDCrud(int idProducto)
+        {
+            return _sP_Products.ColorDetalleByIDCrud(idProducto);
+        }
 
 
-        //public List<ProductoModel> GetAllProductsDetails(string usuarioNavegacion)
-        //{
-        //    var resultSP = _sP_Products.ProductosLista(usuarioNavegacion);
-        //    return resultSP;
-        //}
         public bool InsertProducto(ProductoModel oProductoModel)
         {
             bool result = _sP_Products.InsertProducto(oProductoModel);
