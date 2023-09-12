@@ -136,6 +136,17 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append('TableData', JSON.stringify(tableData));
         formData.append('DeletedItems', JSON.stringify(deletedItems));
 
+
+        // Obtener las imágenes seleccionadas
+        const newImages = document.getElementById('newImage').files;
+
+
+
+        // Agregar cada imagen al FormData
+        for (let i = 0; i < newImages.length; i++) {
+            formData.append('newImages', newImages[i]);
+        }
+
         // Fin de la nueva sección
 
         const response = await fetch('/Productos/UpdateProducto', {

@@ -10,16 +10,20 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using Microsoft.AspNetCore.Hosting;
+
 
 namespace MVCManager.Controllers
 {
     public class ProductosController : Controller
     {
+        private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly HttpClient _httpClient;
 
-        public ProductosController(HttpClient httpClient)
+        public ProductosController(HttpClient httpClient, IWebHostEnvironment hostingEnvironment)
         {
             _httpClient = httpClient;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         public async Task<IActionResult> Index(int pagina = 1)
@@ -113,7 +117,7 @@ namespace MVCManager.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProducto(ProductoModel model, IFormFile nuevaImagen, string TableData, string DeletedItems)
+        public async Task<IActionResult> UpdateProducto(ProductoModel model, IFormFile nuevaImagen, List<IFormFile> newImages, string TableData, string DeletedItems)
         {
 
             // Mantener los datos previos de la imagen si no se selecciona una nueva
@@ -160,13 +164,41 @@ namespace MVCManager.Controllers
 
             }
 
-            // Aquí puedes procesar las listas toUpdate y toCreate como necesites
+
+            // Código para guardar nuevas imágenes
+            if (newImages != null && newImages.Count > 0)
+            {
+                var folderPath = Path.Combine("wwwroot", "Images", "ProductoDetalle", model.IdProducto.ToString());
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                foreach (var img in newImages)
+                {
+                    var fileName = ContentDispositionHeaderValue.Parse(img.ContentDisposition).FileName.Trim('"');
+                    var fullPath = Path.Combine(folderPath, fileName);
+
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        await img.CopyToAsync(stream);
+                    }
+                }
+            }
+
+
 
             // Código para enviar los datos al API
             var json = JsonConvert.SerializeObject(model);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = await _httpClient.PutAsync("http://localhost:5172/api/Productos/PutCrudProducto", content);
+
+
+
+
+
+
 
             if (response.IsSuccessStatusCode)
             {
@@ -245,5 +277,32 @@ namespace MVCManager.Controllers
             }
             return Json(new { success = false });
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> UploadImages(int idProducto, List<IFormFile> files)
+        {
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, $"Images/ProductoDetalle/{idProducto}");
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            foreach (var file in files)
+            {
+                if (file.Length > 0)
+                {
+                    var filePath = Path.Combine(path, file.FileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
+            }
+
+            return Ok(new { status = "Imágenes subidas con éxito" });
+        }
+
     }
 }
