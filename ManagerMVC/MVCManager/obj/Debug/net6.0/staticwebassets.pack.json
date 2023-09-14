@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\Images\\Configuration\\user.png"
     },
     {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\PO-A453.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\3\\PO-A453.jpg"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\PO-A455.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\3\\PO-A455.jpg"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\Croquis de domicilio.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\0\\Croquis de domicilio.png"
+    },
+    {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png"
     },
@@ -33,8 +45,20 @@
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png"
     },
     {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\Croquis de domicilio.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\Croquis de domicilio.png"
+    },
+    {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\Foto Digital__2.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\Foto Digital__2.png"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\Tramite de Solicitud por Renovación 1.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\Tramite de Solicitud por Renovación 1.png"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg"
     },
     {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png",
@@ -51,6 +75,26 @@
     {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Color.js",
+      "PackagePath": "staticwebassets\\js\\Color.js"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Imagen.js",
+      "PackagePath": "staticwebassets\\js\\Imagen.js"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Producto.js",
+      "PackagePath": "staticwebassets\\js\\Producto.js"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Size.js",
+      "PackagePath": "staticwebassets\\js\\Size.js"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Tags.js",
+      "PackagePath": "staticwebassets\\js\\Tags.js"
     },
     {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\site.js",
