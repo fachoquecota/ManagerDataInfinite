@@ -16,10 +16,8 @@
 async function fillTagTable(idProducto) {
     try {
         const response = await fetch(`/Productos/GetTagsById?idProducto=${idProducto}`);
-        console.log("intento2");
         if (response.ok) {
             const data = await response.json();
-            console.log("Data recibida:", data);
             if (data.result) {
                 const tags = data.result;
                 const tbody = document.getElementById('tagTableBody');

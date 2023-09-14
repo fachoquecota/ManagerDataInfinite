@@ -47,9 +47,14 @@
                     <td class="py-2 px-4 border-b">@producto.Precio</td>
                     <td class="py-2 px-4 border-b">@producto.Cantidad</td>
                     <td class="py-2 px-4 border-b">
-                        <button data-id="@producto.IdProducto" class="open-modal text-blue-500 hover:underline">Editar</button>
-                        <button data-id="@producto.IdProducto" class="delete-product text-red-500 hover:underline">Eliminar</button>
+                        <button data-id="@producto.IdProducto" class="open-modal bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">
+                            Editar
+                        </button>
+                        <button data-id="@producto.IdProducto" class="delete-product bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded">
+                            Eliminar
+                        </button>
                     </td>
+
                 </tr>
             }
         </tbody>
@@ -121,7 +126,7 @@
                 </div>
             <div class="w-full px-2 mb-4 flex flex-col items-center">
                 <label for="imagen" class="block text-sm font-medium text-gray-600 mb-2">Imagen Actual</label>
-                <img id="imagenActual" src="/path/to/your/local/image.jpg" alt="Imagen Actual" class="w-32 h-32 object-cover mb-2">
+                <img id="imagenActual" src="~/Images/ProductoPrincipal/0/Croquis de domicilio.png" alt="Imagen Actual" class="w-32 h-32 object-cover mb-2">
                 <button type="button" id="eliminarImagen" class="bg-red-500 text-white p-2 rounded">Eliminar Imagen</button>
             </div>
             </form>
@@ -154,8 +159,8 @@
                 <!-- Agregar nueva imagen -->
                 <div class="mb-6">
                     <label for="newImage" class="block text-sm font-medium text-gray-600">Agregar nueva imagen:</label>
-                    <input type="file" id="newImage" name="newImage" accept="image/jpeg, image/png, image/jpg" class="mt-1 p-2 border rounded-md">
-                    <button id="addNewImage" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+                        <input type="file" id="newImage" name="newImages" accept="image/jpeg, image/png, image/jpg" multiple class="mt-1 p-2 border rounded-md">
+                            <button id="addNewImage" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
                         Agregar
                     </button>
                 </div>
@@ -219,15 +224,6 @@
             <div id="tab5" class="tab-content">
                 <h2 class="text-2xl font-semibold mb-4">Mantenimiento de Colores</h2>
 
-                <!-- Agregar nuevo color -->
-                <div class="mb-6">
-                    <label for="newColor" class="block text-sm font-medium text-gray-600">Agregar nuevo color:</label>
-                    <input type="text" id="newColor" name="newColor" class="mt-1 p-2 border rounded-md">
-                    <button id="addNewColor" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
-                        Agregar
-                    </button>
-                </div>
-
                 <!-- Tabla de colores -->
                 <table class="min-w-full bg-white">
                     <thead>
@@ -244,6 +240,9 @@
                         <!-- Aquí se insertarán las filas de la tabla -->
                     </tbody>
                 </table>
+                <button id="addNewRow" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                    +
+                </button>
             </div>
 
         </div>

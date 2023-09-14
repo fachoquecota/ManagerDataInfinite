@@ -39,17 +39,38 @@ function addNewColorRow(idColorDetalle, idColor, descripcion, isActive) {
     cellIdColorDetalle.innerText = idColorDetalle;
     row.appendChild(cellIdColorDetalle);
 
+    //// ID Color (esto será un combobox)
+    //const cellIdColor = document.createElement('td');
+    //const select = document.createElement('select');
+    //select.className = 'colorSelect';
+    //select.setAttribute('data-id', idColor);  // Añadir el idColor como un atributo data-id
+    //cellIdColor.appendChild(select);
+    //row.appendChild(cellIdColor);
+
     // ID Color (esto será un combobox)
     const cellIdColor = document.createElement('td');
     const select = document.createElement('select');
     select.className = 'colorSelect';
     select.setAttribute('data-id', idColor);  // Añadir el idColor como un atributo data-id
+
+    // Añadir evento para cambiar el color del cuadro
+    select.addEventListener('change', function () {
+        const selectedOption = this.options[this.selectedIndex];
+        const colorCode = selectedOption.text.split(' ')[0];
+        colorBox.style.backgroundColor = `#${colorCode}`;
+    });
+
     cellIdColor.appendChild(select);
     row.appendChild(cellIdColor);
 
+
     // Descripción
     const cellDescripcion = document.createElement('td');
-    cellDescripcion.innerText = descripcion;
+    const colorBox = document.createElement('div');
+    colorBox.style.width = '20px';
+    colorBox.style.height = '20px';
+    colorBox.style.backgroundColor = `#${descripcion.split(' ')[0]}`; // Asume que la descripción es "FF0000 - Rojo"
+    cellDescripcion.appendChild(colorBox);
     row.appendChild(cellDescripcion);
 
     // Activo (interruptor deslizable)
@@ -72,6 +93,7 @@ function addNewColorRow(idColorDetalle, idColor, descripcion, isActive) {
     switchLabel.appendChild(slider);
     switchContainer.appendChild(switchLabel);
     cellActivo.appendChild(switchContainer);
+
     // Acciones
     const cellActions = document.createElement('td');
     cellActions.className = 'text-center';
@@ -79,7 +101,6 @@ function addNewColorRow(idColorDetalle, idColor, descripcion, isActive) {
     deleteButton.innerText = 'Eliminar';
     deleteButton.className = 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded';
     deleteButton.addEventListener('click', function () {
-        const idColorDetalle = item.idColorDetalle;
         if (idColorDetalle) {
             // Aquí puedes añadir lógica para manejar los elementos eliminados, como almacenarlos en un array
             // deletedItems.push(idColorDetalle);
@@ -94,15 +115,17 @@ function addNewColorRow(idColorDetalle, idColor, descripcion, isActive) {
     tbody.appendChild(row);
 }
 
-// Función para llenar todos los comboboxes
+// Función para llenar todos los comboboxes y mantener los valores seleccionados
 async function fillComboBoxForAll(selectElements, url) {
+    // Guardar los valores seleccionados actuales
+    const selectedValues = Array.from(selectElements).map(select => select.value);
+
     const response = await fetch(url);
-    console.log("datos de response combo ", response);
     if (response.ok) {
         const data = await response.json();
         const items = data.result;
 
-        selectElements.forEach(select => {
+        selectElements.forEach((select, index) => {
             // Limpiar opciones existentes
             select.innerHTML = '';
 
@@ -113,16 +136,21 @@ async function fillComboBoxForAll(selectElements, url) {
                 option.text = item.descripcion;
                 select.appendChild(option);
             });
+
+            // Restaurar el valor seleccionado
+            select.value = selectedValues[index];
         });
     }
 }
 
 // Escuchar clics en el botón "Agregar"
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('addNewColor').addEventListener('click', function () {
-        const newColor = document.getElementById('newColor').value;
-        if (newColor) {
-            addNewColorRow('Nuevo!', null, newColor, true);  // Añadido null para idColor
-        }
+    // Escuchar clics en el botón para agregar una nueva fila
+    document.getElementById('addNewRow').addEventListener('click', async function () {
+        addNewColorRow('Nuevo!', null, 'FFFFFF', true);  // Añadido null para idColor y un color por defecto (blanco)
+
+        // Llenar el nuevo combobox y mantener los valores seleccionados
+        const colorSelects = document.querySelectorAll('.colorSelect');
+        await fillComboBoxForAll(colorSelects, '/Productos/GetColor_CrudCB');
     });
 });

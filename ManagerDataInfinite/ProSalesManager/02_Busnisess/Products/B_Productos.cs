@@ -147,6 +147,12 @@ namespace ProSalesManager._02_Busnisess.Products
             return _sP_Products.ColorDetalleByIDCrud(idProducto);
         }
 
+        public List<CrudImagenModel> ImagenByIDCrud(int idProducto)
+        {
+            var imagenes = _sP_Products.ImagenByIDCrud(idProducto);
+            return imagenes;
+        }
+
 
         public bool InsertProducto(ProductoModel oProductoModel)
         {

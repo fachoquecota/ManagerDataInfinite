@@ -96,8 +96,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Guardar cambios
+
+
+    console.log("Estoy a punto de adjuntar el evento");
     document.getElementById('saveChanges').addEventListener('click', async function () {
-        console.log("test");
+        console.log("Botón de Guardar Cambios presionado");
         //const idProducto = parseInt(document.getElementById('modalTitleId').innerText, 10);
         const idProducto = localStorage.getItem('currentIdProducto');
         console.log(idProducto);
@@ -140,14 +143,17 @@ document.addEventListener("DOMContentLoaded", function () {
         // Obtener las imágenes seleccionadas
         const newImages = document.getElementById('newImage').files;
 
+        console.log("newImages ", newImages);
 
-
+        console.log("ingresando a for");
         // Agregar cada imagen al FormData
         for (let i = 0; i < newImages.length; i++) {
+            console.log("Nombre de la imagen:", newImages[i].name);
             formData.append('newImages', newImages[i]);
         }
 
         // Fin de la nueva sección
+        console.log("realizando post");
 
         const response = await fetch('/Productos/UpdateProducto', {
             method: 'POST',

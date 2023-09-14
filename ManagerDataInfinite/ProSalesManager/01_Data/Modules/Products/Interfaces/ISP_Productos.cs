@@ -47,5 +47,8 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         List<ComboBox> ColorDetalleCrudCB();
         List<CrudColorDetalleModel> ColorDetalleByIDCrud(int idProducto);
 
+        //Imagen
+        List<CrudImagenModel> ImagenByIDCrud(int idProducto);
+
     }
 }

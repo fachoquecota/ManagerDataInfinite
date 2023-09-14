@@ -654,6 +654,49 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
         }
 
+
+        //imagenes
+        public List<CrudImagenModel> ImagenByIDCrud(int idProducto)
+        {
+            var oList = new List<CrudImagenModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Imagenes_byId", conexion);
+                    cmd.Parameters.AddWithValue("@inIdProducto", idProducto);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new CrudImagenModel()
+                            {
+                                idImagenes = Convert.ToInt32(dr["idImagenes"]),
+                                idProducto = Convert.ToInt32(dr["idProducto"]),
+                                rutaImagen = dr["rutaImagen"].ToString(),
+                                nombreImagen = dr["nombreImagen"].ToString(),
+                                Activo = Convert.ToBoolean(dr["Activo"]),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+
+
+
         // No actualizado
         public List<ImagenModel> ImagenesLista(int idProducto)
         {

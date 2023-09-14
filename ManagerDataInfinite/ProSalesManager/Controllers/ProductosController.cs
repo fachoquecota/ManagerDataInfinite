@@ -325,5 +325,22 @@ namespace ProSalesManager.Controllers
                 result = result
             };
         }
+
+
+        //Imagenes
+        [HttpGet]
+        [Route("GetCrudImagenById")]
+        public dynamic GetCrudImagenById(int idProducto)
+        {
+            var result = _Products.ImagenByIDCrud(idProducto);
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de imagen" });
+
+            return new
+            {
+                result = result
+            };
+        }
     }
 }

@@ -304,5 +304,18 @@ namespace MVCManager.Controllers
             return Ok(new { status = "Imágenes subidas con éxito" });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetCrudImagenById(int idProducto)
+        {
+            var response = await _httpClient.GetAsync($"http://localhost:5172/api/Productos/GetCrudImagenById?idProducto={idProducto}");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                 return Content(content, "application/json");
+            }
+            return Json(new { success = false });
+        }
+
+
     }
 }
