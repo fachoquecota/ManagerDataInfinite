@@ -1,8 +1,114 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
 }
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<div class="container mx-auto p-6">
+    <h1 class="text-2xl font-semibold mb-4">Dashboard</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <!-- Cards Row -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <!-- Aquí van las tarjetas de métricas como en el ejemplo anterior -->
+    </div>
+
+    <!-- Gráficos -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
+        <!-- Gráfico de ventas por mes -->
+        <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+            <h2 class="text-lg font-semibold text-gray-700 mb-4">Ventas por Mes</h2>
+            <canvas id="salesByMonthChart"></canvas>
+        </div>
+
+        <!-- Gráfico de ventas por categoría -->
+        <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+            <h2 class="text-lg font-semibold text-gray-700 mb-4">Ventas por Categoría</h2>
+            <canvas id="salesByCategoryChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Tabla de productos más y menos vendidos -->
+    <div class="bg-gray-100 p-4 rounded-lg shadow-lg">
+        <h2 class="text-lg font-semibold text-gray-700 mb-4">Productos más y menos vendidos</h2>
+        <table class="min-w-full">
+            <thead>
+                <tr>
+                    <th class="border px-4 py-2 text-gray-700">Producto</th>
+                    <th class="border px-4 py-2 text-gray-700">Ventas</th>
+                    <th class="border px-4 py-2 text-gray-700">Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2 text-gray-900">Producto A</td>
+                    <td class="border px-4 py-2 text-gray-900">50</td>
+                    <td class="border px-4 py-2 text-gray-900">20</td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2 text-gray-900">Producto B</td>
+                    <td class="border px-4 py-2 text-gray-900">30</td>
+                    <td class="border px-4 py-2 text-gray-900">50</td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2 text-gray-900">Producto C</td>
+                    <td class="border px-4 py-2 text-gray-900">10</td>
+                    <td class="border px-4 py-2 text-gray-900">100</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<!-- Incluir la biblioteca de gráficos (por ejemplo, Chart.js) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Código para generar los gráficos -->
+<script>
+    // Datos ficticios para el gráfico de ventas por mes
+    const salesByMonthData = {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+        datasets: [{
+            label: 'Ventas ($)',
+            data: [1200, 900, 1500, 1800, 2200],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    };
+
+    // Crear el gráfico de ventas por mes
+    const salesByMonthCtx = document.getElementById('salesByMonthChart').getContext('2d');
+    new Chart(salesByMonthCtx, {
+        type: 'line',
+        data: salesByMonthData
+    });
+
+    // Datos ficticios para el gráfico de ventas por categoría
+    const salesByCategoryData = {
+        labels: ['Electrónicos', 'Ropa', 'Alimentos', 'Libros'],
+        datasets: [{
+            label: 'Ventas ($)',
+            data: [500, 300, 200, 100],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 205, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Crear el gráfico de ventas por categoría
+    const salesByCategoryCtx = document.getElementById('salesByCategoryChart').getContext('2d');
+    new Chart(salesByCategoryCtx, {
+        type: 'bar',
+        data: salesByCategoryData
+    });
+</script>

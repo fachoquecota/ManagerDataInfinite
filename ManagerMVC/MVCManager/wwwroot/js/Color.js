@@ -26,9 +26,6 @@ async function fillColorTable(idProducto) {
 }
 
 
-
-
-
 // Función para agregar una nueva fila a la tabla de Colores
 function addNewColorRow(idColorDetalle, idColor, descripcion, isActive) {
     const tbody = document.getElementById('colorTableBody');

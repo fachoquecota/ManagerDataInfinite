@@ -137,20 +137,41 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         formData.append('TableData', JSON.stringify(tableData));
-        formData.append('DeletedItems', JSON.stringify(deletedItems));
+        //formData.append('DeletedItems', JSON.stringify(deletedItems));
 
 
         // Obtener las imágenes seleccionadas
-        const newImages = document.getElementById('newImage').files;
+        //const newImages = document.getElementById('newImage').files;
 
-        console.log("newImages ", newImages);
+        console.log("localstorege desde producto.js ", localStorage.getItem('selectedImages'));
+        const selectedImages = JSON.parse(localStorage.getItem('selectedImages') || '[]');
 
-        console.log("ingresando a for");
-        // Agregar cada imagen al FormData
-        for (let i = 0; i < newImages.length; i++) {
-            console.log("Nombre de la imagen:", newImages[i].name);
-            formData.append('newImages', newImages[i]);
+        console.log("selectedImages ",selectedImages);
+
+        try {
+            selectedImages.forEach((imageObject, index) => {
+                console.log("Base64 String: ", imageObject.base64);  // Para depuración
+                const byteCharacters = atob(imageObject.base64);
+                const byteNumbers = new Array(byteCharacters.length);
+                for (let i = 0; i < byteCharacters.length; i++) {
+                    byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+                const byteArray = new Uint8Array(byteNumbers);
+                const blob = new Blob([byteArray], { type: imageObject.type });
+                formData.append(`newImages[${index}]`, blob, `image${index}.${imageObject.type.split('/')[1]}`);
+            });
+        } catch (e) {
+            console.error("Error al decodificar la cadena Base64: ", e);
         }
+
+        console.log("formData ", formData);
+
+        //console.log("ingresando a for");
+        //// Agregar cada imagen al FormData
+        //for (let i = 0; i < newImages.length; i++) {
+        //    console.log("Nombre de la imagen:", newImages[i].name);
+        //    formData.append('newImages', newImages[i]);
+        //}
 
         // Fin de la nueva sección
         console.log("realizando post");
@@ -232,181 +253,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('closeModalConfirm').addEventListener('click', function () {
         document.getElementById('deleteModal').classList.add('hidden');
     });
-
-    document.getElementById('addSizeRow').addEventListener('click', async function () {
-        const tbody = document.getElementById('sizeTableBody');
-        const row = document.createElement('tr');
-
-        // ID SizeDetalle (vacío en este caso)
-        const cellIdSizeDetalle = document.createElement('td');
-        cellIdSizeDetalle.innerText = 'Nuevo !';
-        cellIdSizeDetalle.className = 'text-center';
-        row.appendChild(cellIdSizeDetalle);
-
-        // ID Size
-        const cellIdSize = document.createElement('td');
-        const select = document.createElement('select');
-        select.className = 'sizeSelect text-center';
-        cellIdSize.appendChild(select);
-        row.appendChild(cellIdSize);
-
-        // Activo
-        const cellActivo = document.createElement('td');
-        const switchContainer = document.createElement('div');
-        switchContainer.className = 'w-1/2 px-2 mb-4 switch-container mx-auto'; // Añadir mx-auto para centrar el contenedor
-
-        const switchLabel = document.createElement('label');
-        switchLabel.className = 'switch';
-
-        const hiddenInput = document.createElement('input');
-        hiddenInput.type = 'hidden';
-        hiddenInput.name = 'activo';
-        hiddenInput.value = 'false';
-
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.className = 'switch-input';
-
-        const slider = document.createElement('span');
-        slider.className = 'slider';
-
-        switchLabel.appendChild(hiddenInput);
-        switchLabel.appendChild(checkbox);
-        switchLabel.appendChild(slider);
-
-        switchContainer.appendChild(switchLabel);
-        cellActivo.appendChild(switchContainer);
-        row.appendChild(cellActivo);
-
-        // Acciones (botón Quitar para registros nuevos)
-        const cellActions = document.createElement('td');
-        cellActions.className = 'text-center'; // Centrar el botón en la celda
-
-        const removeButton = document.createElement('button');
-        removeButton.innerText = 'Eliminar';
-        removeButton.className = 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded';
-
-        // Evento para eliminar la fila
-        removeButton.addEventListener('click', function () {
-            row.remove();
-        });
-
-        cellActions.appendChild(removeButton);
-        row.appendChild(cellActions);
-
-        console.log("A punto de agregar una nueva fila a la tabla");
-        console.log("Contenido de la fila:", row.innerHTML);
-        tbody.appendChild(row);
-
-        // Llenar el combobox
-        const sizeSelects = document.querySelectorAll('.sizeSelect');
-        await fillComboBoxForAll(sizeSelects, '/Productos/GetSize_CrudCB');
-    });
-
-
-
 });
-let deletedItems = [];
-
-async function fillSizeTable(idProducto) {
-    const response = await fetch(`/Productos/GetCrudSizeDetalleById?idProducto=${idProducto}`);
-    if (response.ok) {
-        const data = await response.json();
-        const items = data.result;
-        const tbody = document.getElementById('sizeTableBody');
-        tbody.innerHTML = ''; // Limpiar la tabla
-
-        items.forEach(item => {
-            const row = document.createElement('tr');
-
-            // ID SizeDetalle
-            const cellIdSizeDetalle = document.createElement('td');
-            cellIdSizeDetalle.innerText = item.idSizeDetalle;
-            cellIdSizeDetalle.className = 'text-center';
-            row.appendChild(cellIdSizeDetalle);
-
-            // ID Size
-            const cellIdSize = document.createElement('td');
-            const select = document.createElement('select');
-            select.className = 'sizeSelect text-center';
-            select.setAttribute('data-id', item.idSize);
-            select.value = item.idSize;
-            cellIdSize.appendChild(select);
-            row.appendChild(cellIdSize);
-
-            // Activo
-            const cellActivo = document.createElement('td');
-            const switchContainer = document.createElement('div');
-            switchContainer.className = 'w-1/2 px-2 mb-4 switch-container text-center';
-
-            const switchLabel = document.createElement('label');
-            switchLabel.className = 'switch';
-
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'activo';
-            hiddenInput.value = 'false';
-
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.className = 'switch-input';
-            checkbox.checked = item.activo;
-
-            const slider = document.createElement('span');
-            slider.className = 'slider';
-
-            switchLabel.appendChild(hiddenInput);
-            switchLabel.appendChild(checkbox);
-            switchLabel.appendChild(slider);
-
-            switchContainer.appendChild(switchLabel);
-            cellActivo.appendChild(switchContainer);
-            row.appendChild(cellActivo);
-
-            // Acciones
-            const cellActions = document.createElement('td');
-            cellActions.className = 'text-center'; 
-            const deleteButton = document.createElement('button');
-            deleteButton.innerText = 'Eliminar';
-            deleteButton.className = 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded';
-            deleteButton.addEventListener('click', function () {
-                const idSizeDetalle = item.idSizeDetalle;
-                if (idSizeDetalle) {
-                    deletedItems.push(idSizeDetalle);
-                }
-                row.remove();  // Esto eliminará la fila de la tabla
-            });
-            cellActions.appendChild(deleteButton);
-            row.appendChild(cellActions);
-
-            tbody.appendChild(row);
-        });
-
-        // Llenar todos los comboboxes
-        const sizeSelects = document.querySelectorAll('.sizeSelect');
-        await fillComboBoxForAll(sizeSelects, '/Productos/GetSize_CrudCB');
-    }
-}
-
-async function fillComboBoxForAll(selectElements, apiUrl) {
-    const response = await fetch(apiUrl);
-    if (response.ok) {
-        const data = await response.json();
-        const items = data.result;
-
-        selectElements.forEach(select => {
-            select.innerHTML = '';
-            items.forEach(item => {
-                const option = document.createElement('option');
-                option.value = item.id;
-                option.text = item.descripcion;
-                select.appendChild(option);
-            });
-            // Aquí establecemos el valor seleccionado del select
-            const selectedValue = select.getAttribute('data-id');
-            if (selectedValue) {
-                select.value = selectedValue;
-            }
-        });
-    }
-}
