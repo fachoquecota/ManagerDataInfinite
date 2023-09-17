@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Configuración del perfil";
+}
+
+<div class="container mx-auto p-6">
+    <h1 class="text-2xl font-semibold mb-4">Configuración del Perfil</h1>
+
+    <!-- Contenedor Principal -->
+    <div class="flex flex-wrap -mx-2">
+
+        <!-- Primera Tarjeta (Sección) -->
+        <div class="w-full lg:w-1/2 px-2 mb-4">
+            <div class="p-4 bg-white rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Información del Usuario</h2>
+                <!-- Formulario de perfil -->
+                <form id="profileForm">
+                    <div class="mb-4">
+                        <label for="username" class="block text-sm font-medium text-gray-600">Nombre de Usuario</label>
+                        <input type="text" id="username" name="username" value="usuario_ejemplo" class="mt-1 p-2 w-full rounded-md border shadow-sm">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
+                        <input type="email" id="email" name="email" value="usuario@ejemplo.com" class="mt-1 p-2 w-full rounded-md border shadow-sm">
+                    </div>
+                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Segunda Tarjeta (Sección) -->
+        <div class="w-full lg:w-1/2 px-2 mb-4">
+            <div class="p-4 bg-white rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Roles y Empresa</h2>
+                
+                <!-- Sección de roles -->
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Roles</h3>
+                    <table class="min-w-full divide-y divide-gray-200 text-center">
+                        <thead>
+                            <tr>
+                                <th class="px-2 py-2">Rol</th>
+                                <th class="px-2 py-2">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-2 py-2">Administrador</td>
+                                <td class="px-2 py-2">
+                                    <button class="text-blue-500 hover:text-blue-700">Editar</button>
+                                    <button class="text-red-500 hover:text-red-700">Eliminar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-2 py-2">Usuario</td>
+                                <td class="px-2 py-2">
+                                    <button class="text-blue-500 hover:text-blue-700">Editar</button>
+                                    <button class="text-red-500 hover:text-red-700">Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Sección para cambiar el nombre de la empresa -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Nombre de la Empresa</h3>
+                    <form id="companyNameForm">
+                        <div class="mb-4">
+                            <label for="companyName" class="block text-sm font-medium text-gray-600">Nombre Actual</label>
+                            <input type="text" id="companyName" name="companyName" value="Nombre de Empresa Ejemplo" class="mt-1 p-2 w-full rounded-md border shadow-sm">
+                        </div>
+                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">Actualizar Nombre</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

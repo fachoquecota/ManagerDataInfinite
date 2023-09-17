@@ -1,9 +1,12 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="~/css/Spiner.css">
+
 </head>
 <body class="bg-gray-100 h-screen text-gray-800">
     <div class="flex flex-col h-full">
@@ -25,13 +28,6 @@
                 <span class="mr-2">Nombre del Usuario</span>
                 <img src="~/images/configuration/user.png" alt="User Photo" class="w-8 h-8 rounded-full">
             </div>
-            <!-- Menú desplegable -->
-            <div class="absolute top-full right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg hidden" id="userMenu">
-                <ul>
-                    <li><a href="/Configuracion" class="block px-4 py-2 hover:bg-gray-200">Configuración</a></li>
-                    <li><a href="/CerrarSesion" class="block px-4 py-2 hover:bg-gray-200">Cerrar Sesión</a></li>
-                </ul>
-            </div>
         </div>
         <!-- Contenido principal -->
         <div class="flex-grow flex">
@@ -41,55 +37,85 @@
                     <ul>
                         <li class="flex items-center">
                             <i class="fas fa-home mr-2"></i>
-                            <a href="/" class="block px-4 py-2 hover:bg-gray-700">Inicio</a>
+                            <a href="/Home" id="inicioLink" class="block px-4 py-2 hover:bg-gray-700">Inicio</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-box mr-2"></i>
-                            <a href="/Productos" class="block px-4 py-2 hover:bg-gray-700">Productos</a>
+                            <a href="/Productos" id="productosLink" class="block px-4 py-2 hover:bg-gray-700">Productos</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-shield-alt mr-2"></i>
-                            <a href="/Home/Privacy" class="block px-4 py-2 hover:bg-gray-700">Privacidad</a>
+                            <a href="/Home/Privacy" id="privacidadLink" class="block px-4 py-2 hover:bg-gray-700">Privacidad</a>
                         </li>
                     </ul>
                 </nav>
-                <div class="flex-grow"></div>
-                <div class="text-center text-sm text-gray-400">
-                    <!-- Información adicional -->
-                </div>
             </div>
             <!-- Contenido de la página -->
             <div class="flex-grow p-6 overflow-y-auto bg-gray-100">
                 @RenderBody()
             </div>
         </div>
+
+        <!-- Modal -->
+        <div id="userModal" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center">
+            <div class="bg-white w-1/3 rounded-lg shadow-lg">
+                <div class="p-4">
+                    <h2 class="text-lg font-bold mb-4">Opciones de usuario</h2>
+                    <ul>
+                        <li class="mb-2"><a href="/Configuracion" class="text-blue-500 hover:text-blue-600">Ver perfil</a></li>
+                        <li><a href="/CerrarSesion" class="text-blue-500 hover:text-blue-600">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Spinner -->
+    <div id="spinner" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center">
+        <div class="loader"></div>
+    </div>
+
     <script>
-        // Código JavaScript para mostrar/ocultar el menú desplegable
         document.addEventListener('DOMContentLoaded', function () {
             const userMenuBtn = document.getElementById('userMenuBtn');
-            const userMenu = document.getElementById('userMenu');
-            const menuBtn = document.getElementById('menuBtn');
-            const sidebar = document.getElementById('sidebar');
+            const userModal = document.getElementById('userModal');
 
-            userMenuBtn.addEventListener('click', function (event) {
-                userMenu.classList.toggle('hidden');
+            userMenuBtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                userModal.classList.remove('hidden');
+            });
+
+            userModal.addEventListener('click', function(event) {
                 event.stopPropagation();
             });
 
-            // Cerrar el menú al hacer clic fuera de él
             document.body.addEventListener('click', function () {
-                userMenu.classList.add('hidden');
+                userModal.classList.add('hidden');
             });
 
-            // Evitar que el evento del cuerpo se dispare cuando se hace clic en el menú
-            userMenu.addEventListener('click', function (event) {
+            // Cerrar modal si se hace clic fuera del contenido
+            document.querySelector('#userModal > div').addEventListener('click', function(event) {
                 event.stopPropagation();
             });
 
-            // Código para mostrar/ocultar la barra lateral en pantallas pequeñas
-            menuBtn.addEventListener('click', function () {
-                sidebar.classList.toggle('hidden');
+            userModal.addEventListener('click', function() {
+                userModal.classList.add('hidden');
+            });
+
+            const spinner = document.getElementById('spinner');
+
+            const linksWithSpinners = ['inicioLink', 'productosLink', 'privacidadLink'];
+
+            linksWithSpinners.forEach(id => {
+                const link = document.getElementById(id);
+
+                link.addEventListener('click', function(event) {
+                    spinner.classList.remove('hidden');
+                });
+            });
+
+            // Otras opciones para ocultar el spinner cuando la página haya cargado
+            $(document).ajaxStop(function(){
+                spinner.classList.add('hidden');
             });
         });
     </script>
