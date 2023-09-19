@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PdpgHs/FQijvtPq1cUMHR/EZf9322KUa4SMS9Y2TgQ0=",
+  "Hash": "uU3w+nrXeqeI5eZ5ERPlOa2h6nuYennfgG96fImcY0E=",
   "Source": "MVCManager",
   "BasePath": "_content/MVCManager",
   "Mode": "Default",
@@ -289,40 +289,6 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\Croquis de domicilio.png",
-      "SourceId": "MVCManager",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
-      "BasePath": "_content/MVCManager",
-      "RelativePath": "Images/ProductoPrincipal/3/Croquis de domicilio.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\Croquis de domicilio.png"
-    },
-    {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\Foto Digital__2.png",
-      "SourceId": "MVCManager",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
-      "BasePath": "_content/MVCManager",
-      "RelativePath": "Images/ProductoPrincipal/3/Foto Digital__2.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\Foto Digital__2.png"
-    },
-    {
       "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
@@ -340,12 +306,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\Tramite de Solicitud por Renovación 1.png",
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled_1.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
-      "RelativePath": "Images/ProductoPrincipal/3/Tramite de Solicitud por Renovación 1.png",
+      "RelativePath": "Images/ProductoPrincipal/3/overwatch-2-HD-scaled_1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -354,7 +320,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\Tramite de Solicitud por Renovación 1.png"
+      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled_1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A452.jpg",
+      "SourceId": "MVCManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "BasePath": "_content/MVCManager",
+      "RelativePath": "Images/ProductoPrincipal/3/PO-A452.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\PO-A452.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png",

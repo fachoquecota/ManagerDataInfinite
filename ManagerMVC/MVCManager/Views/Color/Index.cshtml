@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Mantenimiento de Colores";
+}
+
+<div class="container mx-auto p-6">
+    <h1 class="text-2xl font-semibold mb-4">Mantenimiento de Colores</h1>
+    
+    <div class="p-4 bg-white rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-4">Lista de Colores</h2>
+        
+        <!-- Tabla de Colores -->
+        <table class="min-w-full divide-y divide-gray-200 text-center rounded-lg shadow-sm">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-2 py-2">idColor</th>
+                    <th class="px-2 py-2">Código</th>
+                    <th class="px-2 py-2">Color</th>
+                    <th class="px-2 py-2">Descripción</th>
+                    <th class="px-2 py-2">Activo</th>
+                    <th class="px-2 py-2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Registros de ejemplo -->
+                @for(var i = 1; i <= 12; i++) {
+                <tr>
+                    <td class="px-2 py-2">@i</td>
+                    <td class="px-2 py-2">@($"#FF573{3+i%10}")</td>
+                    <td class="px-2 py-2">
+                        <div style="width:20px;height:20px;background-color:@($"#FF573{3+i%10}");"></div>
+                    </td>
+                    <td class="px-2 py-2">@($"Color {i}")</td>
+                    <td class="px-2 py-2">
+                        <label class="switch">
+                          <input type="checkbox" checked>
+                          <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td class="px-2 py-2">
+                        <button class="text-blue-500 hover:text-blue-700">Editar</button>
+                        <button class="text-red-500 hover:text-red-700">Eliminar</button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Estilos del switch -->
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+    
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+    }
+    
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+    
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+    
+    .slider.round {
+        border-radius: 34px;
+    }
+    
+    .slider.round:before {
+        border-radius: 50%;
+    }
+</style>

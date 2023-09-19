@@ -43,9 +43,18 @@
                             <i class="fas fa-box mr-2"></i>
                             <a href="/Productos" id="productosLink" class="block px-4 py-2 hover:bg-gray-700">Productos</a>
                         </li>
-                        <li class="flex items-center">
+@*                        <li class="flex items-center">
                             <i class="fas fa-shield-alt mr-2"></i>
                             <a href="/Home/Privacy" id="privacidadLink" class="block px-4 py-2 hover:bg-gray-700">Privacidad</a>
+                        </li>*@
+                        <!-- Pestaña de Size -->
+                        <li class="flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <a href="/Size" id="sizeLink" class="block px-4 py-2 hover:bg-gray-700">Tallas</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <a href="/Color" id="colorLink" class="block px-4 py-2 hover:bg-gray-700">Colores</a>
                         </li>
                     </ul>
                 </nav>
@@ -63,7 +72,7 @@
                     <h2 class="text-lg font-bold mb-4">Opciones de usuario</h2>
                     <ul>
                         <li class="mb-2"><a href="/Configuracion" class="text-blue-500 hover:text-blue-600">Ver perfil</a></li>
-                        <li><a href="/CerrarSesion" class="text-blue-500 hover:text-blue-600">Cerrar sesión</a></li>
+                        <li><a href="/Login" class="text-blue-500 hover:text-blue-600">Cerrar sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -103,7 +112,7 @@
 
             const spinner = document.getElementById('spinner');
 
-            const linksWithSpinners = ['inicioLink', 'productosLink', 'privacidadLink'];
+            const linksWithSpinners = ['inicioLink', 'productosLink', 'privacidadLink','sizeLink','colorLink'];
 
             linksWithSpinners.forEach(id => {
                 const link = document.getElementById(id);
