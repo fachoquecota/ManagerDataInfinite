@@ -41,6 +41,10 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-box mr-2"></i>
+                            <a href="/Venta" id="ventaLink" class="block px-4 py-2 hover:bg-gray-700">Ventas</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-box mr-2"></i>
                             <a href="/Productos" id="productosLink" class="block px-4 py-2 hover:bg-gray-700">Productos</a>
                         </li>
 @*                        <li class="flex items-center">
@@ -112,7 +116,7 @@
 
             const spinner = document.getElementById('spinner');
 
-            const linksWithSpinners = ['inicioLink', 'productosLink', 'privacidadLink','sizeLink','colorLink'];
+            const linksWithSpinners = ['inicioLink', 'productosLink', 'privacidadLink','sizeLink','colorLink','ventaLink'];
 
             linksWithSpinners.forEach(id => {
                 const link = document.getElementById(id);
