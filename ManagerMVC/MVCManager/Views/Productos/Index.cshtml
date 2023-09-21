@@ -29,10 +29,11 @@
 <div class="overflow-x-auto">
     <table class="min-w-full bg-white border border-gray-300">
         <thead>
-            <tr class="bg-gray-100 text-left">
+            <tr class="bg-gray-100 text-left">       
                 <th class="py-2 px-4 border-b">ID</th>
                 <th class="py-2 px-4 border-b">Producto</th>
                 <th class="py-2 px-4 border-b">Marca</th>
+                <th class="py-2 px-4 border-b">Imagen</th> <!-- Nueva columna para la imagen -->
                 <th class="py-2 px-4 border-b">Precio</th>
                 <th class="py-2 px-4 border-b">Cantidad</th>
                 <th class="py-2 px-4 border-b">Acciones</th>
@@ -42,9 +43,13 @@
             @foreach (var producto in Model)
             {
                 <tr>
+                    
                     <td class="py-2 px-4 border-b">@producto.IdProducto</td>
                     <td class="py-2 px-4 border-b">@producto.Producto</td>
                     <td class="py-2 px-4 border-b">@producto.Marca</td>
+                    <td class="py-2 px-4 border-b">
+                        <img src="@producto.ImagenCarpeta@producto.ImagenNombre" alt="@producto.Producto" width="50"> <!-- Vista previa de la imagen -->
+                    </td>
                     <td class="py-2 px-4 border-b">@producto.Precio</td>
                     <td class="py-2 px-4 border-b">@producto.Cantidad</td>
                     <td class="py-2 px-4 border-b">
@@ -55,12 +60,12 @@
                             Eliminar
                         </button>
                     </td>
-
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
 
 <!-- Modal -->
 <div id="editModal" class="fixed inset-0 flex items-center justify-center p-4 hidden overflow-y-auto">

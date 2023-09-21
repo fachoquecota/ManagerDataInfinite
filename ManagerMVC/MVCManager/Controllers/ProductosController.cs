@@ -26,6 +26,7 @@ namespace MVCManager.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
 
+        //Obtener productos
         public async Task<IActionResult> Index(int pagina = 1)
         {
             HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetCrudProductos");
