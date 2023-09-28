@@ -695,6 +695,362 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
         }
 
+        //ColorCrud
+        public List<ColorModel> GetAllColors()
+        {
+            var oList = new List<ColorModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Color", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ColorModel()
+                            {
+                                IdColor = Convert.ToInt32(dr["idColor"]),
+                                Codigo = dr["codigo"].ToString(),
+                                Descripcion = dr["descripcion"].ToString(),
+                                Activo = Convert.ToBoolean(dr["Activo"])
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+
+        public bool InsertColor(ColorModel oColorModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Insert_Color", conexion);
+                    cmd.Parameters.AddWithValue("@codigo", oColorModel.Codigo);
+                    cmd.Parameters.AddWithValue("@descripcion", oColorModel.Descripcion);
+                    cmd.Parameters.AddWithValue("@Activo", oColorModel.Activo);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+
+        public bool UpdateColor(ColorModel oColorModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Update_Color", conexion);
+                    cmd.Parameters.AddWithValue("@idColor", oColorModel.IdColor);
+                    cmd.Parameters.AddWithValue("@codigo", oColorModel.Codigo);
+                    cmd.Parameters.AddWithValue("@descripcion", oColorModel.Descripcion);
+                    cmd.Parameters.AddWithValue("@Activo", oColorModel.Activo);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+
+        public bool DeleteColor(ColorModel oColorModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Delete_Color", conexion);
+                    cmd.Parameters.AddWithValue("@idColor", oColorModel.IdColor);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+
+        //SizeCrud
+        public List<SizeModel> GetAllSizes()
+        {
+            var oList = new List<SizeModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Size", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new SizeModel()
+                            {
+                                IdSize = Convert.ToInt32(dr["idSize"]),
+                                Descripcion = dr["descripcion"].ToString(),
+                                Activo = Convert.ToBoolean(dr["Activo"])
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+
+        public bool InsertSize(SizeModel oSizeModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Insert_Size", conexion);
+                    cmd.Parameters.AddWithValue("@descripcion", oSizeModel.Descripcion);
+                    cmd.Parameters.AddWithValue("@Activo", oSizeModel.Activo);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+
+        public bool UpdateSize(SizeModel oSizeModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Update_Size", conexion);
+                    cmd.Parameters.AddWithValue("@idSize", oSizeModel.IdSize);
+                    cmd.Parameters.AddWithValue("@descripcion", oSizeModel.Descripcion);
+                    cmd.Parameters.AddWithValue("@Activo", oSizeModel.Activo);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+
+        public bool DeleteSize(SizeModel oSizeModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Delete_Size", conexion);
+                    cmd.Parameters.AddWithValue("@idSize", oSizeModel.IdSize);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+
+        //ProvedoresCrud
+        public List<ProveedorModel> GetProveedorByCorreo(string correo)
+        {
+            var oList = new List<ProveedorModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Proveedores", conexion);
+                    cmd.Parameters.AddWithValue("@vcCorreo", correo);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ProveedorModel()
+                            {
+                                IdProveedor = Convert.ToInt32(dr["idProveedor"]),
+                                Proveedor = dr["proveedor"].ToString(),
+                                Contacto = dr["contacto"].ToString(),
+                                Telefono = dr["telefono"].ToString(),
+                                Direccion = dr["direccion"].ToString(),
+                                Fecha = Convert.ToDateTime(dr["fecha"]),
+                                HoraCreacion = Convert.ToDateTime(dr["horaCreacion"]),
+                                HoraActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
+                                IdEmpresa = Convert.ToInt32(dr["idEmpresa"])
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+
+        public bool InsertProveedor(ProveedorModel oProveedorModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Insert_Proveedores", conexion);
+                    cmd.Parameters.AddWithValue("@vcProveedor", oProveedorModel.Proveedor);
+                    cmd.Parameters.AddWithValue("@vcContacto", oProveedorModel.Contacto);
+                    cmd.Parameters.AddWithValue("@vcTelefono", oProveedorModel.Telefono);
+                    cmd.Parameters.AddWithValue("@vcDireccion", oProveedorModel.Direccion);
+                    cmd.Parameters.AddWithValue("@dtFecha", oProveedorModel.Fecha);
+                    cmd.Parameters.AddWithValue("@inIdEmpresa", oProveedorModel.IdEmpresa);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+
+        public bool UpdateProveedor(ProveedorModel oProveedorModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Update_Proveedores", conexion);
+                    cmd.Parameters.AddWithValue("@inIdProveedor", oProveedorModel.IdProveedor);
+                    cmd.Parameters.AddWithValue("@vcProveedor", oProveedorModel.Proveedor);
+                    cmd.Parameters.AddWithValue("@vcContacto", oProveedorModel.Contacto);
+                    cmd.Parameters.AddWithValue("@vcTelefono", oProveedorModel.Telefono);
+                    cmd.Parameters.AddWithValue("@vcDireccion", oProveedorModel.Direccion);
+                    cmd.Parameters.AddWithValue("@dtFecha", oProveedorModel.Fecha);
+                    cmd.Parameters.AddWithValue("@inIdEmpresa", oProveedorModel.IdEmpresa);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+
+        public bool DeleteProveedor(int idProveedor)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Delete_Proveedores", conexion);
+                    cmd.Parameters.AddWithValue("@inIdProveedor", idProveedor);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
 
 
         // No actualizado
@@ -767,40 +1123,40 @@ namespace ProSalesManager._01_Data.Modules.Products
                 return oList;
             }
         }
-        public List<SizeModel> SizesLista(int idProducto)
-        {
-            var oList = new List<SizeModel>();
-            try
-            {
-                var cn = new DataConnection();
-                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
-                {
-                    conexion.Open();
-                    SqlCommand cmd = new SqlCommand("SP_Select_AllSizes", conexion);
-                    cmd.Parameters.AddWithValue("@intIdProducto", idProducto);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    using (var dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            oList.Add(new SizeModel()
-                            {
-                                idSize = Convert.ToInt32(dr["idSize"]),
-                                idProducto = Convert.ToInt32(dr["idProducto"]),
-                                descripcion = dr["descripcion"].ToString(),
-                                Activo = Convert.ToBoolean(dr["Activo"])
-                            });
-                        }
-                    }
-                }
-                return oList;
-            }
-            catch (Exception ex)
-            {
-                ErrorResult.ErrorMessage = ex.Message;
-                return oList;
-            }
-        }
+        //public List<SizeModel> SizesLista(int idProducto)
+        //{
+        //    var oList = new List<SizeModel>();
+        //    try
+        //    {
+        //        var cn = new DataConnection();
+        //        using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+        //        {
+        //            conexion.Open();
+        //            SqlCommand cmd = new SqlCommand("SP_Select_AllSizes", conexion);
+        //            cmd.Parameters.AddWithValue("@intIdProducto", idProducto);
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            using (var dr = cmd.ExecuteReader())
+        //            {
+        //                while (dr.Read())
+        //                {
+        //                    oList.Add(new SizeModel()
+        //                    {
+        //                        idSize = Convert.ToInt32(dr["idSize"]),
+        //                        idProducto = Convert.ToInt32(dr["idProducto"]),
+        //                        descripcion = dr["descripcion"].ToString(),
+        //                        Activo = Convert.ToBoolean(dr["Activo"])
+        //                    });
+        //                }
+        //            }
+        //        }
+        //        return oList;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorResult.ErrorMessage = ex.Message;
+        //        return oList;
+        //    }
+        //}
         public List<DescripcionModel> DescripcionesLista(int idProducto)
         {
             var oList = new List<DescripcionModel>();
@@ -892,33 +1248,33 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
             return rpta;
         }
-        public bool UpdateSize(SizeModel oSizeModel)
-        {
-            bool rpta = false;
-            try
-            {
-                var cn = new DataConnection();
-                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
-                {
-                    conexion.Open();
-                    SqlCommand cmd = new SqlCommand("SP_Update_Size", conexion);
-                    cmd.Parameters.AddWithValue("@idSize", oSizeModel.idSize);
-                    cmd.Parameters.AddWithValue("@idProducto", oSizeModel.idProducto);
-                    cmd.Parameters.AddWithValue("@descripcion", oSizeModel.descripcion);
-                    cmd.Parameters.AddWithValue("@Activo", oSizeModel.Activo);
+        //public bool UpdateSize(SizeModel oSizeModel)
+        //{
+        //    bool rpta = false;
+        //    try
+        //    {
+        //        var cn = new DataConnection();
+        //        using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+        //        {
+        //            conexion.Open();
+        //            SqlCommand cmd = new SqlCommand("SP_Update_Size", conexion);
+        //            cmd.Parameters.AddWithValue("@idSize", oSizeModel.idSize);
+        //            cmd.Parameters.AddWithValue("@idProducto", oSizeModel.idProducto);
+        //            cmd.Parameters.AddWithValue("@descripcion", oSizeModel.descripcion);
+        //            cmd.Parameters.AddWithValue("@Activo", oSizeModel.Activo);
 
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.ExecuteNonQuery();
-                }
-                rpta = true;
-            }
-            catch (Exception ex)
-            {
-                ErrorResult.ErrorMessage = ex.Message;
-                return rpta;
-            }
-            return rpta;
-        }
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //        rpta = true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorResult.ErrorMessage = ex.Message;
+        //        return rpta;
+        //    }
+        //    return rpta;
+        //}
         public bool UpdateDescripcion(DescripcionModel oDescripcionModel)
         {
             bool rpta = false;
@@ -1033,32 +1389,32 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
             return rpta;
         }
-        public bool InsertSize(SizeModel oSizeModel)
-        {
-            bool rpta = false;
-            try
-            {
-                var cn = new DataConnection();
-                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
-                {
-                    conexion.Open();
-                    SqlCommand cmd = new SqlCommand("SP_Insert_Size", conexion);
-                    cmd.Parameters.AddWithValue("@idProducto", oSizeModel.idProducto);
-                    cmd.Parameters.AddWithValue("@descripcion", oSizeModel.descripcion);
-                    cmd.Parameters.AddWithValue("@Activo", oSizeModel.Activo);
+        //public bool InsertSize(SizeModel oSizeModel)
+        //{
+        //    bool rpta = false;
+        //    try
+        //    {
+        //        var cn = new DataConnection();
+        //        using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+        //        {
+        //            conexion.Open();
+        //            SqlCommand cmd = new SqlCommand("SP_Insert_Size", conexion);
+        //            cmd.Parameters.AddWithValue("@idProducto", oSizeModel.idProducto);
+        //            cmd.Parameters.AddWithValue("@descripcion", oSizeModel.descripcion);
+        //            cmd.Parameters.AddWithValue("@Activo", oSizeModel.Activo);
 
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.ExecuteNonQuery();
-                }
-                rpta = true;
-            }
-            catch (Exception ex)
-            {
-                ErrorResult.ErrorMessage = ex.Message;
-                return rpta;
-            }
-            return rpta;
-        }
+        //            cmd.CommandType = CommandType.StoredProcedure;
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //        rpta = true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorResult.ErrorMessage = ex.Message;
+        //        return rpta;
+        //    }
+        //    return rpta;
+        //}
         public bool InsertDescripcion(DescripcionModel oDescripcionModel)
         {
             bool rpta = false;

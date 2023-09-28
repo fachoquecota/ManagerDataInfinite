@@ -50,5 +50,19 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         //Imagen
         List<CrudImagenModel> ImagenByIDCrud(int idProducto);
 
+
+
+        //SizeCrud
+        List<ColorModel> GetAllColors();
+        bool InsertColor(ColorModel colorModel);
+        bool UpdateColor(ColorModel colorModel);
+        bool DeleteColor(int idColor);
+
+        //ProvedorCrud
+        List<ProveedorModel> GetProveedorByCorreo(string correo);
+        bool InsertProveedor(ProveedorModel proveedorModel);
+        bool UpdateProveedor(ProveedorModel proveedorModel);
+        bool DeleteProveedor(int idProveedor);
+
     }
 }
