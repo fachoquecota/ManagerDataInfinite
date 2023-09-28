@@ -8,7 +8,7 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         List<ProductoModel> ProductosLista(bool Activo);
         List<ImagenModel> ImagenesLista(int idProducto);
         List<TagModel> TagsLista(int idProducto);
-        List<SizeModel> SizesLista(int idProducto);
+        //List<SizeModel> SizesLista(int idProducto);
         List<DescripcionModel> DescripcionesLista(int idProducto);
         bool UpdateImagenes(ImagenModel oImagenModel);
         bool UpdateTag(TagModel oTagModel);
@@ -51,12 +51,16 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         List<CrudImagenModel> ImagenByIDCrud(int idProducto);
 
 
-
-        //SizeCrud
+        //ColorCrud
         List<ColorModel> GetAllColors();
         bool InsertColor(ColorModel colorModel);
         bool UpdateColor(ColorModel colorModel);
         bool DeleteColor(int idColor);
+
+
+        //SizeCrud
+        //List<SizeModel> SizesByIDCrud(int idProducto);
+        bool DeleteSize(int idSize);
 
         //ProvedorCrud
         List<ProveedorModel> GetProveedorByCorreo(string correo);

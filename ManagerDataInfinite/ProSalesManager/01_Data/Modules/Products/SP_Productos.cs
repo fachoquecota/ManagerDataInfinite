@@ -786,7 +786,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             return rpta;
         }
 
-        public bool DeleteColor(ColorModel oColorModel)
+        public bool DeleteColor(int idColor)
         {
             bool rpta = false;
             try
@@ -899,7 +899,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             return rpta;
         }
 
-        public bool DeleteSize(SizeModel oSizeModel)
+        public bool DeleteSize(int idSize)
         {
             bool rpta = false;
             try

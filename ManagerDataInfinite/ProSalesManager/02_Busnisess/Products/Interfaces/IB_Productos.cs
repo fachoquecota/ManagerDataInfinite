@@ -35,5 +35,22 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
 
         //Imagenes
         List<CrudImagenModel> ImagenByIDCrud(int idProducto);
+
+        //ColorCrud
+        List<ColorModel> GetAllColors();
+        bool InsertColor(ColorModel colorModel);
+        bool UpdateColor(ColorModel colorModel);
+        bool DeleteColor(int idColor);
+
+
+        //SizeCrud
+        //List<SizeModel> SizesByIDCrud(int idProducto);
+        bool DeleteSize(int idSize);
+
+        //ProvedorCrud
+        List<ProveedorModel> GetProveedorByCorreo(string correo);
+        bool InsertProveedor(ProveedorModel proveedorModel);
+        bool UpdateProveedor(ProveedorModel proveedorModel);
+        bool DeleteProveedor(int idProveedor);
     }
 }

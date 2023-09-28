@@ -159,5 +159,54 @@ namespace ProSalesManager._02_Busnisess.Products
             bool result = _sP_Products.InsertProducto(oProductoModel);
             return result;
         }
+
+        public List<ColorModel> GetAllColors()
+        {
+            return _sP_Products.GetAllColors();
+        }
+
+        public bool InsertColor(ColorModel colorModel)
+        {
+            return _sP_Products.InsertColor(colorModel);
+        }
+
+        public bool UpdateColor(ColorModel colorModel)
+        {
+            return _sP_Products.UpdateColor(colorModel);
+        }
+
+        public bool DeleteColor(int idColor)
+        {
+            return _sP_Products.DeleteColor(idColor);  // Asumiendo que idColor es una propiedad de ColorModel
+        }
+
+        // Implementación de métodos para Size
+
+        public bool DeleteSize(int idSize)
+        {
+            return _sP_Products.DeleteSize(idSize);  // Asumiendo que idSize es una propiedad de SizeModel
+        }
+
+        // Implementación de métodos para Proveedor
+
+        public List<ProveedorModel> GetProveedorByCorreo(string correo)
+        {
+            return _sP_Products.GetProveedorByCorreo(correo);
+        }
+
+        public bool InsertProveedor(ProveedorModel proveedorModel)
+        {
+            return _sP_Products.InsertProveedor(proveedorModel);
+        }
+
+        public bool UpdateProveedor(ProveedorModel proveedorModel)
+        {
+            return _sP_Products.UpdateProveedor(proveedorModel);
+        }
+
+        public bool DeleteProveedor(int idProveedor)
+        {
+            return _sP_Products.DeleteProveedor(idProveedor);
+        }
     }
 }
