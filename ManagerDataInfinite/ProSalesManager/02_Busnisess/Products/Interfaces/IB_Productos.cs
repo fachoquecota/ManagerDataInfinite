@@ -44,13 +44,15 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
 
 
         //SizeCrud
-        //List<SizeModel> SizesByIDCrud(int idProducto);
+        List<SizeModel> GetAllSizes();
         bool DeleteSize(int idSize);
+        bool UpdateSize(SizeModel sizeModel);
+        bool InsertSize(SizeModel sizeModel);
 
         //ProvedorCrud
-        List<ProveedorModel> GetProveedorByCorreo(string correo);
-        bool InsertProveedor(ProveedorModel proveedorModel);
-        bool UpdateProveedor(ProveedorModel proveedorModel);
+        List<ProveedoresModel> GetProveedorByCorreo(string correo);
+        bool InsertProveedor(ProveedoresModel proveedorModel);
+        bool UpdateProveedor(ProveedoresModel proveedorModel);
         bool DeleteProveedor(int idProveedor);
     }
 }

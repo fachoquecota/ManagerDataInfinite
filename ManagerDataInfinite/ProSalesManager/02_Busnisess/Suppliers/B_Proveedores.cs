@@ -1,6 +1,6 @@
 ﻿using ProSalesManager._01_Data.Modules.Supplier.Interfaces;
 using ProSalesManager._02_Busnisess.Suppliers.Interfaces;
-using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 
 namespace ProSalesManager._02_Busnisess.Suppliers
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProSalesManager._02_Busnisess.Suppliers.Interfaces;
-using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 using ProSalesManager._04_Services.Login.Interfaces;
 
 namespace ProSalesManager.Controllers
@@ -21,7 +21,7 @@ namespace ProSalesManager.Controllers
         [Route("GetProveedores")]
         public dynamic GetProducts()
         {
-            var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            var correoToken= HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
             var correo = _tokenService.GetCorreoFromToken(correoToken);
             var result = _Proveedores.Proveedores(correo);
 

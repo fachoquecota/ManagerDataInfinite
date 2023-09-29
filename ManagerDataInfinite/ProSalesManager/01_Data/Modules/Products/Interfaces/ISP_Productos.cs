@@ -12,12 +12,12 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         List<DescripcionModel> DescripcionesLista(int idProducto);
         bool UpdateImagenes(ImagenModel oImagenModel);
         bool UpdateTag(TagModel oTagModel);
-        bool UpdateSize(SizeModel oSizeModel);
+        
         bool UpdateDescripcion(DescripcionModel oDescripcionModel);
         bool InsertProducto(ProductoModel oProductoModel);
         bool InsertImagenes(ImagenModel oImagenModel);
         bool InsertTag(TagModel oTagModel);
-        bool InsertSize(SizeModel oSizeModel);
+        
         bool InsertDescripcion(DescripcionModel oDescripcionModel);
 
 
@@ -60,12 +60,15 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
 
         //SizeCrud
         //List<SizeModel> SizesByIDCrud(int idProducto);
+        List<SizeModel> GetAllSizes();
         bool DeleteSize(int idSize);
+        bool UpdateSize(SizeModel oSizeModel);
+        bool InsertSize(SizeModel oSizeModel);
 
         //ProvedorCrud
-        List<ProveedorModel> GetProveedorByCorreo(string correo);
-        bool InsertProveedor(ProveedorModel proveedorModel);
-        bool UpdateProveedor(ProveedorModel proveedorModel);
+        List<ProveedoresModel> GetProveedorByCorreo(string correo);
+        bool InsertProveedor(ProveedoresModel proveedorModel);
+        bool UpdateProveedor(ProveedoresModel proveedorModel);
         bool DeleteProveedor(int idProveedor);
 
     }

@@ -1,6 +1,7 @@
 ﻿using ProSalesManager._01_Data.Connection;
 using ProSalesManager._01_Data.Modules.Supplier.Interfaces;
 using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 using ProSalesManager._03_Models.ReservedModels;
 using System.Data;
 using System.Data.SqlClient;
@@ -35,9 +36,9 @@ namespace ProSalesManager._01_Data.Modules.Supplier
                                 contacto = dr["contacto"].ToString(),
                                 telefono = dr["telefono"].ToString(),
                                 direccion = dr["direccion"].ToString(),
-                                fecha = dr["fecha"].ToString(),
-                                horaCreacion = dr["horaCreacion"].ToString(),
-                                horaActualizacion = dr["horaActualizacion"].ToString(),
+                                fecha = Convert.ToDateTime(dr["fecha"]),
+                                horaCreacion = Convert.ToDateTime(dr["horaCreacion"]),
+                                horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
                                 idEmpresa = Convert.ToInt32(dr["idEmpresa"])
                             });
                         }

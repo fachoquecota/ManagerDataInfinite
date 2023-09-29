@@ -796,7 +796,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Delete_Color", conexion);
-                    cmd.Parameters.AddWithValue("@idColor", oColorModel.IdColor);
+                    cmd.Parameters.AddWithValue("@idColor", idColor);
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -909,7 +909,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Delete_Size", conexion);
-                    cmd.Parameters.AddWithValue("@idSize", oSizeModel.IdSize);
+                    cmd.Parameters.AddWithValue("@idSize", idSize);
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -925,9 +925,9 @@ namespace ProSalesManager._01_Data.Modules.Products
         }
 
         //ProvedoresCrud
-        public List<ProveedorModel> GetProveedorByCorreo(string correo)
+        public List<ProveedoresModel> GetProveedorByCorreo(string correo)
         {
-            var oList = new List<ProveedorModel>();
+            var oList = new List<ProveedoresModel>();
             try
             {
                 var cn = new DataConnection();
@@ -942,17 +942,17 @@ namespace ProSalesManager._01_Data.Modules.Products
                     {
                         while (dr.Read())
                         {
-                            oList.Add(new ProveedorModel()
+                            oList.Add(new ProveedoresModel()
                             {
-                                IdProveedor = Convert.ToInt32(dr["idProveedor"]),
-                                Proveedor = dr["proveedor"].ToString(),
-                                Contacto = dr["contacto"].ToString(),
-                                Telefono = dr["telefono"].ToString(),
-                                Direccion = dr["direccion"].ToString(),
-                                Fecha = Convert.ToDateTime(dr["fecha"]),
-                                HoraCreacion = Convert.ToDateTime(dr["horaCreacion"]),
-                                HoraActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
-                                IdEmpresa = Convert.ToInt32(dr["idEmpresa"])
+                                idProveedor = Convert.ToInt32(dr["idProveedor"]),
+                                proveedor = dr["proveedor"].ToString(),
+                                contacto = dr["contacto"].ToString(),
+                                telefono = dr["telefono"].ToString(),
+                                direccion = dr["direccion"].ToString(),
+                                fecha = Convert.ToDateTime(dr["fecha"]),
+                                horaCreacion = Convert.ToDateTime(dr["horaCreacion"]),
+                                horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
+                                idEmpresa = Convert.ToInt32(dr["idEmpresa"])
                             });
                         }
                     }
@@ -966,7 +966,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
         }
 
-        public bool InsertProveedor(ProveedorModel oProveedorModel)
+        public bool InsertProveedor(ProveedoresModel oProveedorModel)
         {
             bool rpta = false;
             try
@@ -976,12 +976,12 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Insert_Proveedores", conexion);
-                    cmd.Parameters.AddWithValue("@vcProveedor", oProveedorModel.Proveedor);
-                    cmd.Parameters.AddWithValue("@vcContacto", oProveedorModel.Contacto);
-                    cmd.Parameters.AddWithValue("@vcTelefono", oProveedorModel.Telefono);
-                    cmd.Parameters.AddWithValue("@vcDireccion", oProveedorModel.Direccion);
-                    cmd.Parameters.AddWithValue("@dtFecha", oProveedorModel.Fecha);
-                    cmd.Parameters.AddWithValue("@inIdEmpresa", oProveedorModel.IdEmpresa);
+                    cmd.Parameters.AddWithValue("@vcProveedor", oProveedorModel.proveedor);
+                    cmd.Parameters.AddWithValue("@vcContacto", oProveedorModel.contacto);
+                    cmd.Parameters.AddWithValue("@vcTelefono", oProveedorModel.telefono);
+                    cmd.Parameters.AddWithValue("@vcDireccion", oProveedorModel.direccion);
+                    cmd.Parameters.AddWithValue("@dtFecha", oProveedorModel.fecha);
+                    cmd.Parameters.AddWithValue("@inIdEmpresa", oProveedorModel.idEmpresa);
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
@@ -996,7 +996,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             return rpta;
         }
 
-        public bool UpdateProveedor(ProveedorModel oProveedorModel)
+        public bool UpdateProveedor(ProveedoresModel oProveedorModel)
         {
             bool rpta = false;
             try
@@ -1006,13 +1006,13 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Update_Proveedores", conexion);
-                    cmd.Parameters.AddWithValue("@inIdProveedor", oProveedorModel.IdProveedor);
-                    cmd.Parameters.AddWithValue("@vcProveedor", oProveedorModel.Proveedor);
-                    cmd.Parameters.AddWithValue("@vcContacto", oProveedorModel.Contacto);
-                    cmd.Parameters.AddWithValue("@vcTelefono", oProveedorModel.Telefono);
-                    cmd.Parameters.AddWithValue("@vcDireccion", oProveedorModel.Direccion);
-                    cmd.Parameters.AddWithValue("@dtFecha", oProveedorModel.Fecha);
-                    cmd.Parameters.AddWithValue("@inIdEmpresa", oProveedorModel.IdEmpresa);
+                    cmd.Parameters.AddWithValue("@inIdProveedor", oProveedorModel.idProveedor);
+                    cmd.Parameters.AddWithValue("@vcProveedor", oProveedorModel.proveedor);
+                    cmd.Parameters.AddWithValue("@vcContacto", oProveedorModel.contacto);
+                    cmd.Parameters.AddWithValue("@vcTelefono", oProveedorModel.telefono);
+                    cmd.Parameters.AddWithValue("@vcDireccion", oProveedorModel.direccion);
+                    cmd.Parameters.AddWithValue("@dtFecha", oProveedorModel.fecha);
+                    cmd.Parameters.AddWithValue("@inIdEmpresa", oProveedorModel.idEmpresa);
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();

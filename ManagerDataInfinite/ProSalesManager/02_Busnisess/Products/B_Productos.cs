@@ -181,25 +181,35 @@ namespace ProSalesManager._02_Busnisess.Products
         }
 
         // Implementación de métodos para Size
-
+        public List<SizeModel> GetAllSizes()
+        {
+            return _sP_Products.GetAllSizes();
+        }
         public bool DeleteSize(int idSize)
         {
-            return _sP_Products.DeleteSize(idSize);  // Asumiendo que idSize es una propiedad de SizeModel
+            return _sP_Products.DeleteSize(idSize);  
         }
-
+        public bool UpdateSize(SizeModel sizeModel)
+        {
+            return _sP_Products.UpdateSize(sizeModel);
+        }
+        public bool InsertSize(SizeModel sizeModel)
+        {
+            return _sP_Products.InsertSize(sizeModel);
+        }
         // Implementación de métodos para Proveedor
 
-        public List<ProveedorModel> GetProveedorByCorreo(string correo)
+        public List<ProveedoresModel> GetProveedorByCorreo(string correo)
         {
             return _sP_Products.GetProveedorByCorreo(correo);
         }
 
-        public bool InsertProveedor(ProveedorModel proveedorModel)
+        public bool InsertProveedor(ProveedoresModel proveedorModel)
         {
             return _sP_Products.InsertProveedor(proveedorModel);
         }
 
-        public bool UpdateProveedor(ProveedorModel proveedorModel)
+        public bool UpdateProveedor(ProveedoresModel proveedorModel)
         {
             return _sP_Products.UpdateProveedor(proveedorModel);
         }

@@ -1,4 +1,5 @@
 ﻿using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 
 namespace ProSalesManager._01_Data.Modules.Supplier.Interfaces
 {
