@@ -43,7 +43,7 @@ namespace ProSalesManager.Controllers
             return new
             {
                 //message = jwtToken
-                products = result
+                Size = result
             };
         }
         [HttpPut]
@@ -58,7 +58,7 @@ namespace ProSalesManager.Controllers
             return new
             {
                 //message = jwtToken
-                products = result
+                Size = result
             };
         }
         [HttpDelete]
@@ -73,7 +73,7 @@ namespace ProSalesManager.Controllers
             return new
             {
                 //message = jwtToken
-                products = result
+                Size = result
             };
         }
     }
