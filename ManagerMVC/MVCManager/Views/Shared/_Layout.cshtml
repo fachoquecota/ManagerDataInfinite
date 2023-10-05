@@ -116,11 +116,10 @@
 
             const spinner = document.getElementById('spinner');
 
-            const linksWithSpinners = ['inicioLink', 'productosLink', 'privacidadLink','sizeLink','colorLink','ventaLink'];
+            const linksWithSpinners = ['inicioLink', 'productosLink', 'sizeLink','colorLink','ventaLink'];
 
             linksWithSpinners.forEach(id => {
                 const link = document.getElementById(id);
-
                 link.addEventListener('click', function(event) {
                     spinner.classList.remove('hidden');
                 });

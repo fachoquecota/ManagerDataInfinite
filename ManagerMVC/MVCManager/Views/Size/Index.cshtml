@@ -146,7 +146,7 @@
                         </td>
                         <td class="px-2 py-2 actions">
                             <button class="text-blue-500 hover:text-blue-700 edit-btn">Edit</button>
-                            <button class="text-red-500 hover:text-red-700">Delete</button>
+                            <button class="text-red-500 hover:text-red-700 delete-btn" data-id="@size.idSize">Delete</button>
                         </td>
                     </tr>
                 }
@@ -182,9 +182,70 @@
     </div>
 </div>
 
+<div id="editModal" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center">
+    <div class="bg-white w-1/3 rounded-lg shadow-lg p-4">
+        <h2 class="text-lg font-bold mb-4">Editar Registro</h2>
+        <form id="editForm" method="post" action="/Size/Update">
+            <input type="hidden" name="idSize" id="editIdSize">
+            <div class="mb-4">
+                <label for="editDescription" class="block text-sm font-bold mb-2">Descripción:</label>
+                <input type="text" id="editDescription" name="descripcion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4 flex justify-start items-center">
+                <label class="block text-sm font-bold mr-2">Active:</label>
+                <label class="switch">
+                    <input type="checkbox" id="editActive" name="activo" value="true">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="flex justify-end">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Guardar</button>
+                <button type="button" id="closeEditModal" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="deleteModal" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center">
+    <div class="bg-white w-1/3 rounded-lg shadow-lg p-4">
+        <h2 class="text-lg font-bold mb-4">Confirmar eliminación</h2>
+        <p>¿Estás seguro de que deseas eliminar este registro?</p>
+        <form id="deleteForm" method="post" action="/Size/Delete">
+            <input type="hidden" name="idSize" id="deleteIdSize">
+            <div class="flex justify-end mt-4">
+                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2">Eliminar</button>
+                <button type="button" id="cancelDelete" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 
- <script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        bindEditEvent();
+        bindDeleteEvent();
+
+        // Cerrar notificaciones después de 5 segundos
+        setTimeout(function() {
+            var notifications = document.querySelectorAll('.notification');
+            notifications.forEach(function(notification) {
+                notification.style.display = 'none';
+            });
+        }, 5000);
+
+        // Cerrar notificación manualmente
+        var closeButtons = document.querySelectorAll('.close-notification');
+        closeButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                this.parentElement.style.display = 'none';
+            });
+        });
+
+        document.getElementById('closeEditModal').addEventListener('click', function() {
+            document.getElementById('editModal').classList.add('hidden');
+        });
+    });
+
     function openModal() {
         document.getElementById('myModal').style.display = 'block';
     }
@@ -192,242 +253,71 @@
     function closeModal() {
         document.getElementById('myModal').style.display = 'none';
     }
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    bindEditEvent();
 
-    // Cerrar notificaciones después de 5 segundos
-    setTimeout(function() {
-        var notifications = document.querySelectorAll('.notification');
-        notifications.forEach(function(notification) {
-            notification.style.display = 'none';
+    function bindEditEvent() {
+        var editButtons = document.querySelectorAll('.edit-btn');
+        editButtons.forEach(function(button) {
+            button.removeEventListener('click', handleEditClick); // Eliminar el evento anterior para evitar duplicados
+            button.addEventListener('click', handleEditClick);
         });
-    }, 5000);
-
-    // Cerrar notificación manualmente
-    var closeButtons = document.querySelectorAll('.close-notification');
-    closeButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            this.parentElement.style.display = 'none';
-        });
-    });
-});
-
-function openModal() {
-    document.getElementById('myModal').style.display = 'block';
-}
-
-function closeModal() {
-    document.getElementById('myModal').style.display = 'none';
-}
-
-function bindEditEvent() {
-    var editButtons = document.querySelectorAll('.edit-btn');
-    editButtons.forEach(function(button) {
-        button.removeEventListener('click', handleEditClick); // Eliminar el evento anterior para evitar duplicados
-        button.addEventListener('click', handleEditClick);
-    });
-}
-
-function handleEditClick() {
-        console.log("Función handleEditClick ejecutada");
-
-     var row = this.closest('tr');
-    
-    if (!row) {
-        console.error('No se encontró el elemento <tr> más cercano.');
-        return;
     }
 
-    var descriptionCell = row.querySelector('.description');
-    var activeCell = row.querySelector('.active');
-    var actionsCell = row.querySelector('.actions');
-
-    // Capturar el valor original del checkbox
-    var originalCheckboxValue = activeCell.querySelector('input[type="checkbox"]').checked;
-
-    // Convertir la descripción en un campo de texto
-    var currentDescription = descriptionCell.textContent;
-    descriptionCell.innerHTML = `<input type="text" value="${currentDescription}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">`;
-
-    // Hacer que el checkbox sea editable
-    var checkbox = activeCell.querySelector('input[type="checkbox"]');
-    checkbox.removeAttribute('disabled');
-
-    // Cambiar los botones a "Guardar" y "Cancelar"
-    actionsCell.innerHTML = `
-        <button class="text-green-500 hover:text-green-700 save-btn">Save</button>
-        <button class="text-gray-500 hover:text-gray-700 cancel-btn">Cancel</button>
-    `;
-
-    // Evento para el botón "Guardar"
-    var saveButton = actionsCell.querySelector('.save-btn');
-    saveButton.addEventListener('click', function() {
-    // Aquí el código para guardar los cambios
-    var form = document.createElement('form');
-    form.method = 'post';
-    form.action = '/Size/Update';
-
-    var idSizeInput = document.createElement('input');
-    idSizeInput.type = 'hidden';
-    idSizeInput.name = 'idSize';
-    idSizeInput.value = row.getAttribute('data-id');
-    form.appendChild(idSizeInput);
-
-    var descriptionInput = document.createElement('input');
-    descriptionInput.type = 'hidden';
-    descriptionInput.name = 'descripcion';
-    descriptionInput.value = descriptionCell.querySelector('input').value;
-    form.appendChild(descriptionInput);
-
-    var activeInput = document.createElement('input');
-    activeInput.type = 'hidden';
-    activeInput.name = 'activo';
-    activeInput.value = checkbox.checked;
-    form.appendChild(activeInput);
-
-    document.body.appendChild(form);
-    form.submit();
-
- // Restaurar la fila a su estado original después de guardar
-        descriptionCell.textContent = descriptionCell.querySelector('input').value;
-        checkbox.setAttribute('disabled', 'disabled');
-        actionsCell.innerHTML = `
-            <button class="text-blue-500 hover:text-blue-700 edit-btn">Edit</button>
-            <button class="text-red-500 hover:text-red-700">Delete</button>
-        `;
-
-        bindEditEvent(); // Vuelve a vincular el evento de edición
-});
-
-// Evento para el botón "Cancelar"
-    var cancelButton = actionsCell.querySelector('.cancel-btn');
-    cancelButton.addEventListener('click', function() {
-        // Restaurar la fila a su estado original
-        descriptionCell.textContent = currentDescription;
-        console.log("Por imprimir originalCheckboxValue");
-        console.log(originalCheckboxValue);
-        checkbox.checked = originalCheckboxValue; // Restaurar el valor original del checkbox
-        checkbox.setAttribute('disabled', 'disabled');
-        actionsCell.innerHTML = `
-            <button class="text-blue-500 hover:text-blue-700 edit-btn">Edit</button>
-            <button class="text-red-500 hover:text-red-700">Delete</button>
-        `;
-
-        bindEditEvent(); // Vuelve a vincular el evento de edición
-    });
-}
-
-
-
-
-</script>
-<script>
-   document.addEventListener("DOMContentLoaded", function() {
-    bindEditEvent();
-
-    // Cerrar notificaciones después de 5 segundos
-    setTimeout(function() {
-        var notifications = document.querySelectorAll('.notification');
-        notifications.forEach(function(notification) {
-            notification.style.display = 'none';
-        });
-    }, 5000);
-
-    // Cerrar notificación manualmente
-    var closeButtons = document.querySelectorAll('.close-notification');
-    closeButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            this.parentElement.style.display = 'none';
-        });
-    });
-});
-
-function openModal() {
-    document.getElementById('myModal').style.display = 'block';
-}
-
-function closeModal() {
-    document.getElementById('myModal').style.display = 'none';
-}
-
-function bindEditEvent() {
-    var editButtons = document.querySelectorAll('.edit-btn');
-    editButtons.forEach(function(button) {
-        button.removeEventListener('click', handleEditClick); // Eliminar el evento anterior para evitar duplicados
-        button.addEventListener('click', handleEditClick);
-    });
-}
-
-function handleEditClick() {
-    var row = this.closest('tr');
+    function handleEditClick() {
+        var row = this.closest('tr');
     
-    if (!row) {
-        console.error('No se encontró el elemento <tr> más cercano.');
-        return;
+        if (!row) {
+            console.error('No se encontró el elemento <tr> más cercano.');
+            return;
+        }
+
+        var descriptionCell = row.querySelector('.description');
+        var activeCell = row.querySelector('.active');
+
+        var currentDescription = descriptionCell.textContent;
+        var currentActive = activeCell.querySelector('input[type="checkbox"]').checked;
+        console.log(currentActive);
+        var currentId = row.getAttribute('data-id');
+
+        // Llenar el modal con los valores actuales
+        document.getElementById('editDescription').value = currentDescription;
+        document.getElementById('editActive').checked = currentActive;
+        document.getElementById('editIdSize').value = currentId;
+
+        console.log(document.getElementById('editActive').checked);
+
+        // Mostrar el modal
+        document.getElementById('editModal').classList.remove('hidden');
+
+        // Adjuntar el evento onsubmit solo si no se ha adjuntado previamente
+        var editForm = document.getElementById('editForm');
+        if (!editForm.dataset.eventAttached) {
+            editForm.onsubmit = function() {
+                var checkbox = document.getElementById('editActive');
+                checkbox.value = checkbox.checked ? "true" : "false";
+            };
+            editForm.dataset.eventAttached = "true";
+        }
     }
 
-    var descriptionCell = row.querySelector('.description');
-    var activeCell = row.querySelector('.active');
-    var actionsCell = row.querySelector('.actions');
+    function bindDeleteEvent() {
+        var deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var idSize = this.getAttribute('data-id');
+            
+                // Establecer el valor del campo oculto con el id del registro
+                document.getElementById('deleteIdSize').value = idSize;
+            
+                // Mostrar el modal
+                document.getElementById('deleteModal').classList.remove('hidden');
+            });
+        });
+    }
 
-    // Convertir la descripción en un campo de texto
-    var currentDescription = descriptionCell.textContent;
-    descriptionCell.innerHTML = `<input type="text" value="${currentDescription}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">`;
-
-    // Hacer que el checkbox sea editable
-    var checkbox = activeCell.querySelector('input[type="checkbox"]');
-    checkbox.removeAttribute('disabled');
-
-    // Cambiar los botones a "Guardar" y "Cancelar"
-    actionsCell.innerHTML = `
-        <button class="text-green-500 hover:text-green-700 save-btn">Save</button>
-        <button class="text-gray-500 hover:text-gray-700 cancel-btn">Cancel</button>
-    `;
-
-    // Evento para el botón "Guardar"
-    var saveButton = actionsCell.querySelector('.save-btn');
-    saveButton.addEventListener('click', function() {
-        var form = document.createElement('form');
-        form.method = 'post';
-        form.action = '/Size/Update';
-
-        var idSizeInput = document.createElement('input');
-        idSizeInput.type = 'hidden';
-        idSizeInput.name = 'idSize';
-        idSizeInput.value = row.getAttribute('data-id');
-        form.appendChild(idSizeInput);
-
-        var descriptionInput = document.createElement('input');
-        descriptionInput.type = 'hidden';
-        descriptionInput.name = 'descripcion';
-        descriptionInput.value = descriptionCell.querySelector('input').value;
-        form.appendChild(descriptionInput);
-
-        var activeInput = document.createElement('input');
-        activeInput.type = 'hidden';
-        activeInput.name = 'activo';
-        activeInput.value = checkbox.checked;
-        form.appendChild(activeInput);
-
-        document.body.appendChild(form);
-        form.submit();
+   // Evento para el botón "Cancelar" dentro del modal
+    document.getElementById('cancelDelete').addEventListener('click', function() {
+        // Ocultar el modal
+        document.getElementById('deleteModal').classList.add('hidden');
     });
-
-    // Evento para el botón "Cancelar"
-    var cancelButton = actionsCell.querySelector('.cancel-btn');
-    cancelButton.addEventListener('click', function() {
-        // Restaurar la fila a su estado original
-        descriptionCell.textContent = currentDescription;
-        checkbox.setAttribute('disabled', 'disabled');
-        actionsCell.innerHTML = `
-            <button class="text-blue-500 hover:text-blue-700 edit-btn">Edit</button>
-            <button class="text-red-500 hover:text-red-700">Delete</button>
-        `;
-
-        bindEditEvent(); // Vuelve a vincular el evento de edición
-    });
-}
 
 </script>

@@ -61,7 +61,22 @@ namespace MVCManager.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public async Task<IActionResult> Delete(int idSize)
+        {
+            var response = await _httpClient.DeleteAsync($"http://localhost:5172/api/Size/DeleteSize?idSize={idSize}");
 
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["SuccessMessage"] = "Size deleted successfully!";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Failed to delete size. Please try again.";
+            }
+
+            return RedirectToAction("Index");
+        }
 
     }
 }
