@@ -50,7 +50,7 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
         bool InsertSize(SizeModel sizeModel);
 
         //ProvedorCrud
-        List<ProveedoresModel> GetProveedorByCorreo(string correo);
+        List<ProveedoresModel> GetAllProveedores();
         bool InsertProveedor(ProveedoresModel proveedorModel);
         bool UpdateProveedor(ProveedoresModel proveedorModel);
         bool DeleteProveedor(int idProveedor);

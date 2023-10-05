@@ -199,9 +199,9 @@ namespace ProSalesManager._02_Busnisess.Products
         }
         // Implementación de métodos para Proveedor
 
-        public List<ProveedoresModel> GetProveedorByCorreo(string correo)
+        public List<ProveedoresModel> GetAllProveedores()
         {
-            return _sP_Products.GetProveedorByCorreo(correo);
+            return _sP_Products.GetAllProveedores();
         }
 
         public bool InsertProveedor(ProveedoresModel proveedorModel)

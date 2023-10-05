@@ -66,7 +66,8 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         bool InsertSize(SizeModel oSizeModel);
 
         //ProvedorCrud
-        List<ProveedoresModel> GetProveedorByCorreo(string correo);
+        //List<ProveedoresModel> GetProveedorByCorreo();
+        List<ProveedoresModel> GetAllProveedores();
         bool InsertProveedor(ProveedoresModel proveedorModel);
         bool UpdateProveedor(ProveedoresModel proveedorModel);
         bool DeleteProveedor(int idProveedor);

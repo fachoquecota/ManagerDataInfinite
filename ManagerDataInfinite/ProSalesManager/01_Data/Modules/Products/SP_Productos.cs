@@ -924,8 +924,9 @@ namespace ProSalesManager._01_Data.Modules.Products
             return rpta;
         }
 
-        //ProvedoresCrud
-        public List<ProveedoresModel> GetProveedorByCorreo(string correo)
+
+        //ProveedorCrud
+        public List<ProveedoresModel> GetAllProveedores()
         {
             var oList = new List<ProveedoresModel>();
             try
@@ -935,7 +936,6 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Select_Proveedores", conexion);
-                    cmd.Parameters.AddWithValue("@vcCorreo", correo);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     using (var dr = cmd.ExecuteReader())
@@ -951,8 +951,8 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 direccion = dr["direccion"].ToString(),
                                 fecha = Convert.ToDateTime(dr["fecha"]),
                                 horaCreacion = Convert.ToDateTime(dr["horaCreacion"]),
-                                horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
-                                idEmpresa = Convert.ToInt32(dr["idEmpresa"])
+                                horaActualizacion= Convert.ToDateTime(dr["horaActualizacion"]),
+                                idEmpresa= Convert.ToInt32(dr["idEmpresa"]),
                             });
                         }
                     }
