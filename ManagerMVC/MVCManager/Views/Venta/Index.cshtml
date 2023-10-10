@@ -38,6 +38,7 @@
                             <tr>
                                 <th class="px-2 py-2">Producto</th>
                                 <th class="px-2 py-2">Cantidad</th>
+                                <th class="px-2 py-2">Costo</th>
                                 <th class="px-2 py-2">Precio</th>
                                 <th class="px-2 py-2">Acciones</th>
                             </tr>
@@ -53,57 +54,101 @@
         </div>
 
         <!-- Tarjeta de Lista de Productos -->
-        <div class="w-full md:w-1/2 px-2 mb-4">
-            <div class="p-4 bg-white rounded-lg shadow-md">
-                <h2 class="text-xl font-semibold mb-4 text-blue-500">Lista de Productos</h2>
+<!-- Tarjeta de Lista de Productos -->
+<div class="w-full md:w-1/2 px-2 mb-4">
+    <div class="p-4 bg-white rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-4 text-blue-500">Lista de Productos</h2>
 
-                <!-- Sección de Búsqueda de Productos -->
-                <div class="mb-4">
-                    <label for="buscarProducto" class="block text-sm font-medium text-gray-600">Buscar Producto:</label>
-                    <input type="text" id="buscarProducto" name="buscarProducto" placeholder="Ingrese nombre del producto" class="mt-1 p-2 w-full rounded-md border shadow-sm">
-                </div>
-
-                <!-- Lista de Productos -->
-                <div class="mb-4">
-                    <table id="tablaProductos" class="min-w-full divide-y divide-gray-200 text-center">
-                        <thead>
-                            <tr>
-                                <th class="px-2 py-2">Producto</th>
-                                <th class="px-2 py-2">Precio</th>
-                                <th class="px-2 py-2">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="px-2 py-2">Producto 1</td>
-                                <td class="px-2 py-2">$10.00</td>
-                                <td class="px-2 py-2">
-                                    <button class="text-blue-500 hover:text-blue-700">Seleccionar</button>
-                                </td>
-                            </tr>
-                            <!-- Más productos serán añadidos aquí -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <!-- Sección de Búsqueda de Productos -->
+        <div class="mb-4">
+            <label for="buscarProducto" class="block text-sm font-medium text-gray-600">Buscar Producto:</label>
+            <input type="text" id="buscarProducto" name="buscarProducto" placeholder="Ingrese nombre del producto" class="mt-1 p-2 w-full rounded-md border shadow-sm">
         </div>
+
+        <!-- Matriz de Productos -->
+        <div id="productosGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+            <!-- Ejemplo de producto -->
+            @for (int i = 1; i <= 10; i++)
+            {
+                <div class="producto bg-white p-3 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                    <div class="relative mb-3">
+                        <img src="./Images/ProductoPrincipal/3/PO-A452.jpg" alt="Producto @(i)" class="w-24 h-24 object-cover rounded-md mx-auto">
+                    </div>
+                    <h3 class="text-center text-md mb-2">Producto @(i)</h3>
+                    <p class="text-center text-sm mb-3">$10.00</p>
+                    <button class="text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
+                </div>
+            }
+        </div>
+
+        <!-- Paginación -->
+        <div class="flex justify-center mt-4">
+            <button id="prevPage" class="bg-blue-500 text-white px-4 py-2 rounded-l-md">Anterior</button>
+            <button id="nextPage" class="bg-blue-500 text-white px-4 py-2 rounded-r-md">Siguiente</button>
+        </div>
+    </div>
+</div>
+
     </div>
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const tablaProductos = document.getElementById("tablaProductos");
-        const tablaProductosSeleccionados = document.getElementById("tablaProductosSeleccionados");
-        const contadorProductos = document.getElementById("contadorProductos");
-        let count = 0;
+    const productosGrid = document.getElementById("productosGrid");
+    const tablaProductosSeleccionados = document.getElementById("tablaProductosSeleccionados");
+    const contadorProductos = document.getElementById("contadorProductos");
+    let count = 0;
 
-        tablaProductos.addEventListener("click", (e) => {
+    productosGrid.addEventListener("click", (e) => {
             if (e.target.tagName === "BUTTON") {
-                const row = e.target.closest("tr");
-                tablaProductosSeleccionados.querySelector("tbody").appendChild(row.cloneNode(true));
+                const producto = e.target.closest(".producto");
+                const nombreProducto = producto.querySelector("h3").textContent;
+                const precioProducto = producto.querySelector("p").textContent;
+
+                const newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                    <td class="px-2 py-2">${nombreProducto}</td>
+                    <td class="px-2 py-2"><input type="number" value="1" min="1" class="w-16 border rounded p-1"></td>
+                    <td class="px-2 py-2"><input type="text" value="$0.00" class="w-20 border rounded p-1"></td>
+                    <td class="px-2 py-2"><input type="text" value="${precioProducto}" class="w-20 border rounded p-1"></td>
+                    <td class="px-2 py-2"><button class="text-red-500 hover:text-red-700">Eliminar</button></td>
+                `;
+
+
+                tablaProductosSeleccionados.querySelector("tbody").appendChild(newRow);
                 count++;
                 contadorProductos.textContent = count;
             }
         });
     });
+
+    // ... (resto del código de paginación)
+
+
+    // Para la paginación y matriz de productos
+    let currentPage = 1;
+    const itemsPerPage = 8; // Ajusta según cuántos productos quieras por página
+
+    function renderProductsPage(page) {
+        // Aquí, deberías filtrar tus productos según la página y renderizarlos en #productosGrid
+        // Por simplicidad, no lo estoy haciendo en este ejemplo, pero puedes usar slice() para obtener un subconjunto de productos y luego renderizarlos.
+    }
+
+    document.getElementById("prevPage").addEventListener("click", function() {
+        if (currentPage > 1) {
+            currentPage--;
+            renderProductsPage(currentPage);
+        }
+    });
+
+    document.getElementById("nextPage").addEventListener("click", function() {
+        // Asume que tienes una variable totalProducts que contiene el total de productos
+        if (currentPage < Math.ceil(totalProducts / itemsPerPage)) {
+            currentPage++;
+            renderProductsPage(currentPage);
+        }
+    });
+
+    // Renderiza la primera página al cargar
+    renderProductsPage(1);
 </script>

@@ -21,8 +21,12 @@ namespace MVCManager.Controllers
             using var responseStream = await response.Content.ReadAsStreamAsync();
             var sizeResponse = await JsonSerializer.DeserializeAsync<SizeResponse>(responseStream);
 
-            return View(sizeResponse.products);
+            // Ordena la lista en forma descendente según el idSize
+            var orderedSizes = sizeResponse.products.OrderByDescending(s => s.idSize).ToList();
+
+            return View(orderedSizes);
         }
+
         [HttpPost]
         public async Task<IActionResult> Create(Size size)
         {

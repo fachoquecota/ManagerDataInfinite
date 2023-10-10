@@ -82,7 +82,7 @@
         <div id="modalContent">
             <div id="tab1" class="tab-content active">
                 <!-- Aquí va el contenido del Tab 1 (el contenido original del modal) -->
-<form id="editForm" class="flex flex-col md:flex-row flex-wrap -mx-2">
+            <form id="editForm" class="flex flex-col md:flex-row flex-wrap -mx-2">
                 <!-- Columna 1 -->
                 <div class="w-1/2 px-2 mb-4">
                     <label for="producto" class="block text-sm font-medium text-gray-600">Producto</label>
@@ -272,9 +272,6 @@
     </div>
 </div>
 
-
-
-
 <style>
 .tab-button {
     cursor: pointer;
@@ -363,11 +360,7 @@
 .switch-input:checked + .slider:before {
     content: "ON";
 }
-
-
 </style>
-
-
 
 <!-- Paginación -->
 <div class="mt-4">
@@ -376,6 +369,9 @@
         <a href="@Url.Action("Index", "Productos", new { pagina = i })" class="@(i == paginaActual ? "bg-blue-500 text-white" : "text-blue-500") px-3 py-2 rounded-full mx-1">@i</a>
     }
 </div>
+
+
+
 @*<script>
 
     document.querySelectorAll('.delete-product').forEach(button => {
