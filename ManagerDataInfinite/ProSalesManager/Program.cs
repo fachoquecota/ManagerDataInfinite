@@ -23,6 +23,10 @@ using ProSalesManager._01_Data.Modules.Supplier.Interfaces;
 using ProSalesManager._01_Data.Modules.Supplier;
 using ProSalesManager._02_Busnisess.Suppliers.Interfaces;
 using ProSalesManager._02_Busnisess.Suppliers;
+using ProSalesManager._01_Data.Modules.PublicProducts.Interfaces;
+using ProSalesManager._02_Busnisess.PublicProducts.Interfaces;
+using ProSalesManager._02_Busnisess.PublicProducts;
+using ProSalesManager._01_Data.Modules.PublicProducts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +52,9 @@ builder.Services.AddScoped<IB_Clientes, B_Clientes>();
 
 builder.Services.AddScoped<ISP_Proveedores, SP_Proveedores>();
 builder.Services.AddScoped<IB_Proveedores, B_Proveedores>();
+
+builder.Services.AddScoped<ISP_PublicProducts, SP_PublicProducts>();
+builder.Services.AddScoped<IB_PublicProducts, B_PublicProducts>();
 
 //builder.Services.AddCors(options =>
 //{
@@ -76,8 +83,11 @@ var app = builder.Build();
 
 app.UseCors(options =>
 {
-    options.WithOrigins("http://localhost:3030");
+    //options.WithOrigins("http://localhost:3030");
+    //options.WithOrigins("file:///C:/Users/user/Documents/4%20Python/Josue/Project-main/index.html");
+
     options.AllowAnyMethod();
+
     options.AllowAnyHeader();
 });
 // Configure the HTTP request pipeline.
