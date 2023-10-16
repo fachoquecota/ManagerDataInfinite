@@ -101,6 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Estoy a punto de adjuntar el evento");
     document.getElementById('saveChanges').addEventListener('click', async function () {
         console.log("Botón de Guardar Cambios presionado");
+
+
+
+
         //const idProducto = parseInt(document.getElementById('modalTitleId').innerText, 10);
         const idProducto = localStorage.getItem('currentIdProducto');
         console.log(idProducto);
@@ -124,19 +128,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 activo
             };
 
-            if (idSizeDetalle && idSizeDetalle !== 'Nuevo !') {
+            if (idSizeDetalle && idSizeDetalle !== 'Nuevo!') {
                 toUpdate.push(record);
             } else {
                 toCreate.push(record);
             }
         });
 
-        const tableData = {
+        const sizeUpdateorDelete = {
             toUpdate,
-            toCreate
+            toCreate,
+            deletedItems
         };
 
-        formData.append('TableData', JSON.stringify(tableData));
+        formData.append('SizeUpdateorDelete', JSON.stringify(sizeUpdateorDelete));
         //formData.append('DeletedItems', JSON.stringify(deletedItems));
 
 
@@ -173,9 +178,52 @@ document.addEventListener("DOMContentLoaded", function () {
         //    formData.append('newImages', newImages[i]);
         //}
 
+       
+
+        //let tagsToUpdate = [];
+        //let tagsToAdd = [];
+        //let tagsToDelete = [];
+
+        //let tagRows = document.querySelectorAll('#tagTableBody tr');
+
+        //tagRows.forEach(row => {
+        //    let idTag = row.querySelector('td:nth-child(1)').innerText;
+        //    let description = row.querySelector('td:nth-child(2)').innerText;
+        //    let isActive = row.querySelector('td:nth-child(3) input[type="checkbox"]').checked;
+
+        //    let tagData = {
+        //        idTag,
+        //        description,
+        //        isActive
+        //    };
+
+        //    if (idTag === 'Nuevo!') {
+        //        tagsToAdd.push(tagData);
+        //    } else if (originalState[idTag] && originalState[idTag].isActive !== isActive) {
+        //        tagsToUpdate.push(tagData);
+        //    }
+        //});
+
+
+        //formData.append('TagsToUpdate', JSON.stringify(tagsToUpdate));
+        //formData.append('TagsToAdd', JSON.stringify(tagsToAdd));
+        //formData.append('TagsToDelete', JSON.stringify(tagsToDelete));
+
+        //let tagData = {
+        //    tagsToUpdate: tagsToUpdate,
+        //    tagsToAdd: tagsToAdd,
+        //    tagsToDelete: tagsToDelete
+        //};
+        const tagData = getUpdatedTags();
+
+        formData.append('TagUpdateInfo', JSON.stringify(tagData));
+
+
+
+        console.log(formData);
+
         // Fin de la nueva sección
         console.log("realizando post");
-
         const response = await fetch('/Productos/UpdateProducto', {
             method: 'POST',
             body: formData
@@ -184,18 +232,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
             const data = await response.json();
             if (data.success) {
-                // Mostrar la notificación con el nombre del producto
-                document.getElementById('editModal').classList.add('hidden');
-                const productoGuardado = document.getElementById('productoGuardado');
-                productoGuardado.innerText = document.getElementById('producto').value;
-                const notification = document.getElementById('notification');
-                notification.classList.remove('hidden');
-
-                // Cerrar la notificación después de unos segundos (opcional)
-                setTimeout(() => {
-                    notification.classList.add('hidden');
-                }, 5000); // La notificación se ocultará después de 5 segundos
-            } else {
+                localStorage.setItem('showNotification', 'true');
+                window.location.reload();
+            }
+            else {
                 // Manejar errores
                 alert('No se pudo actualizar el producto.');
             }
@@ -204,6 +244,25 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('Ocurrió un error al actualizar el producto.');
         }
     });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const showNotification = localStorage.getItem('showNotification');
+        if (showNotification === 'true') {
+            const productoGuardado = document.getElementById('productoGuardado');
+            productoGuardado.innerText = document.getElementById('producto').value;
+            const notification = document.getElementById('notification');
+            notification.classList.remove('hidden');
+
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000); // La notificación se ocultará después de 5 segundos
+
+            // Limpiar el indicador en localStorage para no mostrar la notificación en futuras recargas
+            localStorage.removeItem('showNotification');
+        }
+    });
+
 
     document.getElementById('nuevaImagen').addEventListener('change', function () {
         const file = this.files[0];

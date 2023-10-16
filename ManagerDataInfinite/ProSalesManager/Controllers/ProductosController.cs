@@ -215,9 +215,9 @@ namespace ProSalesManager.Controllers
         }
         [HttpDelete]
         [Route("DeleteCrudSizeDetalle")]
-        public dynamic DeleteCrudSizeDetalle(CrudSizeDetalleModel oCrudSizeDetalleModel)
+        public dynamic DeleteCrudSizeDetalle(int idSizeDetalle)
         {
-            var result = _Products.DeleteSizeDetalle(oCrudSizeDetalleModel);
+            var result = _Products.DeleteSizeDetalle(idSizeDetalle);
 
             if (result is false)
                 return BadRequest(new { message = "Se eliminó" });
@@ -225,7 +225,7 @@ namespace ProSalesManager.Controllers
             return new
             {
                 result = result,
-                message = "insertado"
+                message = "Eliminado"
             };
         }
 
@@ -278,9 +278,9 @@ namespace ProSalesManager.Controllers
         }
         [HttpDelete]
         [Route("DeleteCrudTag")]
-        public dynamic DeleteCrudTag(CrudTagDetalleModel oCrudTagDetalleModel)
+        public dynamic DeleteCrudTag(int id)
         {
-            var result = _Products.DeleteTagCrud(oCrudTagDetalleModel);
+            var result = _Products.DeleteTagCrud(id);
 
             if (result is false)
                 return BadRequest(new { message = "Se eliminó" });
@@ -326,7 +326,6 @@ namespace ProSalesManager.Controllers
             };
         }
 
-
         //Imagenes
         [HttpGet]
         [Route("GetCrudImagenById")]
@@ -340,6 +339,38 @@ namespace ProSalesManager.Controllers
             return new
             {
                 result = result
+            };
+        }
+
+        [HttpPost]
+        [Route("PostCrudImagen")]
+        public dynamic PostCrudImagen(ImagenModel oImagenModel)
+        {
+            var result = _Products.InsertImagen(oImagenModel);
+
+            if (result is false)
+                return BadRequest(new { message = "Se insertó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
+            };
+        }
+
+        [HttpDelete]
+        [Route("DeleteImagen")]
+        public dynamic DeleteCrudImagen(int oImagenModel)
+        {
+            var result = _Products.DeleteImagenes(oImagenModel);
+
+            if (result is false)
+                return BadRequest(new { message = "Se eliminó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
             };
         }
     }

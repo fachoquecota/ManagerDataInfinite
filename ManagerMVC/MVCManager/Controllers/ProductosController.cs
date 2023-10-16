@@ -117,11 +117,326 @@ namespace MVCManager.Controllers
             return null;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> UpdateProducto(ProductoModel model, IFormFile nuevaImagen, List<IFormFile> newImages, string TableData, string DeletedItems)
+        public class ImageData
         {
+            public string Image { get; set; }
+            public string Type { get; set; }
+        }
 
-            // Mantener los datos previos de la imagen si no se selecciona una nueva
+        public class TempImage
+        {
+            public Guid Id { get; set; }
+            public byte[] ImageBytes { get; set; }
+            public string Type { get; set; }
+        }
+        private static List<TempImage> _tempImages = new List<TempImage>();
+
+
+        [HttpPost]
+        public IActionResult LoadImageToMemory([FromBody] ImageData data)
+        {
+            try
+            {
+                var imageBytes = Convert.FromBase64String(data.Image);
+                var imageId = Guid.NewGuid();
+                _tempImages.Add(new TempImage { Id = imageId, ImageBytes = imageBytes, Type = data.Type });
+
+                return Json(new { success = true, imageId = imageId });
+            }
+            catch (Exception ex)
+            {
+                // Aquí puedes manejar el error de una forma más adecuada si lo deseas
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+        private static List<int> _deletedImageIds = new List<int>();
+
+        // Método para agregar un ID de imagen a la lista de imágenes eliminadas
+        [HttpPost("DeleteImageFromMemory")]
+        public IActionResult DeleteImageFromMemory([FromBody] int imageId)
+        {
+            if (!_deletedImageIds.Contains(imageId))
+            {
+                _deletedImageIds.Add(imageId);
+            }
+
+            // Puedes agregar aquí lógica adicional si es necesario, por ejemplo, 
+            // para guardar los IDs en una base de datos o realizar otras operaciones.
+
+            return Ok(new { success = true });
+        }
+        public class ImageIdModel
+        {
+            public int ImageId { get; set; }
+        }
+        // Método opcional para obtener la lista de IDs de imágenes eliminadas (sólo para pruebas)
+        [HttpPost]
+        public IActionResult DeleteImageFromMemory([FromBody] ImageIdModel imageModel)
+        {
+            if (!_deletedImageIds.Contains(imageModel.ImageId))
+            {
+                _deletedImageIds.Add(imageModel.ImageId);
+            }
+            return Ok(_deletedImageIds);
+        }
+
+
+        public class TagUpdateInfo
+        {
+            public List<TagInfo> tagsToUpdate { get; set; }
+            public List<TagInfo> tagsToAdd { get; set; }
+            public List<TagToDelete> tagsToDelete { get; set; }
+        }
+
+        public class TagInfo
+        {
+            public string idTag { get; set; }
+            public string description { get; set; }
+            public bool isActive { get; set; }
+        }
+
+        public class TagToDelete
+        {
+            public string idTag { get; set; }
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateProducto(ProductoModel model, IFormFile nuevaImagen, string SizeUpdateorDelete, string TagUpdateInfo)
+        {
+            //TAG
+            // Deserializar la información de los tags.
+            var tagUpdateInfo = JsonConvert.DeserializeObject<TagUpdateInfo>(TagUpdateInfo);
+
+            // Luego, puedes acceder a las listas de tags actualizados, nuevos y eliminados:
+            var tagsToUpdate = tagUpdateInfo.tagsToUpdate;
+            var tagsToCreate = tagUpdateInfo.tagsToAdd;
+            var tagsToDelete = tagUpdateInfo.tagsToDelete;
+
+            // Actualizar tags
+            using (var httpClient = new HttpClient()) {
+                foreach (var tag in tagsToUpdate)
+                {
+                    var content = new StringContent(JsonConvert.SerializeObject(new
+                    {
+                        idTags = tag.idTag,
+                        idProducto = model.IdProducto, // Asume que tienes el IdProducto en tu modelo.
+                        descripcion = tag.description,
+                        activo = tag.isActive
+                    }), Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.PutAsync("http://localhost:5172/api/Productos/PutCrudTag", content);
+                    // Puedes manejar la respuesta si lo necesitas.
+                }
+            }
+
+
+
+            // Crear nuevos tags
+            using (var httpClient = new HttpClient())
+            {
+                foreach (var tag in tagsToCreate)
+                {
+                    var content = new StringContent(JsonConvert.SerializeObject(new
+                    {
+                        idTags = 0,
+                        idProducto = model.IdProducto,
+                        descripcion = tag.description,
+                        activo = tag.isActive
+                    }), Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.PostAsync("http://localhost:5172/api/Productos/PostCrudTag", content);
+                    // Puedes manejar la respuesta si lo necesitas.
+                }
+            }
+            // Eliminar tags
+            using (var httpClient = new HttpClient())
+            {
+                foreach (var tag in tagUpdateInfo.tagsToDelete)
+                {
+                    var response = await httpClient.DeleteAsync($"http://localhost:5172/api/Productos/DeleteCrudTag?id={tag.idTag}");
+                    // Puedes manejar la respuesta si lo necesitas.
+                }
+            }
+            // SIZE
+            // 1. Deserializar SizeUpdateorDelete
+            var sizeData = JsonConvert.DeserializeObject<dynamic>(SizeUpdateorDelete);
+            var toUpdate = sizeData.toUpdate.ToObject<List<dynamic>>();
+            var toCreate = sizeData.toCreate.ToObject<List<dynamic>>();
+            var deleted = sizeData.deletedItems.ToObject<List<int>>();
+
+            // 2. eliminar registros
+
+            foreach (var id in deleted)
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    var response = await httpClient.DeleteAsync($"http://localhost:5172/api/Productos/DeleteCrudSizeDetalle?idSizeDetalle={id}");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Imagen con idSizeDetalle = {id} eliminada exitosamente.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error al eliminar la imagen con idSizeDetalle = {id}. Respuesta: {response.StatusCode} - {response.ReasonPhrase}");
+                    }
+                }
+            }
+
+            // 3. Procesar registros a actualizar
+            foreach (var record in toUpdate)
+            {
+                var idSizeDetalle = Convert.ToInt32(record.idSizeDetalle);
+                var idSize = Convert.ToInt32(record.idSize);
+                var activo = Convert.ToBoolean(record.activo);
+
+                using (var httpClient = new HttpClient())
+                {
+                    var updateData = new
+                    {
+                        idSizeDetalle = idSizeDetalle,
+                        idSize = idSize,
+                        idProducto = model.IdProducto, // Asumo que el IdProducto lo obtienes del modelo, si no es así, ajusta esta línea.
+                        descripcion = "Test por api",
+                        activo = activo
+                    };
+
+                    var content = new StringContent(JsonConvert.SerializeObject(updateData), Encoding.UTF8, "application/json");
+                    var response = await httpClient.PutAsync("http://localhost:5172/api/Productos/PutCrudSizeDetalle", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"SizeDetalle con idSizeDetalle = {idSizeDetalle} actualizado exitosamente.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error al actualizar SizeDetalle con idSizeDetalle = {idSizeDetalle}. Respuesta: {response.StatusCode} - {response.ReasonPhrase}");
+                    }
+                }
+
+            }
+
+            // 4. Procesar nuevos registros
+            foreach (var record in toCreate)
+            {
+                var idSize = record.idSize;
+                var activo = record.activo;
+
+                using (var httpClient = new HttpClient())
+                {
+                    var newData = new
+                    {
+                        idSizeDetalle = 0,
+                        idSize = idSize,
+                        idProducto = model.IdProducto, // Supongo que el IdProducto proviene del modelo, ajusta si es necesario.
+                        descripcion = "test api insert",
+                        activo = activo
+                    };
+
+                    var content = new StringContent(JsonConvert.SerializeObject(newData), Encoding.UTF8, "application/json");
+                    var response = await httpClient.PostAsync("http://localhost:5172/api/Productos/PostCrudSizeDetalle", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Nuevo SizeDetalle con idSize = {idSize} agregado exitosamente.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error al agregar SizeDetalle con idSize = {idSize}. Respuesta: {response.StatusCode} - {response.ReasonPhrase}");
+                    }
+                }
+
+            }
+
+
+            // IMAGENES
+            // 1. Imprimir los IDs de las imágenes eliminadas
+            if (_deletedImageIds.Count > 0)
+            {
+                Console.WriteLine("ID de imágenes eliminadas:");
+                foreach (int imageId in _deletedImageIds)
+                {
+                    Console.WriteLine(imageId);
+
+                    // Eliminar la imagen usando la API
+                    var response = await _httpClient.DeleteAsync($"http://localhost:5172/api/Productos/DeleteImagen?oImagenModel={imageId}");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"Imagen con ID {imageId} eliminada con éxito a través de la API.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Hubo un error al eliminar la imagen con ID {imageId} a través de la API.");
+                    }
+                }
+                // Limpiar la lista de ID de imágenes eliminadas una vez que se hayan manejado
+                _deletedImageIds.Clear();
+            }
+            else
+            {
+                Console.WriteLine("No se eliminaron imágenes.");
+            }
+
+            // 2. Manejar y mostrar la ruta de las imágenes nuevas
+            if (_tempImages.Count > 0)
+            {
+                var folderPath = Path.Combine("wwwroot", "Images", "ProductoDetalle", model.IdProducto.ToString());
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                Console.WriteLine("Imágenes nuevas:");
+                foreach (var imgData in _tempImages)
+                {
+                    var fileExtension = imgData.Type switch
+                    {
+                        "image/jpeg" => ".jpg",
+                        "image/png" => ".png",
+                        _ => ".jpg", // Valor predeterminado
+                    };
+
+                    var fileName = $"{Guid.NewGuid()}{fileExtension}";  // Genera un nombre único basado en Guid
+                    var fullPath = Path.Combine(folderPath, fileName);
+
+                    await System.IO.File.WriteAllBytesAsync(fullPath, imgData.ImageBytes);
+
+                    Console.WriteLine($"Imagen almacenada en: {fullPath}");
+
+                    // Enviar la imagen a la API
+                    var imageToPost = new
+                    {
+                        idImagenes = 0,
+                        idProducto = model.IdProducto,
+                        rutaImagen = $"images\\ProductoDetalle\\{model.IdProducto}\\",
+                        nombreImagen = fileName,
+                        activo = true
+                    };
+
+                    var json = JsonConvert.SerializeObject(imageToPost);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = await _httpClient.PostAsync("http://localhost:5172/api/Productos/PostCrudImagen", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Imagen enviada a la API con éxito.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hubo un error al enviar la imagen a la API.");
+                    }
+                }
+
+                // Limpiar las imágenes en memoria una vez enviadas
+                _tempImages.Clear();
+            }
+            else
+            {
+                Console.WriteLine("No se añadieron imágenes nuevas.");
+            }
+
+
             if (nuevaImagen == null)
             {
                 var existingData = await FetchProductoById(model.IdProducto);
@@ -150,63 +465,43 @@ namespace MVCManager.Controllers
                 model.ImagenCarpeta = $"images\\ProductoPrincipal\\{model.IdProducto}\\";
                 model.ImagenNombre = fileName;
             }
+            var jsonProducto = JsonConvert.SerializeObject(model);
+            Console.WriteLine(jsonProducto);
+            var contentProducto = new StringContent(jsonProducto, Encoding.UTF8, "application/json");
+            var readContent = await contentProducto.ReadAsStringAsync();
+            Console.WriteLine(readContent);
 
-            // Código para manejar los datos de la tabla de tallas
-            List<SizeRecordModel> toUpdate = new List<SizeRecordModel>();
-            List<SizeRecordModel> toCreate = new List<SizeRecordModel>();
-            List<string> toDelete = new List<string>();
+            var responseA = await _httpClient.PutAsync("http://localhost:5172/api/Productos/PutCrudProducto", contentProducto);
 
-            if (!string.IsNullOrEmpty(TableData))
+            if (responseA.IsSuccessStatusCode)
             {
-                dynamic tableData = JsonConvert.DeserializeObject(TableData);
-                toUpdate = JsonConvert.DeserializeObject<List<SizeRecordModel>>(tableData.toUpdate.ToString());
-                toCreate = JsonConvert.DeserializeObject<List<SizeRecordModel>>(tableData.toCreate.ToString());
-                toDelete = JsonConvert.DeserializeObject<List<string>>(DeletedItems);
+                // El API procesó la solicitud correctamente
+                //var responseBody = await responseA.Content.ReadAsStringAsync();
+                var responseBody = await responseA.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
 
+                Console.WriteLine("Respuesta del API: " + responseBody);
+            }
+            else
+            {
+                // Hubo un error al procesar la solicitud
+                Console.WriteLine("Error: " + responseA.StatusCode);
             }
 
-
-            // Código para guardar nuevas imágenes
-            if (newImages != null && newImages.Count > 0)
-            {
-                var folderPath = Path.Combine("wwwroot", "Images", "ProductoDetalle", model.IdProducto.ToString());
-                if (!Directory.Exists(folderPath))
-                {
-                    Directory.CreateDirectory(folderPath);
-                }
-
-                foreach (var img in newImages)
-                {
-                    var fileName = ContentDispositionHeaderValue.Parse(img.ContentDisposition).FileName.Trim('"');
-                    var fullPath = Path.Combine(folderPath, fileName);
-
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
-                    {
-                        await img.CopyToAsync(stream);
-                    }
-                }
-            }
-
-
-
-            // Código para enviar los datos al API
-            var json = JsonConvert.SerializeObject(model);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = await _httpClient.PutAsync("http://localhost:5172/api/Productos/PutCrudProducto", content);
-
-
-
-
-
-
-
-            if (response.IsSuccessStatusCode)
+            if (responseA.IsSuccessStatusCode)
             {
                 return Json(new { success = true });
             }
+
+
             return Json(new { success = false });
+            
+
+
+            
         }
+
+
 
         [HttpDelete]
         public async Task<IActionResult> DeleteProducto(int idProducto)

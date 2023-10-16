@@ -112,9 +112,9 @@ namespace ProSalesManager._02_Busnisess.Products
             var updateSizeDetalle = _sP_Products.UpdateSizeDetalle(oSizeDetalleModel);
             return updateSizeDetalle;
         }
-        public bool DeleteSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel)
+        public bool DeleteSizeDetalle(int idSizeDetalle)
         {
-            var deleteSizeDetalle = _sP_Products.DeleteSizeDetalle(oSizeDetalleModel);
+            var deleteSizeDetalle = _sP_Products.DeleteSizeDetalle(idSizeDetalle);
             return deleteSizeDetalle;
         }
 
@@ -133,9 +133,9 @@ namespace ProSalesManager._02_Busnisess.Products
         {
             return _sP_Products.UpdateTagCrud(oCrudTagDetalleModel);
         }
-        public bool DeleteTagCrud(CrudTagDetalleModel oCrudTagDetalleModel)
+        public bool DeleteTagCrud(int id)
         {
-           return _sP_Products.DeleteTagCrud(oCrudTagDetalleModel);
+           return _sP_Products.DeleteTagCrud(id);
         }
 
         public List<ComboBox> ColorDetalleCrudCB()
@@ -153,6 +153,16 @@ namespace ProSalesManager._02_Busnisess.Products
             return imagenes;
         }
 
+        public bool InsertImagen(ImagenModel oImagenModel)
+        {
+            bool result = _sP_Products.InsertImagenes(oImagenModel);
+            return result;
+        }
+
+        public bool DeleteImagenes(int idImagenes)
+        {
+            return _sP_Products.DeleteImagenes(idImagenes);
+        }
 
         public bool InsertProducto(ProductoModel oProductoModel)
         {

@@ -21,13 +21,13 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
         List<ComboBox> SizeCrudCB();
         bool InsertSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel);
         bool UpdateSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel);
-        bool DeleteSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel);
+        bool DeleteSizeDetalle(int idSizeDetalle);
 
         //Tags
         List<CrudTagDetalleModel> TagsByIDCrud(int idProducto);
         bool InsertTagCrud(CrudTagDetalleModel oCrudTagDetalleModel);
         bool UpdateTagCrud(CrudTagDetalleModel oCrudTagDetalleModel);
-        bool DeleteTagCrud(CrudTagDetalleModel oCrudTagDetalleModel);
+        bool DeleteTagCrud(int id);
 
         //Color Detalle 
         List<ComboBox> ColorDetalleCrudCB();
@@ -35,6 +35,8 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
 
         //Imagenes
         List<CrudImagenModel> ImagenByIDCrud(int idProducto);
+        bool InsertImagen(ImagenModel oImagenModel);
+        bool DeleteImagenes(int idImagenes);
 
         //ColorCrud
         List<ColorModel> GetAllColors();

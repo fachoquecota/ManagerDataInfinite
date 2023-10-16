@@ -428,6 +428,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Update_SizeDetalle", conexion);
                     cmd.Parameters.AddWithValue("@inIdSizeDetalle", oSizeDetalleModel.idSizeDetalle);
+                    cmd.Parameters.AddWithValue("@inIdSize", oSizeDetalleModel.idSize);
                     cmd.Parameters.AddWithValue("@btActivo", oSizeDetalleModel.Activo);
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -442,7 +443,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
             return rpta;
         }
-        public bool DeleteSizeDetalle(CrudSizeDetalleModel oSizeDetalleModel)
+        public bool DeleteSizeDetalle(int idSizeDetalle)
         {
             bool rpta = false;
             try
@@ -452,7 +453,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Delete_SizeDetalle", conexion);
-                    cmd.Parameters.AddWithValue("@inIdSizeDetalle", oSizeDetalleModel.idSizeDetalle);
+                    cmd.Parameters.AddWithValue("@inIdSizeDetalle", idSizeDetalle);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -557,7 +558,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
             return rpta;
         }
-        public bool DeleteTagCrud(CrudTagDetalleModel oCrudTagDetalleModel)
+        public bool DeleteTagCrud(int id)
         {
             bool rpta = false;
             try
@@ -567,7 +568,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Delete_Tag", conexion);
-                    cmd.Parameters.AddWithValue("@inIdTags", oCrudTagDetalleModel.idTags);
+                    cmd.Parameters.AddWithValue("@inIdTags", id);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -694,7 +695,57 @@ namespace ProSalesManager._01_Data.Modules.Products
                 return oList;
             }
         }
+        public bool InsertImagenes(ImagenModel oImagenModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Insert_Imagen", conexion);
+                    cmd.Parameters.AddWithValue("@idProducto", oImagenModel.idProducto);
+                    cmd.Parameters.AddWithValue("@rutaImagen", oImagenModel.rutaImagen);
+                    cmd.Parameters.AddWithValue("@nombreImagen", oImagenModel.nombreImagen);
+                    cmd.Parameters.AddWithValue("@Activo", 1);
 
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+        public bool DeleteImagenes(int idImagenes)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Delete_Imagen", conexion);
+                    cmd.Parameters.AddWithValue("@idImagenes", idImagenes);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
         //ColorCrud
         public List<ColorModel> GetAllColors()
         {
@@ -1336,33 +1387,7 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
             return rpta;
         }
-        public bool InsertImagenes(ImagenModel oImagenModel)
-        {
-            bool rpta = false;
-            try
-            {
-                var cn = new DataConnection();
-                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
-                {
-                    conexion.Open();
-                    SqlCommand cmd = new SqlCommand("SP_Insert_Imagenes", conexion);
-                    cmd.Parameters.AddWithValue("@idProducto", oImagenModel.idProducto);
-                    cmd.Parameters.AddWithValue("@rutaImagen", oImagenModel.rutaImagen);
-                    cmd.Parameters.AddWithValue("@nombreImagen", oImagenModel.nombreImagen);
-                    cmd.Parameters.AddWithValue("@Activo", oImagenModel.Activo);
 
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.ExecuteNonQuery();
-                }
-                rpta = true;
-            }
-            catch (Exception ex)
-            {
-                ErrorResult.ErrorMessage = ex.Message;
-                return rpta;
-            }
-            return rpta;
-        }
         public bool InsertTag(TagModel oTagModel)
         {
             bool rpta = false;

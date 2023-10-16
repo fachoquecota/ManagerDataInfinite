@@ -13,6 +13,9 @@
 });
 
 
+const originalState = {};
+
+
 async function fillTagTable(idProducto) {
     try {
         const response = await fetch(`/Productos/GetTagsById?idProducto=${idProducto}`);
@@ -69,6 +72,8 @@ async function fillTagTable(idProducto) {
                         deleteButton.className = 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded';
                         deleteButton.addEventListener('click', function () {
                             row.remove(); // Esto eliminará la fila de la tabla
+                            row.classList.add('tag-deleted');
+
                         });
                         cellActions.appendChild(deleteButton);
                         row.appendChild(cellActions);
@@ -78,6 +83,16 @@ async function fillTagTable(idProducto) {
                 } else {
                     console.error("tags no es un array");
                 }
+
+                tags.forEach(tag => {
+                    // Almacenar el estado original de cada tag
+                    originalState[tag.idTags] = {
+                        isActive: tag.activo,
+                        description: tag.descripcion
+                    };
+                });
+
+
             } else {
                 console.error("La propiedad 'success' es false");
             }
@@ -87,6 +102,49 @@ async function fillTagTable(idProducto) {
     } catch (error) {
         console.log("Se produjo un error", error);
     }
+    
+}
+
+// Función para obtener el estado actualizado de los tags
+function getUpdatedTags() {
+    let tagsToUpdate = [];
+    let tagsToAdd = [];
+    let tagsToDelete = [];
+
+    let tagRows = document.querySelectorAll('#tagTableBody tr');
+    let currentState = { ...originalState }; // Hacer una copia del estado original
+
+    tagRows.forEach(row => {
+        let idTag = row.querySelector('td:nth-child(1)').innerText;
+        let description = row.querySelector('td:nth-child(2)').innerText;
+        let isActive = row.querySelector('td:nth-child(3) input[type="checkbox"]').checked;
+
+        let tagData = {
+            idTag,
+            description,
+            isActive
+        };
+
+        if (idTag === 'Nuevo!') {
+            tagsToAdd.push(tagData);
+        } else {
+            tagsToUpdate.push(tagData); // Añadir todas las etiquetas con ID a la lista de actualización
+        }
+
+        // Elimina esta ID del currentState para poder identificar los eliminados más tarde
+        delete currentState[idTag];
+    });
+
+    // Los tags que quedan en currentState son los que han sido eliminados
+    for (let id in currentState) {
+        tagsToDelete.push({ idTag: id });
+    }
+
+    return {
+        tagsToUpdate,
+        tagsToAdd,
+        tagsToDelete
+    };
 }
 
 
@@ -141,6 +199,15 @@ function addNewTagRow(idTag, description, isActive) {
     });
     cellActions.appendChild(deleteButton);
     row.appendChild(cellActions);
+    // Si es una nueva etiqueta, añadir la clase CSS
+    if (idTag === 'Nuevo!') {
+        row.classList.add('tag-new');
+    }
 
+    checkbox.addEventListener('change', function () {
+        if (!row.classList.contains('tag-new')) {
+            row.classList.add('tag-updated');
+        }
+    });
     tbody.appendChild(row);
 }

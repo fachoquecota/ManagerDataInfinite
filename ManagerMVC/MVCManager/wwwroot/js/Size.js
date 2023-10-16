@@ -1,4 +1,6 @@
 ﻿// Función para llenar la tabla de Tamaños
+let deletedItems = [];
+
 async function fillSizeTable(idProducto) {
     const response = await fetch(`/Productos/GetCrudSizeDetalleById?idProducto=${idProducto}`);
     if (response.ok) {
@@ -71,12 +73,12 @@ function addNewSizeRow(idSizeDetalle, idSize, isActive) {
     deleteButton.innerText = 'Eliminar';
     deleteButton.className = 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded';
     deleteButton.addEventListener('click', function () {
-        if (idSizeDetalle) {
-            // Aquí puedes añadir lógica para manejar los elementos eliminados, como almacenarlos en un array
-            // deletedItems.push(idSizeDetalle);
+        if (idSizeDetalle && idSizeDetalle !== 'Nuevo!') {
+            deletedItems.push(idSizeDetalle);
         }
         row.remove();  // Esto eliminará la fila de la tabla
     });
+
     cellActions.appendChild(deleteButton);
     row.appendChild(cellActivo);
     row.appendChild(cellActions);
