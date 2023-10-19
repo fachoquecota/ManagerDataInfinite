@@ -2,6 +2,8 @@
 @{
     int paginaActual = ViewBag.PaginaActual;
     int totalPaginas = (int)Math.Round((double)ViewBag.TotalPaginas);
+    var sortedProducts = Model.OrderByDescending(p => p.IdProducto).ToList();
+
 }
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -19,6 +21,15 @@
         <button type="submit" class="p-2 bg-blue-500 text-white rounded">Buscar</button>
     </form>
 </div>
+
+<!-- Botón de añadir producto -->
+<div class="mb-4">
+    <button id="addProduct" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        Añadir Producto
+    </button>
+</div>
+
+
 <div id="loadingSpinner" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black opacity-50 flex items-center justify-center">
   <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
 </div>
@@ -40,7 +51,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var producto in Model)
+            @foreach (var producto in sortedProducts)
             {
                 <tr>
                     
@@ -253,6 +264,8 @@
             </div>
 
         </div>
+        <input type="hidden" id="mode" value="edit">
+
         <div class="flex justify-end mt-4">
             <button id="saveChanges" class="bg-blue-500 text-white p-2 rounded mr-2">Guardar Cambios</button>
             <button id="closeModal" class="bg-red-500 text-white p-2 rounded">Cerrar</button>
@@ -370,205 +383,55 @@
         <a href="@Url.Action("Index", "Productos", new { pagina = i })" class="@(i == paginaActual ? "bg-blue-500 text-white" : "text-blue-500") px-3 py-2 rounded-full mx-1">@i</a>
     }
 </div>
-
-
-
-@*<script>
-
-    document.querySelectorAll('.delete-product').forEach(button => {
-        button.addEventListener('click', function () {
-               document.getElementById('deleteModal').classList.remove('hidden');
-
-        });
-    });
-    document.getElementById('closeModalConfirm').addEventListener('click', function() {
-        document.getElementById('deleteModal').classList.add('hidden');
-    });
-
-    document.addEventListener("DOMContentLoaded", function() {
-        // Manejo de pestañas
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const target = this.getAttribute('data-target');
-
-                // Desactivar todos los botones y ocultar todo el contenido
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-
-                // Activar el botón clickeado y mostrar su contenido
-                this.classList.add('active');
-                document.getElementById(target).classList.add('active');
-            });
-        });
-        // Escuchar clics en los botones "Editar"
-        document.querySelectorAll('.open-modal').forEach(button => {
-            button.addEventListener('click', async function(e) {
-                const id = e.target.getAttribute('data-id');
-                // Mostrar el spinner de carga
-                const loadingSpinner = document.getElementById('loadingSpinner');
-                loadingSpinner.classList.remove('hidden');
-
-            
-                // Ocultar el modal anterior si está abierto
-                const editModal = document.getElementById('editModal');
-                editModal.classList.add('hidden');
-                // Hacer una llamada AJAX para obtener los datos del producto
-                const response = await fetch(`/Productos/GetProductoById?idProducto=${id}`);
-            
-                if (response.ok) {
-                    const data = await response.json();
-                    const producto = data.result[0];
-                
-                    // Llenar los campos del formulario en el modal
-                    document.getElementById('producto').value = producto.producto;
-                    document.getElementById('marca').value = producto.marca;
-                    document.getElementById('precio').value = producto.precio;
-                    document.getElementById('cantidad').value = producto.cantidad;
-                    //document.getElementById('fechaIngreso').value = producto.fechaIngreso;
-                
-                
-                
-                
-                    document.getElementById('activo').checked = producto.activo;
-
-                    // Actualizar la imagen actual
-                    const imagenActual = document.getElementById('imagenActual');
-                    imagenActual.src = producto.imagenCarpeta + producto.imagenNombre;
-
-                    // Actualizar el título del modal con el ID del producto
-                    document.getElementById('modalTitleId').innerText = producto.idProducto;
-
-                    // Llenar los combobox
-                    await fillComboBox('idProveedor', '/Productos/GetProveedores', producto.idProveedor);
-                    await fillComboBox('idGenero', '/Productos/GetGeneros', producto.idGenero);
-                    await fillComboBox('idCategoria', '/Productos/GetCategorias', producto.idCategoria);
-
-                    // Mostrar el modal
-                    document.getElementById('editModal').classList.remove('hidden');
-                    loadingSpinner.classList.add('hidden');
-                }
-            });
-        });
-
-        // Función para llenar un combobox
-        async function fillComboBox(selectId, apiUrl, selectedValue) {
-                const response = await fetch(apiUrl);
-                if (response.ok) {
-                    const data = await response.json();
-                    const items = data.result;
-                    const select = document.getElementById(selectId);
-                    select.innerHTML = '';
-                    items.forEach(item => {
-                        const option = document.createElement('option');
-                        option.value = item.id;
-                        option.text = item.descripcion;
-                        select.appendChild(option);
-                    });
-                    select.value = selectedValue;
-                }
-            }
-            document.getElementById('nuevaImagen').addEventListener('change', function() {
-                const file = this.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.addEventListener('load', function() {
-                        document.getElementById('imagenActual').setAttribute('src', this.result);
-                    });
-                    reader.readAsDataURL(file);
-                }
-            });
-        // Cerrar el modal
-        document.getElementById('closeModal').addEventListener('click', function() {
-            document.getElementById('editModal').classList.add('hidden');
-        });
-
-        // Guardar cambios (aquí podrías enviar los datos al servidor)
-        document.getElementById('saveChanges').addEventListener('click', async function() {
-            const idProducto = parseInt(document.getElementById('modalTitleId').innerText, 10);
-            const formData = new FormData(document.getElementById('editForm'));
-            formData.append('IdProducto', idProducto);
-            formData.set('activo', document.getElementById('activo').checked ? 'true' : 'false');
-
-            const response = await fetch('/Productos/UpdateProducto', {
-                method: 'POST',
-                body: formData
-            });
-
-            if (response.ok) {
-              const data = await response.json();
-              if (data.success) {
-                // Mostrar la notificación con el nombre del producto
-                document.getElementById('editModal').classList.add('hidden');
-                const productoGuardado = document.getElementById('productoGuardado');
-                productoGuardado.innerText = document.getElementById('producto').value;
-                const notification = document.getElementById('notification');
-                notification.classList.remove('hidden');
-
-                // Cerrar la notificación después de unos segundos (opcional)
-                setTimeout(() => {
-                  notification.classList.add('hidden');
-                }, 5000); // La notificación se ocultará después de 5 segundos
-              } else {
-                // Manejar errores
-                alert('No se pudo actualizar el producto.');
-              }
-            } else {
-              // Manejar errores
-              alert('Ocurrió un error al actualizar el producto.');
-            }
-            });
-    });
-
-
-</script>
 <script>
-    $(document).ready(function () {
-        // Escuchar el clic en el botón "Eliminar" de la lista de productos
-        $('.delete-product').on('click', function () {
-            var idProducto = $(this).data('id'); // Obtener el ID del producto desde el atributo data-id
-            abrirModalEliminar(idProducto);
-        });
+$(document).ready(function() {
+    // Función para mostrar el modal y limpiar campos
+    $("#addProduct").click(async function() {
+        // Mostrar modal
+        $("#editModal").removeClass("hidden");
 
-        // Escuchar el clic en el botón "Confirmar" del modal de eliminación
-        $('#confirmDelete').on('click', function () {
-            var idProducto = $('#deleteModal').data('id'); // Obtener el ID del producto almacenado en el modal
-            eliminarProducto(idProducto);
-        });
+        // Limpiar campos
+        $("#producto").val("");
+        $("#marca").val("");
+        $("#precio").val("");
+        $("#cantidad").val("");
+        $("#idProveedor").val("");
+        $("#idGenero").val("");
+        $("#idCategoria").val("");
+        $("#imagenActual").attr("src", "");
+        $("#nuevaImagen").val("");
+        $("#activo").prop('checked', false);
+        $("#newImage").val("");
+        $("#newTag").val("");
 
-        // Función para abrir el modal de eliminación y almacenar el ID del producto en el modal
-        function abrirModalEliminar(idProducto) {
-            $('#deleteModal').removeClass('hidden');
-            $('#deleteModal').data('id', idProducto); // Almacenar el ID del producto en el modal
-        }
+        // Limpiar contenido de las tablas y contenedores dentro del modal
+        $("#sizeTableBody").empty();
+        $("#previewContainer").empty();
+        $("#tagTableBody").empty();
+        $("#colorTableBody").empty();
 
-        // Función para eliminar el producto
-        function eliminarProducto(idProducto) {
-            $.ajax({
-                type: "DELETE",
-                url: "/Productos/DeleteProducto?idProducto=" + idProducto, // Ajusta la URL según tu ruta de controlador
-                success: function (data) {
-                    if (data.success) {
-                        // Si la eliminación se realizó con éxito, puedes realizar alguna acción adicional aquí
-                        console.log("Producto eliminado con éxito.");
-                        // Cerrar el modal de eliminación
-                        $('#deleteModal').addClass('hidden');
-                        // Recargar la página o actualizar la lista de productos
-                        location.reload(); // Otra opción es actualizar la lista de productos sin recargar toda la página.
-                    } else {
-                        // Manejar el caso en que la eliminación no tuvo éxito
-                        console.error("No se pudo eliminar el producto.");
-                    }
-                },
-                error: function () {
-                    // Manejar errores de la solicitud AJAX
-                    console.error("Error al eliminar el producto.");
-                }
-            });
-        }
+        // Cambiar título del modal
+        $("#modalTitleId").text("Nuevo Producto");
+
+        // Establecer siempre la pestaña del Tab 1 como la activa
+        $(".tab-button").removeClass("active");  // Remover la clase 'active' de todos los botones de pestaña
+        $(".tab-content").removeClass("active"); // Remover la clase 'active' de todos los contenidos de pestaña
+        $("button[data-target='tab1']").addClass("active"); // Agregar la clase 'active' al botón del Tab 1
+        $("#tab1").addClass("active"); // Agregar la clase 'active' al contenido del Tab 1
+
+         // Llenar los combobox
+         await fillComboBox('idProveedor', '/Productos/GetProveedores', producto.idProveedor);
+         await fillComboBox('idGenero', '/Productos/GetGeneros', producto.idGenero);
+         await fillComboBox('idCategoria', '/Productos/GetCategorias', producto.idCategoria);
+
+        $("#mode").val("add");
+
     });
+
+    // Función para cerrar el modal
+    $("#closeModal").click(function() {
+        $("#editModal").addClass("hidden");
+    });
+});
 </script>
 
-*@

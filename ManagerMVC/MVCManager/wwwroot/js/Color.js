@@ -1,5 +1,10 @@
 ﻿// Función para llenar la tabla de Colores
+const originalColorState = {};
+
+
 async function fillColorTable(idProducto) {
+    idProductoActual = idProducto; // <- Asignación aquí
+
     const response = await fetch(`/Productos/GetCrudColorDetalleById?idProducto=${idProducto}`);
     if (response.ok) {
         const data = await response.json();
@@ -9,6 +14,13 @@ async function fillColorTable(idProducto) {
 
         items.forEach(item => {
             addNewColorRow(item.idColorDetalle, item.idColor, item.codigo, item.activo);
+        });
+        items.forEach(item => {
+            // Almacenar el estado original de cada color
+            originalColorState[item.idColorDetalle] = {
+                idColor: item.idColor,
+                isActive: item.activo
+            };
         });
 
         // Llenar el combobox
@@ -24,6 +36,59 @@ async function fillColorTable(idProducto) {
         });
     }
 }
+let colorsToDelete = [];
+let colorsToUpdate = [];
+let colorsToAdd = [];
+let idProductoActual;
+
+
+// Función para obtener el estado actualizado de los colores
+function getUpdatedColors() {
+
+
+    let colorRows = document.querySelectorAll('#colorTableBody tr');
+    let currentState = {};
+
+    colorRows.forEach(row => {
+        let idColorDetalle = row.querySelector('td:nth-child(1)').innerText;
+        let idColor = row.querySelector('td:nth-child(2) select').value;
+        let checkboxElement = row.querySelector('td:nth-child(3) input[type="checkbox"]');
+        console.log(checkboxElement);
+        let isActive = checkboxElement ? checkboxElement.checked : false;
+        console.log('ID:', idColorDetalle, 'Checkbox Value:', isActive);
+
+
+
+        if (!idColor) {
+            alert('Debe seleccionar un color antes de guardar.');
+            throw new Error('Color no seleccionado.');
+        }
+
+        if (idColorDetalle === 'Nuevo!') {
+            colorsToAdd.push({
+                idColorDetalle: '0', // Puede ser 0 o '0', dependiendo de cómo manejes los ID en tu backend
+                idProducto: idProductoActual, // Asegúrate de que esta variable tiene el valor correcto
+                idColor: idColor,
+                codigo: "", // Si no lo estás usando, puedes ponerlo en blanco o eliminarlo
+                isActive: isActive // Asegúrate de que esta variable está definida y tiene el valor correcto
+            });
+        }
+        else {
+            colorsToUpdate.push({ idColorDetalle, idColor, isActive });
+        }
+    });
+
+ 
+
+    return {
+        colorsToUpdate,
+        colorsToAdd,
+        colorsToDelete
+    };
+}
+
+// Hacer que la función getUpdatedColors esté disponible globalmente
+window.getUpdatedColors = getUpdatedColors;
 
 
 // Función para agregar una nueva fila a la tabla de Colores
@@ -36,13 +101,6 @@ function addNewColorRow(idColorDetalle, idColor, descripcion, isActive) {
     cellIdColorDetalle.innerText = idColorDetalle;
     row.appendChild(cellIdColorDetalle);
 
-    //// ID Color (esto será un combobox)
-    //const cellIdColor = document.createElement('td');
-    //const select = document.createElement('select');
-    //select.className = 'colorSelect';
-    //select.setAttribute('data-id', idColor);  // Añadir el idColor como un atributo data-id
-    //cellIdColor.appendChild(select);
-    //row.appendChild(cellIdColor);
 
     // ID Color (esto será un combobox)
     const cellIdColor = document.createElement('td');
@@ -82,6 +140,8 @@ function addNewColorRow(idColorDetalle, idColor, descripcion, isActive) {
     checkbox.type = 'checkbox';
     checkbox.className = 'switch-input';
     checkbox.checked = isActive;
+    console.log('Checkbox initial value for ID:', idColorDetalle, 'is:', checkbox.checked);
+
 
     const slider = document.createElement('span');
     slider.className = 'slider';
@@ -98,12 +158,12 @@ function addNewColorRow(idColorDetalle, idColor, descripcion, isActive) {
     deleteButton.innerText = 'Eliminar';
     deleteButton.className = 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded';
     deleteButton.addEventListener('click', function () {
-        if (idColorDetalle) {
-            // Aquí puedes añadir lógica para manejar los elementos eliminados, como almacenarlos en un array
-            // deletedItems.push(idColorDetalle);
+        if (idColorDetalle && idColorDetalle !== 'Nuevo!') {
+            colorsToDelete.push(idColorDetalle);
         }
-        row.remove();  // Esto eliminará la fila de la tabla
+        row.remove();
     });
+
     cellActions.appendChild(deleteButton);
     row.appendChild(cellActivo);
     row.appendChild(cellActions);

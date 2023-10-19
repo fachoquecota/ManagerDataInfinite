@@ -12,7 +12,7 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
         List<ComboBox> ProveedorCrudCB();
         List<ComboBox> GeneroCrudCB();
         List<ComboBox> CategoriaCrudCB();
-        bool UpdateProducto(CrudProductoModel oCrudProductoModel);
+        int UpdateProducto(CrudProductoModel oCrudProductoModel);
         bool DeleteProducto(int idProducto);
         bool InsertProducto(ProductoModel oProductoModel);
 
@@ -32,6 +32,9 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
         //Color Detalle 
         List<ComboBox> ColorDetalleCrudCB();
         List<CrudColorDetalleModel> ColorDetalleByIDCrud(int idProducto);
+        bool InsertColorDetalleCrud(CrudColorDetalleModel crudColorDetalleModel);
+        bool UpdateColorDetalleCrud(CrudColorDetalleModel crudColorDetalleModel);
+        bool DeleteColorDetalleCrud(int id);
 
         //Imagenes
         List<CrudImagenModel> ImagenByIDCrud(int idProducto);

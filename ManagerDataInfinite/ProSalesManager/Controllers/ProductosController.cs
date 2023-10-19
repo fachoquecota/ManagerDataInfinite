@@ -123,16 +123,23 @@ namespace ProSalesManager.Controllers
         [Route("PutCrudProducto")]
         public dynamic PutCrudProducto(CrudProductoModel oCrudProductoModel)
         {
-            var result = _Products.UpdateProducto(oCrudProductoModel);
+            int result = _Products.UpdateProducto(oCrudProductoModel);
 
-            if (result is false)
+            if (result == -1)
                 return BadRequest(new { message = "No se actualizó" });
-
-            return new
+            string message = string.Empty;
+            if (result > 0 && oCrudProductoModel.idProducto == 0)
             {
-                result = result,
-                message = "Actualizado"
-            };
+                message = "Insertado";
+            }
+            else
+            {
+                if (result > 0 && oCrudProductoModel.idProducto != 0)
+                {
+                    message = "Actualizado";
+                }
+            }
+            return Ok(result);
         }
         [HttpDelete]
         [Route("DeleteCrudProducto")]
@@ -325,6 +332,53 @@ namespace ProSalesManager.Controllers
                 result = result
             };
         }
+        [HttpPost]
+        [Route("PostCrudColorDetalle")]
+        public dynamic PostCrudColorDetalle(CrudColorDetalleModel crudColorDetalleModel)
+        {
+            var result = _Products.InsertColorDetalleCrud(crudColorDetalleModel);
+
+            if (result is false)
+                return BadRequest(new { message = "Se insertó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
+            };
+        }
+        [HttpPut]
+        [Route("PutCrudColorDetalle")]
+        public dynamic PutCrudColorDetalle(CrudColorDetalleModel crudColorDetalleModel)
+        {
+            var result = _Products.UpdateColorDetalleCrud(crudColorDetalleModel);
+
+            if (result is false)
+                return BadRequest(new { message = "No se actualizó" });
+
+            return new
+            {
+                result = result,
+                message = "Actualizado"
+            };
+        }
+        [HttpDelete]
+        [Route("DeleteCrudColorDetalle")]
+        public dynamic DeleteCrudColorDetalle(int id)
+        {
+            var result = _Products.DeleteColorDetalleCrud(id);
+
+            if (result is false)
+                return BadRequest(new { message = "Se eliminó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
+            };
+        }
+
+
 
         //Imagenes
         [HttpGet]

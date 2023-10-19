@@ -102,7 +102,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('saveChanges').addEventListener('click', async function () {
         console.log("Botón de Guardar Cambios presionado");
 
-
+        let endpoint;
+        if ($("#mode").val() === "add") {
+            endpoint = '/Productos/CreateProducto';  // Endpoint para crear producto
+        } else {
+            endpoint = '/Productos/UpdateProducto';  // Endpoint para actualizar producto
+        }
 
 
         //const idProducto = parseInt(document.getElementById('modalTitleId').innerText, 10);
@@ -142,11 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         formData.append('SizeUpdateorDelete', JSON.stringify(sizeUpdateorDelete));
-        //formData.append('DeletedItems', JSON.stringify(deletedItems));
-
-
-        // Obtener las imágenes seleccionadas
-        //const newImages = document.getElementById('newImage').files;
 
         console.log("localstorege desde producto.js ", localStorage.getItem('selectedImages'));
         const selectedImages = JSON.parse(localStorage.getItem('selectedImages') || '[]');
@@ -170,50 +170,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         console.log("formData ", formData);
+        const colorData = getUpdatedColors();
+        formData.append('ColorUpdateInfoJson', JSON.stringify(colorData));
 
-        //console.log("ingresando a for");
-        //// Agregar cada imagen al FormData
-        //for (let i = 0; i < newImages.length; i++) {
-        //    console.log("Nombre de la imagen:", newImages[i].name);
-        //    formData.append('newImages', newImages[i]);
-        //}
-
-       
-
-        //let tagsToUpdate = [];
-        //let tagsToAdd = [];
-        //let tagsToDelete = [];
-
-        //let tagRows = document.querySelectorAll('#tagTableBody tr');
-
-        //tagRows.forEach(row => {
-        //    let idTag = row.querySelector('td:nth-child(1)').innerText;
-        //    let description = row.querySelector('td:nth-child(2)').innerText;
-        //    let isActive = row.querySelector('td:nth-child(3) input[type="checkbox"]').checked;
-
-        //    let tagData = {
-        //        idTag,
-        //        description,
-        //        isActive
-        //    };
-
-        //    if (idTag === 'Nuevo!') {
-        //        tagsToAdd.push(tagData);
-        //    } else if (originalState[idTag] && originalState[idTag].isActive !== isActive) {
-        //        tagsToUpdate.push(tagData);
-        //    }
-        //});
-
-
-        //formData.append('TagsToUpdate', JSON.stringify(tagsToUpdate));
-        //formData.append('TagsToAdd', JSON.stringify(tagsToAdd));
-        //formData.append('TagsToDelete', JSON.stringify(tagsToDelete));
-
-        //let tagData = {
-        //    tagsToUpdate: tagsToUpdate,
-        //    tagsToAdd: tagsToAdd,
-        //    tagsToDelete: tagsToDelete
-        //};
         const tagData = getUpdatedTags();
 
         formData.append('TagUpdateInfo', JSON.stringify(tagData));
@@ -224,7 +183,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Fin de la nueva sección
         console.log("realizando post");
-        const response = await fetch('/Productos/UpdateProducto', {
+        //const response = await fetch('/Productos/UpdateProducto', {
+        //    method: 'POST',
+        //    body: formData
+        //});
+
+        //Añadido
+        const response = await fetch(endpoint, {
             method: 'POST',
             body: formData
         });

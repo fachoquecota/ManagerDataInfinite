@@ -47,4 +47,7 @@ public class ProductoModel
 
     [JsonProperty("idCategoria")]
     public int IdCategoria { get; set; }
+
+    [JsonProperty("costo")]
+    public int costo { get; set; }
 }

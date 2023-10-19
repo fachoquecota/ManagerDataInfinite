@@ -6,6 +6,40 @@
     <h1 class="text-2xl font-semibold mb-4">Ventas</h1>
 
     <div class="flex flex-wrap -mx-2">
+        <!-- Tarjeta de Lista de Productos -->
+        <div class="w-full md:w-1/2 px-2 mb-4">
+            <div class="p-4 bg-white rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-blue-500">Lista de Productos</h2>
+
+                <!-- Sección de Búsqueda de Productos -->
+                <div class="mb-4">
+                    <label for="buscarProducto" class="block text-sm font-medium text-gray-600">Buscar Producto:</label>
+                    <input type="text" id="buscarProducto" name="buscarProducto" placeholder="Ingrese nombre del producto" class="mt-1 p-2 w-full rounded-md border shadow-sm">
+                </div>
+
+                <!-- Matriz de Productos -->
+                <div id="productosGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+                    <!-- Ejemplo de producto -->
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        <div class="producto bg-white p-3 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                            <div class="relative mb-3">
+                                <img src="./Images/ProductoPrincipal/3/PO-A452.jpg" alt="Producto @(i)" class="w-24 h-24 object-cover rounded-md mx-auto">
+                            </div>
+                            <h3 class="text-center text-md mb-2">Producto @(i)</h3>
+                            <p class="text-center text-sm mb-3">10.00</p>
+                            <button class="text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
+                        </div>
+                    }
+                </div>
+
+                <!-- Paginación -->
+                <div class="flex justify-center mt-4">
+                    <button id="prevPage" class="bg-blue-500 text-white px-4 py-2 rounded-l-md">Anterior</button>
+                    <button id="nextPage" class="bg-blue-500 text-white px-4 py-2 rounded-r-md">Siguiente</button>
+                </div>
+            </div>
+        </div>
         <!-- Tarjeta de Formulario -->
         <div class="w-full md:w-1/2 px-2 mb-4">
             <div class="p-4 bg-white rounded-lg shadow-md">
@@ -36,62 +70,128 @@
                     <table id="tablaProductosSeleccionados" class="min-w-full divide-y divide-gray-200 text-center rounded-lg shadow-sm">
                         <thead class="bg-gray-100">
                             <tr>
+                                <th class="px-2 py-2">Imagen</th>
                                 <th class="px-2 py-2">Producto</th>
                                 <th class="px-2 py-2">Cantidad</th>
                                 <th class="px-2 py-2">Costo</th>
                                 <th class="px-2 py-2">Precio</th>
+                                <th class="px-2 py-2">Total</th>
                                 <th class="px-2 py-2">Acciones</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <!-- Productos Seleccionados serán añadidos aquí -->
                         </tbody>
                     </table>
+
                 </div>
 
-                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">Confirmar Venta</button>
+                <button type="submit" id="confirmSaleButton" class="px-4 py-2 bg-blue-500 text-white rounded-md">Confirmar Venta</button>
             </div>
         </div>
 
-        <!-- Tarjeta de Lista de Productos -->
-<!-- Tarjeta de Lista de Productos -->
-<div class="w-full md:w-1/2 px-2 mb-4">
-    <div class="p-4 bg-white rounded-lg shadow-md">
-        <h2 class="text-xl font-semibold mb-4 text-blue-500">Lista de Productos</h2>
 
-        <!-- Sección de Búsqueda de Productos -->
-        <div class="mb-4">
-            <label for="buscarProducto" class="block text-sm font-medium text-gray-600">Buscar Producto:</label>
-            <input type="text" id="buscarProducto" name="buscarProducto" placeholder="Ingrese nombre del producto" class="mt-1 p-2 w-full rounded-md border shadow-sm">
-        </div>
-
-        <!-- Matriz de Productos -->
-        <div id="productosGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
-            <!-- Ejemplo de producto -->
-            @for (int i = 1; i <= 10; i++)
-            {
-                <div class="producto bg-white p-3 rounded-lg shadow-md transition-transform transform hover:scale-105">
-                    <div class="relative mb-3">
-                        <img src="./Images/ProductoPrincipal/3/PO-A452.jpg" alt="Producto @(i)" class="w-24 h-24 object-cover rounded-md mx-auto">
-                    </div>
-                    <h3 class="text-center text-md mb-2">Producto @(i)</h3>
-                    <p class="text-center text-sm mb-3">$10.00</p>
-                    <button class="text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
-                </div>
-            }
-        </div>
-
-        <!-- Paginación -->
-        <div class="flex justify-center mt-4">
-            <button id="prevPage" class="bg-blue-500 text-white px-4 py-2 rounded-l-md">Anterior</button>
-            <button id="nextPage" class="bg-blue-500 text-white px-4 py-2 rounded-r-md">Siguiente</button>
-        </div>
-    </div>
-</div>
 
     </div>
 </div>
+<!-- Modal -->
+<div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="confirmSaleModal">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full"> <!-- Cambia sm:max-w-lg por sm:max-w-2xl -->
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+          Confirmar Venta
+        </h3>
+        <div class="mt-2">
+            <!-- Aquí irá la tabla con los productos seleccionados y los detalles -->
+            <div id="modalTableContent">
+                <!-- El contenido de la tabla se copiará aquí -->
+            </div>
 
+            <!-- Campos de costo y venta -->
+            <div class="mt-4">
+                <label for="totalCost" class="block text-sm font-medium text-gray-600">Costo Total:</label>
+                <input type="text" id="totalCost" class="mt-1 p-2 w-full rounded-md border shadow-sm" readonly> <!-- El campo es de solo lectura inicialmente -->
+            </div>
+            <div class="mt-4">
+                <label for="totalSale" class="block text-sm font-medium text-gray-600">Venta Total:</label>
+                <input type="text" id="totalSale" class="mt-1 p-2 w-full rounded-md border shadow-sm" readonly> <!-- El campo es de solo lectura inicialmente -->
+            </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm" id="confirmFinalSale">
+          Confirmar
+        </button>
+        <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" id="closeModal">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById("confirmSaleButton").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // Copia el contenido de la tabla de productos seleccionados
+    const selectedProductsTable = document.getElementById("tablaProductosSeleccionados").cloneNode(true);
+
+    // Elimina la columna de "Acción" de la tabla copiada
+    selectedProductsTable.querySelectorAll("thead tr th:last-child, tbody tr td:last-child").forEach(cell => cell.remove());
+
+    // Desactiva los campos de entrada de la tabla copiada
+    selectedProductsTable.querySelectorAll("input").forEach(input => input.disabled = true);
+
+    // Pega el contenido en el modal
+    const modalTableContent = document.getElementById("modalTableContent");
+    modalTableContent.innerHTML = '';
+    modalTableContent.appendChild(selectedProductsTable);
+
+    // Calcular los totales de costo y venta (puedes ajustar esta parte según la estructura de tu tabla)
+    let totalCost = 0;
+    let totalSale = 0;
+    const rows = selectedProductsTable.querySelectorAll("tbody tr");
+    rows.forEach(row => {
+        const costValue = parseFloat(row.querySelector("td:nth-child(4) input").value.replace("", "")); // Asume que el costo está en la tercera columna
+        const saleValue = parseFloat(row.querySelector("td:nth-child(5) input").value.replace("", "")); // Asume que el precio de venta está en la cuarta columna
+        totalCost += costValue;
+        totalSale += saleValue;
+    });
+
+    // Llena los campos de costo y venta
+    document.getElementById("totalCost").value = "" + totalCost.toFixed(2);
+    document.getElementById("totalSale").value = "" + totalSale.toFixed(2);
+
+    // Activar la edición de los campos de costo y venta
+    document.getElementById("totalCost").removeAttribute("readonly");
+    document.getElementById("totalSale").removeAttribute("readonly");
+
+    // Muestra el modal
+    document.getElementById("confirmSaleModal").classList.remove("hidden");
+
+    // Evento para cerrar el modal al hacer clic en "Cancelar"
+    document.getElementById("closeModal").addEventListener("click", function() {
+        document.getElementById("confirmSaleModal").classList.add("hidden");
+    });
+
+    // Evento para "Confirmar"
+    document.getElementById("confirmFinalSale").addEventListener("click", function() {
+        // Aquí puedes agregar el código para enviar los datos al servidor o mostrar un mensaje de confirmación, por ejemplo:
+        alert("Venta confirmada con éxito!");
+
+        // Luego, cierra el modal
+        document.getElementById("confirmSaleModal").classList.add("hidden");
+    });
+
+});
+
+
+
+</script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
     const productosGrid = document.getElementById("productosGrid");
@@ -99,18 +199,21 @@
     const contadorProductos = document.getElementById("contadorProductos");
     let count = 0;
 
-    productosGrid.addEventListener("click", (e) => {
+        productosGrid.addEventListener("click", (e) => {
             if (e.target.tagName === "BUTTON") {
                 const producto = e.target.closest(".producto");
                 const nombreProducto = producto.querySelector("h3").textContent;
                 const precioProducto = producto.querySelector("p").textContent;
+                const imgSrc = producto.querySelector("img").src; // Obten la URL de la imagen
 
                 const newRow = document.createElement("tr");
                 newRow.innerHTML = `
+                    <td class="px-2 py-2"><img src="${imgSrc}" alt="${nombreProducto}" class="w-12 h-12 object-cover rounded-md"></td>
                     <td class="px-2 py-2">${nombreProducto}</td>
-                    <td class="px-2 py-2"><input type="number" value="1" min="1" class="w-16 border rounded p-1"></td>
-                    <td class="px-2 py-2"><input type="text" value="$0.00" class="w-20 border rounded p-1"></td>
-                    <td class="px-2 py-2"><input type="text" value="${precioProducto}" class="w-20 border rounded p-1"></td>
+                    <td class="px-2 py-2"><input type="number" value="1" min="1" class="w-16 border rounded p-1 quantity-input"></td>
+                    <td class="px-2 py-2"><input type="text" value="0.00" class="w-20 border rounded p-1"></td>
+                    <td class="px-2 py-2"><input type="text" value="${precioProducto}" class="w-20 border rounded p-1 price-input"></td>
+                    <td class="px-2 py-2 total-cell">${parseFloat(precioProducto.replace("S/.", "")).toFixed(2)}</td>
                     <td class="px-2 py-2"><button class="text-red-500 hover:text-red-700">Eliminar</button></td>
                 `;
 
@@ -120,6 +223,7 @@
                 contadorProductos.textContent = count;
             }
         });
+
     });
 
     // ... (resto del código de paginación)
@@ -146,6 +250,17 @@
         if (currentPage < Math.ceil(totalProducts / itemsPerPage)) {
             currentPage++;
             renderProductsPage(currentPage);
+        }
+    });
+
+    document.addEventListener("input", function(event) {
+        if (event.target.matches(".quantity-input, .price-input")) {
+            const row = event.target.closest("tr");
+            const quantity = parseFloat(row.querySelector(".quantity-input").value);
+            const price = parseFloat(row.querySelector(".price-input").value.replace("", ""));
+            const totalCell = row.querySelector(".total-cell");
+
+            totalCell.textContent = "S/." + (quantity * price).toFixed(2);
         }
     });
 

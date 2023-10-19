@@ -260,9 +260,9 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
         }
 
-        public bool UpdateProducto(CrudProductoModel oCrudProductoModel)
+        public int UpdateProducto(CrudProductoModel oCrudProductoModel)
         {
-            bool rpta = false;
+            int returnedId = -1; // -1 indica que algo salió mal.
             try
             {
                 var cn = new DataConnection();
@@ -282,19 +282,34 @@ namespace ProSalesManager._01_Data.Modules.Products
                     cmd.Parameters.AddWithValue("@btActivo", oCrudProductoModel.Activo);
                     cmd.Parameters.AddWithValue("@inIdGenero", oCrudProductoModel.idGenero);
                     cmd.Parameters.AddWithValue("@inIdCategoria", oCrudProductoModel.idCategoria);
+                    cmd.Parameters.AddWithValue("@dcCosto", oCrudProductoModel.costo);
+
+                    SqlParameter outIdProductoParam = new SqlParameter("@outIdProducto", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(outIdProductoParam);
 
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery(); // Ejecuta el procedimiento almacenado
+
+                    // Recuperar el valor OUTPUT
+                    if (outIdProductoParam.Value != null)
+                    {
+                        returnedId = Convert.ToInt32(outIdProductoParam.Value);
+                    }
+
+                    conexion.Close();  // Cerrar la conexión explícitamente
                 }
-                rpta = true;
             }
             catch (Exception ex)
             {
                 ErrorResult.ErrorMessage = ex.Message;
-                return rpta;
+                return returnedId; // Retornará -1 en caso de error.
             }
-            return rpta;
+            return returnedId; // Retorna el idProducto.
         }
+
         public bool DeleteProducto(int idProducto)
         {
             bool rpta = false;
@@ -654,7 +669,82 @@ namespace ProSalesManager._01_Data.Modules.Products
                 return oList;
             }
         }
+        public bool InsertColorDetalleCrud(CrudColorDetalleModel crudColorDetalleModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Insert_ColorDetalle", conexion);
+                    cmd.Parameters.AddWithValue("@inIdProducto", crudColorDetalleModel.idProducto);
+                    cmd.Parameters.AddWithValue("@inIdColor", crudColorDetalleModel.idColor);
+                    cmd.Parameters.AddWithValue("@bActivo", crudColorDetalleModel.Activo);
 
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+        public bool UpdateColorDetalleCrud(CrudColorDetalleModel crudColorDetalleModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Update_ColorDetalle", conexion);
+                    cmd.Parameters.AddWithValue("@inIdColor", crudColorDetalleModel.idColor);
+                    cmd.Parameters.AddWithValue("@bActivo", crudColorDetalleModel.Activo);
+                    cmd.Parameters.AddWithValue("@inIdColorDetalle", crudColorDetalleModel.idColorDetalle);
+
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+        public bool DeleteColorDetalleCrud(int id)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Delete_ColorDetalle", conexion);
+                    cmd.Parameters.AddWithValue("@inIdColorDetalle", id);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
 
         //imagenes
         public List<CrudImagenModel> ImagenByIDCrud(int idProducto)

@@ -80,9 +80,9 @@ namespace ProSalesManager._02_Busnisess.Products
             var categoriacb = _sP_Products.CategoriaCrudCB();
             return categoriacb;
         }
-        public bool UpdateProducto(CrudProductoModel oCrudProductoModel)
+        public int UpdateProducto(CrudProductoModel oCrudProductoModel)
         {
-            var producto = _sP_Products.UpdateProducto(oCrudProductoModel);
+            int producto = _sP_Products.UpdateProducto(oCrudProductoModel);
             return producto;
         }
         public bool DeleteProducto(int idProducto)
@@ -138,6 +138,7 @@ namespace ProSalesManager._02_Busnisess.Products
            return _sP_Products.DeleteTagCrud(id);
         }
 
+        // COLOR DETALLE
         public List<ComboBox> ColorDetalleCrudCB()
         {
             return _sP_Products.ColorDetalleCrudCB();
@@ -146,6 +147,21 @@ namespace ProSalesManager._02_Busnisess.Products
         {
             return _sP_Products.ColorDetalleByIDCrud(idProducto);
         }
+        public bool InsertColorDetalleCrud(CrudColorDetalleModel crudColorDetalleModel)
+        {
+            bool result = _sP_Products.InsertColorDetalleCrud(crudColorDetalleModel);
+            return result;
+        }
+        public bool UpdateColorDetalleCrud(CrudColorDetalleModel crudColorDetalleModel)
+        {
+            return _sP_Products.UpdateColorDetalleCrud(crudColorDetalleModel);
+        }
+        public bool DeleteColorDetalleCrud(int id)
+        {
+            return _sP_Products.DeleteColorDetalleCrud(id);
+        }
+
+
 
         public List<CrudImagenModel> ImagenByIDCrud(int idProducto)
         {
@@ -207,6 +223,9 @@ namespace ProSalesManager._02_Busnisess.Products
         {
             return _sP_Products.InsertSize(sizeModel);
         }
+
+
+
         // Implementación de métodos para Proveedor
 
         public List<ProveedoresModel> GetAllProveedores()
