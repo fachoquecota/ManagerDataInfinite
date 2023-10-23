@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="01_Data\Modules\Sales\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 

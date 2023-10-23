@@ -5,6 +5,7 @@
         public int idProducto { get; set; }
         public string producto { get; set; }
         public string marca { get; set; }
+        public decimal costo { get; set; }
         public decimal precio { get; set; }
         public int cantidad { get; set; }
         public int idProveedor { get; set; }
@@ -17,7 +18,7 @@
         public bool Activo { get; set; }
         public int idGenero { get; set; }
         public int idCategoria { get; set; }
-        public decimal costo { get; set; }
+        public int idModeloProducto { get; set; }
 
     }
 }

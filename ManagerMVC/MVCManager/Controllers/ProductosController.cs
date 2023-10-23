@@ -34,7 +34,7 @@ namespace MVCManager.Controllers
             {
                 var content = await response.Content.ReadAsStringAsync();
                 var productosResponse = JsonConvert.DeserializeObject<ProductosResponseModel>(content);
-                var productos = productosResponse.Products;
+                var productos = productosResponse.Products.OrderByDescending(p => p.IdProducto).ToList(); // Ordenamos los productos por IdProducto en orden descendente
 
                 int registrosPorPagina = 10;
                 var productosPaginados = productos.Skip((pagina - 1) * registrosPorPagina).Take(registrosPorPagina).ToList();
@@ -45,6 +45,7 @@ namespace MVCManager.Controllers
             }
             return View("Error");
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetProveedores()
@@ -74,6 +75,18 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> GetCategorias()
         {
             HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetCrudCategoriaCrudCB");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetModelos()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetCrudModeloCrudCB");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();

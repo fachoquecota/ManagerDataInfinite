@@ -100,7 +100,8 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
                                 Activo = Convert.ToBoolean(dr["Activo"]),
                                 idGenero = Convert.ToInt32(dr["idGenero"]),
-                                idCategoria = Convert.ToInt32(dr["idCategoria"])
+                                idCategoria = Convert.ToInt32(dr["idCategoria"]),
+                                idModeloProducto = Convert.ToInt32(dr["idModeloProducto"])
                             });
                         }
                     }
@@ -136,6 +137,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 idProducto = Convert.ToInt32(dr["idProducto"]),
                                 producto = dr["producto"].ToString(),
                                 marca = dr["marca"].ToString(),
+                                costo = Convert.ToDecimal(dr["costo"]),
                                 precio = Convert.ToDecimal(dr["precio"]),
                                 cantidad = Convert.ToInt32(dr["cantidad"]),
                                 idProveedor = Convert.ToInt32(dr["idProveedor"]),
@@ -147,7 +149,8 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
                                 Activo = Convert.ToBoolean(dr["Activo"]),
                                 idGenero = Convert.ToInt32(dr["idGenero"]),
-                                idCategoria = Convert.ToInt32(dr["idCategoria"])
+                                idCategoria = Convert.ToInt32(dr["idCategoria"]),
+                                idModeloProducto = Convert.ToInt32(dr["idModeloProducto"])
                             });
                         }
                     }
@@ -259,6 +262,39 @@ namespace ProSalesManager._01_Data.Modules.Products
                 return oList;
             }
         }
+        public List<ComboBox> ModeloCrudCB()
+        {
+            var oList = new List<ComboBox>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_ModeloProducto_ComboBox", conexion);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ComboBox()
+                            {
+                                id = Convert.ToInt32(dr["idModeloProducto"]),
+                                descripcion = dr["descripcion"].ToString(),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
 
         public int UpdateProducto(CrudProductoModel oCrudProductoModel)
         {
@@ -282,6 +318,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                     cmd.Parameters.AddWithValue("@btActivo", oCrudProductoModel.Activo);
                     cmd.Parameters.AddWithValue("@inIdGenero", oCrudProductoModel.idGenero);
                     cmd.Parameters.AddWithValue("@inIdCategoria", oCrudProductoModel.idCategoria);
+                    cmd.Parameters.AddWithValue("@inIdModeloProducto", oCrudProductoModel.idModeloProducto);
                     cmd.Parameters.AddWithValue("@dcCosto", oCrudProductoModel.costo);
 
                     SqlParameter outIdProductoParam = new SqlParameter("@outIdProducto", SqlDbType.Int)

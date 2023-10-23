@@ -15,6 +15,54 @@ async function fillComboBox(selectId, apiUrl, selectedValue) {
         select.value = selectedValue;
     }
 }
+function validateFields() {
+    // Validar Producto
+    if (document.getElementById('producto').value.trim() === '') {
+        return false;
+    }
+
+    // Validar Marca
+    if (document.getElementById('marca').value.trim() === '') {
+        return false;
+    }
+
+    // Validar Precio
+    if (document.getElementById('precio').value.trim() === '') {
+        return false;
+    }
+
+    // Validar Cantidad
+    if (document.getElementById('cantidad').value.trim() === '') {
+        return false;
+    }
+
+    // Validar ID Proveedor
+    if (document.getElementById('idProveedor').value.trim() === '' || document.getElementById('idProveedor').value.trim() === '0') {
+        return false;
+    }
+
+    // Validar ID Genero
+    if (document.getElementById('idGenero').value.trim() === '' || document.getElementById('idGenero').value.trim() === '0') {
+        return false;
+    }
+
+    // Validar ID Categoria
+    if (document.getElementById('idCategoria').value.trim() === '' || document.getElementById('idCategoria').value.trim() === '0') {
+        return false;
+    }
+
+    // Validar Imagen
+    const nuevaImagen = document.getElementById('nuevaImagen');
+    const imagenActual = document.getElementById('imagenActual').src;
+
+    // Verifica si no hay una nueva imagen seleccionada y si la imagen actual es la imagen por defecto ("Croquis de domicilio.png")
+    if (nuevaImagen.files.length === 0 && imagenActual.includes('Croquis de domicilio.png')) {
+        return false;
+    }
+
+
+    return true;
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     // Manejo de pestañas
@@ -58,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 document.getElementById('producto').value = producto.producto;
                 document.getElementById('marca').value = producto.marca;
+                document.getElementById('costo').value = producto.costo;
                 document.getElementById('precio').value = producto.precio;
                 document.getElementById('cantidad').value = producto.cantidad;
 
@@ -72,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 await fillComboBox('idProveedor', '/Productos/GetProveedores', producto.idProveedor);
                 await fillComboBox('idGenero', '/Productos/GetGeneros', producto.idGenero);
                 await fillComboBox('idCategoria', '/Productos/GetCategorias', producto.idCategoria);
+                await fillComboBox('idModeloProducto', '/Productos/GetModelos', producto.idModeloProducto);
 
                 // Llenar la tabla de tallas
                 await fillSizeTable(id);
@@ -101,7 +151,13 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Estoy a punto de adjuntar el evento");
     document.getElementById('saveChanges').addEventListener('click', async function () {
         console.log("Botón de Guardar Cambios presionado");
+        event.preventDefault(); // Evitar la ejecución predeterminada del botón
 
+        // Si los campos no son válidos, muestra un mensaje y termina la ejecución
+        if (!validateFields()) {
+            alert('Por favor, completa todos los campos requeridos antes de guardar.');
+            return;
+        }
         let endpoint;
         if ($("#mode").val() === "add") {
             endpoint = '/Productos/CreateProducto';  // Endpoint para crear producto

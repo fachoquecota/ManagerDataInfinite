@@ -80,6 +80,11 @@ namespace ProSalesManager._02_Busnisess.Products
             var categoriacb = _sP_Products.CategoriaCrudCB();
             return categoriacb;
         }
+        public List<ComboBox> ModeloCrudCB()
+        {
+            var modelocb = _sP_Products.ModeloCrudCB();
+            return modelocb;
+        }
         public int UpdateProducto(CrudProductoModel oCrudProductoModel)
         {
             int producto = _sP_Products.UpdateProducto(oCrudProductoModel);

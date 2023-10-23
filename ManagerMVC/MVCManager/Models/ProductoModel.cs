@@ -45,9 +45,12 @@ public class ProductoModel
     [JsonProperty("idGenero")]
     public int IdGenero { get; set; }
 
+    [JsonProperty("idModeloProducto")]
+    public int idModeloProducto { get; set; }
+
     [JsonProperty("idCategoria")]
     public int IdCategoria { get; set; }
 
     [JsonProperty("costo")]
-    public int costo { get; set; }
+    public decimal costo { get; set; }
 }

@@ -27,6 +27,10 @@ using ProSalesManager._01_Data.Modules.PublicProducts.Interfaces;
 using ProSalesManager._02_Busnisess.PublicProducts.Interfaces;
 using ProSalesManager._02_Busnisess.PublicProducts;
 using ProSalesManager._01_Data.Modules.PublicProducts;
+using ProSalesManager._01_Data.Modules.Sales.Interfaces;
+using ProSalesManager._01_Data.Modules.Sales;
+using ProSalesManager._02_Busnisess.Sales.Interfaces;
+using ProSalesManager._02_Busnisess.Sales;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,6 +60,8 @@ builder.Services.AddScoped<IB_Proveedores, B_Proveedores>();
 builder.Services.AddScoped<ISP_PublicProducts, SP_PublicProducts>();
 builder.Services.AddScoped<IB_PublicProducts, B_PublicProducts>();
 
+builder.Services.AddScoped<ISP_Ventas, SP_Ventas>();
+builder.Services.AddScoped<IB_Ventas, B_Ventas>();
 //builder.Services.AddCors(options =>
 //{
 //    options.AddPolicy("AllowAll",

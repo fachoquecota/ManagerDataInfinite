@@ -44,48 +44,51 @@ let idProductoActual;
 
 // Función para obtener el estado actualizado de los colores
 function getUpdatedColors() {
-
+    // Define las listas para guardar colores agregados, actualizados y eliminados
+    let colorsToAdd = [];
+    let colorsToUpdate = [];
+    let colorsToDelete = []; // Asegúrate de que estés manejando también esta lista en otro lugar
 
     let colorRows = document.querySelectorAll('#colorTableBody tr');
-    let currentState = {};
 
     colorRows.forEach(row => {
-        let idColorDetalle = row.querySelector('td:nth-child(1)').innerText;
+        let idColorDetalle = row.querySelector('td:nth-child(1)').innerText.trim();
         let idColor = row.querySelector('td:nth-child(2) select').value;
-        let checkboxElement = row.querySelector('td:nth-child(3) input[type="checkbox"]');
-        console.log(checkboxElement);
-        let isActive = checkboxElement ? checkboxElement.checked : false;
+        let checkboxElement = row.querySelector('td:nth-child(4) input[type="checkbox"]');
+        let isActive = checkboxElement && checkboxElement.checked;
+
+        // Log para depuración
         console.log('ID:', idColorDetalle, 'Checkbox Value:', isActive);
 
-
-
+        // Validación: Si no se ha seleccionado un color, muestra una alerta y detiene la ejecución
         if (!idColor) {
             alert('Debe seleccionar un color antes de guardar.');
             throw new Error('Color no seleccionado.');
         }
 
+        // Si el color es nuevo, agrégalo a la lista de colores a añadir
         if (idColorDetalle === 'Nuevo!') {
             colorsToAdd.push({
                 idColorDetalle: '0', // Puede ser 0 o '0', dependiendo de cómo manejes los ID en tu backend
                 idProducto: idProductoActual, // Asegúrate de que esta variable tiene el valor correcto
                 idColor: idColor,
                 codigo: "", // Si no lo estás usando, puedes ponerlo en blanco o eliminarlo
-                isActive: isActive // Asegúrate de que esta variable está definida y tiene el valor correcto
+                isActive: isActive
             });
-        }
-        else {
+        } else {
+            // Si no es un color nuevo, agrégalo a la lista de colores a actualizar
             colorsToUpdate.push({ idColorDetalle, idColor, isActive });
         }
     });
 
- 
-
+    // Retorna un objeto con las listas de colores
     return {
         colorsToUpdate,
         colorsToAdd,
         colorsToDelete
     };
 }
+
 
 // Hacer que la función getUpdatedColors esté disponible globalmente
 window.getUpdatedColors = getUpdatedColors;
