@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "mt2LJ/wV1/Nd43pVdd5Tc+tkL+CC4Wdl1H8j+XFDE0M=",
+  "Hash": "vF9MV/lSgKZPtsTqJ+4v/tI4NCp0NhyeukFSasJ+Tco=",
   "Source": "ProSalesManager",
   "BasePath": "_content/ProSalesManager",
   "Mode": "Default",
   "ManifestType": "Publish",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ProSalesManager\\wwwroot",
+      "Source": "ProSalesManager",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerDataInfinite\\ProSalesManager\\wwwroot\\",
+      "BasePath": "_content/ProSalesManager",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

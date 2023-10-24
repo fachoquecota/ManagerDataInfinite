@@ -13,7 +13,7 @@ namespace MVCManager.Controllers
 
         public async Task<IActionResult> Index(int pagina = 1)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetCrudProductos");
+            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudProductos");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -73,7 +73,7 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetTiposVenta()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Ventas/GetVentaTipoVentaCB");
+            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Ventas/GetVentaTipoVentaCB");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -85,7 +85,7 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetModelos()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetCrudModeloCrudCB");
+            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudModeloCrudCB");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();

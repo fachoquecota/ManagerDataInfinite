@@ -15,7 +15,7 @@ namespace MVCManager.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var response = await _httpClient.GetAsync("http://localhost:5172/api/Size/GetAllSizes");
+            var response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Size/GetAllSizes");
             response.EnsureSuccessStatusCode();
 
             using var responseStream = await response.Content.ReadAsStreamAsync();
@@ -33,7 +33,7 @@ namespace MVCManager.Controllers
             var jsonContent = JsonSerializer.Serialize(size);
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync("http://localhost:5172/api/Size/PostSize", httpContent);
+            var response = await _httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Size/PostSize", httpContent);
 
             if (response.IsSuccessStatusCode)
             {
@@ -52,7 +52,7 @@ namespace MVCManager.Controllers
             var jsonContent = JsonSerializer.Serialize(size);
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PutAsync("http://localhost:5172/api/Size/PutSize", httpContent);
+            var response = await _httpClient.PutAsync("http://apiprosalesmanager.somee.com/api/Size/PutSize", httpContent);
 
             if (response.IsSuccessStatusCode)
             {
@@ -68,7 +68,7 @@ namespace MVCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int idSize)
         {
-            var response = await _httpClient.DeleteAsync($"http://localhost:5172/api/Size/DeleteSize?idSize={idSize}");
+            var response = await _httpClient.DeleteAsync($"http://apiprosalesmanager.somee.com/api/Size/DeleteSize?idSize={idSize}");
 
             if (response.IsSuccessStatusCode)
             {

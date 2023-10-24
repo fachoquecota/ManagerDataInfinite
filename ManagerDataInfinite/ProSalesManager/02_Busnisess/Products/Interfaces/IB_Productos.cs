@@ -6,6 +6,14 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
     public interface IB_Productos
     {
         List<ProductResponse> GetAllProductsDetails(bool Activo);
+
+        //MODELOPRODUCTO
+        List<ModeloProductoModel> ModeloProductosListaCrud();
+        List<ModeloProductoModel> ModeloProductosByIDCrud(int idModeloProducto);
+        bool InsertModeloProducto(ModeloProductoModel oModeloProductoModel);
+        bool UpdateModeloProducto(ModeloProductoModel oModeloProductoModel);
+        bool DeleteModeloProducto(int idModeloProducto);
+
         //Crud
         List<CrudProductoModel> ProductosListaCrud();
         List<CrudProductoModel> ProductosByIDCrud(int idProducto);

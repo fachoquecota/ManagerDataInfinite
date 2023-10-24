@@ -224,155 +224,93 @@
     }
 
     /* Evento para el botón de confirmación de venta */
-    document.getElementById("confirmSaleButton").addEventListener("click", function(event) {
+   /* Evento para el botón de confirmación de venta */
+document.getElementById("confirmSaleButton").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // Antes de clonar la tabla, calcula el total de venta.
+    recalculateSaleTotal();
+    const totalVenta = parseFloat(document.getElementById("totalSale").value);
+
+    // Copia el contenido de la tabla de productos seleccionados
+    const selectedProductsTable = document.getElementById("tablaProductosSeleccionados").cloneNode(true);
+
+    // Elimina la columna de "Acción" de la tabla copiada
+    selectedProductsTable.querySelectorAll("thead tr th:last-child, tbody tr td:last-child").forEach(cell => cell.remove());
+
+    // Desactiva los campos de entrada de la tabla copiada
+    selectedProductsTable.querySelectorAll("input").forEach(input => input.disabled = true);
+
+    // Pega el contenido en el modal
+    const modalTableContent = document.getElementById("modalTableContent");
+    modalTableContent.innerHTML = '';
+    modalTableContent.appendChild(selectedProductsTable);
+
+    // Usa el total calculado para establecer el valor en el modal.
+    document.getElementById("totalSale").value = totalVenta.toFixed(2);
+
+    // Muestra el modal
+    document.getElementById("confirmSaleModal").classList.remove("hidden");
+
+    // Evento para cerrar el modal al hacer clic en "Cancelar"
+    document.getElementById("closeModal").addEventListener("click", function() {
+        document.getElementById("confirmSaleModal").classList.add("hidden");
+    });
+
+    // Evento para "Confirmar"
+    document.getElementById("confirmFinalSale").addEventListener("click", function(event) {
         event.preventDefault();
-        document.getElementById("confirmSaleModal").classList.remove("hidden"); // Muestra el modal
 
+        const rows = document.getElementById("tablaProductosSeleccionados").querySelectorAll("tbody tr");
 
-        // Copia el contenido de la tabla de productos seleccionados
-        const selectedProductsTable = document.getElementById("tablaProductosSeleccionados").cloneNode(true);
+        const dataToSend = {
+            productos: [],
+            ventaTotal: parseFloat(document.getElementById("totalSale").value)
+        };
 
-        // Elimina la columna de "Acción" de la tabla copiada
-        selectedProductsTable.querySelectorAll("thead tr th:last-child, tbody tr td:last-child").forEach(cell => cell.remove());
-
-        // Desactiva los campos de entrada de la tabla copiada
-        selectedProductsTable.querySelectorAll("input").forEach(input => input.disabled = true);
-
-        // Pega el contenido en el modal
-        const modalTableContent = document.getElementById("modalTableContent");
-        modalTableContent.innerHTML = '';
-        modalTableContent.appendChild(selectedProductsTable);
-
-        // Calcular los totales de costo y venta (puedes ajustar esta parte según la estructura de tu tabla)
-        let totalCost = 0;
-        let totalSale = 0;
-        const rows = selectedProductsTable.querySelectorAll("tbody tr");
-        rows.forEach(row => {
-            const costValue = parseFloat(row.querySelector("td:nth-child(4) input").value.replace("", "")); // Asume que el costo está en la tercera columna
-            const saleValue = parseFloat(row.querySelector("td:nth-child(4) input").value.replace("", "")); // Ahora el precio de venta está en la cuarta columna
-            totalCost += costValue;
-            totalSale += saleValue;
-        });
-
-        // Llena los campos de costo y venta
-        //document.getElementById("totalCost").value = "" + totalCost.toFixed(2);
-        document.getElementById("totalSale").value = "" + totalSale.toFixed(2);
-
-        // Activar la edición de los campos de costo y venta
-        //document.getElementById("totalCost").removeAttribute("readonly");
-        document.getElementById("totalSale").removeAttribute("readonly");
-
-        // Muestra el modal
-        document.getElementById("confirmSaleModal").classList.remove("hidden");
-
-        // Evento para cerrar el modal al hacer clic en "Cancelar"
-        document.getElementById("closeModal").addEventListener("click", function() {
-            document.getElementById("confirmSaleModal").classList.add("hidden");
-        });
-
-        // Evento para "Confirmar"
-        document.getElementById("confirmFinalSale").addEventListener("click", function(event) {
-            event.preventDefault(); // Previene el comportamiento predeterminado del botón
-
-            const rows = document.getElementById("tablaProductosSeleccionados").querySelectorAll("tbody tr");
-    
-            const dataToSend = {
-                productos: [],
-                ventaTotal: parseFloat(document.getElementById("totalSale").value)
-            };
-
-            rows.forEach((row, index) => {
-                const idProducto = parseInt(row.getAttribute("data-idproducto"), 10);
-                const cantidad = parseInt(row.querySelector(".quantity-input").value, 10);
-                const precio = parseFloat(row.querySelector(".price-input").value);
-                const total = parseFloat(row.querySelector(".total-cell").textContent);
-
-                dataToSend.productos.push({
-                    id: idProducto,
-                    cantidad: cantidad,
-                    precio: precio,
-                    total: total
-                });
-            });
-
-            fetch('/Venta/GuardarVenta', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dataToSend)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Respuesta del servidor no es OK');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    // Puedes mostrar un mensaje de éxito o hacer alguna otra acción
-                    alert('Venta guardada con éxito');
-                    document.getElementById("confirmSaleModal").classList.add("hidden");
-                } else {
-                    alert('Hubo un error al guardar la venta: ' + (data.message || ''));
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Hubo un error al procesar la solicitud.');
-            });
-        });
-
-        // Función para recalcular el total de un producto
-        function recalculateProductTotal(row) {
+        rows.forEach((row, index) => {
+            const idProducto = parseInt(row.getAttribute("data-idproducto"), 10);
             const cantidad = parseInt(row.querySelector(".quantity-input").value, 10);
             const precio = parseFloat(row.querySelector(".price-input").value);
-            const totalCell = row.querySelector(".total-cell");
-    
-            const newTotal = (cantidad * precio).toFixed(2);
-            totalCell.textContent = newTotal;
-            console.log(`Recalculado total del producto: ${newTotal}`);
-        }
+            const total = parseFloat(row.querySelector(".total-cell").textContent);
 
-        // Función para recalcular la "Venta Total"
-        function recalculateSaleTotal() {
-            const rows = document.getElementById("tablaProductosSeleccionados").querySelectorAll("tbody tr");
-            let totalSale = 0;
-
-            rows.forEach(row => {
-                totalSale += parseFloat(row.querySelector(".total-cell").textContent);
+            dataToSend.productos.push({
+                id: idProducto,
+                cantidad: cantidad,
+                precio: precio,
+                total: total
             });
-
-            document.getElementById("totalSale").value = totalSale.toFixed(2);
-            console.log(`Recalculado total de la venta: ${totalSale.toFixed(2)}`);
-        }
-
-        function agregarProductoADetalles(producto) {
-            const tablaProductosSeleccionados = document.getElementById("tablaProductosSeleccionados");
-            const idProducto = producto.getAttribute("data-idproducto");
-            const existingRow = tablaProductosSeleccionados.querySelector(`[data-idproducto="${idProducto}"]`);
-    
-            if (existingRow) {
-                const quantityInput = existingRow.querySelector(".quantity-input");
-                quantityInput.value = parseInt(quantityInput.value) + 1;
-                recalculateProductTotal(existingRow);  // Recalcular después de actualizar la cantidad
-                recalculateSaleTotal();
-            } else {
-                // ... (resto del código)
-            }
-        }
-        // Evento para recalcular el total cuando se edite la cantidad o el precio de un producto
-        document.getElementById("tablaProductosSeleccionados").addEventListener("input", function(event) {
-            if (event.target && (event.target.matches(".quantity-input") || event.target.matches(".price-input"))) {
-                const row = event.target.closest("tr");
-        
-                recalculateProductTotal(row);
-                recalculateSaleTotal();
-            }
         });
 
-
+        fetch('/Venta/GuardarVenta', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Respuesta del servidor no es OK');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                // Puedes mostrar un mensaje de éxito o hacer alguna otra acción
+                alert('Venta guardada con éxito');
+                document.getElementById("confirmSaleModal").classList.add("hidden");
+            } else {
+                alert('Hubo un error al guardar la venta: ' + (data.message || ''));
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al procesar la solicitud.');
+        });
     });
+});
+
 
     /* Evento para la búsqueda de productos */
     document.getElementById("buscarProducto").addEventListener("input", function() {

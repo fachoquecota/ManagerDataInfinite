@@ -20,6 +20,13 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         bool InsertDescripcion(DescripcionModel oDescripcionModel);
 
 
+        //MODELOPRODUCTO
+        List<ModeloProductoModel> ModeloProductosListaCrud();
+        List<ModeloProductoModel> ModeloProductosByIDCrud(int idModeloProducto);
+        bool InsertModeloProducto(ModeloProductoModel oModeloProductoModel);
+        bool UpdateModeloProducto(ModeloProductoModel oModeloProductoModel);
+        bool DeleteModeloProducto(int idModeloProducto);
+
         //CRUD
         List<CrudProductoModel> ProductosListaCrud();
         List<CrudProductoModel> ProductosByIDCrud(int idProducto);

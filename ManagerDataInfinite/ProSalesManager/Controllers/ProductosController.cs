@@ -395,6 +395,86 @@ namespace ProSalesManager.Controllers
         }
 
 
+        //ColorDetalle
+        [HttpGet]
+        [Route("GETModeloProductosListaCrud")]
+        public dynamic ModeloProductosListaCrud()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.ModeloProductosListaCrud();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos del color" });
+
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpGet]
+        [Route("GETModeloProductosByIDCrud")]
+        public dynamic ModeloProductosByIDCrud(int idProducto)
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.ModeloProductosByIDCrud(idProducto);
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de Color" });
+
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpPost]
+        [Route("POSTInsertModeloProducto")]
+        public dynamic InsertModeloProducto(ModeloProductoModel oModeloProductoModel)
+        {
+            var result = _Products.InsertModeloProducto(oModeloProductoModel);
+
+            if (result is false)
+                return BadRequest(new { message = "Se insertó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
+            };
+        }
+        [HttpPut]
+        [Route("PUTUpdateModeloProducto")]
+        public dynamic UpdateModeloProducto(ModeloProductoModel oModeloProductoModel)
+        {
+            var result = _Products.UpdateModeloProducto(oModeloProductoModel);
+
+            if (result is false)
+                return BadRequest(new { message = "No se actualizó" });
+
+            return new
+            {
+                result = result,
+                message = "Actualizado"
+            };
+        }
+        [HttpDelete]
+        [Route("DELETEDeleteModeloProducto")]
+        public dynamic DeleteModeloProducto(int idModeloProducto)
+        {
+            var result = _Products.DeleteModeloProducto(idModeloProducto);
+
+            if (result is false)
+                return BadRequest(new { message = "Se eliminó" });
+
+            return new
+            {
+                result = result,
+                message = "insertado"
+            };
+        }
+
+
 
         //Imagenes
         [HttpGet]

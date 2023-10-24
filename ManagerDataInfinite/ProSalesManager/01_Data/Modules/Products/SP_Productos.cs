@@ -65,6 +65,149 @@ namespace ProSalesManager._01_Data.Modules.Products
             }
         }
 
+        //CrudModeloProducto
+        public List<ModeloProductoModel> ModeloProductosListaCrud()
+        {
+            var oList = new List<ModeloProductoModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_ModeloProducto", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ModeloProductoModel()
+                            {
+                                idModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
+                                descripcion = dr["descripcion"].ToString()
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+        public List<ModeloProductoModel> ModeloProductosByIDCrud(int idModeloProducto)
+        {
+            var oList = new List<ModeloProductoModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_ModeloProducto_byId", conexion);
+                    cmd.Parameters.AddWithValue("@inIdModeloProducto", idModeloProducto);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ModeloProductoModel()
+                            {
+                                idModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
+                                descripcion = dr["descripcion"].ToString(),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+        public bool InsertModeloProducto(ModeloProductoModel oModeloProductoModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Insert_ModeloProducto", conexion);
+                    cmd.Parameters.AddWithValue("@vchDescripcion", oModeloProductoModel.descripcion);
+
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+        public bool UpdateModeloProducto(ModeloProductoModel oModeloProductoModel)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Update_ModeloProducto", conexion);
+                    cmd.Parameters.AddWithValue("@vchDescripcion", oModeloProductoModel.descripcion);
+                    cmd.Parameters.AddWithValue("@inIdModeloProducto", oModeloProductoModel.idModeloProducto);
+
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
+        public bool DeleteModeloProducto(int idModeloProducto)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Delete_ModeloProducto", conexion);
+                    cmd.Parameters.AddWithValue("@inIdModeloProducto", idModeloProducto);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                }
+                rpta = true;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return rpta;
+            }
+            return rpta;
+        }
 
         // Crud Page
         // Producto

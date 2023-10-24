@@ -51,8 +51,31 @@ namespace ProSalesManager._02_Busnisess.Products
             return responseList;
         }
 
+        public List<ModeloProductoModel> ModeloProductosListaCrud()
+        {
+            var productsList = _sP_Products.ModeloProductosListaCrud();
+            return productsList;
 
-
+        }
+        public List<ModeloProductoModel> ModeloProductosByIDCrud(int idModeloProducto)
+        {
+            return _sP_Products.ModeloProductosByIDCrud(idModeloProducto);
+        }
+        public bool InsertModeloProducto(ModeloProductoModel oModeloProductoModel)
+        {
+            var insertSizeDetalle = _sP_Products.InsertModeloProducto(oModeloProductoModel);
+            return insertSizeDetalle;
+        }
+        public bool UpdateModeloProducto(ModeloProductoModel oModeloProductoModel)
+        {
+            var updateSizeDetalle = _sP_Products.UpdateModeloProducto(oModeloProductoModel);
+            return updateSizeDetalle;
+        }
+        public bool DeleteModeloProducto(int idModeloProducto)
+        {
+            var deleteSizeDetalle = _sP_Products.DeleteModeloProducto(idModeloProducto);
+            return deleteSizeDetalle;
+        }
         //CRUD
         public List<CrudProductoModel> ProductosListaCrud()
         {

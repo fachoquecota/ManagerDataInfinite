@@ -19,7 +19,7 @@ namespace MVCManager.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var response = await _httpClient.GetAsync("http://localhost:5172/api/Color/GetAllColors");
+            var response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Color/GetAllColors");
             response.EnsureSuccessStatusCode();
 
             using var responseStream = await response.Content.ReadAsStreamAsync();
@@ -35,7 +35,7 @@ namespace MVCManager.Controllers
             var jsonContent = JsonSerializer.Serialize(color);
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync("http://localhost:5172/api/Color/PostColor", httpContent);
+            var response = await _httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Color/PostColor", httpContent);
 
             if (response.IsSuccessStatusCode)
             {
@@ -54,7 +54,7 @@ namespace MVCManager.Controllers
             var jsonContent = JsonSerializer.Serialize(color);
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PutAsync("http://localhost:5172/api/Color/PutColor", httpContent);
+            var response = await _httpClient.PutAsync("http://apiprosalesmanager.somee.com/api/Color/PutColor", httpContent);
 
             if (response.IsSuccessStatusCode)
             {
@@ -70,7 +70,7 @@ namespace MVCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int idColor)
         {
-            var response = await _httpClient.DeleteAsync($"http://localhost:5172/api/Color/DeleteColor?idColor={idColor}");
+            var response = await _httpClient.DeleteAsync($"http://apiprosalesmanager.somee.com/api/Color/DeleteColor?idColor={idColor}");
 
             if (response.IsSuccessStatusCode)
             {
