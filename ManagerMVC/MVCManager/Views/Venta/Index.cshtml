@@ -44,11 +44,13 @@
                                 <img src="@urlImagenCompleta" alt="@producto.Producto" class="w-24 h-24 object-cover rounded-md mx-auto">
                             </div>
                             <h3 class="text-center text-md mb-2">@producto.Producto</h3>
-                            <p class="text-center text-sm mb-3">@producto.Precio.ToString("0.00")</p>
+                            <p class="text-center text-sm mb-1">@producto.Precio.ToString("0.00")</p>
+                            <p class="text-center text-sm mb-3">Cantidad: @producto.Cantidad</p> <!-- Añadir esta línea -->
                             <button class="text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
                         </div>
                     }
                 </div>
+
 
                 <!-- Paginación -->
                 <div class="flex justify-center mt-4">
@@ -172,28 +174,58 @@
         const existingRow = tablaProductosSeleccionados.querySelector(`[data-idproducto="${idProducto}"]`);
     
         if (existingRow) {
-                const quantityInput = existingRow.querySelector(".quantity-input");
+            const quantityInput = existingRow.querySelector(".quantity-input");
+            const maxQuantity = parseInt(quantityInput.getAttribute('data-max'));
+    
+            if (parseInt(quantityInput.value) < maxQuantity) {
                 quantityInput.value = parseInt(quantityInput.value) + 1;
-                
+
                 // Llama a la función para recalcular después de actualizar la cantidad
                 recalculateProductTotal(existingRow);
                 recalculateSaleTotal();
-            }  else {
-            const nombreProducto = producto.querySelector("h3").textContent;
-            const precioProducto = producto.querySelector("p").textContent;
-            const newRow = document.createElement("tr");
-            const imgSrc = producto.querySelector("img").src; // Obten la URL de la imagen
+            } else {
+                alert("No puedes agregar más unidades de este producto. Has alcanzado la cantidad máxima permitida.");
+            }
+        }
+          else 
+        {
+                const nombreProducto = producto.querySelector("h3").textContent;
+                const precioProducto = producto.querySelector("p").textContent;
+                const newRow = document.createElement("tr");
+                const imgSrc = producto.querySelector("img").src; // Obten la URL de la imagen
+                console.log(producto);
+                const cantidadTexto = producto.querySelector("p.text-center.text-sm").textContent;
+                console.log(cantidadTexto);
+                const cantidadMaxima = parseFloat(cantidadTexto);
+                console.log(cantidadMaxima);
+                
 
-            newRow.setAttribute("data-idproducto", idProducto);
-            newRow.innerHTML = `
-                <td class="px-2 py-2"><img src="${imgSrc}" alt="${nombreProducto}" class="w-12 h-12 object-cover rounded-md"></td>
-                <td class="px-2 py-2">${nombreProducto}</td>
-                <td class="px-2 py-2"><input type="number" value="1" min="1" class="w-16 border rounded p-1 quantity-input"></td>
-                <td class="px-2 py-2"><input type="text" value="${precioProducto}" class="w-20 border rounded p-1 price-input"></td>
-                <td class="px-2 py-2 total-cell">${parseFloat(precioProducto).toFixed(2)}</td>
-                <td class="px-2 py-2"><button class="text-red-500 hover:text-red-700">Eliminar</button></td>
-            `;
-            tablaProductosSeleccionados.querySelector("tbody").appendChild(newRow);
+
+                newRow.setAttribute("data-idproducto", idProducto);
+                newRow.innerHTML = `
+                    <td class="px-2 py-2"><img src="${imgSrc}" alt="${nombreProducto}" class="w-12 h-12 object-cover rounded-md"></td>
+                    <td class="px-2 py-2">${nombreProducto}</td>
+                    <td class="px-2 py-2">
+                        <input type="number" value="1" min="1" max="${cantidadMaxima}" data-max="${cantidadMaxima}" class="w-16 border rounded p-1 quantity-input">
+                    </td>
+                    <td class="px-2 py-2"><input type="text" value="${precioProducto}" class="w-20 border rounded p-1 price-input"></td>
+                    <td class="px-2 py-2 total-cell">${parseFloat(precioProducto).toFixed(2)}</td>
+                    <td class="px-2 py-2"><button class="text-red-500 hover:text-red-700">Eliminar</button></td>
+                `;
+                // Agrega un evento de escucha para validar la entrada de cantidad.
+                newRow.querySelector('.quantity-input').addEventListener('input', function(e) {
+                    let max = parseInt(this.getAttribute('data-max'));
+                    if (parseInt(this.value) > max) {
+                        alert("La cantidad ingresada supera la cantidad disponible.");
+                        this.value = max;  // establece el valor al máximo permitido
+                    } 
+                    else if (this.value < 1) {
+                        alert("La cantidad ingresada es menor que la cantidad mínima permitida.");
+                        this.value = 1;  // establece el valor al mínimo permitido
+                    }
+                });
+
+                tablaProductosSeleccionados.querySelector("tbody").appendChild(newRow);
         }
     }
 
@@ -223,7 +255,6 @@
         });
     }
 
-    /* Evento para el botón de confirmación de venta */
    /* Evento para el botón de confirmación de venta */
 document.getElementById("confirmSaleButton").addEventListener("click", function(event) {
     event.preventDefault();
@@ -400,315 +431,3 @@ document.getElementById("confirmSaleButton").addEventListener("click", function(
 });
 
 </script>
-@*<script>
-document.getElementById("confirmSaleButton").addEventListener("click", function(event) {
-    event.preventDefault();
-
-    // Copia el contenido de la tabla de productos seleccionados
-    const selectedProductsTable = document.getElementById("tablaProductosSeleccionados").cloneNode(true);
-
-    // Elimina la columna de "Acción" de la tabla copiada
-    selectedProductsTable.querySelectorAll("thead tr th:last-child, tbody tr td:last-child").forEach(cell => cell.remove());
-
-    // Desactiva los campos de entrada de la tabla copiada
-    selectedProductsTable.querySelectorAll("input").forEach(input => input.disabled = true);
-
-    // Pega el contenido en el modal
-    const modalTableContent = document.getElementById("modalTableContent");
-    modalTableContent.innerHTML = '';
-    modalTableContent.appendChild(selectedProductsTable);
-
-    // Calcular los totales de costo y venta (puedes ajustar esta parte según la estructura de tu tabla)
-    let totalCost = 0;
-    let totalSale = 0;
-    const rows = selectedProductsTable.querySelectorAll("tbody tr");
-    rows.forEach(row => {
-        const costValue = parseFloat(row.querySelector("td:nth-child(4) input").value.replace("", "")); // Asume que el costo está en la tercera columna
-        const saleValue = parseFloat(row.querySelector("td:nth-child(4) input").value.replace("", "")); // Ahora el precio de venta está en la cuarta columna
-        totalCost += costValue;
-        totalSale += saleValue;
-    });
-
-    // Llena los campos de costo y venta
-    //document.getElementById("totalCost").value = "" + totalCost.toFixed(2);
-    document.getElementById("totalSale").value = "" + totalSale.toFixed(2);
-
-    // Activar la edición de los campos de costo y venta
-    //document.getElementById("totalCost").removeAttribute("readonly");
-    document.getElementById("totalSale").removeAttribute("readonly");
-
-    // Muestra el modal
-    document.getElementById("confirmSaleModal").classList.remove("hidden");
-
-    // Evento para cerrar el modal al hacer clic en "Cancelar"
-    document.getElementById("closeModal").addEventListener("click", function() {
-        document.getElementById("confirmSaleModal").classList.add("hidden");
-    });
-
-    // Evento para "Confirmar"
-    document.getElementById("confirmFinalSale").addEventListener("click", function() {
-        // Aquí puedes agregar el código para enviar los datos al servidor o mostrar un mensaje de confirmación, por ejemplo:
-        alert("Venta confirmada con éxito!");
-
-        // Luego, cierra el modal
-        document.getElementById("confirmSaleModal").classList.add("hidden");
-    });
-
-});
-
-
-
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const productosGrid = document.getElementById("productosGrid");
-        const tablaProductosSeleccionados = document.getElementById("tablaProductosSeleccionados");
-        const contadorProductos = document.getElementById("contadorProductos");
-        let count = 0;
-
-        productosGrid.addEventListener("click", (e) => {
-            if (e.target.tagName === "BUTTON") {
-                const producto = e.target.closest(".producto");
-                const idProducto = producto.getAttribute("data-idproducto"); // Obtenemos el ID del producto
-
-                // Buscar si ya existe este producto en la tabla
-                const existingRow = tablaProductosSeleccionados.querySelector(`[data-idproducto="${idProducto}"]`);
-                if (existingRow) {
-                    // Si ya existe, simplemente incrementa la cantidad
-                    const quantityInput = existingRow.querySelector(".quantity-input");
-                    quantityInput.value = parseInt(quantityInput.value) + 1;
-                    // Actualiza el total
-                    const priceInputValue = parseFloat(existingRow.querySelector(".price-input").value);
-                    existingRow.querySelector(".total-cell").textContent = (parseInt(quantityInput.value) * priceInputValue).toFixed(2);
-                } else {
-                    // Si no existe, agrega una nueva fila
-                    const nombreProducto = producto.querySelector("h3").textContent;
-                    const precioProducto = producto.querySelector("p").textContent;
-                    const imgSrc = producto.querySelector("img").src; // Obten la URL de la imagen
-
-                    const newRow = document.createElement("tr");
-                    newRow.setAttribute("data-idproducto", idProducto); // Establecemos el ID del producto en la fila
-                    newRow.innerHTML = `
-                        <td class="px-2 py-2"><img src="${imgSrc}" alt="${nombreProducto}" class="w-12 h-12 object-cover rounded-md"></td>
-                        <td class="px-2 py-2">${nombreProducto}</td>
-                        <td class="px-2 py-2"><input type="number" value="1" min="1" class="w-16 border rounded p-1 quantity-input"></td>
-                        <td class="px-2 py-2"><input type="text" value="${precioProducto}" class="w-20 border rounded p-1 price-input"></td>
-                        <td class="px-2 py-2 total-cell">${parseFloat(precioProducto).toFixed(2)}</td>
-                        <td class="px-2 py-2"><button class="text-red-500 hover:text-red-700">Eliminar</button></td>
-                    `;
-
-                    tablaProductosSeleccionados.querySelector("tbody").appendChild(newRow);
-                    count++;
-                    contadorProductos.textContent = count;
-                }
-            }
-        });
-        // Evento de teclado para filtrar modelos en tiempo real
-        document.getElementById("modeloInput").addEventListener("keyup", function() {
-            const filtro = this.value.toLowerCase();
-            const opciones = document.querySelectorAll("#modeloDropdown div");
-            let count = 0; // Contador para mostrar solo las primeras coincidencias
-            opciones.forEach(opcion => {
-                if (opcion.textContent.toLowerCase().includes(filtro) && count < 10) { // Limitamos a 10 resultados para evitar que el dropdown se haga demasiado grande
-                    opcion.style.display = "block";
-                    count++;
-                } else {
-                    opcion.style.display = "none";
-                }
-            });
-        });
-    
-    });
-    function filtrarProductosPorModelo(idModelo) {
-        const productos = document.querySelectorAll(".producto");
-        productos.forEach(producto => {
-            // Asume que en cada producto tienes un atributo 'data-idmodelo' que almacena el idModeloProducto
-            if (producto.getAttribute("data-idmodelo") == idModelo) {
-                producto.style.display = "block";
-            } else {
-                producto.style.display = "none";
-            }
-        });
-    }
-
-    function eliminarModelo() {
-        const modeloSeleccionadoDiv = document.getElementById("modeloSeleccionado");
-        modeloSeleccionadoDiv.classList.add("hidden");
-        modeloSeleccionadoDiv.querySelector("span").textContent = "";
-        document.getElementById("modeloInput").value = "";
-        document.getElementById("modeloDropdown").style.display = "none";
-    }
-
-    // Dentro del evento que maneja la selección de un modelo en el dropdown:
-    opcion.addEventListener("click", function() {
-        document.getElementById("modeloInput").value = item.descripcion;
-        const modeloSeleccionadoDiv = document.getElementById("modeloSeleccionado");
-        modeloSeleccionadoDiv.querySelector("span").textContent = item.descripcion;
-        modeloSeleccionadoDiv.classList.remove("hidden");
-        modeloDropdown.style.display = "none";
-    });
-
-    // ... (resto del código de paginación)
-
-
-    // Para la paginación y matriz de productos
-    let currentPage = 1;
-    const itemsPerPage = 8; // Ajusta según cuántos productos quieras por página
-
-    function renderProductsPage(page) {
-        // Aquí, deberías filtrar tus productos según la página y renderizarlos en #productosGrid
-        // Por simplicidad, no lo estoy haciendo en este ejemplo, pero puedes usar slice() para obtener un subconjunto de productos y luego renderizarlos.
-    }
-
-    document.getElementById("prevPage").addEventListener("click", function() {
-        if (currentPage > 1) {
-            currentPage--;
-            renderProductsPage(currentPage);
-        }
-    });
-
-    document.getElementById("nextPage").addEventListener("click", function() {
-        // Asume que tienes una variable totalProducts que contiene el total de productos
-        if (currentPage < Math.ceil(totalProducts / itemsPerPage)) {
-            currentPage++;
-            renderProductsPage(currentPage);
-        }
-    });
-
-    document.addEventListener("input", function(event) {
-        if (event.target.matches(".quantity-input, .price-input")) {
-            const row = event.target.closest("tr");
-            const quantity = parseFloat(row.querySelector(".quantity-input").value);
-            const price = parseFloat(row.querySelector(".price-input").value.replace("", ""));
-            const totalCell = row.querySelector(".total-cell");
-
-            totalCell.textContent = "S/." + (quantity * price).toFixed(2);
-        }
-    });
-
-    // Renderiza la primera página al cargar
-    renderProductsPage(1);
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-    fetch("/Venta/GetTiposVenta")
-        .then(response => response.json())
-        .then(data => {
-            const tipoVentaSelect = document.getElementById("tipoVenta");
-            data.forEach(item => {
-                const option = document.createElement("option");
-                option.value = item.id;
-                option.textContent = item.descripcion;
-                tipoVentaSelect.appendChild(option);
-            });
-        });
-
-    function filtrarProductosPorModelo(idModelo) {
-        const productos = document.querySelectorAll(".producto");
-        productos.forEach(producto => {
-            if (producto.getAttribute("data-idmodelo") == idModelo) {
-                producto.style.display = "block";
-            } else {
-                producto.style.display = "none";
-            }
-        });
-    }
-
-    // Llenar el combobox de modelos al cargar la página
-    fetch("/Venta/GetModelos")
-        .then(response => response.json())
-        .then(data => {
-            const modeloDropdown = document.getElementById("modeloDropdown");
-            data.result.forEach(item => {
-                const opcion = document.createElement("div");
-                opcion.className = "p-2 hover:bg-gray-200 cursor-pointer";
-                opcion.textContent = item.descripcion;
-                opcion.addEventListener("click", function() {
-                    document.getElementById("modeloInput").value = item.descripcion;
-                    const modeloSeleccionadoDiv = document.getElementById("modeloSeleccionado");
-                    modeloSeleccionadoDiv.querySelector("span").textContent = item.descripcion;
-                    modeloSeleccionadoDiv.classList.remove("hidden");
-                    modeloDropdown.style.display = "none";
-
-                    // Filtra los productos según el modelo seleccionado
-                    filtrarProductosPorModelo(item.id); 
-                });
-                modeloDropdown.appendChild(opcion);
-            });
-        });
-    });
-
-
-</script>
-<script>
-    document.getElementById("buscarProducto").addEventListener("input", function() {
-    const searchTerm = this.value.toLowerCase();
-    const productos = document.querySelectorAll(".producto");
-    productos.forEach(producto => {
-        const productoName = producto.querySelector("h3").textContent.toLowerCase();
-        if (productoName.includes(searchTerm)) {
-            producto.style.display = "block";
-        } else {
-            producto.style.display = "none";
-        }
-    });
-});
-
-</script>
-<script>
-    function filterModelos() {
-    const searchTerm = document.getElementById("modeloInput").value.toLowerCase();
-    const modelos = document.querySelectorAll(".modeloOption");
-    modelos.forEach(modelo => {
-        if (modelo.textContent.toLowerCase().includes(searchTerm)) {
-            modelo.style.display = "block";
-        } else {
-            modelo.style.display = "none";
-        }
-    });
-    }
-
-    document.getElementById("modeloInput").addEventListener("focus", function() {
-        document.getElementById("modeloDropdown").style.display = "block";
-    });
-
-    document.getElementById("modeloInput").addEventListener("blur", function() {
-        setTimeout(() => {
-            document.getElementById("modeloDropdown").style.display = "none";
-        }, 200);
-    });
-
-    document.querySelectorAll(".modeloOption").forEach(modelo => {
-        modelo.addEventListener("click", function() {
-            document.getElementById("modeloInput").value = this.textContent;
-        });
-    });
-
-</script>
-<script>
-    document.addEventListener("click", function(event) {
-    const modeloInput = document.getElementById("modeloInput");
-    const modeloDropdown = document.getElementById("modeloDropdown");
-
-    // Verifica si el clic fue fuera de los elementos
-    if (!modeloInput.contains(event.target) && !modeloDropdown.contains(event.target)) {
-        modeloDropdown.style.display = "none";
-        }
-    });
-</script>
-<script>
-    document.getElementById("modeloSeleccionado").addEventListener("click", function() {
-        // 1. Limpiar el input del modelo
-        document.getElementById("modeloInput").value = "";
-    
-        // 2. Ocultar el div del modelo seleccionado
-        this.classList.add("hidden");
-
-        // 3. Mostrar todos los productos
-        const productos = document.querySelectorAll(".producto");
-        productos.forEach(producto => {
-            producto.style.display = "block";
-        });
-    });
-
-</script>*@
