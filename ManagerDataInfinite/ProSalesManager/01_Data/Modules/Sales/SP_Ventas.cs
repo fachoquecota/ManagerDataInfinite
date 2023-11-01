@@ -1,5 +1,6 @@
 ﻿using ProSalesManager._01_Data.Connection;
 using ProSalesManager._01_Data.Modules.Sales.Interfaces;
+using ProSalesManager._03_Models;
 using ProSalesManager._03_Models.ModelsCrud;
 using ProSalesManager._03_Models.ReservedModels;
 using System.Data;
@@ -40,6 +41,48 @@ namespace ProSalesManager._01_Data.Modules.Sales
             {
                 ErrorResult.ErrorMessage = ex.Message;
                 return oList;
+            }
+        }
+        public List<ProductoVenta> ObtenerProductosVenta()
+        {
+            var productosList = new List<ProductoVenta>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Productos_Venta", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            productosList.Add(new ProductoVenta()
+                            {
+                                IdProducto = Convert.ToInt32(dr["idProducto"]),
+                                Producto = dr["producto"].ToString(),
+                                Marca = dr["marca"].ToString(),
+                                Precio = Convert.ToDecimal(dr["precio"]),
+                                ImagenCarpeta = dr["imagenCarpeta"].ToString(),
+                                ImagenNombre = dr["imagenNombre"].ToString(),
+                                IdSize = Convert.ToInt32(dr["idSize"]),
+                                SizeDescription = dr["SizeDescription"].ToString(),
+                                IdColor = Convert.ToInt32(dr["idColor"]),
+                                ColorDescription = dr["ColorDescription"].ToString(),
+                                IdModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
+                                ModeloDescripcion = dr["ModeloDescripcion"].ToString()
+                            });
+                        }
+                    }
+                }
+                return productosList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return productosList;
             }
         }
     }

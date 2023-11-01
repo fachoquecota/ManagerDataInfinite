@@ -31,5 +31,21 @@ namespace ProSalesManager.Controllers
                 result = result
             };
         }
+        [HttpGet]
+        [Route("GetProductosVenta")]
+        public dynamic GetProductosVenta()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Ventas.ObtenerProductosVenta();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de productos" });
+
+            return new
+            {
+                result = result
+            };
+        }
     }
 }

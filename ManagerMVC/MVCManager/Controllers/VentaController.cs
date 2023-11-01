@@ -4,6 +4,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVCManager.Models;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MVCManager.Controllers
 {
@@ -13,16 +15,47 @@ namespace MVCManager.Controllers
 
         public async Task<IActionResult> Index(int pagina = 1)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudProductos");
+            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Ventas/GetProductosVenta");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var productosResponse = JsonConvert.DeserializeObject<ProductosResponseModel>(content);
+                var responseDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<ProductoVenta>>>(content);
+                var productosList = responseDictionary["result"];
 
-                // Filtramos los productos activos primero
-                var productosActivos = productosResponse.Products.Where(p => p.Activo).ToList();
+                var productos = productosList.OrderByDescending(p => p.IdProducto).ToList();
 
-                var productos = productosActivos.OrderByDescending(p => p.IdProducto).ToList();
+                HttpResponseMessage colorResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetColor_CrudCB");
+                if (colorResponse.IsSuccessStatusCode)
+                {
+                    var colorContent = await colorResponse.Content.ReadAsStringAsync();
+                    var colorData = JsonConvert.DeserializeObject<Dictionary<string, List<Colores>>>(colorContent);
+                    var colores = colorData["result"];
+
+                    ViewBag.Colores = colores.Select(c => new SelectListItem
+                    {
+                        Value = c.id.ToString(),
+                        Text = c.descripcion
+                    }).ToList();
+                }
+
+                // Llamada a la API para obtener las tallas
+                HttpResponseMessage sizeResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Size/GetAllSizes");
+                if (sizeResponse.IsSuccessStatusCode)
+                {
+                    var sizeContent = await sizeResponse.Content.ReadAsStringAsync();
+                    var sizeData = JsonConvert.DeserializeObject<Dictionary<string, List<Talla>>>(sizeContent);
+                    var tallas = sizeData["products"];
+
+                    // Filtrar las tallas que tienen "activo" igual a true
+                    var tallasActivas = tallas.Where(t => t.activo).ToList();
+
+                    // Llenar el ViewBag con las tallas activas
+                    ViewBag.Tallas = tallasActivas.Select(t => new SelectListItem
+                    {
+                        Value = t.idSize.ToString(),
+                        Text = t.descripcion
+                    }).ToList();
+                }
 
                 int registrosPorPagina = 10;
                 var productosPaginados = productos.Skip((pagina - 1) * registrosPorPagina).Take(registrosPorPagina).ToList();
@@ -31,9 +64,23 @@ namespace MVCManager.Controllers
 
                 return View(productosPaginados);
             }
+
             return View("Error");
         }
 
+
+        public class Talla
+        {
+            public int idSize { get; set; }
+            public string descripcion { get; set; }
+            public bool activo { get; set; }
+        }
+
+        public class Colores
+        {
+            public int id { get; set; }
+            public string descripcion { get; set; }
+        }
         [HttpPost]
         public ActionResult GuardarVenta([FromBody] VentaData ventaData)
         {

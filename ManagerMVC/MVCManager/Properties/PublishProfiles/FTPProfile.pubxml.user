@@ -8,7 +8,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbAS5Mj0K2EGNqyqZKj0sUAAAAAACAAAAAAAQZgAAAAEAACAAAABDRWtPiK+axU1fkj3uv0/SLflcJqaahAOpDPtno3WbpQAAAAAOgAAAAAIAACAAAACjnJgEmXbp5WGZzf/wAJ7INkEiaswKRnYfGlzMZ4zKHSAAAABxToL3CmkSG3gIDKf4P+/WkbJAguk0eL+5KLossIKn50AAAACu0DC6UNwoLwnUv2+SdByEllq3sSY9/gvbLhJY562dLvmlK/N8QHfGy7VDoVuo5oFXpNvr/EiOdYL7Qm5dv0Uz</EncryptedPassword>
     <_PublishTargetUrl>ftp://155.254.244.30/www.zilex.somee.com</_PublishTargetUrl>
-    <History>True|2023-10-30T08:24:48.6325745Z;False|2023-10-30T03:16:31.4661685-05:00;False|2023-10-23T18:58:55.3782482-05:00;</History>
+    <History>True|2023-11-01T09:14:43.3841455Z;True|2023-10-30T03:24:48.6325745-05:00;False|2023-10-30T03:16:31.4661685-05:00;False|2023-10-23T18:58:55.3782482-05:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
@@ -21,22 +21,22 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/17/2021 22:38:30</publishTime>
     </File>
     <File Include="MVCManager.deps.json">
-      <publishTime>10/30/2023 03:17:52</publishTime>
+      <publishTime>11/01/2023 04:07:54</publishTime>
     </File>
     <File Include="MVCManager.dll">
-      <publishTime>10/30/2023 03:17:52</publishTime>
+      <publishTime>11/01/2023 04:07:49</publishTime>
     </File>
     <File Include="MVCManager.exe">
-      <publishTime>10/30/2023 03:17:52</publishTime>
+      <publishTime>11/01/2023 04:07:49</publishTime>
     </File>
     <File Include="MVCManager.pdb">
-      <publishTime>10/30/2023 03:17:52</publishTime>
+      <publishTime>11/01/2023 04:07:49</publishTime>
     </File>
     <File Include="MVCManager.runtimeconfig.json">
       <publishTime>10/23/2023 18:58:50</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
-      <publishTime>03/08/2023 02:09:54</publishTime>
+      <publishTime>08/03/2023 02:09:54</publishTime>
     </File>
     <File Include="package-lock.json">
       <publishTime>08/31/2023 18:26:31</publishTime>
@@ -48,7 +48,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/15/2023 14:49:50</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/30/2023 03:17:54</publishTime>
+      <publishTime>11/01/2023 04:07:57</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
       <publishTime>08/31/2023 18:26:31</publishTime>
@@ -57,7 +57,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/17/2023 02:45:43</publishTime>
     </File>
     <File Include="wwwroot/css/styles.css">
-      <publishTime>10/30/2023 02:38:22</publishTime>
+      <publishTime>11/01/2023 00:53:50</publishTime>
     </File>
     <File Include="wwwroot/favicon.ico">
       <publishTime>08/31/2023 18:26:31</publishTime>
@@ -159,7 +159,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/30/2023 00:49:44</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/0/Croquis de domicilio.png">
-      <publishTime>09/05/2023 23:06:58</publishTime>
+      <publishTime>05/09/2023 23:06:58</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/0/PO-A454.jpg">
       <publishTime>10/19/2023 01:02:41</publishTime>
@@ -168,16 +168,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/19/2023 01:21:03</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/1/Croquis de domicilio.png">
-      <publishTime>09/03/2023 19:18:10</publishTime>
+      <publishTime>03/09/2023 19:18:10</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/1/Foto Digital.png">
-      <publishTime>09/02/2023 10:21:47</publishTime>
+      <publishTime>02/09/2023 10:21:47</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/1/Foto Digital__2.png">
-      <publishTime>09/02/2023 10:50:52</publishTime>
+      <publishTime>02/09/2023 10:50:52</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/1/Tramite de Solicitud por Renovación 1.png">
-      <publishTime>09/02/2023 10:22:43</publishTime>
+      <publishTime>02/09/2023 10:22:43</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/10/PO-A455.jpg">
       <publishTime>10/16/2023 19:31:33</publishTime>
@@ -189,7 +189,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/16/2023 19:31:06</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/2/Croquis de domicilio.png">
-      <publishTime>09/02/2023 02:16:42</publishTime>
+      <publishTime>02/09/2023 02:16:42</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/23/PO-A452.jpg">
       <publishTime>10/16/2023 19:30:36</publishTime>
@@ -213,7 +213,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/14/2023 01:42:11</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/3/overwatch-2-HD-scaled_1.jpg">
-      <publishTime>09/06/2023 22:09:07</publishTime>
+      <publishTime>06/09/2023 22:09:07</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/3/PO-A452.jpg">
       <publishTime>10/16/2023 19:23:33</publishTime>
@@ -282,7 +282,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/16/2023 19:31:48</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/8/Tramite de Solicitud por Renovación 1.png">
-      <publishTime>09/03/2023 19:01:39</publishTime>
+      <publishTime>03/09/2023 19:01:39</publishTime>
     </File>
     <File Include="wwwroot/Images/ProductoPrincipal/9/PO-A452.jpg">
       <publishTime>10/16/2023 19:31:41</publishTime>
