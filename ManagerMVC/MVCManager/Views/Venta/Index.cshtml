@@ -16,14 +16,14 @@
                     <!-- Modelo (Input con dropdown) -->
                     <div class="relative mb-4 inline-block w-1/2">
                         <label for="modeloInput" class="block text-sm font-medium text-gray-600">Modelo:</label>
-                        <input type="text" id="modeloInput" placeholder="Buscar modelo" class="mt-1 p-2 w-full rounded-md border shadow-sm">
-                        <div id="modeloDropdown" class="absolute w-full mt-2 bg-white border rounded-md shadow-lg z-10 hidden"></div>
+                        <select id="modeloCombobox" name="modelo" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                            <option value="">Todos los modelos</option> <!-- Esta es la nueva opción -->
+                            @foreach(var modelo in ViewBag.Modelos)
+                            {
+                                <option value="@modelo.Value">@modelo.Text</option>
+                            }
+                        </select>
 
-                        <!-- Contenedor para el modelo seleccionado y la "X" -->
-                        <div id="modeloSeleccionado" class="mt-2 p-2 bg-gray-200 rounded flex items-center justify-between hidden">
-                            <span></span> <!-- Aquí se mostrará el modelo seleccionado -->
-                            <button class="ml-2 text-red-500 hover:text-red-700" onclick="eliminarModelo()">X</button>
-                        </div>
                     </div>
 
                     <!-- ComboBox de Talla -->
@@ -76,7 +76,8 @@
                             </div>
                             <h3 class="text-center text-md mb-2">@producto.Producto</h3>
                             <p class="text-center text-sm mb-1">@producto.Marca</p>
-                            <p class="text-center text-sm mb-1">@producto.Precio.ToString("0.00")</p>
+                            <p class="text-center text-sm mb-1 precio-producto">@producto.Precio.ToString("0.00")</p>
+                            <p class="text-center text-sm mb-1">@producto.Cantidad</p>
                             <p class="text-center text-sm mb-1">@producto.SizeDescription</p>
                             <p class="text-center text-sm mb-1">@producto.ColorDescription</p>
                             <p class="text-center text-sm mb-1">@producto.ModeloDescripcion</p>
@@ -164,7 +165,7 @@
             <!-- Campo de venta -->
             <div class="mt-4">
                 <label for="totalSale" class="block text-sm font-medium text-gray-600">Venta Total:</label>
-                <input type="text" id="totalSale" class="mt-1 p-2 w-full rounded-md border shadow-sm" readonly>
+                <input type="text" id="totalSale" class="mt-1 p-2 w-full rounded-md border shadow-sm" >
             </div>
         </div>
       </div>
@@ -184,17 +185,30 @@
 <script>
 $(document).ready(function() {
     // Detectar cambios en los ComboBox
-    $('#colorCombobox, #sizeCombobox').change(function() {
+    $('#colorCombobox, #sizeCombobox, #modeloCombobox').on('input change', function() {
         filtrarProductos();
     });
+
+    // Evento para la búsqueda de productos
+    $("#buscarProducto").on("input", function() {
+        resetComboboxes(); // Restablece los comboboxes
+        buscarEnProductos(this.value); // Filtra los productos según la búsqueda
+    });
 });
+
+function resetComboboxes() {
+    $('#modeloCombobox').val('');  // Todos los modelos
+    $('#sizeCombobox').val('');    // Todas las tallas
+    $('#colorCombobox').val('');   // Todos los colores
+}
 
 function filtrarProductos() {
     var colorSeleccionado = $('#colorCombobox').val();
     var tallaSeleccionada = $('#sizeCombobox').val();
+    var modeloSeleccionado = $('#modeloCombobox').val();
 
-    // Si ambos ComboBox están en la opción predeterminada (sin seleccionar nada), mostramos todos los productos.
-    if (!colorSeleccionado && !tallaSeleccionada) {
+    // Si todos los filtros están en la opción predeterminada o vacíos, mostramos todos los productos.
+    if (!colorSeleccionado && !tallaSeleccionada && !modeloSeleccionado) {
         $('.producto').show();
         return;
     }
@@ -206,101 +220,133 @@ function filtrarProductos() {
     $('.producto').each(function() {
         var colorProducto = $(this).data('idcolor');
         var tallaProducto = $(this).data('idsize');
+        var modeloProducto = $(this).data('idmodeloproducto').toString();
 
-        // Condiciones de filtro
         var coincideColor = !colorSeleccionado || colorProducto == colorSeleccionado;
         var coincideTalla = !tallaSeleccionada || tallaProducto == tallaSeleccionada;
+        var coincideModelo = !modeloSeleccionado || modeloProducto == modeloSeleccionado;
 
-        if (coincideColor && coincideTalla) {
+        if (coincideColor && coincideTalla && coincideModelo) {
             $(this).show();
         }
     });
 }
 
+function buscarEnProductos(searchTerm) {
+    searchTerm = searchTerm.toLowerCase();
+    $('.producto').each(function() {
+        const productoName = $(this).find("h3").text().toLowerCase();
+        const productoMarca = $(this).find("p:nth-child(4)").text().toLowerCase();
+        const productoModelo = $(this).find("p:nth-child(7)").text().toLowerCase();
 
- </script>
+        if (productoName.includes(searchTerm) || productoMarca.includes(searchTerm) || productoModelo.includes(searchTerm)) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+}
+</script>
+
 <script>
     // Función para recalcular el total de un producto
     function recalculateProductTotal(row) {
-        const cantidad = parseInt(row.querySelector(".quantity-input").value, 10);
-        const precio = parseFloat(row.querySelector(".price-input").value);
-        const totalCell = row.querySelector(".total-cell");
-        totalCell.textContent = (cantidad * precio).toFixed(2);
+        const quantity = parseFloat(row.querySelector('.quantity-input').value);
+        const price = parseFloat(row.querySelector('.price-input').value);
+        const totalCell = row.querySelector('.total-cell');
+        totalCell.textContent = (quantity * price).toFixed(2);
     }
 
     // Función para recalcular la "Venta Total"
     function recalculateSaleTotal() {
-        const rows = document.getElementById("tablaProductosSeleccionados").querySelectorAll("tbody tr");
-        let totalSale = 0;
-        rows.forEach(row => {
-            totalSale += parseFloat(row.querySelector(".total-cell").textContent);
+        const table = document.querySelector("#tablaProductosSeleccionados");
+        let totalColumnIndex = -1;
+
+        // Encontrar el índice de la columna "Total"
+        table.querySelectorAll('thead th').forEach((th, index) => {
+            if (th.textContent.trim() === 'Total') {
+                totalColumnIndex = index;
+            }
         });
-        document.getElementById("totalSale").value = totalSale.toFixed(2);
+
+        // Si no encontramos la columna, terminamos la función
+        if (totalColumnIndex === -1) return;
+
+        // Calcular el total sumando los valores de la columna "Total" en cada fila
+        let total = 0;
+        table.querySelectorAll('tbody tr').forEach(row => {
+            const totalCell = row.querySelector(`td:nth-child(${totalColumnIndex + 1})`);
+            if (totalCell) {
+                total += parseFloat(totalCell.textContent.trim() || 0);
+            }
+        });
+
+        // Establecer el valor del total en el campo correspondiente
+        document.getElementById("totalSale").value = total.toFixed(2);
     }
+
+
     document.addEventListener("DOMContentLoaded", () => {
 
 
     /* Función para agregar productos a "Detalles de venta" */
     function agregarProductoADetalles(producto) {
-        const tablaProductosSeleccionados = document.getElementById("tablaProductosSeleccionados");
-        const idProducto = producto.getAttribute("data-idproducto");
-        const existingRow = tablaProductosSeleccionados.querySelector(`[data-idproducto="${idProducto}"]`);
-    
-        if (existingRow) {
-            const quantityInput = existingRow.querySelector(".quantity-input");
-            const maxQuantity = parseInt(quantityInput.getAttribute('data-max'));
-    
-            if (parseInt(quantityInput.value) < maxQuantity) {
-                quantityInput.value = parseInt(quantityInput.value) + 1;
+    const tablaProductosSeleccionados = document.getElementById("tablaProductosSeleccionados");
+    const idProducto = producto.getAttribute("data-idproducto");
+    const existingRow = tablaProductosSeleccionados.querySelector(`[data-idproducto="${idProducto}"]`);
 
-                // Llama a la función para recalcular después de actualizar la cantidad
-                recalculateProductTotal(existingRow);
-                recalculateSaleTotal();
-            } else {
-                alert("No puedes agregar más unidades de este producto. Has alcanzado la cantidad máxima permitida.");
+    if (existingRow) {
+        const quantityInput = existingRow.querySelector(".quantity-input");
+        const maxQuantity = parseInt(producto.querySelector("p:nth-child(5)").textContent);
+
+        if (parseInt(quantityInput.value) < maxQuantity) {
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+            recalculateProductTotal(existingRow);
+            recalculateSaleTotal();
+        } else {
+            alert("No puedes agregar más unidades de este producto. Has alcanzado la cantidad máxima permitida.");
+        }
+    } else {
+        const nombreProducto = producto.querySelector("h3").textContent;
+        const precioProductoTexto = producto.querySelector(".precio-producto").textContent;
+        const cantidadMaxima = parseInt(producto.querySelector("p:nth-child(5)").textContent);
+        const imgSrc = producto.querySelector("img").src;
+
+        const newRow = document.createElement("tr");
+        newRow.setAttribute("data-idproducto", idProducto);
+        newRow.innerHTML = `
+            <td class="px-2 py-2"><img src="${imgSrc}" alt="${nombreProducto}" class="w-12 h-12 object-cover rounded-md"></td>
+            <td class="px-2 py-2">${nombreProducto}</td>
+            <td class="px-2 py-2">
+                <input type="number" value="1" min="1" max="${cantidadMaxima}" data-max="${cantidadMaxima}" class="w-16 border rounded p-1 quantity-input">
+            </td>
+            <td class="px-2 py-2">
+                <input type="number" value="${parseFloat(precioProductoTexto).toFixed(2)}" class="w-20 border rounded p-1 price-input precio-producto" readonly>
+            </td>
+            <td class="px-2 py-2 total-cell">${parseFloat(precioProductoTexto).toFixed(2)}</td>
+            <td class="px-2 py-2"><button class="text-red-500 hover:text-red-700">Eliminar</button></td>
+        `;
+
+        newRow.querySelector('.quantity-input').addEventListener('input', function(e) {
+            let max = parseInt(this.getAttribute('data-max'));
+            if (parseInt(this.value) > max) {
+                alert("La cantidad ingresada supera la cantidad disponible.");
+                this.value = max;
+            } else if (this.value < 1) {
+                alert("La cantidad ingresada es menor que la cantidad mínima permitida.");
+                this.value = 1;
             }
-        }
-          else 
-        {
-                const nombreProducto = producto.querySelector("h3").textContent;
-                const precioProducto = producto.querySelector("p").textContent;
-                const newRow = document.createElement("tr");
-                const imgSrc = producto.querySelector("img").src; // Obten la URL de la imagen
-                console.log(producto);
-                const cantidadTexto = producto.querySelector("p.text-center.text-sm").textContent;
-                console.log(cantidadTexto);
-                const cantidadMaxima = parseFloat(cantidadTexto);
-                console.log(cantidadMaxima);
-                
 
+            // Recalcula el total cada vez que cambia el valor.
+            const precioInput = newRow.querySelector('.price-input');
+            const totalCell = newRow.querySelector('.total-cell');
+            totalCell.textContent = (this.value * parseFloat(precioInput.value)).toFixed(2);
+            recalculateSaleTotal();
+        });
 
-                newRow.setAttribute("data-idproducto", idProducto);
-                newRow.innerHTML = `
-                    <td class="px-2 py-2"><img src="${imgSrc}" alt="${nombreProducto}" class="w-12 h-12 object-cover rounded-md"></td>
-                    <td class="px-2 py-2">${nombreProducto}</td>
-                    <td class="px-2 py-2">
-                        <input type="number" value="1" min="1" max="${cantidadMaxima}" data-max="${cantidadMaxima}" class="w-16 border rounded p-1 quantity-input">
-                    </td>
-                    <td class="px-2 py-2"><input type="text" value="${precioProducto}" class="w-20 border rounded p-1 price-input"></td>
-                    <td class="px-2 py-2 total-cell">${parseFloat(precioProducto).toFixed(2)}</td>
-                    <td class="px-2 py-2"><button class="text-red-500 hover:text-red-700">Eliminar</button></td>
-                `;
-                // Agrega un evento de escucha para validar la entrada de cantidad.
-                newRow.querySelector('.quantity-input').addEventListener('input', function(e) {
-                    let max = parseInt(this.getAttribute('data-max'));
-                    if (parseInt(this.value) > max) {
-                        alert("La cantidad ingresada supera la cantidad disponible.");
-                        this.value = max;  // establece el valor al máximo permitido
-                    } 
-                    else if (this.value < 1) {
-                        alert("La cantidad ingresada es menor que la cantidad mínima permitida.");
-                        this.value = 1;  // establece el valor al mínimo permitido
-                    }
-                });
-
-                tablaProductosSeleccionados.querySelector("tbody").appendChild(newRow);
-        }
+        tablaProductosSeleccionados.querySelector("tbody").appendChild(newRow);
     }
+}
 
     /* Evento para el botón de agregar producto */
     document.getElementById("productosGrid").addEventListener("click", (e) => {
@@ -331,7 +377,7 @@ function filtrarProductos() {
    /* Evento para el botón de confirmación de venta */
 document.getElementById("confirmSaleButton").addEventListener("click", function(event) {
     event.preventDefault();
-
+    
     // Antes de clonar la tabla, calcula el total de venta.
     recalculateSaleTotal();
     const totalVenta = parseFloat(document.getElementById("totalSale").value);
@@ -415,68 +461,6 @@ document.getElementById("confirmSaleButton").addEventListener("click", function(
     });
 });
 
-
-    /* Evento para la búsqueda de productos */
-    document.getElementById("buscarProducto").addEventListener("input", function() {
-        const searchTerm = this.value.toLowerCase();
-        const productos = document.querySelectorAll(".producto");
-        productos.forEach(producto => {
-            const productoName = producto.querySelector("h3").textContent.toLowerCase();
-            if (productoName.includes(searchTerm)) {
-                producto.style.display = "block";
-            } else {
-                producto.style.display = "none";
-            }
-        });
-    });
-
-    /* Evento para el input de modelos */
-    document.getElementById("modeloInput").addEventListener("focus", function() {
-        document.getElementById("modeloDropdown").style.display = "block";
-    });
-    document.getElementById("modeloInput").addEventListener("blur", function() {
-        setTimeout(() => {
-            document.getElementById("modeloDropdown").style.display = "none";
-        }, 200);
-    });
-
-    /* Eventos para cerrar el dropdown de modelos */
-    document.addEventListener("click", function(event) {
-        const modeloInput = document.getElementById("modeloInput");
-        const modeloDropdown = document.getElementById("modeloDropdown");
-        if (!modeloInput.contains(event.target) && !modeloDropdown.contains(event.target)) {
-            modeloDropdown.style.display = "none";
-        }
-    });
-
-    /* Llenar el combobox de modelos al cargar la página */
-    fetch("/Venta/GetModelos")
-        .then(response => response.json())
-        .then(data => {
-            const modeloDropdown = document.getElementById("modeloDropdown");
-            data.result.forEach(item => {
-                const opcion = document.createElement("div");
-                opcion.className = "p-2 hover:bg-gray-200 cursor-pointer";
-                opcion.textContent = item.descripcion;
-                opcion.addEventListener("click", function() {
-                    document.getElementById("modeloInput").value = item.descripcion;
-                    const modeloSeleccionadoDiv = document.getElementById("modeloSeleccionado");
-                    modeloSeleccionadoDiv.querySelector("span").textContent = item.descripcion;
-                    modeloSeleccionadoDiv.classList.remove("hidden");
-                    modeloDropdown.style.display = "none";
-                    filtrarProductosPorModelo(item.id);
-                });
-                modeloDropdown.appendChild(opcion);
-            });
-        });
-
-    /* Evento para eliminar el modelo seleccionado y mostrar todos los productos */
-    document.getElementById("modeloSeleccionado").addEventListener("click", function() {
-        document.getElementById("modeloInput").value = "";
-        this.classList.add("hidden");
-        mostrarTodosLosProductos();
-    });
-
     /* Llenar el dropdown de tipos de venta al cargar la página */
     fetch("/Venta/GetTiposVenta")
         .then(response => response.json())
@@ -497,7 +481,6 @@ document.getElementById("confirmSaleButton").addEventListener("click", function(
             filaProducto.remove();  // Elimina la fila
 
             // Si tienes un contador, disminuye el contador en 1
-            count--;
             contadorProductos.textContent = count;
         }
     });

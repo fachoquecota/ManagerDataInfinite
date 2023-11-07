@@ -63,6 +63,7 @@ namespace ProSalesManager._01_Data.Modules.Sales
                             {
                                 IdProducto = Convert.ToInt32(dr["idProducto"]),
                                 Producto = dr["producto"].ToString(),
+                                Cantidad = Convert.ToInt32(dr["cantidad"]),
                                 Marca = dr["marca"].ToString(),
                                 Precio = Convert.ToDecimal(dr["precio"]),
                                 ImagenCarpeta = dr["imagenCarpeta"].ToString(),

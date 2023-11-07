@@ -8,7 +8,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbAS5Mj0K2EGNqyqZKj0sUAAAAAACAAAAAAAQZgAAAAEAACAAAABDRWtPiK+axU1fkj3uv0/SLflcJqaahAOpDPtno3WbpQAAAAAOgAAAAAIAACAAAACjnJgEmXbp5WGZzf/wAJ7INkEiaswKRnYfGlzMZ4zKHSAAAABxToL3CmkSG3gIDKf4P+/WkbJAguk0eL+5KLossIKn50AAAACu0DC6UNwoLwnUv2+SdByEllq3sSY9/gvbLhJY562dLvmlK/N8QHfGy7VDoVuo5oFXpNvr/EiOdYL7Qm5dv0Uz</EncryptedPassword>
     <_PublishTargetUrl>ftp://155.254.244.30/www.zilex.somee.com</_PublishTargetUrl>
-    <History>True|2023-11-01T09:14:43.3841455Z;True|2023-10-30T03:24:48.6325745-05:00;False|2023-10-30T03:16:31.4661685-05:00;False|2023-10-23T18:58:55.3782482-05:00;</History>
+    <History>True|2023-11-01T23:42:24.3520971Z;True|2023-11-01T11:45:07.2133278-05:00;True|2023-11-01T04:14:43.3841455-05:00;True|2023-10-30T03:24:48.6325745-05:00;False|2023-10-30T03:16:31.4661685-05:00;False|2023-10-23T18:58:55.3782482-05:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
@@ -21,16 +21,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/17/2021 22:38:30</publishTime>
     </File>
     <File Include="MVCManager.deps.json">
-      <publishTime>11/01/2023 04:07:54</publishTime>
+      <publishTime>11/01/2023 18:35:25</publishTime>
     </File>
     <File Include="MVCManager.dll">
-      <publishTime>11/01/2023 04:07:49</publishTime>
+      <publishTime>11/01/2023 18:35:20</publishTime>
     </File>
     <File Include="MVCManager.exe">
-      <publishTime>11/01/2023 04:07:49</publishTime>
+      <publishTime>11/01/2023 18:35:20</publishTime>
     </File>
     <File Include="MVCManager.pdb">
-      <publishTime>11/01/2023 04:07:49</publishTime>
+      <publishTime>11/01/2023 18:35:20</publishTime>
     </File>
     <File Include="MVCManager.runtimeconfig.json">
       <publishTime>10/23/2023 18:58:50</publishTime>
@@ -48,7 +48,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/15/2023 14:49:50</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>11/01/2023 04:07:57</publishTime>
+      <publishTime>11/01/2023 18:35:27</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
       <publishTime>08/31/2023 18:26:31</publishTime>
@@ -57,7 +57,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/17/2023 02:45:43</publishTime>
     </File>
     <File Include="wwwroot/css/styles.css">
-      <publishTime>11/01/2023 00:53:50</publishTime>
+      <publishTime>11/01/2023 17:49:38</publishTime>
     </File>
     <File Include="wwwroot/favicon.ico">
       <publishTime>08/31/2023 18:26:31</publishTime>

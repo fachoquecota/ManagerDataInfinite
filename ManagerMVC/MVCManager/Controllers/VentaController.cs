@@ -56,7 +56,22 @@ namespace MVCManager.Controllers
                         Text = t.descripcion
                     }).ToList();
                 }
+                HttpResponseMessage modeloResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudModeloCrudCB");
+                if (modeloResponse.IsSuccessStatusCode)
+                {
+                    var modeloContent = await modeloResponse.Content.ReadAsStringAsync();
+                    var modeloData = JsonConvert.DeserializeObject<ModeloResponse>(modeloContent);
 
+                    ViewBag.Modelos = modeloData.Result.Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.Descripcion
+                    }).ToList();
+                }
+
+                // Código para obtener y asignar colores y tallas a ViewBag si es necesario...
+
+                //return View();  // Devuelve la vista correspondiente.
                 int registrosPorPagina = 10;
                 var productosPaginados = productos.Skip((pagina - 1) * registrosPorPagina).Take(registrosPorPagina).ToList();
                 ViewBag.PaginaActual = pagina;
@@ -129,17 +144,22 @@ namespace MVCManager.Controllers
             }
             return Json(null);
         }
-        [HttpGet]
-        public async Task<IActionResult> GetModelos()
-        {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudModeloCrudCB");
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                return Content(content, "application/json");
-            }
-            return NotFound();
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetModelos()  // Cambia 'TuActionDeVista' por el nombre real del método que renderiza tu vista.
+        //{
+        //    HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudModeloCrudCB");
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        var content = await response.Content.ReadAsStringAsync();
+        //        var modeloResponse = JsonConvert.DeserializeObject<ModeloResponse>(content);
+        //        ViewBag.Modelos = modeloResponse.Result;
+        //    }
+        //    // Código para obtener y asignar colores y tallas a ViewBag si es necesario...
+
+        //    return View();  // Devuelve la vista correspondiente.
+        //}
+
+
         private class TiposVentaResponse
         {
             public TiposVentaItem[] result { get; set; }
