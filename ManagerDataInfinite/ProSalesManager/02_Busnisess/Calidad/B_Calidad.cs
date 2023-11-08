@@ -1,6 +1,7 @@
 ﻿using ProSalesManager._01_Data.Modules.Calidad.Interfaces;
 using ProSalesManager._02_Busnisess.Calidad.Interfaces;
 using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 
 namespace ProSalesManager._02_Busnisess.Calidad
 {
@@ -26,6 +27,11 @@ namespace ProSalesManager._02_Busnisess.Calidad
         public bool InsertCalidad(string descripcion)
         {
             return _sP_Calidad.InsertarCalidad(descripcion);
+        }
+        public List<ComboBox> ObtenerCalidadesParaComboBox()
+        {
+            return _sP_Calidad.ObtenerCalidadesParaComboBox();
+
         }
     }
 }

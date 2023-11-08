@@ -28,6 +28,21 @@ namespace ProSalesManager.Controllers
             };
         }
 
+        [HttpGet]
+        [Route("GetAllCalidadCombobox")]
+        public dynamic GetAllCalidadCombobox()
+        {
+            var result = _Calidad.ObtenerCalidadesParaComboBox(); // Asegúrate de cambiar el nombre del método al correcto
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de Calidad" });
+
+            return new
+            {
+                calidad = result
+            };
+        }
+
         [HttpPost]
         [Route("PostCalidad")]
         public dynamic InsertCalidad(string descripcion)

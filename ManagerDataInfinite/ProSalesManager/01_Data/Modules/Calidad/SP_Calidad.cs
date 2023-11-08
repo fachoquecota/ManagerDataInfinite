@@ -54,7 +54,7 @@ namespace ProSalesManager._01_Data.Modules.Calidad
                 using (var conexion = new SqlConnection(cn.getCadenaSQL()))
                 {
                     conexion.Open();
-                    SqlCommand cmd = new SqlCommand("SP_Select_Calidad_ComboBox", conexion);
+                    SqlCommand cmd = new SqlCommand("SP_Select_Calidad_Combobox", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (var dr = cmd.ExecuteReader())
                     {

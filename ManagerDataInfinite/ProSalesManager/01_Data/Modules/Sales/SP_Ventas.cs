@@ -73,7 +73,11 @@ namespace ProSalesManager._01_Data.Modules.Sales
                                 IdColor = Convert.ToInt32(dr["idColor"]),
                                 ColorDescription = dr["ColorDescription"].ToString(),
                                 IdModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
-                                ModeloDescripcion = dr["ModeloDescripcion"].ToString()
+                                ModeloDescripcion = dr["ModeloDescripcion"].ToString(),
+                                IdCalidad = Convert.ToInt32(dr["idCalidad"]),
+                                CalidadDescripcion = dr["CalidadDescripcion"].ToString(),
+                                IdMarca = Convert.ToInt32(dr["idMarca"]),
+                                MarcaDescripcion = dr["MarcaDescripcion"].ToString(),
                             });
                         }
                     }

@@ -35,6 +35,10 @@ using ProSalesManager._01_Data.Modules.Calidad;
 using ProSalesManager._01_Data.Modules.Calidad.Interfaces;
 using ProSalesManager._02_Busnisess.Calidad;
 using ProSalesManager._02_Busnisess.Calidad.Interfaces;
+using ProSalesManager._01_Data.Modules.Marca.Interfaces;
+using ProSalesManager._01_Data.Modules.Marca;
+using ProSalesManager._02_Busnisess.Marca.Interfaces;
+using ProSalesManager._02_Busnisess.Marca;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +73,9 @@ builder.Services.AddScoped<IB_Ventas, B_Ventas>();
 
 builder.Services.AddScoped<ISP_Calidad, SP_Calidad>();
 builder.Services.AddScoped<IB_Calidad, B_Calidad>();
+
+builder.Services.AddScoped<ISP_Marca, SP_Marca>();
+builder.Services.AddScoped<IB_Marca, B_Marca>();
 
 //builder.Services.AddCors(options =>
 //{

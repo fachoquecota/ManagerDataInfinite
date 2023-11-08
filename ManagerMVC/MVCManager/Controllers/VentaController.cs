@@ -69,7 +69,31 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
-                // Código para obtener y asignar colores y tallas a ViewBag si es necesario...
+                HttpResponseMessage calidadResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Calidad/GetAllCalidadCombobox");
+                if (calidadResponse.IsSuccessStatusCode)
+                {
+                    var calidadContent = await calidadResponse.Content.ReadAsStringAsync();
+                    var calidadData = JsonConvert.DeserializeObject<CalidadResponse>(calidadContent);
+
+                    ViewBag.Calidad = calidadData.calidad.Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.Descripcion
+                    }).ToList();
+                }
+
+                HttpResponseMessage marcaResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Marca/GetAllMarcaCombobox");
+                if (marcaResponse.IsSuccessStatusCode)
+                {
+                    var marcaContent = await marcaResponse.Content.ReadAsStringAsync();
+                    var marcaData = JsonConvert.DeserializeObject<MarcaResponse>(marcaContent);
+
+                    ViewBag.Marca = marcaData.calidad.Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.Descripcion
+                    }).ToList();
+                }
 
                 //return View();  // Devuelve la vista correspondiente.
                 int registrosPorPagina = 10;

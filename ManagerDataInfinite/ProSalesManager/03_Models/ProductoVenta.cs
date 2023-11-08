@@ -15,5 +15,9 @@
         public string ColorDescription { get; set; }
         public int IdModeloProducto { get; set; }
         public string ModeloDescripcion { get; set; }
+        public int IdCalidad { get; set; }
+        public string CalidadDescripcion { get; set; }
+        public int IdMarca { get; set; }
+        public string MarcaDescripcion { get; set; }
     }
 }
