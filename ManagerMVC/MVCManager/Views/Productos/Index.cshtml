@@ -121,17 +121,26 @@
         
                 <!-- Combobox para Modelo en el lugar del antiguo Cantidad -->
                 <div class="w-1/2 px-2 mb-4">
-                    <label for="idModeloProducto" class="block text-sm font-medium text-gray-600">Modelo</label>
-                    <select id="idModeloProducto" name="idModeloProducto" class="mt-1 p-2 w-full border rounded-md"></select>
+                    <label for="idCategoria" class="block text-sm font-medium text-gray-600">ID Categoría</label>
+                    <select id="idCategoria" name="idCategoria" class="mt-1 p-2 w-full border rounded-md"></select>
                 </div>
+                
                 <div class="w-1/2 px-2 mb-4">
                     <label for="idProveedor" class="block text-sm font-medium text-gray-600">ID Proveedor</label>
                     <select id="idProveedor" name="idProveedor" class="mt-1 p-2 w-full border rounded-md"></select>
                 </div>
-@*                <div class="w-1/2 px-2 mb-4">
-                    <label for="fechaIngreso" class="block text-sm font-medium text-gray-600">Fecha de Ingreso</label>
-                    <input type="date" id="fechaIngreso" name="fechaIngreso" class="mt-1 p-2 w-full border rounded-md">
-                </div>*@
+                <div class="w-1/2 px-2 mb-4">
+                    <label for="idModeloProducto" class="block text-sm font-medium text-gray-600">Modelo</label>
+                    <select id="idModeloProducto" name="idModeloProducto" class="mt-1 p-2 w-full border rounded-md"></select>
+                </div>
+                <div class="w-1/2 px-2 mb-4">
+                    <label for="idCalidad" class="block text-sm font-medium text-gray-600">Calidad</label>
+                    <select id="idCalidad" name="idCalidad" class="mt-1 p-2 w-full border rounded-md"></select>
+                </div>
+                <div class="w-1/2 px-2 mb-4">
+                    <label for="idGenero" class="block text-sm font-medium text-gray-600">ID Género</label>
+                    <select id="idGenero" name="idGenero" class="mt-1 p-2 w-full border rounded-md"></select>
+                </div>
                 <div class="w-1/2 px-2 mb-4 switch-container">
                     <label for="activo" class="block text-sm font-medium text-gray-600 mb-2">Estado</label>
                     <label class="switch">
@@ -141,14 +150,6 @@
                         <input type="checkbox" id="activo" name="activo" class="switch-input">
                         <span class="slider"></span>
                     </label>
-                </div>
-                <div class="w-1/2 px-2 mb-4">
-                    <label for="idGenero" class="block text-sm font-medium text-gray-600">ID Género</label>
-                    <select id="idGenero" name="idGenero" class="mt-1 p-2 w-full border rounded-md"></select>
-                </div>
-                <div class="w-1/2 px-2 mb-4">
-                    <label for="idCategoria" class="block text-sm font-medium text-gray-600">ID Categoría</label>
-                    <select id="idCategoria" name="idCategoria" class="mt-1 p-2 w-full border rounded-md"></select>
                 </div>
                  <div class="w-1/2 px-2 mb-4">
                     <label for="nuevaImagen" class="block text-sm font-medium text-gray-600">Nueva Imagen</label>
@@ -464,6 +465,8 @@
          await fillComboBox('idGenero', '/Productos/GetGeneros', producto.idGenero);
          await fillComboBox('idCategoria', '/Productos/GetCategorias', producto.idCategoria);
          await fillComboBox('idModeloProducto', '/Productos/GetModelos', producto.idModeloProducto);
+         await fillComboBox('idCalidad', '/Productos/GetCalidades', producto.idCalidad);
+
 
 
         $("#mode").val("add");
@@ -476,62 +479,3 @@
     });
 });
 </script>
-@*<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    // Evento para guardar cambios
-    document.getElementById('saveChanges').addEventListener('click', function(event) {
-        // Validación de campos
-        if (!validateFields()) {
-            event.preventDefault();
-            alert('Por favor, completa todos los campos requeridos antes de guardar.');
-        }
-    });
-});
-
-function validateFields() {
-    // Validar Producto
-    if (document.getElementById('producto').value.trim() === '') {
-        return false;
-    }
-
-    // Validar Marca
-    if (document.getElementById('marca').value.trim() === '') {
-        return false;
-    }
-
-    // Validar Precio
-    if (document.getElementById('precio').value.trim() === '') {
-        return false;
-    }
-
-    // Validar Cantidad
-    if (document.getElementById('cantidad').value.trim() === '') {
-        return false;
-    }
-
-    // Validar ID Proveedor
-    if (document.getElementById('idProveedor').value.trim() === '' || document.getElementById('idProveedor').value.trim() === '0') {
-        return false;
-    }
-
-    // Validar ID Genero
-    if (document.getElementById('idGenero').value.trim() === '' || document.getElementById('idGenero').value.trim() === '0') {
-        return false;
-    }
-
-    // Validar ID Categoria
-    if (document.getElementById('idCategoria').value.trim() === '' || document.getElementById('idCategoria').value.trim() === '0') {
-        return false;
-    }
-
-    // Validar Imagen
-    const nuevaImagen = document.getElementById('nuevaImagen');
-    const imagenActual = document.getElementById('imagenActual');
-    if (nuevaImagen.files.length === 0 && (!imagenActual.src || imagenActual.src.includes('Croquis de domicilio.png'))) {
-        return false;
-    }
-
-    return true;
-}
-
-</script>*@

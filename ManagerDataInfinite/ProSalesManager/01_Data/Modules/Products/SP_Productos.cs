@@ -209,6 +209,41 @@ namespace ProSalesManager._01_Data.Modules.Products
             return rpta;
         }
 
+        public List<ModeloProductoDetalleModel> ModeloProductosDetalleLista()
+        {
+            var oList = new List<ModeloProductoDetalleModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_ModeloProductoDetalle", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ModeloProductoDetalleModel()
+                            {
+                                idModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
+                                idCategoria = Convert.ToInt32(dr["idCategoria"]),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+
+
         // Crud Page
         // Producto
         public List<CrudProductoModel> ProductosListaCrud()
@@ -244,7 +279,8 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 Activo = Convert.ToBoolean(dr["Activo"]),
                                 idGenero = Convert.ToInt32(dr["idGenero"]),
                                 idCategoria = Convert.ToInt32(dr["idCategoria"]),
-                                idModeloProducto = Convert.ToInt32(dr["idModeloProducto"])
+                                idModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
+                                idCalidad = Convert.ToInt32(dr["idCalidad"]),
                             });
                         }
                     }
@@ -293,7 +329,8 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 Activo = Convert.ToBoolean(dr["Activo"]),
                                 idGenero = Convert.ToInt32(dr["idGenero"]),
                                 idCategoria = Convert.ToInt32(dr["idCategoria"]),
-                                idModeloProducto = Convert.ToInt32(dr["idModeloProducto"])
+                                idModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
+                                idCalidad = Convert.ToInt32(dr["idCalidad"]),
                             });
                         }
                     }
@@ -461,6 +498,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                     cmd.Parameters.AddWithValue("@btActivo", oCrudProductoModel.Activo);
                     cmd.Parameters.AddWithValue("@inIdGenero", oCrudProductoModel.idGenero);
                     cmd.Parameters.AddWithValue("@inIdCategoria", oCrudProductoModel.idCategoria);
+                    cmd.Parameters.AddWithValue("@inIdCalidad", oCrudProductoModel.idCalidad);
                     cmd.Parameters.AddWithValue("@inIdModeloProducto", oCrudProductoModel.idModeloProducto);
                     cmd.Parameters.AddWithValue("@dcCosto", oCrudProductoModel.costo);
 

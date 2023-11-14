@@ -127,3 +127,4 @@ C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProS
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Release\net6.0\ProSalesManager.genruntimeconfig.cache
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Release\net6.0\ref\ProSalesManager.dll
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Release\net6.0\ProSalesManager.staticwebassets.runtime.json
+C:\Users\fchoquecota\Documents\Proy\ManagerDataInfinite\ProSalesManager\bin\Release\net6.0\ProSalesManager.staticwebassets.runtime.json

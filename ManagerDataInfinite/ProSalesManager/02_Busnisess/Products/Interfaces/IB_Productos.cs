@@ -13,7 +13,7 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
         bool InsertModeloProducto(ModeloProductoModel oModeloProductoModel);
         bool UpdateModeloProducto(ModeloProductoModel oModeloProductoModel);
         bool DeleteModeloProducto(int idModeloProducto);
-
+        List<ModeloProductoDetalleModel> ModeloProductosDetalleLista();
         //Crud
         List<CrudProductoModel> ProductosListaCrud();
         List<CrudProductoModel> ProductosByIDCrud(int idProducto);

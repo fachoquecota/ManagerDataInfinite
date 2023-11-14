@@ -76,6 +76,11 @@ namespace ProSalesManager._02_Busnisess.Products
             var deleteSizeDetalle = _sP_Products.DeleteModeloProducto(idModeloProducto);
             return deleteSizeDetalle;
         }
+        public List<ModeloProductoDetalleModel> ModeloProductosDetalleLista()
+        {
+            return _sP_Products.ModeloProductosDetalleLista();
+        }
+
         //CRUD
         public List<CrudProductoModel> ProductosListaCrud()
         {

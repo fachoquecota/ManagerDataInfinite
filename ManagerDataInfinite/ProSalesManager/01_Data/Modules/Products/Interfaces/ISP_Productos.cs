@@ -27,6 +27,8 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
         bool UpdateModeloProducto(ModeloProductoModel oModeloProductoModel);
         bool DeleteModeloProducto(int idModeloProducto);
 
+        List<ModeloProductoDetalleModel> ModeloProductosDetalleLista();
+
         //CRUD
         List<CrudProductoModel> ProductosListaCrud();
         List<CrudProductoModel> ProductosByIDCrud(int idProducto);

@@ -120,6 +120,22 @@ namespace ProSalesManager.Controllers
             };
         }
         [HttpGet]
+        [Route("GetModeloDetalle")]
+        public dynamic GetModeloDetalle()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Products.ModeloProductosDetalleLista();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de modelo detalle" });
+
+            return new
+            {
+                result = result
+            };
+        }
+        [HttpGet]
         [Route("GetCrudModeloCrudCB")]
         public dynamic GetCrudModeloCrudCB()
         {

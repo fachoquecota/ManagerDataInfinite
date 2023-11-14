@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "daLORsMMBr05SFtvpXUlG6d5bn76NFKybNyk79xStLs=",
+  "Hash": "gSISY7XYJHrUOwDXyAnI9xJW3C8cfyTokGS4T8Z7MI4=",
   "Source": "MVCManager",
   "BasePath": "_content/MVCManager",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "MVCManager\\wwwroot",
       "Source": "MVCManager",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\bundle\\MVCManager.styles.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\bundle\\MVCManager.styles.css",
       "SourceId": "MVCManager",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "MVCManager.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\bundle\\MVCManager.styles.css"
+      "OriginalItemSpec": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\bundle\\MVCManager.styles.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\MVCManager.bundle.scp.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\MVCManager.bundle.scp.css",
       "SourceId": "MVCManager",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "MVCManager.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\MVCManager.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\MVCManager.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\css\\site.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\css\\Spiner.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\css\\Spiner.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "css/Spiner.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Spiner.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\css\\styles.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\css\\styles.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "css/styles.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\styles.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\favicon.ico",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\Configuration\\logo.jfif",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\Configuration\\logo.jfif",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/Configuration/logo.jfif",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\Configuration\\logo.jfif"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\Configuration\\user.png",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\Configuration\\user.png",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/Configuration/user.png",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\Configuration\\user.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\0\\fcb1c712-cb1b-499d-af0d-744f140ea1a9.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\0\\fcb1c712-cb1b-499d-af0d-744f140ea1a9.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/0/fcb1c712-cb1b-499d-af0d-744f140ea1a9.jpg",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\0\\fcb1c712-cb1b-499d-af0d-744f140ea1a9.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\10\\7b3ec7ce-1058-44df-a602-7da0b6d28953.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\10\\7b3ec7ce-1058-44df-a602-7da0b6d28953.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/10/7b3ec7ce-1058-44df-a602-7da0b6d28953.jpg",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\10\\7b3ec7ce-1058-44df-a602-7da0b6d28953.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\088bc768-939f-419d-9a22-ec6b62c20498.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\088bc768-939f-419d-9a22-ec6b62c20498.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/11/088bc768-939f-419d-9a22-ec6b62c20498.jpg",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\11\\088bc768-939f-419d-9a22-ec6b62c20498.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\1a904a0e-0e03-4f35-a323-fcf0ee0e0c55.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\1a904a0e-0e03-4f35-a323-fcf0ee0e0c55.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/11/1a904a0e-0e03-4f35-a323-fcf0ee0e0c55.jpg",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\11\\1a904a0e-0e03-4f35-a323-fcf0ee0e0c55.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\2775f868-10c2-404b-91af-630afc87360f.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\2775f868-10c2-404b-91af-630afc87360f.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/11/2775f868-10c2-404b-91af-630afc87360f.jpg",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\11\\2775f868-10c2-404b-91af-630afc87360f.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\6ac6c41d-808c-4991-91d3-7a922ce22599.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\6ac6c41d-808c-4991-91d3-7a922ce22599.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/11/6ac6c41d-808c-4991-91d3-7a922ce22599.jpg",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\11\\6ac6c41d-808c-4991-91d3-7a922ce22599.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\f8ba72dc-bd2a-4d9c-9b9a-c4d17d749331.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\f8ba72dc-bd2a-4d9c-9b9a-c4d17d749331.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/11/f8ba72dc-bd2a-4d9c-9b9a-c4d17d749331.jpg",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\11\\f8ba72dc-bd2a-4d9c-9b9a-c4d17d749331.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\0513b17c-9893-4e1b-ae65-df1fe3d94ced.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\0513b17c-9893-4e1b-ae65-df1fe3d94ced.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/23/0513b17c-9893-4e1b-ae65-df1fe3d94ced.jpg",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\23\\0513b17c-9893-4e1b-ae65-df1fe3d94ced.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\41025de7-fe0f-4a1a-b17e-668051ab1b1c.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\41025de7-fe0f-4a1a-b17e-668051ab1b1c.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/23/41025de7-fe0f-4a1a-b17e-668051ab1b1c.jpg",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\23\\41025de7-fe0f-4a1a-b17e-668051ab1b1c.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\75baadfd-9916-4894-a889-f561d28fa0f5.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\75baadfd-9916-4894-a889-f561d28fa0f5.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/23/75baadfd-9916-4894-a889-f561d28fa0f5.jpg",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\23\\75baadfd-9916-4894-a889-f561d28fa0f5.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\85cd7dc0-1e0e-4b08-9302-4fbe49102a9b.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\85cd7dc0-1e0e-4b08-9302-4fbe49102a9b.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/23/85cd7dc0-1e0e-4b08-9302-4fbe49102a9b.jpg",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\23\\85cd7dc0-1e0e-4b08-9302-4fbe49102a9b.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\c5b94f70-8600-4ca9-88c5-86c6139cc56c.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\c5b94f70-8600-4ca9-88c5-86c6139cc56c.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/23/c5b94f70-8600-4ca9-88c5-86c6139cc56c.jpg",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\23\\c5b94f70-8600-4ca9-88c5-86c6139cc56c.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\1e0b64c0-931f-4d95-84e1-a6f2c30dfd3e.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\1e0b64c0-931f-4d95-84e1-a6f2c30dfd3e.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/3/1e0b64c0-931f-4d95-84e1-a6f2c30dfd3e.jpg",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\3\\1e0b64c0-931f-4d95-84e1-a6f2c30dfd3e.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\3024c5c1-dfd5-45e6-97cd-52ab66dd4152.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\3024c5c1-dfd5-45e6-97cd-52ab66dd4152.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/3/3024c5c1-dfd5-45e6-97cd-52ab66dd4152.jpg",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\3\\3024c5c1-dfd5-45e6-97cd-52ab66dd4152.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\4fb2e201-3815-4468-a292-96a830dbacc5.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\4fb2e201-3815-4468-a292-96a830dbacc5.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/3/4fb2e201-3815-4468-a292-96a830dbacc5.jpg",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\3\\4fb2e201-3815-4468-a292-96a830dbacc5.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\75c42ba5-a026-458b-b469-507a8aa1c2d1.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\75c42ba5-a026-458b-b469-507a8aa1c2d1.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/3/75c42ba5-a026-458b-b469-507a8aa1c2d1.jpg",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\3\\75c42ba5-a026-458b-b469-507a8aa1c2d1.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\b1a5ede9-3b94-4a3f-a5b6-eceb0bbc5b15.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\b1a5ede9-3b94-4a3f-a5b6-eceb0bbc5b15.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/3/b1a5ede9-3b94-4a3f-a5b6-eceb0bbc5b15.jpg",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\3\\b1a5ede9-3b94-4a3f-a5b6-eceb0bbc5b15.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\dfbc8a1a-b737-41f8-afd7-4810f4118aac.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\dfbc8a1a-b737-41f8-afd7-4810f4118aac.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/3/dfbc8a1a-b737-41f8-afd7-4810f4118aac.jpg",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\3\\dfbc8a1a-b737-41f8-afd7-4810f4118aac.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\ffb8ec1c-b112-406e-997d-911b7d6822ad.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\ffb8ec1c-b112-406e-997d-911b7d6822ad.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/3/ffb8ec1c-b112-406e-997d-911b7d6822ad.jpg",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\3\\ffb8ec1c-b112-406e-997d-911b7d6822ad.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\31\\633ee42a-cf44-42de-b578-d755c7022bc9.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\31\\633ee42a-cf44-42de-b578-d755c7022bc9.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/31/633ee42a-cf44-42de-b578-d755c7022bc9.jpg",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\31\\633ee42a-cf44-42de-b578-d755c7022bc9.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\36\\2054584f-be9f-410b-9929-7ad7dae8336f.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\36\\2054584f-be9f-410b-9929-7ad7dae8336f.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/36/2054584f-be9f-410b-9929-7ad7dae8336f.jpg",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\36\\2054584f-be9f-410b-9929-7ad7dae8336f.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\10413e0f-ae25-4676-9fb1-0954d57f517b.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\10413e0f-ae25-4676-9fb1-0954d57f517b.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/37/10413e0f-ae25-4676-9fb1-0954d57f517b.jpg",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\37\\10413e0f-ae25-4676-9fb1-0954d57f517b.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\3766143a-2015-4acf-8f67-eaeb820a25ea.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\3766143a-2015-4acf-8f67-eaeb820a25ea.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/37/3766143a-2015-4acf-8f67-eaeb820a25ea.jpg",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\37\\3766143a-2015-4acf-8f67-eaeb820a25ea.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\64379b7f-31ca-47c5-b800-896dc23d0fee.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\64379b7f-31ca-47c5-b800-896dc23d0fee.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/37/64379b7f-31ca-47c5-b800-896dc23d0fee.jpg",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\37\\64379b7f-31ca-47c5-b800-896dc23d0fee.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\736a12ec-e118-4c7c-bbbe-4a6fe35d03f2.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\736a12ec-e118-4c7c-bbbe-4a6fe35d03f2.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/37/736a12ec-e118-4c7c-bbbe-4a6fe35d03f2.jpg",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\37\\736a12ec-e118-4c7c-bbbe-4a6fe35d03f2.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\82226155-60a3-4c9d-bd22-81e288f1da2e.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\82226155-60a3-4c9d-bd22-81e288f1da2e.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/37/82226155-60a3-4c9d-bd22-81e288f1da2e.jpg",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\37\\82226155-60a3-4c9d-bd22-81e288f1da2e.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\4\\02fd2d5e-9682-4b1f-a0ee-fe5ea5f22cd7.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\4\\02fd2d5e-9682-4b1f-a0ee-fe5ea5f22cd7.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/4/02fd2d5e-9682-4b1f-a0ee-fe5ea5f22cd7.jpg",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\4\\02fd2d5e-9682-4b1f-a0ee-fe5ea5f22cd7.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\44\\29575e3c-95f1-47e3-addc-bbb57e5c6284.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\44\\29575e3c-95f1-47e3-addc-bbb57e5c6284.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/44/29575e3c-95f1-47e3-addc-bbb57e5c6284.jpg",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\44\\29575e3c-95f1-47e3-addc-bbb57e5c6284.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\45\\98875009-3909-40a0-b446-d0dd1e68cbcb.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\45\\98875009-3909-40a0-b446-d0dd1e68cbcb.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/45/98875009-3909-40a0-b446-d0dd1e68cbcb.jpg",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\45\\98875009-3909-40a0-b446-d0dd1e68cbcb.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\45\\fecadf26-4ecd-421d-8310-3dc80121ae53.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\45\\fecadf26-4ecd-421d-8310-3dc80121ae53.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoDetalle/45/fecadf26-4ecd-421d-8310-3dc80121ae53.jpg",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoDetalle\\45\\fecadf26-4ecd-421d-8310-3dc80121ae53.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\Croquis de domicilio.png",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\Croquis de domicilio.png",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/0/Croquis de domicilio.png",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\0\\Croquis de domicilio.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/0/PO-A454.jpg",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\0\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/0/PO-A455.jpg",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\0\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/1/Croquis de domicilio.png",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital.png",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital.png",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/1/Foto Digital.png",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/1/Foto Digital__2.png",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Tramite de Solicitud por Renovación 1.png",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Tramite de Solicitud por Renovación 1.png",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/1/Tramite de Solicitud por Renovación 1.png",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\1\\Tramite de Solicitud por Renovación 1.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\10\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\10\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/10/PO-A455.jpg",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\10\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\11\\PO-A452.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\11\\PO-A452.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/11/PO-A452.jpg",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\11\\PO-A452.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\11\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\11\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/11/PO-A455.jpg",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\11\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/2/Croquis de domicilio.png",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A452.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A452.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/23/PO-A452.jpg",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\23\\PO-A452.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A453.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A453.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/23/PO-A453.jpg",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\23\\PO-A453.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/23/PO-A454.jpg",
       "AssetKind": "All",
@@ -901,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\23\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/23/PO-A455.jpg",
       "AssetKind": "All",
@@ -918,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\23\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\28\\PO-A452.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\28\\PO-A452.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/28/PO-A452.jpg",
       "AssetKind": "All",
@@ -935,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\28\\PO-A452.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\29\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\29\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/29/PO-A455.jpg",
       "AssetKind": "All",
@@ -952,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\29\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/3/overwatch-2-HD-scaled.jpg",
       "AssetKind": "All",
@@ -969,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled_1.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled_1.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/3/overwatch-2-HD-scaled_1.jpg",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled_1.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A452.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A452.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/3/PO-A452.jpg",
       "AssetKind": "All",
@@ -1003,10 +1003,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\PO-A452.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A453.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A453.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/3/PO-A453.jpg",
       "AssetKind": "All",
@@ -1020,10 +1020,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\PO-A453.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/3/PO-A454.jpg",
       "AssetKind": "All",
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\3\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\30\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\30\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/30/PO-A454.jpg",
       "AssetKind": "All",
@@ -1054,10 +1054,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\30\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\31\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\31\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/31/PO-A455.jpg",
       "AssetKind": "All",
@@ -1071,10 +1071,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\31\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\32\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\32\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/32/PO-A455.jpg",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\32\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\33\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\33\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/33/PO-A454.jpg",
       "AssetKind": "All",
@@ -1105,10 +1105,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\33\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\34\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\34\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/34/PO-A455.jpg",
       "AssetKind": "All",
@@ -1122,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\34\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\35\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\35\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/35/PO-A455.jpg",
       "AssetKind": "All",
@@ -1139,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\35\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\36\\PO-A452.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\36\\PO-A452.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/36/PO-A452.jpg",
       "AssetKind": "All",
@@ -1156,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\36\\PO-A452.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\37\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\37\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/37/PO-A454.jpg",
       "AssetKind": "All",
@@ -1173,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\37\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\38\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\38\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/38/PO-A454.jpg",
       "AssetKind": "All",
@@ -1190,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\38\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\39\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\39\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/39/PO-A454.jpg",
       "AssetKind": "All",
@@ -1207,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\39\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\4\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\4\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/4/PO-A455.jpg",
       "AssetKind": "All",
@@ -1224,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\4\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\40\\PO-A452.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\40\\PO-A452.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/40/PO-A452.jpg",
       "AssetKind": "All",
@@ -1241,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\40\\PO-A452.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\43\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\43\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/43/PO-A454.jpg",
       "AssetKind": "All",
@@ -1258,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\43\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/44/PO-A454.jpg",
       "AssetKind": "All",
@@ -1275,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\44\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/45/PO-A455.jpg",
       "AssetKind": "All",
@@ -1292,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\45\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\5\\PO-A455.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\5\\PO-A455.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/5/PO-A455.jpg",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\5\\PO-A455.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\6\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\6\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/6/PO-A454.jpg",
       "AssetKind": "All",
@@ -1326,10 +1326,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\6\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\7\\PO-A452.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\7\\PO-A452.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/7/PO-A452.jpg",
       "AssetKind": "All",
@@ -1343,10 +1343,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\7\\PO-A452.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\PO-A454.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/8/PO-A454.jpg",
       "AssetKind": "All",
@@ -1360,10 +1360,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\8\\PO-A454.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/8/Tramite de Solicitud por Renovación 1.png",
       "AssetKind": "All",
@@ -1377,10 +1377,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\9\\PO-A452.jpg",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\9\\PO-A452.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "Images/ProductoPrincipal/9/PO-A452.jpg",
       "AssetKind": "All",
@@ -1394,10 +1394,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\9\\PO-A452.jpg"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Color.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Color.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "js/Color.js",
       "AssetKind": "All",
@@ -1411,10 +1411,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Color.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Imagen.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Imagen.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "js/Imagen.js",
       "AssetKind": "All",
@@ -1428,10 +1428,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Imagen.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Producto.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Producto.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "js/Producto.js",
       "AssetKind": "All",
@@ -1445,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Producto.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\site.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -1462,10 +1462,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Size.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Size.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "js/Size.js",
       "AssetKind": "All",
@@ -1479,10 +1479,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Size.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Tags.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Tags.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "js/Tags.js",
       "AssetKind": "All",
@@ -1496,10 +1496,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Tags.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -1513,10 +1513,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -1530,10 +1530,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -1547,10 +1547,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1564,10 +1564,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -1581,10 +1581,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -1598,10 +1598,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -1615,10 +1615,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -1632,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -1649,10 +1649,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -1666,10 +1666,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -1683,10 +1683,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -1700,10 +1700,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -1717,10 +1717,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -1734,10 +1734,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -1751,10 +1751,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -1768,10 +1768,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -1785,10 +1785,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -1802,10 +1802,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -1819,10 +1819,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -1836,10 +1836,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -1853,10 +1853,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -1870,10 +1870,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -1887,10 +1887,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -1904,10 +1904,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -1921,10 +1921,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -1938,10 +1938,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -1955,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -1972,10 +1972,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -1989,10 +1989,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -2006,10 +2006,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -2023,10 +2023,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -2040,10 +2040,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -2057,10 +2057,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -2074,10 +2074,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -2091,10 +2091,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -2108,10 +2108,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -2125,10 +2125,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -2142,10 +2142,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -2159,10 +2159,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -2176,10 +2176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -2193,10 +2193,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -2210,10 +2210,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -2227,10 +2227,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -2244,10 +2244,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -2261,10 +2261,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -2278,10 +2278,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -2295,10 +2295,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -2312,10 +2312,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -2329,10 +2329,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -2346,10 +2346,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -2363,10 +2363,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -2380,10 +2380,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -2397,10 +2397,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -2414,10 +2414,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -2431,10 +2431,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -2448,10 +2448,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\",
       "BasePath": "_content/MVCManager",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",

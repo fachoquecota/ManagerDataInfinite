@@ -19,6 +19,7 @@
         public int idGenero { get; set; }
         public int idCategoria { get; set; }
         public int idModeloProducto { get; set; }
+        public int idCalidad { get; set; }
 
     }
 }

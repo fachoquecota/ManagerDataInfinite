@@ -1,20 +1,49 @@
 ﻿// Función para llenar un combobox
-async function fillComboBox(selectId, apiUrl, selectedValue) {
-    const response = await fetch(apiUrl);
+async function fillComboBox(selectId, dataOrApiUrl, selectedValue) {
+    let items;
+
+    if (typeof dataOrApiUrl === 'string') {
+        const response = await fetch(dataOrApiUrl);
+        if (!response.ok) {
+            console.error('Error al cargar datos desde la API');
+            return;
+        }
+        const data = await response.json();
+        items = data.result;
+
+        // Guardar los datos de ModeloProducto para su uso posterior
+        if (selectId === 'idModeloProducto') {
+            modelosDescripcion = items;
+        }
+    } else {
+        items = dataOrApiUrl;
+    }
+
+    const select = document.getElementById(selectId);
+    select.innerHTML = '';
+    items.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.id;
+        option.text = item.descripcion;
+        select.appendChild(option);
+    });
+    select.value = selectedValue;
+}
+
+
+let relacionCategoriaModelo = [];
+let modelosDescripcion = [];
+
+async function cargarRelacionCategoriaModelo() {
+    const response = await fetch('/Productos/GetModelosDetalle'); // Asegúrate de que la ruta sea correcta
     if (response.ok) {
         const data = await response.json();
-        const items = data.result;
-        const select = document.getElementById(selectId);
-        select.innerHTML = '';
-        items.forEach(item => {
-            const option = document.createElement('option');
-            option.value = item.id;
-            option.text = item.descripcion;
-            select.appendChild(option);
-        });
-        select.value = selectedValue;
+        relacionCategoriaModelo = data.result;
+    } else {
+        console.error('Error al cargar los datos desde el controlador');
     }
 }
+
 function validateFields() {
     // Validar Producto
     if (document.getElementById('producto').value.trim() === '') {
@@ -65,6 +94,22 @@ function validateFields() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    cargarRelacionCategoriaModelo();
+
+    document.getElementById('idCategoria').addEventListener('change', function () {
+        const idCategoriaSeleccionada = this.value;
+
+        const modelosFiltrados = relacionCategoriaModelo.filter(item =>
+            item.idCategoria == idCategoriaSeleccionada).map(item => {
+                const modeloEncontrado = modelosDescripcion.find(m => m.id === item.idModeloProducto);
+                return modeloEncontrado ? modeloEncontrado : { id: item.idModeloProducto, descripcion: 'Descripción no encontrada' };
+            });
+
+        fillComboBox('idModeloProducto', modelosFiltrados, '');
+    });
+
+
     // Manejo de pestañas
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -83,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Escuchar clics en los botones "Editar"
     document.querySelectorAll('.open-modal').forEach(button => {
         button.addEventListener('click', async function (e) {
             const id = e.target.getAttribute('data-id');
@@ -122,14 +166,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 await fillComboBox('idGenero', '/Productos/GetGeneros', producto.idGenero);
                 await fillComboBox('idCategoria', '/Productos/GetCategorias', producto.idCategoria);
                 await fillComboBox('idModeloProducto', '/Productos/GetModelos', producto.idModeloProducto);
+                await fillComboBox('idCalidad', '/Productos/GetCalidades', producto.idCalidad);
+
 
                 // Llenar la tabla de tallas
                 await fillSizeTable(id);
-
-                console.log("intento1");
-
                 await fillTagTable(id);
-                console.log("intento3");
                 await fillColorTable(id);
 
 

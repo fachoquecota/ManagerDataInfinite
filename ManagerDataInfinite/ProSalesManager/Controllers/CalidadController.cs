@@ -39,7 +39,7 @@ namespace ProSalesManager.Controllers
 
             return new
             {
-                calidad = result
+                result = result
             };
         }
 

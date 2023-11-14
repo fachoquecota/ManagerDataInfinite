@@ -84,9 +84,34 @@ namespace MVCManager.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetCalidades()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Calidad/GetAllCalidadCombobox");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return NotFound();
+        }
+
+
+        [HttpGet]
         public async Task<IActionResult> GetModelos()
         {
             HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudModeloCrudCB");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetModelosDetalle()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetModeloDetalle");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
