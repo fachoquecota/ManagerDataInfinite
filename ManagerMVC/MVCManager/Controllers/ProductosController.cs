@@ -84,6 +84,18 @@ namespace MVCManager.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetMarcas()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Marca/GetAllMarcaCombobox");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return Content(content, "application/json");
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
         public async Task<IActionResult> GetCalidades()
         {
             HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Calidad/GetAllCalidadCombobox");
@@ -579,6 +591,7 @@ namespace MVCManager.Controllers
                 model.ImagenCarpeta = $"images\\ProductoPrincipal\\{model.IdProducto}\\";
                 model.ImagenNombre = fileName;
             }
+            model.Marca = "";
             var jsonProducto = JsonConvert.SerializeObject(model);
             Console.WriteLine(jsonProducto);
             var contentProducto = new StringContent(jsonProducto, Encoding.UTF8, "application/json");

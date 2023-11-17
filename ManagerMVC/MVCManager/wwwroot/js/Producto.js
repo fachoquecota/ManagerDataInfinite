@@ -50,10 +50,10 @@ function validateFields() {
         return false;
     }
 
-    // Validar Marca
-    if (document.getElementById('marca').value.trim() === '') {
-        return false;
-    }
+    //// Validar Marca
+    //if (document.getElementById('marca').value.trim() === '') {
+    //    return false;
+    //}
 
     // Validar Precio
     if (document.getElementById('precio').value.trim() === '') {
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem('currentIdProducto', producto.idProducto);
 
                 document.getElementById('producto').value = producto.producto;
-                document.getElementById('marca').value = producto.marca;
+                //document.getElementById('marca').value = producto.marca;
                 document.getElementById('costo').value = producto.costo;
                 document.getElementById('precio').value = producto.precio;
                 document.getElementById('cantidad').value = producto.cantidad;
@@ -167,6 +167,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 await fillComboBox('idCategoria', '/Productos/GetCategorias', producto.idCategoria);
                 await fillComboBox('idModeloProducto', '/Productos/GetModelos', producto.idModeloProducto);
                 await fillComboBox('idCalidad', '/Productos/GetCalidades', producto.idCalidad);
+                await fillComboBox('idMarca', '/Productos/GetMarcas', producto.idMarca);
+
 
 
                 // Llenar la tabla de tallas

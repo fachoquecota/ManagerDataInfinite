@@ -75,7 +75,7 @@ namespace MVCManager.Controllers
                     var calidadContent = await calidadResponse.Content.ReadAsStringAsync();
                     var calidadData = JsonConvert.DeserializeObject<CalidadResponse>(calidadContent);
 
-                    ViewBag.Calidad = calidadData.calidad.Select(c => new SelectListItem
+                    ViewBag.Calidad = calidadData.result.Select(c => new SelectListItem
                     {
                         Value = c.Id.ToString(),
                         Text = c.Descripcion
@@ -88,7 +88,20 @@ namespace MVCManager.Controllers
                     var marcaContent = await marcaResponse.Content.ReadAsStringAsync();
                     var marcaData = JsonConvert.DeserializeObject<MarcaResponse>(marcaContent);
 
-                    ViewBag.Marca = marcaData.calidad.Select(c => new SelectListItem
+                    ViewBag.Marca = marcaData.result.Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.Descripcion
+                    }).ToList();
+                }
+
+                HttpResponseMessage categoriaResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudCategoriaCrudCB");
+                if (categoriaResponse.IsSuccessStatusCode)
+                {
+                    var categoriaContent = await categoriaResponse.Content.ReadAsStringAsync();
+                    var categoriaData = JsonConvert.DeserializeObject<CategoriaResponse>(categoriaContent);
+
+                    ViewBag.Categoria = categoriaData.result.Select(c => new SelectListItem
                     {
                         Value = c.Id.ToString(),
                         Text = c.Descripcion

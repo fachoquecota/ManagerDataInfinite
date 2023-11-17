@@ -18,28 +18,44 @@
                     <label for="buscarProducto" class="block text-sm font-medium text-gray-600">Buscar Producto:</label>
                     <input type="text" id="buscarProducto" name="buscarProducto" placeholder="Ingrese nombre del producto" class="mt-1 p-2 w-full rounded-md border shadow-sm">
                   </div>
-  
-                  <!-- Modelo -->
-                  <div class="relative mb-4 inline-block w-1/4">
-                    <label for="modeloCombobox" class="block text-sm font-medium text-gray-600">Modelo:</label>
-                    <select id="modeloCombobox" name="modelo" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                      <option value="">Todos los modelos</option>
-                        @foreach(var modelo in ViewBag.Modelos)
+
+                  <!-- Categoría -->
+                  <div class="relative mb-4 w-1/4 inline-block">
+                      <label for="categoriaCombobox" class="block text-sm font-medium text-gray-600">Categoría:</label>
+                      <select id="categoriaCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                          <option value="">Todas las Categorías</option>
+                          @foreach(var categoria in ViewBag.Categoria)
+                          {
+                              <option value="@categoria.Value">@categoria.Text</option>
+                          }                    
+                      </select>
+                  </div>
+
+
+                  <!-- Calidad -->
+                  <div class="relative mb-4 w-1/4 inline-block">
+                    <label for="calidadCombobox" class="block text-sm font-medium text-gray-600">Calidad:</label>
+                    <select id="calidadCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                      <option value="">Todas las calidades</option>
+                        @foreach(var calidad in ViewBag.Calidad)
                         {
-                            <option value="@modelo.Value">@modelo.Text</option>
+                            <option value="@calidad.Value">@calidad.Text</option>
                         }                    </select>
                   </div>
 
                   <!-- Talla -->
                   <div class="relative mb-4 w-1/4 inline-block">
                     <label for="sizeCombobox" class="block text-sm font-medium text-gray-600">Talla:</label>
-                    <select id="sizeCombobox" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                    <select id="sizeCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
                       <option value="">Todas las tallas</option>
                        @foreach (var talla in ViewBag.Tallas as List<SelectListItem>)
                        {
                            <option value="@talla.Value">@talla.Text</option>
                        }                    </select>
                   </div>
+
+
+                  
 
                   <!-- Color -->
                   <div class="relative mb-4 w-1/4 inline-block">
@@ -52,16 +68,7 @@
                         }                    </select>
                   </div>
 
-                  <!-- Calidad -->
-                  <div class="relative mb-4 w-1/4 inline-block">
-                    <label for="calidadCombobox" class="block text-sm font-medium text-gray-600">Calidad:</label>
-                    <select id="calidadCombobox" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                      <option value="">Todas las calidades</option>
-                        @foreach(var calidad in ViewBag.Calidad)
-                        {
-                            <option value="@calidad.Value">@calidad.Text</option>
-                        }                    </select>
-                  </div>
+                 
 
                   <!-- Marca -->
                   <div class="relative mb-4 w-1/4 inline-block">
@@ -71,6 +78,16 @@
                         @foreach(var marca in ViewBag.Marca)
                         {
                             <option value="@marca.Value">@marca.Text</option>
+                        }                    </select>
+                  </div>
+                                   <!-- Modelo -->
+                  <div class="relative mb-4 inline-block w-1/4">
+                    <label for="modeloCombobox" class="block text-sm font-medium text-gray-600">Modelo:</label>
+                    <select id="modeloCombobox" name="modelo" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                      <option value="">Todos los modelos</option>
+                        @foreach(var modelo in ViewBag.Modelos)
+                        {
+                            <option value="@modelo.Value">@modelo.Text</option>
                         }                    </select>
                   </div>
                 </div>
@@ -87,18 +104,41 @@
                              data-idcolor="@producto.IdColor"
                              data-idmodeloproducto="@producto.IdModeloProducto"
                              data-idCalidad="@producto.IdCalidad"
-                             data-idMarca="@producto.IdMarca">
+                             data-idMarca="@producto.IdMarca"
+                             data-idCategoria="@producto.IdCategoria"
+                             data-cantidad ="@producto.Cantidad">
 
                             <div class="relative mb-3">
                                 <img src="@urlImagenCompleta" alt="@producto.Producto" class="w-24 h-24 object-cover rounded-md mx-auto">
                             </div>
                             <h3 class="text-center text-md mb-2">@producto.Producto</h3>
-                            <p class="text-center text-sm mb-1">@producto.Marca</p>
-                            <p class="text-center text-sm mb-1 precio-producto">@producto.Precio.ToString("0.00")</p>
-                            <p class="text-center text-sm mb-1">@producto.Cantidad</p>
-                            <p class="text-center text-sm mb-1">@producto.SizeDescription</p>
-                            <p class="text-center text-sm mb-1">@producto.ColorDescription</p>
-                            <p class="text-center text-sm mb-1">@producto.ModeloDescripcion</p>
+                            <!-- Inicio de la rejilla para detalles del producto -->
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <strong>Marca:</strong>
+                                        <p>@producto.Marca</p>
+                                    </div>
+                                    <div>
+                                        <strong>Precio:</strong>
+                                        <p class="precio-producto">@producto.Precio.ToString("0.00")</p>
+                                    </div>
+                                    <div>
+                                        <strong>Cantidad:</strong>
+                                        <p>@producto.Cantidad</p>
+                                    </div>
+                                    <div>
+                                        <strong>Tamaño:</strong>
+                                        <p>@producto.SizeDescription</p>
+                                    </div>
+                                    <div>
+                                        <strong>Color:</strong>
+                                        <p>@producto.ColorDescription</p>
+                                    </div>
+                                    <div>
+                                        <strong>Modelo:</strong>
+                                        <p>@producto.ModeloDescripcion</p>
+                                    </div>
+                                </div>
                             <button class="text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
                         </div>
                     }
@@ -203,7 +243,7 @@
 <script>
 $(document).ready(function() {
     // Detectar cambios en los ComboBox
-    $('#colorCombobox, #sizeCombobox, #modeloCombobox, #calidadCombobox, #marcaCombobox').on('input change', function() {
+    $('#colorCombobox, #sizeCombobox, #modeloCombobox, #calidadCombobox, #marcaCombobox, #categoriaCombobox').on('input change', function() {
         filtrarProductos();
     });
 
@@ -220,6 +260,8 @@ function resetComboboxes() {
     $('#colorCombobox').val('');   // Todos los colores
     $('#calidadCombobox').val('');   // Todos los calidad
     $('#marcaCombobox').val('');   // Todos los marca
+    $('#categoriaCombobox').val('');   // Todos los categoria
+
 
 }
 
@@ -229,10 +271,12 @@ function filtrarProductos() {
     var modeloSeleccionado = $('#modeloCombobox').val();
     var calidadSeleccionado = $('#calidadCombobox').val();
     var marcaSeleccionado = $('#marcaCombobox').val();
+    var categoriaSeleccionado = $('#categoriaCombobox').val();
+
 
 
     // Si todos los filtros están en la opción predeterminada o vacíos, mostramos todos los productos.
-    if (!colorSeleccionado && !tallaSeleccionada && !modeloSeleccionado && !calidadSeleccionado && !marcaSeleccionado) {
+    if (!colorSeleccionado && !tallaSeleccionada && !modeloSeleccionado && !calidadSeleccionado && !marcaSeleccionado && !categoriaSeleccionado) {
         $('.producto').show();
         return;
     }
@@ -243,6 +287,7 @@ function filtrarProductos() {
     // Filtrar y mostrar productos en base a la selección
     $('.producto').each(function() {
         var colorProducto = $(this).data('idcolor');
+        var categoriaProducto = $(this).data('idcategoria');
         var tallaProducto = $(this).data('idsize');
         var modeloProducto = $(this).data('idmodeloproducto').toString();
         var calidadProducto = $(this).data('idcalidad');
@@ -250,14 +295,15 @@ function filtrarProductos() {
 
 
 
+
         var coincideColor = !colorSeleccionado || colorProducto == colorSeleccionado;
         var coincideTalla = !tallaSeleccionada || tallaProducto == tallaSeleccionada;
         var coincideCalidad = !calidadSeleccionado || calidadProducto == calidadSeleccionado;
         var coincideMarca = !marcaSeleccionado || marcaProducto == marcaSeleccionado;
-
+        var coincideCategoria = !categoriaSeleccionado || categoriaProducto == categoriaSeleccionado;
         var coincideModelo = !modeloSeleccionado || modeloProducto == modeloSeleccionado;
 
-        if (coincideColor && coincideTalla && coincideModelo && coincideCalidad && coincideMarca) {
+        if (coincideColor && coincideTalla && coincideModelo && coincideCalidad && coincideMarca && coincideCategoria) {
             $(this).show();
         }
     });
@@ -328,8 +374,8 @@ function buscarEnProductos(searchTerm) {
 
     if (existingRow) {
         const quantityInput = existingRow.querySelector(".quantity-input");
-        const maxQuantity = parseInt(producto.querySelector("p:nth-child(5)").textContent);
-
+        const maxQuantity = parseInt(producto.getAttribute("data-cantidad"));
+        console.log("maxQuantity ",maxQuantity);
         if (parseInt(quantityInput.value) < maxQuantity) {
             quantityInput.value = parseInt(quantityInput.value) + 1;
             recalculateProductTotal(existingRow);
@@ -340,7 +386,11 @@ function buscarEnProductos(searchTerm) {
     } else {
         const nombreProducto = producto.querySelector("h3").textContent;
         const precioProductoTexto = producto.querySelector(".precio-producto").textContent;
-        const cantidadMaxima = parseInt(producto.querySelector("p:nth-child(5)").textContent);
+@*        const cantidadMaxima = parseInt(producto.querySelector("p:nth-child(5)").textContent);
+*@        
+        const cantidadMaxima = parseInt(producto.getAttribute("data-cantidad"));
+
+        console.log("cantidad máxima ", cantidadMaxima);
         const imgSrc = producto.querySelector("img").src;
 
         const newRow = document.createElement("tr");

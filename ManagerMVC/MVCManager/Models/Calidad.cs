@@ -7,6 +7,6 @@
     }
     public class CalidadResponse
     {
-        public List<Calidad> calidad { get; set; }
+        public List<Calidad> result { get; set; }
     }
 }

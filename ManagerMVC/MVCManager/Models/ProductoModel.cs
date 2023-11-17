@@ -48,6 +48,9 @@ public class ProductoModel
     [JsonProperty("idModeloProducto")]
     public int idModeloProducto { get; set; }
 
+    [JsonProperty("idMarca")]
+    public int IdMarca { get; set; }
+
     [JsonProperty("idCategoria")]
     public int IdCategoria { get; set; }
 

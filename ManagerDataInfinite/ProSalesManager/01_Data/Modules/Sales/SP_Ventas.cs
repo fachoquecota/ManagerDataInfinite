@@ -78,6 +78,8 @@ namespace ProSalesManager._01_Data.Modules.Sales
                                 CalidadDescripcion = dr["CalidadDescripcion"].ToString(),
                                 IdMarca = Convert.ToInt32(dr["idMarca"]),
                                 MarcaDescripcion = dr["MarcaDescripcion"].ToString(),
+                                IdCategoria = Convert.ToInt32(dr["idMarca"]),
+                                CategoriaDescripcion = dr["CategoriaDescripcion"].ToString(),
                             });
                         }
                     }

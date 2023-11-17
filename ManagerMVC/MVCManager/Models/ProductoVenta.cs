@@ -19,5 +19,7 @@
         public string CalidadDescripcion { get; set; }
         public int IdMarca { get; set; }
         public string MarcaDescripcion { get; set; }
+        public int IdCategoria {get; set; }
+        public string CategoriaDescripcion { get; set; }
     }
 }

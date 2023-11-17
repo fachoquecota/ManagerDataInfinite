@@ -100,11 +100,14 @@
                     <input type="text" id="producto" name="producto" class="mt-1 p-2 w-full border rounded-md">
                 </div>
         
-                <div class="w-1/2 px-2 mb-4">
+@*                <div class="w-1/2 px-2 mb-4">
                     <label for="marca" class="block text-sm font-medium text-gray-600">Marca</label>
                     <input type="text" id="marca" name="marca" class="mt-1 p-2 w-full border rounded-md">
+                </div>*@
+                <div class="w-1/2 px-2 mb-4">
+                    <label for="idMarca" class="block text-sm font-medium text-gray-600">Marca</label>
+                    <select id="idMarca" name="idMarca" class="mt-1 p-2 w-full border rounded-md"></select>
                 </div>
-
                 <!-- Nuevos inputs (Costo, Precio, Cantidad) en el lugar del antiguo Precio -->
                 <div class="w-1/2 px-2 mb-4">
                     <label for="costo" class="block text-sm font-medium text-gray-600">Costo</label>
@@ -466,6 +469,8 @@
          await fillComboBox('idCategoria', '/Productos/GetCategorias', producto.idCategoria);
          await fillComboBox('idModeloProducto', '/Productos/GetModelos', producto.idModeloProducto);
          await fillComboBox('idCalidad', '/Productos/GetCalidades', producto.idCalidad);
+         await fillComboBox('idMarca', '/Productos/GetMarcas', producto.idMarca);
+
 
 
 

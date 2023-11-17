@@ -20,6 +20,7 @@
         public int idCategoria { get; set; }
         public int idModeloProducto { get; set; }
         public int idCalidad { get; set; }
+        public int idMarca { get; set; }
 
     }
 }

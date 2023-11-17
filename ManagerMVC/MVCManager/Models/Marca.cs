@@ -7,6 +7,6 @@
     }
     public class MarcaResponse
     {
-        public List<Marca> calidad { get; set; }
+        public List<Marca> result { get; set; }
     }
 }

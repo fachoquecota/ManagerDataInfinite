@@ -331,6 +331,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 idCategoria = Convert.ToInt32(dr["idCategoria"]),
                                 idModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
                                 idCalidad = Convert.ToInt32(dr["idCalidad"]),
+                                idMarca = Convert.ToInt32(dr["idMarca"]),
                             });
                         }
                     }
@@ -488,7 +489,6 @@ namespace ProSalesManager._01_Data.Modules.Products
                     SqlCommand cmd = new SqlCommand("SP_Update_Productos", conexion);
                     cmd.Parameters.AddWithValue("@inIdProducto", oCrudProductoModel.idProducto);
                     cmd.Parameters.AddWithValue("@vcProducto", oCrudProductoModel.producto);
-                    cmd.Parameters.AddWithValue("@vcMarca", oCrudProductoModel.marca);
                     cmd.Parameters.AddWithValue("@dcPrecio", oCrudProductoModel.precio);
                     cmd.Parameters.AddWithValue("@inCantidad", oCrudProductoModel.cantidad);
                     cmd.Parameters.AddWithValue("@inIdProveedor", oCrudProductoModel.idProveedor);
@@ -499,6 +499,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                     cmd.Parameters.AddWithValue("@inIdGenero", oCrudProductoModel.idGenero);
                     cmd.Parameters.AddWithValue("@inIdCategoria", oCrudProductoModel.idCategoria);
                     cmd.Parameters.AddWithValue("@inIdCalidad", oCrudProductoModel.idCalidad);
+                    cmd.Parameters.AddWithValue("@inIdMarca", oCrudProductoModel.idMarca);
                     cmd.Parameters.AddWithValue("@inIdModeloProducto", oCrudProductoModel.idModeloProducto);
                     cmd.Parameters.AddWithValue("@dcCosto", oCrudProductoModel.costo);
 
