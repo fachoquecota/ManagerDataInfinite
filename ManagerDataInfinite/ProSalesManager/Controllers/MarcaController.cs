@@ -60,9 +60,9 @@ namespace ProSalesManager.Controllers
 
         [HttpPut]
         [Route("PutMarca")]
-        public dynamic ActualizarMarca(int idCalidad, string descripcion)
+        public dynamic ActualizarMarca(int idMarca, string descripcion)
         {
-            var result = _Marca.ActualizarMarca(idCalidad, descripcion); // Asegúrate de cambiar el nombre del método al correcto
+            var result = _Marca.ActualizarMarca(idMarca, descripcion); // Asegúrate de cambiar el nombre del método al correcto
 
             if (result is false)
                 return BadRequest(new { message = "No se actualizó registro de Calidad" });
@@ -75,9 +75,9 @@ namespace ProSalesManager.Controllers
 
         [HttpDelete]
         [Route("DeleteMarca")]
-        public dynamic EliminarMarca(int idCalidad)
+        public dynamic EliminarMarca(int idMarca)
         {
-            var result = _Marca.EliminarMarca(idCalidad); // Asegúrate de cambiar el nombre del método al correcto
+            var result = _Marca.EliminarMarca(idMarca); // Asegúrate de cambiar el nombre del método al correcto
 
             if (result is false)
                 return BadRequest(new { message = "No se eliminó registro de Calidad" });

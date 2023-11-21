@@ -22,7 +22,6 @@ namespace MVCManager.Controllers
         {
             List<CalidadModel> modelos = new List<CalidadModel>();
             var httpClient = _httpClientFactory.CreateClient();
-
             using (var response = await httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Calidad/GetAllCalidad"))
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
@@ -51,18 +50,12 @@ namespace MVCManager.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateCalidad(int idCalidad, string descripcion)
+        public async Task<IActionResult> UpdateCalidad([FromQuery] int idCalidad, [FromQuery] string descripcion)
         {
             var httpClient = _httpClientFactory.CreateClient();
 
-            // Construir el objeto que quieres enviar
-            var updateObject = new { descripcion = descripcion };
-
-            // La URL ya no necesita incluir la información de la query si la API espera un JSON en el cuerpo
-            var url = $"http://apiprosalesmanager.somee.com/api/Calidad/PutCalidad";
-
-            // Hacer la solicitud PUT enviando el objeto JSON en el cuerpo de la solicitud
-            var response = await httpClient.PutAsJsonAsync(url, updateObject);
+            var url = $"http://localhost:5172/api/Calidad/PutCalidad?idCalidad={idCalidad}&descripcion={Uri.EscapeDataString(descripcion)}";
+            var response = await httpClient.PutAsync(url, null);
 
             if (response.IsSuccessStatusCode)
             {
@@ -72,17 +65,16 @@ namespace MVCManager.Controllers
             {
                 return BadRequest();
             }
+
         }
+
 
         [HttpDelete]
         public async Task<IActionResult> DeleteCalidad(int idCalidad)
         {
             var httpClient = _httpClientFactory.CreateClient();
-
             var url = $"http://apiprosalesmanager.somee.com/api/Calidad/DeleteCalidad?idCalidad={idCalidad}";
-
             var response = await httpClient.DeleteAsync(url);
-
             if (response.IsSuccessStatusCode)
             {
                 return Ok();
