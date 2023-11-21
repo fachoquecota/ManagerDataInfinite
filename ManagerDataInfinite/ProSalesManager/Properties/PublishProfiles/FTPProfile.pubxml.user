@@ -7,16 +7,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdmz8LhT6HkqJKNwIMLG8uwAAAAACAAAAAAADZgAAwAAAABAAAAD3phftFBEUvMCwKHiVtOX6AAAAAASAAACgAAAAEAAAAI2k6IDmxyFbKZIqmutacjsgAAAApJ7HZhmgSSrjJhuIpfM/1p98YWyQ8NUM15MAwV0/I9MUAAAAzJ1x2kODHYnyFj0fa82KXrgkEnE=</EncryptedPassword>
-    <History>True|2023-11-15T20:47:18.1379293Z;True|2023-11-14T17:06:45.2052406-05:00;True|2023-11-14T16:55:32.9536369-05:00;True|2023-11-08T02:05:28.7703187-05:00;True|2023-11-01T17:29:06.5312274-05:00;True|2023-11-01T04:07:38.5572324-05:00;True|2023-10-23T21:32:41.3765781-05:00;False|2023-10-23T21:30:30.7544165-05:00;False|2023-10-23T21:29:37.7279184-05:00;False|2023-10-23T21:29:04.4209376-05:00;True|2023-10-23T18:51:03.0658253-05:00;True|2023-08-18T10:23:34.1191015-05:00;True|2023-08-16T17:21:55.5973644-05:00;True|2023-08-16T16:39:15.2867330-05:00;True|2023-08-15T08:45:12.5335370-05:00;True|2023-08-14T15:40:09.2563692-05:00;True|2023-08-14T12:25:54.1212260-05:00;True|2023-07-23T09:15:38.3988294-05:00;True|2023-07-03T01:38:14.8917054-05:00;True|2023-07-02T23:28:37.2083874-05:00;True|2023-07-02T23:02:32.2458869-05:00;True|2023-07-02T22:50:04.3476521-05:00;True|2023-07-02T22:27:59.9931504-05:00;False|2023-07-02T22:25:54.0096504-05:00;True|2023-06-28T00:36:28.0886011-05:00;True|2023-06-27T23:48:34.7656502-05:00;False|2023-06-27T23:46:42.0634979-05:00;True|2023-06-27T23:22:08.2193381-05:00;True|2023-06-27T23:19:05.9823366-05:00;False|2023-06-27T23:18:08.3578369-05:00;</History>
+    <History>True|2023-11-21T19:27:00.1179726Z;True|2023-11-15T15:47:18.1379293-05:00;True|2023-11-14T17:06:45.2052406-05:00;True|2023-11-14T16:55:32.9536369-05:00;True|2023-11-08T02:05:28.7703187-05:00;True|2023-11-01T17:29:06.5312274-05:00;True|2023-11-01T04:07:38.5572324-05:00;True|2023-10-23T21:32:41.3765781-05:00;False|2023-10-23T21:30:30.7544165-05:00;False|2023-10-23T21:29:37.7279184-05:00;False|2023-10-23T21:29:04.4209376-05:00;True|2023-10-23T18:51:03.0658253-05:00;True|2023-08-18T10:23:34.1191015-05:00;True|2023-08-16T17:21:55.5973644-05:00;True|2023-08-16T16:39:15.2867330-05:00;True|2023-08-15T08:45:12.5335370-05:00;True|2023-08-14T15:40:09.2563692-05:00;True|2023-08-14T12:25:54.1212260-05:00;True|2023-07-23T09:15:38.3988294-05:00;True|2023-07-03T01:38:14.8917054-05:00;True|2023-07-02T23:28:37.2083874-05:00;True|2023-07-02T23:02:32.2458869-05:00;True|2023-07-02T22:50:04.3476521-05:00;True|2023-07-02T22:27:59.9931504-05:00;False|2023-07-02T22:25:54.0096504-05:00;True|2023-06-28T00:36:28.0886011-05:00;True|2023-06-27T23:48:34.7656502-05:00;False|2023-06-27T23:46:42.0634979-05:00;True|2023-06-27T23:22:08.2193381-05:00;True|2023-06-27T23:19:05.9823366-05:00;False|2023-06-27T23:18:08.3578369-05:00;</History>
     <_PublishTargetUrl>ftp://155.254.244.30/www.APIProSalesmanager.somee.com</_PublishTargetUrl>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
-      <publishTime>08/30/2023 15:15:35</publishTime>
+      <publishTime>06/11/2023 13:21:07</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>08/30/2023 15:15:35</publishTime>
+      <publishTime>11/21/2023 12:18:33</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
       <publishTime>05/19/2023 20:43:46</publishTime>
@@ -43,19 +43,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/29/2020 15:14:12</publishTime>
     </File>
     <File Include="ProSalesManager.deps.json">
-      <publishTime>11/15/2023 15:45:51</publishTime>
+      <publishTime>11/21/2023 14:25:39</publishTime>
     </File>
     <File Include="ProSalesManager.dll">
-      <publishTime>11/15/2023 15:45:50</publishTime>
+      <publishTime>11/21/2023 14:25:39</publishTime>
     </File>
     <File Include="ProSalesManager.exe">
-      <publishTime>11/15/2023 15:45:50</publishTime>
+      <publishTime>11/21/2023 14:25:39</publishTime>
     </File>
     <File Include="ProSalesManager.pdb">
-      <publishTime>11/15/2023 15:45:50</publishTime>
+      <publishTime>11/21/2023 14:25:39</publishTime>
     </File>
     <File Include="ProSalesManager.runtimeconfig.json">
-      <publishTime>11/15/2023 15:45:51</publishTime>
+      <publishTime>11/21/2023 14:25:40</publishTime>
     </File>
     <File Include="runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll">
       <publishTime>10/17/2022 18:26:02</publishTime>
@@ -88,7 +88,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/07/2023 18:55:48</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>11/15/2023 15:46:13</publishTime>
+      <publishTime>11/21/2023 14:25:44</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -84,8 +84,12 @@ namespace ProSalesManager._01_Data.Modules.Products
                         {
                             oList.Add(new ModeloProductoModel()
                             {
+                                idModeloProductoDetalle = Convert.ToInt32(dr["idModeloProductoDetalle"]),
                                 idModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
-                                descripcion = dr["descripcion"].ToString()
+                                desModelo = dr["desModelo"].ToString(),
+                                idCategoria = Convert.ToInt32(dr["idCategoria"]),
+                                desCategoria = dr["desCategoria"].ToString(),
+
 
                             });
                         }
@@ -119,8 +123,11 @@ namespace ProSalesManager._01_Data.Modules.Products
                         {
                             oList.Add(new ModeloProductoModel()
                             {
+                                idModeloProductoDetalle = Convert.ToInt32(dr["idModeloProductoDetalle"]),
                                 idModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
-                                descripcion = dr["descripcion"].ToString(),
+                                desModelo = dr["desModelo"].ToString(),
+                                idCategoria = Convert.ToInt32(dr["idCategoria"]),
+                                desCategoria = dr["desCategoria"].ToString(),
 
                             });
                         }
@@ -144,7 +151,8 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Insert_ModeloProducto", conexion);
-                    cmd.Parameters.AddWithValue("@vchDescripcion", oModeloProductoModel.descripcion);
+                    cmd.Parameters.AddWithValue("@vchDescripcion", oModeloProductoModel.desModelo);
+                    cmd.Parameters.AddWithValue("@inIdCategoria", oModeloProductoModel.idCategoria);
 
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -169,8 +177,9 @@ namespace ProSalesManager._01_Data.Modules.Products
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Update_ModeloProducto", conexion);
-                    cmd.Parameters.AddWithValue("@vchDescripcion", oModeloProductoModel.descripcion);
+                    cmd.Parameters.AddWithValue("@vchDescripcion", oModeloProductoModel.desModelo);
                     cmd.Parameters.AddWithValue("@inIdModeloProducto", oModeloProductoModel.idModeloProducto);
+                    cmd.Parameters.AddWithValue("@inIdCategoria", oModeloProductoModel.idCategoria);
 
 
                     cmd.CommandType = CommandType.StoredProcedure;

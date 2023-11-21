@@ -31,10 +31,10 @@
                 {
                     <tr data-idModeloProducto="@modelo.idModeloProducto">
                         <td class="py-2 px-4 border-b border-gray-200">@modelo.idModeloProducto</td>
-                        <td class="py-2 px-4 border-b border-gray-200">@modelo.descripcion</td>
-                        <td class="py-2 px-4 border-b border-gray-200">POLO</td> <!-- Dato de ejemplo para la nueva columna -->
+                        <td class="py-2 px-4 border-b border-gray-200">@modelo.desModelo</td>
+                        <td class="py-2 px-4 border-b border-gray-200">@modelo.desCategoria</td> 
                         <td class="py-2 px-4 border-b border-gray-200">
-                            <button onclick="openEditModal(@modelo.idModeloProducto)" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-4 rounded mr-2">Editar</button>
+                            <button onclick="openEditModal(@modelo.idModeloProducto, '@modelo.desModelo', @modelo.idCategoria)" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-4 rounded mr-2">Editar</button>
                             <button class="text-red-500 hover:text-red-700" onclick="openDeleteModal(@modelo.idModeloProducto)">Eliminar</button>
                         </td>
                     </tr>
@@ -65,12 +65,16 @@
                             <input type="text" id="descripcionInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Descripción">
                         </div>
                         <div class="mt-2">
-                            <select id="categoriaInput" class="shadow border rounded w-full py-2 px-3">
-                                <!-- Opciones de categoría aquí -->
-                                <option value="categoria1">Categoria 1</option>
-                                <option value="categoria2">Categoria 2</option>
-                                <!-- etc. -->
-                            </select>
+                            <div class="relative mb-4 w-1/4 inline-block">
+                                <label for="categoriaCombobox" class="block text-sm font-medium text-gray-600">Categoría:</label>
+                                <select id="categoriaCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                                    <option value="">>-- Seleccionar --< </option>
+                                    @foreach (var categoria in ViewBag.Categoria)
+                                    {
+                                        <option value="@categoria.Value">@categoria.Text</option>
+                                    }
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -129,34 +133,29 @@
 
         // Recorre todas las filas de la tabla y oculta las que no coinciden con la búsqueda
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1]; // Selecciona la columna de descripción (segunda columna)
+            td = tr[i].getElementsByTagName("td")[1]; // Selecciona la columna de descripción
             if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = ""; // Muestra la fila si coincide
+                    tr[i].style.display = "";
                 } else {
-                    tr[i].style.display = "none"; // Oculta la fila si no coincide
+                    tr[i].style.display = "none";
                 }
             }
         }
     }
 
-
-    function openEditModal(idModeloProducto) {
+    function openEditModal(idModeloProducto, descripcion, idCategoria) {
         modalMode = "edit";
-
-        // Hacer una solicitud AJAX al controlador para obtener el modelo por ID
-        fetch(`/Modelos/GetModeloProductoByID?id=${idModeloProducto}`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("descripcionInput").value = data.descripcion;
-                document.getElementById("modal-title").textContent = `Editar Modelo - ID: ${data.idModeloProducto}`;
-                document.getElementById("editModal").classList.remove("hidden");
-            });
+        document.getElementById("descripcionInput").value = descripcion;
+        document.getElementById("categoriaCombobox").value = idCategoria;
+        document.getElementById("modal-title").textContent = `Editar Modelo - ID: ${idModeloProducto}`;
+        document.getElementById("editModal").classList.remove("hidden");
     }
 
     function openAddModal() {
         document.getElementById("descripcionInput").value = "";
+        document.getElementById("categoriaCombobox").selectedIndex = 0; // Resetear la selección del combobox
         document.getElementById("modal-title").textContent = "Agregar Nuevo";
         document.getElementById("editModal").classList.remove("hidden");
         modalMode = "add";
@@ -177,8 +176,8 @@
 
     function updateProduct() {
         const idModeloProducto = parseInt(document.getElementById("modal-title").textContent.split("ID: ")[1], 10);
-        const descripcion = document.getElementById("descripcionInput").value;
-
+        const desModelo = document.getElementById("descripcionInput").value;
+        const idCategoria = document.getElementById("categoriaCombobox").value;
         fetch(`/Modelos/UpdateModeloProducto`, {
             method: "POST",
             headers: {
@@ -186,21 +185,25 @@
             },
             body: JSON.stringify({
                 idModeloProducto: idModeloProducto,
-                descripcion: descripcion
+                desModelo: desModelo,
+                idCategoria: idCategoria 
             }),
         })
-        .then(response => {
-            if (response.ok) {
-                alert("Cambios guardados exitosamente");
-                location.reload();
-            } else {
-                alert("Hubo un error al guardar los cambios");
-            }
-        });
+            .then(response => {
+                if (response.ok) {
+                    alert("Cambios guardados exitosamente");
+                    location.reload();
+                } else {
+                    alert("Hubo un error al guardar los cambios");
+                }
+            });
     }
+
 
     function saveNewProduct() {
         const descripcion = document.getElementById("descripcionInput").value;
+        const desModelo = document.getElementById("descripcionInput").value;
+        const idCategoria = document.getElementById("categoriaCombobox").value;
 
         fetch(`/Modelos/InsertModeloProducto`, {
             method: "POST",
@@ -209,7 +212,8 @@
             },
             body: JSON.stringify({
                 idModeloProducto: 0,
-                descripcion: descripcion
+                desModelo: desModelo,
+                idCategoria: idCategoria
             }),
         })
         .then(response => {
