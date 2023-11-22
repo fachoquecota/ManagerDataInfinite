@@ -27,6 +27,16 @@
                     }
                 </select>
             </div>
+            <div class="relative mb-4 w-1/4 inline-block">
+                <label for="categoriaCombobox" class="block text-sm font-medium text-gray-600">Genero:</label>
+                <select id="categoriaCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                    <option value="">>-- Seleccionar --< </option>
+                    @foreach (var genero in ViewBag.Genero)
+                    {
+                        <option value="@genero.Value">@genero.Text</option>
+                    }
+                </select>
+            </div>
             <button onclick="filtrarVentas()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Filtrar</button>
         </div>
 
