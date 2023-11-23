@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wFiBIFid8w+MvrnY+GYV1wVwiBhH/xdQDRv9mwRDVeo=",
+  "Hash": "eTV4nsAwYPgcgNtirfSGhvcNwNTkMPedUEUqM6gppng=",
   "Source": "MVCManager",
   "BasePath": "_content/MVCManager",
   "Mode": "Default",
@@ -1241,6 +1241,40 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\40\\PO-A452.jpg"
     },
     {
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\41\\PO-A455.jpg",
+      "SourceId": "MVCManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "BasePath": "_content/MVCManager",
+      "RelativePath": "Images/ProductoPrincipal/41/PO-A455.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\41\\PO-A455.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\42\\PO-A455.jpg",
+      "SourceId": "MVCManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "BasePath": "_content/MVCManager",
+      "RelativePath": "Images/ProductoPrincipal/42/PO-A455.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\42\\PO-A455.jpg"
+    },
+    {
       "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\43\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
@@ -1258,6 +1292,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\43\\PO-A454.jpg"
     },
     {
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A453.jpg",
+      "SourceId": "MVCManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "BasePath": "_content/MVCManager",
+      "RelativePath": "Images/ProductoPrincipal/44/PO-A453.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\44\\PO-A453.jpg"
+    },
+    {
       "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A454.jpg",
       "SourceId": "MVCManager",
       "SourceType": "Discovered",
@@ -1273,6 +1324,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\44\\PO-A454.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A452.jpg",
+      "SourceId": "MVCManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "BasePath": "_content/MVCManager",
+      "RelativePath": "Images/ProductoPrincipal/45/PO-A452.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ProductoPrincipal\\45\\PO-A452.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A455.jpg",
@@ -1494,6 +1562,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Tags.js"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Venta.js",
+      "SourceId": "MVCManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "BasePath": "_content/MVCManager",
+      "RelativePath": "js/Venta.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Venta.js"
     },
     {
       "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

@@ -7,5 +7,6 @@ namespace ProSalesManager._01_Data.Modules.Sales.Interfaces
     {
         List<ComboBox> TipoVentaCB();
         List<ProductoVenta> ObtenerProductosVenta();
+        bool InsertarVentaConDetalles(Venta venta);
     }
 }

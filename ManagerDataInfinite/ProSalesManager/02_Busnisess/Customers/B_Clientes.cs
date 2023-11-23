@@ -1,6 +1,7 @@
 ﻿using ProSalesManager._01_Data.Modules.Customers.Interfaces;
 using ProSalesManager._02_Busnisess.Customers.Interfaces;
 using ProSalesManager._03_Models;
+using ProSalesManager._03_Models.ModelsCrud;
 
 namespace ProSalesManager._02_Busnisess.Customers
 {
@@ -11,9 +12,14 @@ namespace ProSalesManager._02_Busnisess.Customers
         {
             _sP_Clientes = sP_Clientes;
         }
-        public List<ClienteModel> Clientes(string usuarioNavegacion)
+        public List<ClienteModel> Clientes()
         {
-            var resultSP = _sP_Clientes.ClientesLista(usuarioNavegacion);
+            var resultSP = _sP_Clientes.ClientesLista();
+            return resultSP;
+        }
+        public List<ClienteModel> ClientesById(int idCliente)
+        {
+            var resultSP = _sP_Clientes.ClientesListaByid(idCliente);
             return resultSP;
         }
         public bool UpdateCliente(ClienteModel oProductoModel)
@@ -25,6 +31,13 @@ namespace ProSalesManager._02_Busnisess.Customers
         {
             bool result = _sP_Clientes.InsertCliente(oProductoModel);
             return result;
+        }
+
+
+        public List<ComboBox> TipoDocumento()
+        {
+            var resultSP = _sP_Clientes.TipoDocumentoComboBox();
+            return resultSP;
         }
     }
 }

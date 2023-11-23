@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MVCManager.Models;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Text;
 
 namespace MVCManager.Controllers
 {
@@ -108,6 +109,19 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
+                HttpResponseMessage clienteResponse = await _httpClient.GetAsync("http://localhost:5172/api/Clientes/GetClientes");
+                if (clienteResponse.IsSuccessStatusCode)
+                {
+                    var clienteContent = await clienteResponse.Content.ReadAsStringAsync();
+                    var clienteData = JsonConvert.DeserializeObject<ApiResponseCliente>(clienteContent);
+
+                    ViewBag.Cliente = clienteData.result.Select(c => new SelectListItem
+                    {
+                        Value = c.idCliente.ToString(),
+                        Text = c.nombreContacto + " " + c.apellidoContacto + " - " + c.numeroDocumento, 
+                    }).ToList();
+                }
+
                 //return View();  // Devuelve la vista correspondiente.
                 int registrosPorPagina = 10;
                 var productosPaginados = productos.Skip((pagina - 1) * registrosPorPagina).Take(registrosPorPagina).ToList();
@@ -133,41 +147,58 @@ namespace MVCManager.Controllers
             public int id { get; set; }
             public string descripcion { get; set; }
         }
-        [HttpPost]
-        public ActionResult GuardarVenta([FromBody] VentaData ventaData)
-        {
-            foreach (var producto in ventaData.productos)
-            {
-                // Aquí puedes procesar cada producto
-                var id = producto.id;
-                var cantidad = producto.cantidad;
-                var precio = producto.precio;
-                var total = producto.total;
 
-                // Haz lo que necesites con estos datos
+        [HttpPost]
+        public async Task<IActionResult> GuardarVenta([FromBody] VentaData ventaData)
+        {
+            // Asegúrate de que ventaData no es nulo
+            if (ventaData == null)
+            {
+                ViewBag.ErrorMessage = "Los datos de la venta son inválidos o están incompletos.";
+                return View("Error"); // Cambia a una vista que maneje el error.
             }
 
-            // Aquí puedes procesar el total de la venta
-            var ventaTotal = ventaData.ventaTotal;
-            // ...
+            ventaData.fechaVenta = DateTime.Now;
+            ventaData.idCliente = 1;
+            ventaData.idUsuario = 1;
+            ventaData.idEmpresa = 1;
+            var json = JsonConvert.SerializeObject(ventaData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            // En lugar de redirigir, devolvemos una respuesta en formato JSON
-            return Ok(new { success = true });
+            var response = await _httpClient.PostAsync("http://localhost:5172/api/Ventas/PostVenta", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return Ok();
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Error al procesar la venta. Intente nuevamente.";
+                return View("Error"); // Cambia a una vista que maneje el error.
+            }
         }
 
-        public class Producto
-        {
-            public int id { get; set; }
-            public int cantidad { get; set; }
-            public decimal precio { get; set; }
-            public decimal total { get; set; }
-        }
+
+
 
         public class VentaData
         {
-            public List<Producto> productos { get; set; }
-            public decimal ventaTotal { get; set; }
+            public DateTime fechaVenta { get; set; }
+            public int idCliente { get; set; }
+            public int idUsuario { get; set; }
+            public int idEmpresa { get; set; }
+            public int idTipoPago { get; set; }
+            public int? totalDefinido { get; set; }
+            public List<DetalleVenta> detallesVenta { get; set; }
         }
+
+        public class DetalleVenta
+        {
+            public int idProducto { get; set; }
+            public int cantidad { get; set; }
+            public decimal precioUnitario { get; set; }
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> GetTiposVenta()

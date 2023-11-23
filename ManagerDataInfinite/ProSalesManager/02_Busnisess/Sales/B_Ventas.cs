@@ -22,5 +22,11 @@ namespace ProSalesManager._02_Busnisess.Sales
             var tipoVentasCB = _sP_Ventas.ObtenerProductosVenta();
             return tipoVentasCB;
         }
+
+        public bool InsertarVentaConDetalles(Venta venta)
+        {
+            var Venta = _sP_Ventas.InsertarVentaConDetalles(venta);
+            return Venta;
+        }
     }
 }

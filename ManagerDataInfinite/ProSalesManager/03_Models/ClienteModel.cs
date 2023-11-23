@@ -12,6 +12,6 @@
         public string nombreComercial   {get;set;}
         public string correo            {get;set;}
         public string direccion         {get;set;}
-        public int    idEmpresa         {get;set;}
+        public string desTipoDocumento  {get;set;}
     }
 }

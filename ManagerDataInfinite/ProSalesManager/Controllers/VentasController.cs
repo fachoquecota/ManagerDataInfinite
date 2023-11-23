@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProSalesManager._02_Busnisess.Sales.Interfaces;
+using ProSalesManager._03_Models;
 
 namespace ProSalesManager.Controllers
 {
@@ -41,6 +42,21 @@ namespace ProSalesManager.Controllers
 
             if (result is null)
                 return BadRequest(new { message = "No se encontró datos de productos" });
+
+            return new
+            {
+                result = result
+            };
+        }
+
+        [HttpPost]
+        [Route("PostVenta")]
+        public dynamic InsertSize(Venta venta)
+        {
+            var result = _Ventas.InsertarVentaConDetalles(venta);
+
+            if (result is false)
+                return BadRequest(new { message = "SE INSERTO" });
 
             return new
             {

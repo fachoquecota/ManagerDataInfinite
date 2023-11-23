@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Ventas";
 }
-
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/Venta.js"></script>
+</head>
 <div class="container mx-auto p-6">
     <h1 class="text-2xl font-semibold mb-4">Ventas</h1>
 
@@ -88,7 +91,8 @@
                         @foreach(var modelo in ViewBag.Modelos)
                         {
                             <option value="@modelo.Value">@modelo.Text</option>
-                        }                    </select>
+                        }                    
+                    </select>
                   </div>
                 </div>
 
@@ -106,6 +110,9 @@
                              data-idCalidad="@producto.IdCalidad"
                              data-idMarca="@producto.IdMarca"
                              data-idCategoria="@producto.IdCategoria"
+                             data-categoriaDescripcion="@producto.CategoriaDescripcion"
+                             data-calidadDescripcion="@producto.CalidadDescripcion"
+                             data-colorDescription="@producto.ColorDescription"
                              data-cantidad ="@producto.Cantidad">
 
                             <div class="relative mb-3">
@@ -167,10 +174,12 @@
                 <!-- Selección de Cliente -->
                 <div class="mb-4">
                     <label for="cliente" class="block text-sm font-medium text-gray-600">Seleccionar Cliente:</label>
-                    <select id="cliente" name="cliente" class="mt-1 p-2 w-full rounded-md border shadow-sm">
-                        <option>Cliente 1</option>
-                        <option>Cliente 2</option>
-                        <!-- Más clientes -->
+                    <select id="clienteCombobox" name="modelo" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                      <option value="0">Cliente Genérico</option>
+                        @foreach(var cliente in ViewBag.Cliente)
+                        {
+                            <option value="@cliente.Value">@cliente.Text</option>
+                        }                    
                     </select>
                 </div>
 
@@ -218,6 +227,23 @@
             <!-- Aquí irá la tabla con los productos seleccionados y los detalles -->
             <div id="modalTableContent">
                 <!-- El contenido de la tabla se copiará aquí -->
+            </div>
+            <!-- Dentro del modal de confirmación de venta -->
+
+            <div id="resumenProductosContainer" class="mt-4">
+                <h4 class="text-lg font-bold mb-2">Resumen de Productos</h4>
+                <table id="resumenProductos" class="min-w-full divide-y divide-gray-200 text-center">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="px-4 py-2">Categoría</th>
+
+                            <th class="px-4 py-2">Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las filas se agregarán dinámicamente desde JavaScript -->
+                    </tbody>
+                </table>
             </div>
 
             <!-- Campo de venta -->
@@ -326,245 +352,5 @@ function buscarEnProductos(searchTerm) {
 </script>
 
 <script>
-    // Función para recalcular el total de un producto
-    function recalculateProductTotal(row) {
-        const quantity = parseFloat(row.querySelector('.quantity-input').value);
-        const price = parseFloat(row.querySelector('.price-input').value);
-        const totalCell = row.querySelector('.total-cell');
-        totalCell.textContent = (quantity * price).toFixed(2);
-    }
-
-    // Función para recalcular la "Venta Total"
-    function recalculateSaleTotal() {
-        const table = document.querySelector("#tablaProductosSeleccionados");
-        let totalColumnIndex = -1;
-
-        // Encontrar el índice de la columna "Total"
-        table.querySelectorAll('thead th').forEach((th, index) => {
-            if (th.textContent.trim() === 'Total') {
-                totalColumnIndex = index;
-            }
-        });
-
-        // Si no encontramos la columna, terminamos la función
-        if (totalColumnIndex === -1) return;
-
-        // Calcular el total sumando los valores de la columna "Total" en cada fila
-        let total = 0;
-        table.querySelectorAll('tbody tr').forEach(row => {
-            const totalCell = row.querySelector(`td:nth-child(${totalColumnIndex + 1})`);
-            if (totalCell) {
-                total += parseFloat(totalCell.textContent.trim() || 0);
-            }
-        });
-
-        // Establecer el valor del total en el campo correspondiente
-        document.getElementById("totalSale").value = total.toFixed(2);
-    }
-
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-
-    /* Función para agregar productos a "Detalles de venta" */
-    function agregarProductoADetalles(producto) {
-    const tablaProductosSeleccionados = document.getElementById("tablaProductosSeleccionados");
-    const idProducto = producto.getAttribute("data-idproducto");
-    const existingRow = tablaProductosSeleccionados.querySelector(`[data-idproducto="${idProducto}"]`);
-
-    if (existingRow) {
-        const quantityInput = existingRow.querySelector(".quantity-input");
-        const maxQuantity = parseInt(producto.getAttribute("data-cantidad"));
-        console.log("maxQuantity ",maxQuantity);
-        if (parseInt(quantityInput.value) < maxQuantity) {
-            quantityInput.value = parseInt(quantityInput.value) + 1;
-            recalculateProductTotal(existingRow);
-            recalculateSaleTotal();
-        } else {
-            alert("No puedes agregar más unidades de este producto. Has alcanzado la cantidad máxima permitida.");
-        }
-    } else {
-        const nombreProducto = producto.querySelector("h3").textContent;
-        const precioProductoTexto = producto.querySelector(".precio-producto").textContent;
-@*        const cantidadMaxima = parseInt(producto.querySelector("p:nth-child(5)").textContent);
-*@        
-        const cantidadMaxima = parseInt(producto.getAttribute("data-cantidad"));
-
-        console.log("cantidad máxima ", cantidadMaxima);
-        const imgSrc = producto.querySelector("img").src;
-
-        const newRow = document.createElement("tr");
-        newRow.setAttribute("data-idproducto", idProducto);
-        newRow.innerHTML = `
-            <td class="px-2 py-2"><img src="${imgSrc}" alt="${nombreProducto}" class="w-12 h-12 object-cover rounded-md"></td>
-            <td class="px-2 py-2">${nombreProducto}</td>
-            <td class="px-2 py-2">
-                <input type="number" value="1" min="1" max="${cantidadMaxima}" data-max="${cantidadMaxima}" class="w-16 border rounded p-1 quantity-input">
-            </td>
-            <td class="px-2 py-2">
-                <input type="number" value="${parseFloat(precioProductoTexto).toFixed(2)}" class="w-20 border rounded p-1 price-input precio-producto" readonly>
-            </td>
-            <td class="px-2 py-2 total-cell">${parseFloat(precioProductoTexto).toFixed(2)}</td>
-            <td class="px-2 py-2"><button class="text-red-500 hover:text-red-700">Eliminar</button></td>
-        `;
-
-        newRow.querySelector('.quantity-input').addEventListener('input', function(e) {
-            let max = parseInt(this.getAttribute('data-max'));
-            if (parseInt(this.value) > max) {
-                alert("La cantidad ingresada supera la cantidad disponible.");
-                this.value = max;
-            } else if (this.value < 1) {
-                alert("La cantidad ingresada es menor que la cantidad mínima permitida.");
-                this.value = 1;
-            }
-
-            // Recalcula el total cada vez que cambia el valor.
-            const precioInput = newRow.querySelector('.price-input');
-            const totalCell = newRow.querySelector('.total-cell');
-            totalCell.textContent = (this.value * parseFloat(precioInput.value)).toFixed(2);
-            recalculateSaleTotal();
-        });
-
-        tablaProductosSeleccionados.querySelector("tbody").appendChild(newRow);
-    }
-}
-
-    /* Evento para el botón de agregar producto */
-    document.getElementById("productosGrid").addEventListener("click", (e) => {
-        if (e.target.tagName === "BUTTON") {
-            const producto = e.target.closest(".producto");
-            agregarProductoADetalles(producto);
-        }
-    });
-    /* Funciones */
-    function filtrarProductosPorModelo(idModelo) {
-        const productos = document.querySelectorAll(".producto");
-        productos.forEach(producto => {
-            if (producto.getAttribute("data-idmodelo") == idModelo) {
-                producto.style.display = "block";
-            } else {
-                producto.style.display = "none";
-            }
-        });
-    }
-
-    function mostrarTodosLosProductos() {
-        const productos = document.querySelectorAll(".producto");
-        productos.forEach(producto => {
-            producto.style.display = "block";
-        });
-    }
-
-   /* Evento para el botón de confirmación de venta */
-document.getElementById("confirmSaleButton").addEventListener("click", function(event) {
-    event.preventDefault();
-    
-    // Antes de clonar la tabla, calcula el total de venta.
-    recalculateSaleTotal();
-    const totalVenta = parseFloat(document.getElementById("totalSale").value);
-
-    // Copia el contenido de la tabla de productos seleccionados
-    const selectedProductsTable = document.getElementById("tablaProductosSeleccionados").cloneNode(true);
-
-    // Elimina la columna de "Acción" de la tabla copiada
-    selectedProductsTable.querySelectorAll("thead tr th:last-child, tbody tr td:last-child").forEach(cell => cell.remove());
-
-    // Desactiva los campos de entrada de la tabla copiada
-    selectedProductsTable.querySelectorAll("input").forEach(input => input.disabled = true);
-
-    // Pega el contenido en el modal
-    const modalTableContent = document.getElementById("modalTableContent");
-    modalTableContent.innerHTML = '';
-    modalTableContent.appendChild(selectedProductsTable);
-
-    // Usa el total calculado para establecer el valor en el modal.
-    document.getElementById("totalSale").value = totalVenta.toFixed(2);
-
-    // Muestra el modal
-    document.getElementById("confirmSaleModal").classList.remove("hidden");
-
-    // Evento para cerrar el modal al hacer clic en "Cancelar"
-    document.getElementById("closeModal").addEventListener("click", function() {
-        document.getElementById("confirmSaleModal").classList.add("hidden");
-    });
-
-    // Evento para "Confirmar"
-    document.getElementById("confirmFinalSale").addEventListener("click", function(event) {
-        event.preventDefault();
-
-        const rows = document.getElementById("tablaProductosSeleccionados").querySelectorAll("tbody tr");
-
-        const dataToSend = {
-            productos: [],
-            ventaTotal: parseFloat(document.getElementById("totalSale").value)
-        };
-
-        rows.forEach((row, index) => {
-            const idProducto = parseInt(row.getAttribute("data-idproducto"), 10);
-            const cantidad = parseInt(row.querySelector(".quantity-input").value, 10);
-            const precio = parseFloat(row.querySelector(".price-input").value);
-            const total = parseFloat(row.querySelector(".total-cell").textContent);
-
-            dataToSend.productos.push({
-                id: idProducto,
-                cantidad: cantidad,
-                precio: precio,
-                total: total
-            });
-        });
-
-        fetch('/Venta/GuardarVenta', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataToSend)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Respuesta del servidor no es OK');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.success) {
-                // Puedes mostrar un mensaje de éxito o hacer alguna otra acción
-                alert('Venta guardada con éxito');
-                document.getElementById("confirmSaleModal").classList.add("hidden");
-            } else {
-                alert('Hubo un error al guardar la venta: ' + (data.message || ''));
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Hubo un error al procesar la solicitud.');
-        });
-    });
-});
-
-    /* Llenar el dropdown de tipos de venta al cargar la página */
-    fetch("/Venta/GetTiposVenta")
-        .then(response => response.json())
-        .then(data => {
-            const tipoVentaSelect = document.getElementById("tipoVenta");
-            data.forEach(item => {
-                const option = document.createElement("option");
-                option.value = item.id;
-                option.textContent = item.descripcion;
-                tipoVentaSelect.appendChild(option);
-            });
-        });
-
-        // Manejador de eventos para el botón "Eliminar"
-    tablaProductosSeleccionados.addEventListener("click", function(e) {
-        if (e.target && e.target.matches("button.text-red-500")) {
-            const filaProducto = e.target.closest("tr");
-            filaProducto.remove();  // Elimina la fila
-
-            // Si tienes un contador, disminuye el contador en 1
-            contadorProductos.textContent = count;
-        }
-    });
-});
-
+    var categoriasData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Categoria));
 </script>

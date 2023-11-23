@@ -21,9 +21,9 @@ namespace ProSalesManager.Controllers
         [Route("GetClientes")]
         public dynamic GetProducts()
         {
-            var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-            var correo = _tokenService.GetCorreoFromToken(correoToken);
-            var result = _Clientes.Clientes(correo);
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Clientes.Clientes();
 
             if (result is null)
                 return BadRequest(new { message = "No se encontró datos de clientes" });
@@ -31,7 +31,24 @@ namespace ProSalesManager.Controllers
             return new
             {
                 //message = jwtToken
-                message = result
+                result = result
+            };
+        }
+        [HttpGet]
+        [Route("GetClientesByid")]
+        public dynamic GetProductsById(int idCliente)
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Clientes.ClientesById(idCliente);
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de clientes" });
+
+            return new
+            {
+                //message = jwtToken
+                result = result
             };
         }
         [HttpPut]
@@ -47,6 +64,23 @@ namespace ProSalesManager.Controllers
         {
             bool result = _Clientes.InsertCliente(oClienteModel);
             return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetTipoDocumento_ComboBox")]
+        public dynamic GetTipoDocumento_ComboBox()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Clientes.TipoDocumento();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de clientes" });
+
+            return new
+            {
+                //message = jwtToken
+                result = result
+            };
         }
     }
 }

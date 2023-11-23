@@ -1,0 +1,304 @@
+﻿@model List<ClienteModel>
+
+@{
+    ViewBag.Title = "Mantenimiento de Clientes";
+}
+
+<div class="container mx-auto mt-10 p-5">
+    <div class="p-6 bg-white shadow-md rounded-md overflow-auto">
+
+        <h2 class="text-2xl font-bold mb-5">Mantenimiento de Clientes</h2>
+
+        <div class="mb-4 w-1/2">
+            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" id="searchTerm" placeholder="Buscar por nombre, documento o correo" onkeyup="searchFunction()" />
+        </div>
+
+        <div class="mb-4">
+            <button onclick="openAddModal()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agregar Cliente</button>
+        </div>
+        <div class="overflow-x-auto mt-6">
+            <table class="w-full bg-white">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Nombres</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Apellidos</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Teléfono</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Documento</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Razón Social</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Nombre Comercial</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Correo</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Dirección</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cliente in Model)
+                    {
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200">@cliente.idCliente</td>
+                            <td class="py-2 px-4 border-b border-gray-200">@cliente.nombreContacto</td>
+                            <td class="py-2 px-4 border-b border-gray-200">@cliente.apellidoContacto</td>
+                            <td class="py-2 px-4 border-b border-gray-200">@cliente.telefono</td>
+                            <td class="py-2 px-4 border-b border-gray-200">@cliente.desTipoDocumento: @cliente.numeroDocumento</td>
+                            <td class="py-2 px-4 border-b border-gray-200">@cliente.razonSocial</td>
+                            <td class="py-2 px-4 border-b border-gray-200">@cliente.nombreComercial</td>
+                            <td class="py-2 px-4 border-b border-gray-200">@cliente.correo</td>
+                            <td class="py-2 px-4 border-b border-gray-200">@cliente.direccion</td>
+                            <td class="py-2 px-4 border-b border-gray-200">
+                                <button onclick="openEditModal(@cliente.idCliente, '@Html.Raw(cliente.nombreContacto)', '@Html.Raw(cliente.apellidoContacto)', '@Html.Raw(cliente.telefono)', '@Html.Raw(cliente.idTipoDocumento)', '@Html.Raw(cliente.numeroDocumento)', '@Html.Raw(cliente.razonSocial)', '@Html.Raw(cliente.nombreComercial)', '@Html.Raw(cliente.correo)', '@Html.Raw(cliente.direccion)')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-4 rounded mr-2">Editar</button>
+                                <button class="text-red-500 hover:text-red-700" onclick="openDeleteModal(@cliente.idCliente)">Eliminar</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Modal-->
+<div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="editModal">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+        <!-- Modal Content -->
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                            Editar Cliente
+                        </h3>
+                        <input type="hidden" id="idClienteInput" /> <!-- Campo oculto para idCliente -->
+                        <div class="mt-2">
+                            <input type="text" id="nombreContactoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre Contacto">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="apellidoContactoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Apellido Contacto">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="telefonoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Teléfono">
+                        </div>
+                        <div class="mt-2">
+                                <select id="tipoDocumentoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="">Seleccione Tipo Doc.</option>
+                                    @foreach(var tipoDoc in ViewBag.TipoDocumentos)
+                                    {
+                                        <option value="@tipoDoc.Value">@tipoDoc.Text</option>
+                                    }   
+                                </select>
+
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="numeroDocumentoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Número de Documento">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="razonSocialInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Razón Social">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="nombreComercialInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre Comercial">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="correoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Correo Electrónico">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="direccionInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Dirección">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button onclick="saveChanges()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-4 rounded mt-2">
+                    Guardar
+                </button>
+                <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="closeModal()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal de Confirmación de Eliminación -->
+<div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="deleteModal">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+        <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+            <div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title-delete">
+                    Confirmar Eliminación
+                </h3>
+                <div class="mt-2">
+                    <p class="text-sm text-gray-500">
+                        ¿Está seguro de que desea eliminar este registro? Esta acción no se puede deshacer.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-5 sm:mt-6">
+                <button type="button" onclick="confirmDelete()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm">
+                    Confirmar
+                </button>
+                <button type="button" onclick="closeDeleteModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm sm:mt-0 sm:ml-3">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    let modalMode = ""; // Puede ser "add" o "edit"
+    let idClienteEditando = 0; // Variable para almacenar el ID del cliente en edición
+
+    function searchFunction() {
+        let input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchTerm");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("clientesTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1]; // Selecciona la columna de nombre
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function openEditModal(idCliente, nombreContacto, apellidoContacto, telefono, idTipoDocumento, numeroDocumento, razonSocial, nombreComercial, correo, direccion) {
+        idClienteEditando = idCliente;
+        document.getElementById("idClienteInput").value = idCliente;
+        document.getElementById("nombreContactoInput").value = nombreContacto;
+        document.getElementById("apellidoContactoInput").value = apellidoContacto;
+        document.getElementById("telefonoInput").value = telefono;
+        document.getElementById("tipoDocumentoInput").value = idTipoDocumento;
+        document.getElementById("numeroDocumentoInput").value = numeroDocumento;
+        document.getElementById("razonSocialInput").value = razonSocial;
+        document.getElementById("nombreComercialInput").value = nombreComercial;
+        document.getElementById("correoInput").value = correo;
+        document.getElementById("direccionInput").value = direccion;
+
+        document.getElementById("modal-title").textContent = "Editar Cliente - ID: " + idCliente;
+        document.getElementById("editModal").classList.remove("hidden");
+        modalMode = "edit";
+    }
+
+
+
+    function openAddModal() {
+        // Limpia el ID del cliente y los demás campos
+        document.getElementById("idClienteInput").value = "";
+        document.getElementById("nombreContactoInput").value = "";
+        document.getElementById("apellidoContactoInput").value = "";
+        document.getElementById("telefonoInput").value = "";
+        // Restablece el tipo de documento a un valor predeterminado o en blanco
+        document.getElementById("tipoDocumentoInput").value = ""; 
+        document.getElementById("numeroDocumentoInput").value = "";
+        document.getElementById("razonSocialInput").value = "";
+        document.getElementById("nombreComercialInput").value = "";
+        document.getElementById("correoInput").value = "";
+        document.getElementById("direccionInput").value = "";
+
+        // Actualiza el título del modal y muestra el modal
+        document.getElementById("modal-title").textContent = "Agregar Nuevo Cliente";
+        document.getElementById("editModal").classList.remove("hidden");
+        modalMode = "add";
+    }
+
+
+    function closeModal() {
+        document.getElementById("editModal").classList.add("hidden");
+        modalMode = "";
+    }
+
+    function saveChanges() {
+        if (modalMode === "add") {
+            addNewCliente();
+        } else if (modalMode === "edit") {
+            updateCliente();
+        }
+    }
+
+    function updateCliente() {
+        // Recolectar los valores de los campos del formulario
+        const idCliente = document.getElementById("idClienteInput").value;
+        const nombreContacto = document.getElementById("nombreContactoInput").value;
+        const apellidoContacto = document.getElementById("apellidoContactoInput").value;
+        const telefono = document.getElementById("telefonoInput").value;
+        const idTipoDocumento = document.getElementById("tipoDocumentoInput").value;
+        const numeroDocumento = document.getElementById("numeroDocumentoInput").value;
+        const razonSocial = document.getElementById("razonSocialInput").value;
+        const nombreComercial = document.getElementById("nombreComercialInput").value;
+        const correo = document.getElementById("correoInput").value;
+        const direccion = document.getElementById("direccionInput").value;
+
+        // Crear el objeto con los datos
+        const clienteData = {
+            idCliente: parseInt(idCliente, 10),
+            nombreContacto: nombreContacto,
+            apellidoContacto: apellidoContacto,
+            telefono: telefono,
+            idTipoDocumento: parseInt(idTipoDocumento, 10),
+            numeroDocumento: numeroDocumento,
+            razonSocial: razonSocial,
+            nombreComercial: nombreComercial,
+            correo: correo,
+            direccion: direccion
+        };
+
+        // Enviar la solicitud PUT al servidor
+        fetch('/Cliente/UpdateCliente', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(clienteData)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Cliente actualizado con éxito.");
+                location.reload(); // O alguna otra acción para refrescar la vista
+            } else {
+                alert("Error al actualizar el cliente.");
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+
+    function addNewCliente() {
+        // Aquí se recolectan los valores de los campos y se envían al servidor para agregar un nuevo cliente
+        // ... código para recolectar y enviar datos ...
+    }
+
+    function openDeleteModal(idCliente) {
+        idToDelete = idCliente;
+        document.getElementById("deleteModal").classList.remove("hidden");
+    }
+
+    function confirmDelete() {
+        fetch(`/Clientes/DeleteCliente?idCliente=${idToDelete}`, {
+            method: "DELETE"
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("Cliente eliminado exitosamente");
+                    location.reload();
+                } else {
+                    alert("Hubo un error al eliminar el cliente");
+                }
+            });
+    }
+
+    function closeDeleteModal() {
+        idToDelete = null;
+        document.getElementById("deleteModal").classList.add("hidden");
+    }
+</script>

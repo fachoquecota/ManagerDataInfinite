@@ -92,5 +92,55 @@ namespace ProSalesManager._01_Data.Modules.Sales
                 return productosList;
             }
         }
+
+        public bool InsertarVentaConDetalles(Venta venta)
+        {
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    using (SqlCommand cmd = new SqlCommand("sp_InsertarVentaYDetalles", conexion))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Parámetros para la venta
+                        cmd.Parameters.Add(new SqlParameter("@fechaVenta", venta.FechaVenta));
+                        cmd.Parameters.Add(new SqlParameter("@idCliente", venta.IdCliente));
+                        cmd.Parameters.Add(new SqlParameter("@idUsuario", venta.IdUsuario));
+                        cmd.Parameters.Add(new SqlParameter("@idEmpresa", venta.IdEmpresa));
+                        cmd.Parameters.Add(new SqlParameter("@idTipoPago", venta.IdTipoPago));
+                        cmd.Parameters.Add(new SqlParameter("@TotalDefinido", (object)venta.TotalDefinido ?? DBNull.Value));
+
+                        // Parámetro para los detalles de la venta
+                        var detallesTabla = new DataTable();
+                        detallesTabla.Columns.Add("idProducto", typeof(int));
+                        detallesTabla.Columns.Add("cantidad", typeof(int));
+                        detallesTabla.Columns.Add("precioUnitario", typeof(decimal));
+
+                        foreach (var detalle in venta.DetallesVenta)
+                        {
+                            detallesTabla.Rows.Add(detalle.IdProducto, detalle.Cantidad, detalle.PrecioUnitario);
+                        }
+
+                        var param = cmd.Parameters.AddWithValue("@detallesVenta", detallesTabla);
+                        param.SqlDbType = SqlDbType.Structured;
+                        param.TypeName = "dbo.TipoDetalleVenta"; // Especifica el nombre del tipo de tabla en SQL Server
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción adecuadamente
+                ErrorResult.ErrorMessage = ex.Message;
+                return false;
+            }
+        }
+
     }
 }
