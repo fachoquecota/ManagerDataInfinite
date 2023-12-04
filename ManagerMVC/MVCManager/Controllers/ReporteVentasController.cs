@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MVCManager.Models;
 using Newtonsoft.Json;
+using System.Globalization;
+using static MVCManager.Controllers.VentaController;
 
 namespace MVCManager.Controllers
 {
@@ -12,42 +14,48 @@ namespace MVCManager.Controllers
         public async Task<ActionResult> Index()
         {
 
-            // Primera llamada API
-            List<ReporteventasModel> modelos = new List<ReporteventasModel>();
+            List<ReporteventasModel> modelos;
+
             using (var response = await _httpClient.GetAsync("http://localhost:5172/api/Ventas/GetVentas"))
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var responseObject = JsonConvert.DeserializeObject<ApiResponseVentas>(apiResponse);
                 modelos = responseObject.result;
+
+                foreach (var modelo in modelos)
+                {
+                    // Convierte la fecha de string a DateTime y luego a string con el formato deseado
+                    if (DateTime.TryParse(modelo.fechaVenta, out DateTime fechaParsed))
+                    {
+                        modelo.fechaVenta = fechaParsed.ToString("dd/MM/yyyy");
+                    }
+                }
             }
 
 
-            HttpResponseMessage categoriaResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudCategoriaCrudCB");
-            if (categoriaResponse.IsSuccessStatusCode)
+            HttpResponseMessage transporteResponse = await _httpClient.GetAsync("http://localhost:5172/api/EmpresaTransporte/GetAllTransporteCombobox");
+            if (transporteResponse.IsSuccessStatusCode)
             {
-                var categoriaContent = await categoriaResponse.Content.ReadAsStringAsync();
-                var categoriaData = JsonConvert.DeserializeObject<CategoriaResponse>(categoriaContent);
+                var transporteContent = await transporteResponse.Content.ReadAsStringAsync();
+                var transporteData = JsonConvert.DeserializeObject<Dictionary<string, List<TransporteCB>>>(transporteContent);
+                var transporte = transporteData["result"];
 
-                ViewBag.Categoria = categoriaData.result.Select(c => new SelectListItem
+                ViewBag.Transporte = transporte.Select(c => new SelectListItem
                 {
-                    Value = c.Id.ToString(),
-                    Text = c.Descripcion
+                    Value = c.id.ToString(),
+                    Text = c.descripcion
                 }).ToList();
             }
-            HttpResponseMessage generoResponse = await _httpClient.GetAsync("http://localhost:5172/api/Productos/GetCrudGeneroCrudCB");
-            if (generoResponse.IsSuccessStatusCode)
-            {
-                var generoContent = await generoResponse.Content.ReadAsStringAsync();
-                var generoData = JsonConvert.DeserializeObject<CategoriaResponse>(generoContent);
 
-                ViewBag.Genero = generoData.result.Select(c => new SelectListItem
-                {
-                    Value = c.Id.ToString(),
-                    Text = c.Descripcion
-                }).ToList();
-            }
+           
             return View(modelos);
         }
 
+    }
+
+    public class TransporteCB
+    {
+        public int id { get; set; }
+        public string descripcion { get; set; }
     }
 }

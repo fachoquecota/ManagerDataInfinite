@@ -265,12 +265,28 @@
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\40\\PO-A452.jpg"
     },
     {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\41\\PO-A455.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\41\\PO-A455.jpg"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\42\\PO-A455.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\42\\PO-A455.jpg"
+    },
+    {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\43\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\43\\PO-A454.jpg"
     },
     {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A453.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\44\\PO-A453.jpg"
+    },
+    {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\44\\PO-A454.jpg"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A452.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\45\\PO-A452.jpg"
     },
     {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A455.jpg",
@@ -339,6 +355,14 @@
     {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Tags.js",
       "PackagePath": "staticwebassets\\js\\Tags.js"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Venta.js",
+      "PackagePath": "staticwebassets\\js\\Venta.js"
+    },
+    {
+      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Venta_New.js",
+      "PackagePath": "staticwebassets\\js\\Venta_New.js"
     },
     {
       "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\site.js",

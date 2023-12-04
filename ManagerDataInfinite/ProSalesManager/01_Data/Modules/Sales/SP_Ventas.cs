@@ -166,6 +166,8 @@ namespace ProSalesManager._01_Data.Modules.Sales
                                 idEmpresa = Convert.ToInt32(dr["idEmpresa"]),
                                 total = Convert.ToDecimal(dr["total"]),
                                 fechaVenta = dr["fechaVenta"].ToString(),
+                                empresaTransporte = dr["empresaTransporte"].ToString(),
+
                             });
                         }
                     }

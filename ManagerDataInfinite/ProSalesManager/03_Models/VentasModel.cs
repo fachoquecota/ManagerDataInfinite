@@ -17,6 +17,7 @@
         public decimal total { get; set; }
 
         public string fechaVenta { get; set; }
+        public string empresaTransporte { get; set; }
 
     }
   
