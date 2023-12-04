@@ -5,7 +5,12 @@
 }
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/Venta.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+    <script src="/js/Venta_New.js"></script>
 </head>
 <div class="container mx-auto p-6">
     <h1 class="text-2xl font-semibold mb-4">Ventas</h1>
@@ -34,7 +39,6 @@
                       </select>
                   </div>
 
-
                   <!-- Calidad -->
                   <div class="relative mb-4 w-1/4 inline-block">
                     <label for="calidadCombobox" class="block text-sm font-medium text-gray-600">Calidad:</label>
@@ -56,10 +60,7 @@
                            <option value="@talla.Value">@talla.Text</option>
                        }                    </select>
                   </div>
-
-
-                  
-
+              
                   <!-- Color -->
                   <div class="relative mb-4 w-1/4 inline-block">
                     <label for="colorCombobox" class="block text-sm font-medium text-gray-600">Color:</label>
@@ -70,9 +71,7 @@
                             <option value="@color.Value">@color.Text</option>
                         }                    </select>
                   </div>
-
-                 
-
+               
                   <!-- Marca -->
                   <div class="relative mb-4 w-1/4 inline-block">
                     <label for="marcaCombobox" class="block text-sm font-medium text-gray-600">Marca:</label>
@@ -83,6 +82,7 @@
                             <option value="@marca.Value">@marca.Text</option>
                         }                    </select>
                   </div>
+
                   <!-- Modelo -->
                   <div class="relative mb-4 inline-block w-1/4">
                     <label for="modeloCombobox" class="block text-sm font-medium text-gray-600">Modelo:</label>
@@ -111,6 +111,7 @@
                              data-idMarca="@producto.IdMarca"
                              data-idCategoria="@producto.IdCategoria"
                              data-categoriaDescripcion="@producto.CategoriaDescripcion"
+                             data-sizeDescription = "@producto.SizeDescription"
                              data-calidadDescripcion="@producto.CalidadDescripcion"
                              data-colorDescription="@producto.ColorDescription"
                              data-cantidad ="@producto.Cantidad">
@@ -146,12 +147,10 @@
                                         <p>@producto.ModeloDescripcion</p>
                                     </div>
                                 </div>
-                            <button class="text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
+                            <button class="btnSeleccionarProducto text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
                         </div>
                     }
                 </div>
-
-
 
                 <!-- Paginación -->
                 <div class="flex justify-center mt-4">
@@ -165,20 +164,37 @@
             <div class="p-4 bg-white rounded-lg shadow-md">
                 <h2 class="text-xl font-semibold mb-4 text-blue-500">Detalles de la Venta</h2>
 
-                <!-- Tipo de Venta -->
+                <!-- Selección Tipo de Venta -->
                 <div class="mb-4">
                     <label for="tipoVenta" class="block text-sm font-medium text-gray-600">Tipo de Venta:</label>
-                    <select id="tipoVenta" name="tipoVenta" class="mt-1 p-2 w-full rounded-md border shadow-sm"></select>
+                    <select id="tipoVentaCombobox" name="tipoVenta" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                        @foreach(var tipoVenta in ViewBag.TipoVenta)
+                        {
+                            <option value="@tipoVenta.Value">@tipoVenta.Text</option>
+                        }                    
+                    </select>
                 </div>
 
                 <!-- Selección de Cliente -->
                 <div class="mb-4">
                     <label for="cliente" class="block text-sm font-medium text-gray-600">Seleccionar Cliente:</label>
-                    <select id="clienteCombobox" name="modelo" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                      <option value="0">Cliente Genérico</option>
+                    <select id="clienteCombobox" name="cliente" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                        <option value="0">Cliente Genérico</option>
                         @foreach(var cliente in ViewBag.Cliente)
                         {
                             <option value="@cliente.Value">@cliente.Text</option>
+                        }                    
+                    </select>
+                </div>
+
+                <!-- Selección de Transporte -->
+                <div class="mb-4">
+                    <label for="transporte" class="block text-sm font-medium text-gray-600">Seleccionar Emp. Transporte:</label>
+                    <select id="transporteCombobox" name="transporte" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                        <option value="0">No transporte</option>
+                        @foreach(var transporte in ViewBag.TransDocumentos)
+                        {
+                            <option value="@transporte.Value">@transporte.Text</option>
                         }                    
                     </select>
                 </div>
@@ -192,7 +208,8 @@
                                 <th class="px-2 py-2">Imagen</th>
                                 <th class="px-2 py-2">Producto</th>
                                 <th class="px-2 py-2">Cantidad</th>
-                                <th class="px-2 py-2">Precio</th> <!-- Mantenemos la columna Precio -->
+                                <th class="px-2 py-2">Talla</th>
+                                <th class="px-2 py-2">Precio</th> 
                                 <th class="px-2 py-2">Total</th>
                                 <th class="px-2 py-2">Acciones</th>
                             </tr>
@@ -204,7 +221,7 @@
                     </table>
                 </div>
 
-                <button type="submit" id="confirmSaleButton" class="px-4 py-2 bg-blue-500 text-white rounded-md">Confirmar Venta</button>
+                <button id="confirmSaleButton" class="px-4 py-2 bg-blue-500 text-white rounded-md">Confirmar Venta</button>
             </div>
         </div>
 
@@ -212,145 +229,209 @@
 
     </div>
 </div>
-<!-- Modal -->
-<div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="confirmSaleModal">
-  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
-      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-          Confirmar Venta
-        </h3>
-        <div class="mt-2">
-            <!-- Aquí irá la tabla con los productos seleccionados y los detalles -->
-            <div id="modalTableContent">
-                <!-- El contenido de la tabla se copiará aquí -->
+<div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="resumenVentaModal">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                    Resumen de Venta
+                </h3>
+                <div class="mt-2">
+                    <!-- Tabla copia de productos seleccionados -->
+                    <table id="tablaCopiaProductos" class="min-w-full divide-y divide-gray-200 text-center">
+                        <!-- Cabecera y cuerpo de la tabla -->
+                    </table>
+
+                    <!-- Tabla resumen por talla -->
+                    <table id="tablaResumenTallas" class="min-w-full divide-y divide-gray-200 text-center">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2">Talla</th>
+                                <th class="px-4 py-2">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Las filas se agregarán dinámicamente desde JavaScript -->
+                        </tbody>
+                    </table>
+
+
+                    <!-- Campo de venta total -->
+                    <div class="mt-4">
+                        <label for="ventaTotal" class="block text-sm font-medium text-gray-600">Venta Total:</label>
+                        <input type="number" id="ventaTotal" class="mt-1 p-2 w-full rounded-md border shadow-sm" step="0.01">
+                    </div>
+                </div>
             </div>
-            <!-- Dentro del modal de confirmación de venta -->
-
-            <div id="resumenProductosContainer" class="mt-4">
-                <h4 class="text-lg font-bold mb-2">Resumen de Productos</h4>
-                <table id="resumenProductos" class="min-w-full divide-y divide-gray-200 text-center">
-                    <thead class="bg-gray-100">
-                        <tr>
-                            <th class="px-4 py-2">Categoría</th>
-
-                            <th class="px-4 py-2">Cantidad</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Las filas se agregarán dinámicamente desde JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Campo de venta -->
-            <div class="mt-4">
-                <label for="totalSale" class="block text-sm font-medium text-gray-600">Venta Total:</label>
-                <input type="text" id="totalSale" class="mt-1 p-2 w-full rounded-md border shadow-sm" >
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm" id="confirmFinalSale">
+                    Confirmar
+                </button>
+                <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" id="closeModal">
+                    Cancelar
+                </button>
             </div>
         </div>
-      </div>
-      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm" id="confirmFinalSale">
-          Confirmar
-        </button>
-        <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" id="closeModal">
-          Cancelar
-        </button>
-      </div>
     </div>
-
-
-  </div>
 </div>
+
+    <!-- MODAL SEGUNDO -->
+
+<div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="successModal">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+        
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border-4 border-green-500">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <i class="fas fa-check-circle text-green-500 text-3xl"></i>
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                    Venta Guardada
+                </h3>
+                <!-- Resto del contenido del modal -->
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button id="printReceipt" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+                    Imprimir
+                </button>
+                <button id="continueSelling" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-green-500 text-base font-medium text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                    Seguir Vendiendo
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="editModal">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+        <!-- Modal Content -->
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                            Editar Cliente
+                        </h3>
+                        <input type="hidden" id="idClienteInput" /> <!-- Campo oculto para idCliente -->
+                        <div class="mt-2">
+                            <input type="text" id="nombreContactoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre Contacto">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="apellidoContactoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Apellido Contacto">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="telefonoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Teléfono">
+                        </div>
+                        <div class="mt-2">
+                                <select id="tipoDocumentoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline">
+                                    <option value="">Seleccione Tipo Doc.</option>
+                                    @foreach(var tipoDoc in ViewBag.TipoDocumentos)
+                                    {
+                                        <option value="@tipoDoc.Value">@tipoDoc.Text</option>
+                                    }   
+                                </select>
+
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="numeroDocumentoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Número de Documento">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="razonSocialInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Razón Social">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="nombreComercialInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nombre Comercial">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="correoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Correo Electrónico">
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" id="direccionInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Dirección">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button onclick="saveChanges()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-4 rounded mt-2">
+                    Guardar
+                </button>
+                <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="closeEditModal()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loadingSpinner" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 z-50 flex justify-center items-center">
+    <!-- Aquí el contenido del spinner, como un ícono giratorio o una imagen -->
+        <div class="loader"></div>
+</div>
+
 <script>
-$(document).ready(function() {
-    // Detectar cambios en los ComboBox
-    $('#colorCombobox, #sizeCombobox, #modeloCombobox, #calidadCombobox, #marcaCombobox, #categoriaCombobox').on('input change', function() {
-        filtrarProductos();
+
+    function closeModalCliente() {
+        document.getElementById('modalCliente').classList.add('hidden');
+    }
+    $(document).ready(function() {
+        $('#clienteCombobox').select2({
+            placeholder: "Buscar Cliente",
+            allowClear: true,
+            language: {
+                noResults: function() {
+                    return `<div style="color: red;">No se encontraron resultados</div><button id="addClientBtn" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">Añadir Cliente</button>`;
+                }
+            },
+            escapeMarkup: function(markup) {
+                return markup;
+            }
+        });
+
+         // Evento para abrir el modal cuando se hace clic en "Añadir Cliente"
+        $(document).on('click', '#addClientBtn', function() {
+            $('#editModal').removeClass('hidden');
+        });
+
+      
+
     });
-
-    // Evento para la búsqueda de productos
-    $("#buscarProducto").on("input", function() {
-        resetComboboxes(); // Restablece los comboboxes
-        buscarEnProductos(this.value); // Filtra los productos según la búsqueda
-    });
-});
-
-function resetComboboxes() {
-    $('#modeloCombobox').val('');  // Todos los modelos
-    $('#sizeCombobox').val('');    // Todas las tallas
-    $('#colorCombobox').val('');   // Todos los colores
-    $('#calidadCombobox').val('');   // Todos los calidad
-    $('#marcaCombobox').val('');   // Todos los marca
-    $('#categoriaCombobox').val('');   // Todos los categoria
-
-
-}
-
-function filtrarProductos() {
-    var colorSeleccionado = $('#colorCombobox').val();
-    var tallaSeleccionada = $('#sizeCombobox').val();
-    var modeloSeleccionado = $('#modeloCombobox').val();
-    var calidadSeleccionado = $('#calidadCombobox').val();
-    var marcaSeleccionado = $('#marcaCombobox').val();
-    var categoriaSeleccionado = $('#categoriaCombobox').val();
-
-
-
-    // Si todos los filtros están en la opción predeterminada o vacíos, mostramos todos los productos.
-    if (!colorSeleccionado && !tallaSeleccionada && !modeloSeleccionado && !calidadSeleccionado && !marcaSeleccionado && !categoriaSeleccionado) {
-        $('.producto').show();
-        return;
+    function closeEditModal() {
+            $('#editModal').addClass('hidden');
     }
 
-    // Oculta todos los productos primero
-    $('.producto').hide();
+    function saveChanges() {
+            addNewCliente();
+    }
 
-    // Filtrar y mostrar productos en base a la selección
-    $('.producto').each(function() {
-        var colorProducto = $(this).data('idcolor');
-        var categoriaProducto = $(this).data('idcategoria');
-        var tallaProducto = $(this).data('idsize');
-        var modeloProducto = $(this).data('idmodeloproducto').toString();
-        var calidadProducto = $(this).data('idcalidad');
-        var marcaProducto = $(this).data('idmarca');
-
-
-
-
-        var coincideColor = !colorSeleccionado || colorProducto == colorSeleccionado;
-        var coincideTalla = !tallaSeleccionada || tallaProducto == tallaSeleccionada;
-        var coincideCalidad = !calidadSeleccionado || calidadProducto == calidadSeleccionado;
-        var coincideMarca = !marcaSeleccionado || marcaProducto == marcaSeleccionado;
-        var coincideCategoria = !categoriaSeleccionado || categoriaProducto == categoriaSeleccionado;
-        var coincideModelo = !modeloSeleccionado || modeloProducto == modeloSeleccionado;
-
-        if (coincideColor && coincideTalla && coincideModelo && coincideCalidad && coincideMarca && coincideCategoria) {
-            $(this).show();
-        }
-    });
-}
-
-function buscarEnProductos(searchTerm) {
-    searchTerm = searchTerm.toLowerCase();
-    $('.producto').each(function() {
-        const productoName = $(this).find("h3").text().toLowerCase();
-        const productoMarca = $(this).find("p:nth-child(4)").text().toLowerCase();
-        const productoModelo = $(this).find("p:nth-child(7)").text().toLowerCase();
-
-        if (productoName.includes(searchTerm) || productoMarca.includes(searchTerm) || productoModelo.includes(searchTerm)) {
-            $(this).show();
-        } else {
-            $(this).hide();
-        }
-    });
-}
 </script>
 
-<script>
-    var categoriasData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Categoria));
-</script>
+<style>
+    .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+</style>

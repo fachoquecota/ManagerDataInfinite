@@ -20,7 +20,7 @@ namespace MVCManager.Controllers
                 using (var response = await httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GETModeloProductosListaCrud"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    var responseObject = JsonConvert.DeserializeObject<ApiResponse>(apiResponse);
+                    var responseObject = JsonConvert.DeserializeObject<ApiResponseModelo>(apiResponse);
                     modelos = responseObject.result;
                 }
             }
@@ -49,7 +49,7 @@ namespace MVCManager.Controllers
                 using (var response = await httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GETModeloProductosByIDCrud?idProducto={id}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    var responseObject = JsonConvert.DeserializeObject<ApiResponse>(apiResponse);
+                    var responseObject = JsonConvert.DeserializeObject<ApiResponseModelo>(apiResponse);
                     modelo = responseObject.result.FirstOrDefault();
                 }
             }
@@ -131,7 +131,7 @@ public class ModeloProductoUpdate
     public string desCategoria { get; set; }
 }
 
-public class ApiResponse
+public class ApiResponseModelo
 {
     public List<ModeloProducto> result { get; set; }
 }

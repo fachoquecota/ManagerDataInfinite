@@ -92,7 +92,6 @@ namespace ProSalesManager._01_Data.Modules.Sales
                 return productosList;
             }
         }
-
         public bool InsertarVentaConDetalles(Venta venta)
         {
             try
@@ -141,6 +140,43 @@ namespace ProSalesManager._01_Data.Modules.Sales
                 return false;
             }
         }
+        public List<VentasModel> ObtenerVentas()
+        {
+            var oList = new List<VentasModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Ventas", conexion);
 
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new VentasModel()
+                            {
+                                idVenta = Convert.ToInt32(dr["idVenta"]),
+                                idCliente = Convert.ToInt32(dr["idCliente"]),
+                                nombres = dr["nombres"].ToString(),
+                                idTipoPago = Convert.ToInt32(dr["idTipoPago"]),
+                                tipoPago = dr["tipoPago"].ToString(),
+                                idEmpresa = Convert.ToInt32(dr["idEmpresa"]),
+                                total = Convert.ToDecimal(dr["total"]),
+                                fechaVenta = dr["fechaVenta"].ToString(),
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
     }
 }

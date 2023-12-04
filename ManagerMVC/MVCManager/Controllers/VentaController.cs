@@ -122,6 +122,49 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
+
+                HttpResponseMessage tipoResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Ventas/GetVentaTipoVentaCB");
+                if (tipoResponse.IsSuccessStatusCode)
+                {
+                    var tipoContent = await tipoResponse.Content.ReadAsStringAsync();
+                    var tipoData = JsonConvert.DeserializeObject<CategoriaResponse>(tipoContent);
+
+                    ViewBag.TipoVenta = tipoData.result.Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.Descripcion
+                    }).ToList();
+                }
+
+
+                HttpResponseMessage tipoDocumentoResponse = await _httpClient.GetAsync("http://localhost:5172/api/Clientes/GetTipoDocumento_ComboBox");
+                if (tipoDocumentoResponse.IsSuccessStatusCode)
+                {
+                    var tipoDocumentoContent = await tipoDocumentoResponse.Content.ReadAsStringAsync();
+                    var tipoDocumentoData = JsonConvert.DeserializeObject<Dictionary<string, List<TipoDocumento>>>(tipoDocumentoContent);
+                    var tipoDocumento = tipoDocumentoData["result"];
+
+                    ViewBag.TipoDocumentos = tipoDocumento.Select(c => new SelectListItem
+                    {
+                        Value = c.id.ToString(),
+                        Text = c.descripcion
+                    }).ToList();
+                }
+
+                HttpResponseMessage transResponse = await _httpClient.GetAsync("http://localhost:5172/api/EmpresaTransporte/GetAllTransporteCombobox");
+                if (transResponse.IsSuccessStatusCode)
+                {
+                    var transContent = await transResponse.Content.ReadAsStringAsync();
+                    var transData = JsonConvert.DeserializeObject<Dictionary<string, List<TipoDocumento>>>(transContent);
+                    var trans = transData["result"];
+
+                    ViewBag.TransDocumentos = trans.Select(c => new SelectListItem
+                    {
+                        Value = c.id.ToString(),
+                        Text = c.descripcion
+                    }).ToList();
+                }
+
                 //return View();  // Devuelve la vista correspondiente.
                 int registrosPorPagina = 10;
                 var productosPaginados = productos.Skip((pagina - 1) * registrosPorPagina).Take(registrosPorPagina).ToList();
@@ -134,6 +177,118 @@ namespace MVCManager.Controllers
             return View("Error");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> ConfirmarVenta([FromBody] VentaFinal ventaData)
+        {
+
+            // Código antes de la espera
+            await Task.Delay(5000);
+
+
+            return Ok(new { success = true });
+            //// Asegúrate de que ventaData no es nulo
+            //if (ventaData == null)
+            //{
+            //    ViewBag.ErrorMessage = "Los datos de la venta son inválidos o están incompletos.";
+            //    return View("Error"); // Cambia a una vista que maneje el error.
+            //}
+
+            //ventaData.fechaVenta = DateTime.Now;
+            ////ventaData.idCliente = 1;
+            //ventaData.idUsuario = 1;
+            //ventaData.idEmpresa = 1;
+            //var json = JsonConvert.SerializeObject(ventaData);
+            //var content = new StringContent(json, Encoding.UTF8, "application/json");
+            //Console.WriteLine(json);
+            //var response = await _httpClient.PostAsync("http://localhost:5172/api/Ventas/PostVenta", content);
+
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    var printableContent = GeneratePrintableContent(ventaData);
+            //    return Json(new { success = true, content = printableContent });
+            //}
+            //else
+            //{
+            //    ViewBag.ErrorMessage = "Error al procesar la venta. Intente nuevamente.";
+            //    return View("Error");
+            //}
+
+        }
+
+
+        private string GeneratePrintableContent(VentaFinal ventaData)
+        {
+            // Create an HTML template for the ticket
+            var ticketHtml = @"
+                <html>
+                <head>
+                    <style>
+                        body {
+                            width: 55mm;
+                            font-family: 'Arial', sans-serif;
+                            font-size: 12px;
+                            line-height: 1.5;
+                            margin: 0;
+                        }
+                        .ticket {
+                            width: 100%;
+                            text-align: center;
+                        }
+                        /* Aquí puedes agregar más estilos según sea necesario */
+                    </style>
+                </head>
+                <body>
+                    <div class='ticket'>
+                        <h1>Ticket de Venta</h1>
+                        <table>
+                            <!-- Aquí van los detalles de la venta -->
+                        </table>
+                        <p>Total: $TOTAL_AMOUNT</p>
+                    </div>
+                </body>
+                </html>";
+
+            // Populate the table rows with product details
+            var rows = "";
+            foreach (var detalle in ventaData.detallesVenta)
+            {
+                var row = $"<tr><td>{detalle.idProducto}</td><td>{detalle.cantidad}</td><td>${detalle.precio}</td><td>${detalle.cantidad * detalle.precio}</td></tr>";
+                rows += row;
+            }
+
+            // Replace the placeholder with the total amount
+            ticketHtml = ticketHtml.Replace("$TOTAL_AMOUNT", ventaData.totalDefinido.ToString());
+
+            // Replace the <!-- Loop through ventaData... --> placeholder with the generated rows
+            ticketHtml = ticketHtml.Replace("<!-- Loop through ventaData... -->", rows);
+
+            return ticketHtml;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTiposVenta()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Ventas/GetVentaTipoVentaCB");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var tiposVenta = JsonConvert.DeserializeObject<TiposVentaResponse>(content);
+                return Json(tiposVenta.result);
+            }
+            return Json(null);
+        }
+
+
+        private class TiposVentaResponse
+        {
+            public TiposVentaItem[] result { get; set; }
+        }
+
+        private class TiposVentaItem
+        {
+            public int id { get; set; }
+            public string descripcion { get; set; }
+        }
 
         public class Talla
         {
@@ -147,39 +302,6 @@ namespace MVCManager.Controllers
             public int id { get; set; }
             public string descripcion { get; set; }
         }
-
-        [HttpPost]
-        public async Task<IActionResult> GuardarVenta([FromBody] VentaData ventaData)
-        {
-            // Asegúrate de que ventaData no es nulo
-            if (ventaData == null)
-            {
-                ViewBag.ErrorMessage = "Los datos de la venta son inválidos o están incompletos.";
-                return View("Error"); // Cambia a una vista que maneje el error.
-            }
-
-            ventaData.fechaVenta = DateTime.Now;
-            ventaData.idCliente = 1;
-            ventaData.idUsuario = 1;
-            ventaData.idEmpresa = 1;
-            var json = JsonConvert.SerializeObject(ventaData);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            var response = await _httpClient.PostAsync("http://localhost:5172/api/Ventas/PostVenta", content);
-
-            if (response.IsSuccessStatusCode)
-            {
-                return Ok();
-            }
-            else
-            {
-                ViewBag.ErrorMessage = "Error al procesar la venta. Intente nuevamente.";
-                return View("Error"); // Cambia a una vista que maneje el error.
-            }
-        }
-
-
-
 
         public class VentaData
         {
@@ -199,44 +321,30 @@ namespace MVCManager.Controllers
             public decimal precioUnitario { get; set; }
         }
 
-
-        [HttpGet]
-        public async Task<IActionResult> GetTiposVenta()
+        public class ProductoVentaFinal
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Ventas/GetVentaTipoVentaCB");
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                var tiposVenta = JsonConvert.DeserializeObject<TiposVentaResponse>(content);
-                return Json(tiposVenta.result);
-            }
-            return Json(null);
-        }
-        //[HttpGet]
-        //public async Task<IActionResult> GetModelos()  // Cambia 'TuActionDeVista' por el nombre real del método que renderiza tu vista.
-        //{
-        //    HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudModeloCrudCB");
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        var content = await response.Content.ReadAsStringAsync();
-        //        var modeloResponse = JsonConvert.DeserializeObject<ModeloResponse>(content);
-        //        ViewBag.Modelos = modeloResponse.Result;
-        //    }
-        //    // Código para obtener y asignar colores y tallas a ViewBag si es necesario...
-
-        //    return View();  // Devuelve la vista correspondiente.
-        //}
-
-
-        private class TiposVentaResponse
-        {
-            public TiposVentaItem[] result { get; set; }
+            public int idProducto { get; set; }
+            public int cantidad { get; set; }
+            public decimal precio { get; set; }
         }
 
-        private class TiposVentaItem
+        public class VentaFinal
+        {
+            public DateTime fechaVenta { get; set; }
+            public int idCliente { get; set; }
+            public int idUsuario { get; set; }
+            public int idEmpresa { get; set; }
+            public int idTipoPago { get; set; }
+            public decimal? totalDefinido { get; set; } 
+            public List<ProductoVentaFinal> detallesVenta { get; set; }
+        }
+        public class TipoDocumento
         {
             public int id { get; set; }
             public string descripcion { get; set; }
         }
+
     }
+
+
 }

@@ -84,20 +84,28 @@ namespace MVCManager.Controllers
                 return BadRequest();
             }
         }
-        public async Task<ModeloProducto> GetCalidadByID(int id)
+        public async Task<ModeloProducto> GetModeloProductoByID(int id)
         {
             ModeloProducto modelo = new ModeloProducto();
             using (var httpClient = new HttpClient())
             {
                 using (var response = await httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GETModeloProductosByIDCrud?idProducto={id}"))
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    var responseObject = JsonConvert.DeserializeObject<ApiResponse>(apiResponse);
-                    modelo = responseObject.result.FirstOrDefault();
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        modelo = JsonConvert.DeserializeObject<ModeloProducto>(apiResponse);
+                    }
+                    else
+                    {
+                        // Manejo de error, dependiendo de tus necesidades
+                        // Por ejemplo, puedes lanzar una excepción o devolver un valor nulo
+                    }
                 }
             }
             return modelo;
         }
+
     }
 
     public class ApiResponseCalidad

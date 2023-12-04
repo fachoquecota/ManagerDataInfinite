@@ -80,6 +80,14 @@
                             <i class="fas fa-shield-alt mr-2"></i>
                             <a href="/Cliente" id="clienteLink" class="block px-4 py-2 hover:bg-gray-700">Cliente</a>
                         </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <a href="/Categoria" id="categoriaLink" class="block px-4 py-2 hover:bg-gray-700">Categoria</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <a href="/Transporte" id="transporteLink" class="block px-4 py-2 hover:bg-gray-700">Emp. Transporte</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -136,7 +144,7 @@
 
             const spinner = document.getElementById('spinner');
 
-            const linksWithSpinners = ['inicioLink', 'productosLink', 'sizeLink','colorLink','ventaLink','modelosLink','calidadLink','marcaLink','reporteventaLink','clienteLink'];
+            const linksWithSpinners = ['inicioLink', 'productosLink', 'sizeLink','colorLink','ventaLink','modelosLink','calidadLink','marcaLink','reporteventaLink','clienteLink','categoriaLink', 'transporteLink'];
 
             linksWithSpinners.forEach(id => {
                 const link = document.getElementById(id);

@@ -28,5 +28,11 @@ namespace ProSalesManager._02_Busnisess.Sales
             var Venta = _sP_Ventas.InsertarVentaConDetalles(venta);
             return Venta;
         }
+
+        public List<VentasModel> ObtenerVentas()
+        {
+            var venta = _sP_Ventas.ObtenerVentas();
+            return venta;
+        }
     }
 }

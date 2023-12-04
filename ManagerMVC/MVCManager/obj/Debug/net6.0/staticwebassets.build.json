@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eTV4nsAwYPgcgNtirfSGhvcNwNTkMPedUEUqM6gppng=",
+  "Hash": "onCI0eBJtBuInyATtxE9pkA4lbEMPUbZbqLM80RaEQE=",
   "Source": "MVCManager",
   "BasePath": "_content/MVCManager",
   "Mode": "Default",
@@ -1579,6 +1579,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Venta.js"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Venta_New.js",
+      "SourceId": "MVCManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\",
+      "BasePath": "_content/MVCManager",
+      "RelativePath": "js/Venta_New.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Venta_New.js"
     },
     {
       "Identity": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

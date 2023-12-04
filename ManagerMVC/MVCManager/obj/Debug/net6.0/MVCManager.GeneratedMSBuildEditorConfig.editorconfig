@@ -19,6 +19,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsaWRhZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Documents/3 .Net Core/ManagerDataInfinite/ManagerMVC/MVCManager/Views/Categoria/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Documents/3 .Net Core/ManagerDataInfinite/ManagerMVC/MVCManager/Views/Cliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -71,8 +75,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2l6ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Documents/3 .Net Core/ManagerDataInfinite/ManagerMVC/MVCManager/Views/Transporte/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNwb3J0ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Documents/3 .Net Core/ManagerDataInfinite/ManagerMVC/MVCManager/Views/Venta/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Documents/3 .Net Core/ManagerDataInfinite/ManagerMVC/MVCManager/Views/Venta/Index_old.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFcSW5kZXhfb2xkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Documents/3 .Net Core/ManagerDataInfinite/ManagerMVC/MVCManager/Views/_ViewImports.cshtml]

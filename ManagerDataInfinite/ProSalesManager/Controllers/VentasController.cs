@@ -63,5 +63,23 @@ namespace ProSalesManager.Controllers
                 result = result
             };
         }
+
+        [HttpGet]
+        [Route("GetVentas")]
+        public dynamic GetVentas()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Ventas.ObtenerVentas();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de TipoVenta" });
+
+            return new
+            {
+                result = result
+            };
+        }
+
     }
 }

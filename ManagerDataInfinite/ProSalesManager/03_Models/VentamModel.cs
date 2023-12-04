@@ -7,7 +7,7 @@
         public int IdUsuario { get; set; }
         public int IdEmpresa { get; set; }
         public int IdTipoPago { get; set; }
-        public int? TotalDefinido { get; set; } // Nullable para permitir null
+        public decimal? TotalDefinido { get; set; } // Nullable para permitir null
         public List<DetalleVenta> DetallesVenta { get; set; }
     }
     public class DetalleVenta

@@ -42,20 +42,28 @@ namespace MVCManager.Controllers
             }
             return View(modelos);
         }
-        public async Task<ModeloProducto> GetClienteByID(int id)
+        public async Task<ClienteModel> GetClienteByID(int id)
         {
-            ModeloProducto modelo = new ModeloProducto();
+            ClienteModel cliente = new ClienteModel();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"http://localhost:5172/api/Clientes/GetClientesByid?idCliente{id}"))
+                using (var response = await httpClient.GetAsync($"http://localhost:5172/api/Clientes/GetClientesByid?idCliente={id}"))
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    var responseObject = JsonConvert.DeserializeObject<ApiResponse>(apiResponse);
-                    modelo = responseObject.result.FirstOrDefault();
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        cliente = JsonConvert.DeserializeObject<ClienteModel>(apiResponse);
+                    }
+                    else
+                    {
+                        // Manejo de error, dependiendo de tus necesidades
+                        // Por ejemplo, puedes lanzar una excepción o devolver un valor nulo
+                    }
                 }
             }
-            return modelo;
+            return cliente;
         }
+
 
         [HttpPut]
         public async Task<IActionResult> UpdateCliente([FromBody] Cliente cliente)

@@ -11,6 +11,17 @@ namespace MVCManager.Controllers
 
         public async Task<ActionResult> Index()
         {
+
+            // Primera llamada API
+            List<ReporteventasModel> modelos = new List<ReporteventasModel>();
+            using (var response = await _httpClient.GetAsync("http://localhost:5172/api/Ventas/GetVentas"))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                var responseObject = JsonConvert.DeserializeObject<ApiResponseVentas>(apiResponse);
+                modelos = responseObject.result;
+            }
+
+
             HttpResponseMessage categoriaResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudCategoriaCrudCB");
             if (categoriaResponse.IsSuccessStatusCode)
             {
@@ -35,7 +46,8 @@ namespace MVCManager.Controllers
                     Text = c.Descripcion
                 }).ToList();
             }
-            return View();
+            return View(modelos);
         }
+
     }
 }
