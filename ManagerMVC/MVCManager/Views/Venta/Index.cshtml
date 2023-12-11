@@ -198,7 +198,35 @@
                         }                    
                     </select>
                 </div>
+                <div id="ubigeoContainer" class="flex flex-wrap -mx-2 mb-4 hidden">
+                    <!-- Departamento -->
+                    <div class="w-1/3 px-2 mb-4">
+                        <label for="departamentoCombobox" class="block text-sm font-medium text-gray-600">Departamento:</label>
+                        <select id="departamentoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                            <option value="">Seleccione un Departamento</option>
+                            @foreach (var departamento in ViewBag.Departamentos)
+                            {
+                                <option value="@departamento">@departamento</option>
+                            }
+                        </select>
+                    </div>
 
+                    <!-- Provincia -->
+                    <div class="w-1/3 px-2 mb-4">
+                        <label for="provinciaCombobox" class="block text-sm font-medium text-gray-600">Provincia:</label>
+                        <select id="provinciaCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full" disabled>
+                            <option value="">Seleccione una Provincia</option>
+                        </select>
+                    </div>
+
+                    <!-- Distrito -->
+                    <div class="w-1/3 px-2 mb-4">
+                        <label for="distritoCombobox" class="block text-sm font-medium text-gray-600">Distrito:</label>
+                        <select id="distritoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full" disabled>
+                            <option value="">Seleccione un Distrito</option>
+                        </select>
+                    </div>
+                </div>
                 <!-- Lista de Productos Seleccionados -->
                 <div class="mb-4">
                     <h3 class="text-md font-medium text-gray-600">Productos Seleccionados: <span id="contadorProductos">0</span></h3>
@@ -207,6 +235,7 @@
                             <tr>
                                 <th class="px-2 py-2">Imagen</th>
                                 <th class="px-2 py-2">Producto</th>
+                                <th class="px-2 py-2">Calidad</th>
                                 <th class="px-2 py-2">Cantidad</th>
                                 <th class="px-2 py-2">Talla</th>
                                 <th class="px-2 py-2">Precio</th> 
@@ -245,13 +274,22 @@
                     <table id="tablaCopiaProductos" class="min-w-full divide-y divide-gray-200 text-center">
                         <!-- Cabecera y cuerpo de la tabla -->
                     </table>
+                    <label>
+                        <input type="checkbox" id="mostrarProductoCheckbox"> Mostrar columna de Producto
+                    </label>
+                    <label>
+                        <input type="checkbox" id="mostrarTallaCheckbox"> Mostrar columna de Talla
+                    </label>
+
 
                     <!-- Tabla resumen por talla -->
                     <table id="tablaResumenTallas" class="min-w-full divide-y divide-gray-200 text-center">
                         <thead>
                             <tr>
-                                <th class="px-4 py-2">Talla</th>
+                                <th class="px-4 py-2 productoColumn">Producto</th> <!-- Columna Producto oculta inicialmente -->
+                                <th class="px-4 py-2">Calidad</th>
                                 <th class="px-4 py-2">Cantidad</th>
+                                <th class="px-4 py-2 tallaColumn">Talla</th> <!-- Columna Talla oculta inicialmente -->
                             </tr>
                         </thead>
                         <tbody>
@@ -260,11 +298,22 @@
                     </table>
 
 
+
+
                     <!-- Campo de venta total -->
                     <div class="mt-4">
-                        <label for="ventaTotal" class="block text-sm font-medium text-gray-600">Venta Total:</label>
-                        <input type="number" id="ventaTotal" class="mt-1 p-2 w-full rounded-md border shadow-sm" step="0.01">
+                        <div class="flex space-x-2">
+                            <div class="flex-1">
+                                <label for="ventaTotal" class="block text-sm font-medium text-gray-600">Venta Total:</label>
+                                <input type="number" id="ventaTotal" class="mt-1 p-2 w-full rounded-md border shadow-sm" step="0.01">
+                            </div>
+                            <div class="flex-1">
+                                <label for="cantidadTotal" class="block text-sm font-medium text-gray-600">Cantidad Total:</label>
+                                <input type="number" id="cantidadTotal" class="mt-1 p-2 w-full rounded-md border shadow-sm" readonly>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -375,6 +424,31 @@
         <div class="loader"></div>
 </div>
 
+<div id="ticketTemplate" style="display:none;">
+    <div style="font-size: 12px; font-family: 'Courier New', Courier, monospace; text-align: center;">
+        <h2 style="margin-bottom: 0;">Nombre de la Empresa</h2>
+        <p style="margin-top: 5px;">Dirección de la Empresa</p>
+        <hr style="border-top: 1px dashed #000; margin: 10px 0;"/>
+        <p>Fecha: <span id="ticketFecha">10/10/2023</span></p>
+        <p>Cliente: <span id="ticketCliente">Nombre del Cliente</span></p>
+        <p>Transporte: <span id="ticketTransporte">Nombre del Transporte</span></p>
+        <p>Destino: <span id="ticketDestino">Destino</span></p>
+        <hr style="border-top: 1px dashed #000; margin: 10px 0;"/>
+        <h3 style="margin-bottom: 5px;">Productos:</h3>
+        <ul id="ticketProductos" style="list-style-type: none; padding: 0; margin: 0;">
+            <!-- Productos añadidos dinámicamente -->
+        </ul>
+        <hr style="border-top: 1px dashed #000; margin: 10px 0;"/>
+        <p>Cantidad Total: <span id="ticketCantidadTotal">5</span></p>
+        <p>Monto Total: <span id="ticketMontoTotal">$150.00</span></p>
+        <p>¡Gracias por su compra!</p>
+    </div>
+</div>
+
+
+
+
+
 <script>
 
     function closeModalCliente() {
@@ -411,8 +485,78 @@
     }
 
 </script>
+<script>
+    var ubigeoData = @Html.Raw(Json.Serialize(ViewBag.Ubigeo));
+
+    document.getElementById('departamentoCombobox').addEventListener('change', function() {
+        var departamentoSeleccionado = this.value;
+        actualizarProvincias(departamentoSeleccionado);
+    });
+
+    document.getElementById('provinciaCombobox').addEventListener('change', function() {
+        var provinciaSeleccionada = this.value;
+        var departamentoSeleccionado = document.getElementById('departamentoCombobox').value;
+        actualizarDistritos(departamentoSeleccionado, provinciaSeleccionada);
+    });
+
+    function actualizarProvincias(departamento) {
+        var provincias = ubigeoData.filter(function(ubigeo) {
+            return ubigeo.departamento === departamento; // Asegúrate de que las propiedades coincidan con las de tu objeto ubigeo
+        }).map(function(ubigeo) {
+            return ubigeo.provincia;
+        }).filter(function(value, index, self) {
+            return self.indexOf(value) === index; // Eliminar duplicados
+        });
+
+        console.log("Provincias Filtradas:", provincias); // Verificar las provincias filtradas
+
+        var provinciaSelect = document.getElementById('provinciaCombobox');
+        provinciaSelect.innerHTML = '<option value="">Seleccione una Provincia</option>';
+        provincias.forEach(function(provincia) {
+            provinciaSelect.innerHTML += '<option value="' + provincia + '">' + provincia + '</option>';
+        });
+        provinciaSelect.disabled = provincias.length === 0;
+    }
+
+    function actualizarDistritos(departamento, provincia) {
+        var distritos = ubigeoData.filter(function(ubigeo) {
+            return ubigeo.departamento === departamento && ubigeo.provincia === provincia;
+        }).map(function(ubigeo) {
+            return ubigeo.distrito;
+        });
+
+        var distritoSelect = document.getElementById('distritoCombobox');
+        distritoSelect.innerHTML = '<option value="">Seleccione un Distrito</option>';
+        distritos.forEach(function(distrito) {
+            distritoSelect.innerHTML += '<option value="' + distrito + '">' + distrito + '</option>';
+        });
+        distritoSelect.disabled = distritos.length === 0;
+    }
+</script>
+<script>
+    document.getElementById('transporteCombobox').addEventListener('change', function() {
+    var seleccion = this.value;
+    var contenedorUbigeo = document.getElementById('ubigeoContainer');
+
+    if (seleccion !== "0") {
+        contenedorUbigeo.classList.remove('hidden');
+    } else {
+        contenedorUbigeo.classList.add('hidden');
+    }
+});
+
+</script>
+
+
+
 
 <style>
+    .productoColumn, .tallaColumn {
+        display: none;
+    }
+
+
+
     .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */

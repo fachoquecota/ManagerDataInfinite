@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N0pm4f7hI60gbb9qKhddZnwTPdbZAR0xY+/FnMFbOCA=",
+  "Hash": "/SbUraHgQZMlLJdGhyluXtMLorgoa4mRonBAonLF1Bs=",
   "Source": "ProSalesManager",
   "BasePath": "_content/ProSalesManager",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "ProSalesManager\\wwwroot",
       "Source": "ProSalesManager",
-      "ContentRoot": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerDataInfinite\\ProSalesManager\\wwwroot\\",
       "BasePath": "_content/ProSalesManager",
       "Pattern": "**"
     }

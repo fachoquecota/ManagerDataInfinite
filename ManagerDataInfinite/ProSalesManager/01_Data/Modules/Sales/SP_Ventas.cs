@@ -110,7 +110,13 @@ namespace ProSalesManager._01_Data.Modules.Sales
                         cmd.Parameters.Add(new SqlParameter("@idUsuario", venta.IdUsuario));
                         cmd.Parameters.Add(new SqlParameter("@idEmpresa", venta.IdEmpresa));
                         cmd.Parameters.Add(new SqlParameter("@idTipoPago", venta.IdTipoPago));
+                        cmd.Parameters.Add(new SqlParameter("@idTransporteCombobox", venta.idTransporteCombobox));
+
                         cmd.Parameters.Add(new SqlParameter("@TotalDefinido", (object)venta.TotalDefinido ?? DBNull.Value));
+
+                        cmd.Parameters.Add(new SqlParameter("@departamento", venta.Ubicacion.Departamento));
+                        cmd.Parameters.Add(new SqlParameter("@provincia", venta.Ubicacion.Provincia));
+                        cmd.Parameters.Add(new SqlParameter("@distrito", venta.Ubicacion.Distrito));
 
                         // Parámetro para los detalles de la venta
                         var detallesTabla = new DataTable();
@@ -120,7 +126,7 @@ namespace ProSalesManager._01_Data.Modules.Sales
 
                         foreach (var detalle in venta.DetallesVenta)
                         {
-                            detallesTabla.Rows.Add(detalle.IdProducto, detalle.Cantidad, detalle.PrecioUnitario);
+                            detallesTabla.Rows.Add(detalle.IdProducto, detalle.Cantidad, detalle.Precio);
                         }
 
                         var param = cmd.Parameters.AddWithValue("@detallesVenta", detallesTabla);
@@ -167,6 +173,43 @@ namespace ProSalesManager._01_Data.Modules.Sales
                                 total = Convert.ToDecimal(dr["total"]),
                                 fechaVenta = dr["fechaVenta"].ToString(),
                                 empresaTransporte = dr["empresaTransporte"].ToString(),
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+
+        public List<UbigeoModel> ObtenerUbigeoVenta()
+        {
+            var oList = new List<UbigeoModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Ubigeo", conexion);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new UbigeoModel()
+                            {
+                                idUbigeo = Convert.ToInt32(dr["idUbigeo"]),
+                                departamento = dr["departamento"].ToString(),
+                                provincia = dr["provincia"].ToString(),
+                                distrito = dr["distrito"].ToString(),
+
 
                             });
                         }

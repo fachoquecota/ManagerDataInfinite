@@ -25,6 +25,25 @@ namespace MVCManager.Controllers
 
                 var productos = productosList.OrderByDescending(p => p.IdProducto).ToList();
 
+                HttpResponseMessage ubigeoResponse = await _httpClient.GetAsync("http://localhost:5172/api/Ventas/GetUbigeo");
+                if (ubigeoResponse.IsSuccessStatusCode)
+                {
+                    var ubigeoContent = await ubigeoResponse.Content.ReadAsStringAsync();
+                    var ubigeoData = JsonConvert.DeserializeObject<ApiResponseUbigeo>(ubigeoContent);
+
+                    // Aquí tienes la lista completa de Ubigeo
+                    var ubigeoes = ubigeoData.Result;
+
+                    // Puedes preparar los datos para los comboboxes aquí si es necesario
+                    // Por ejemplo, obtener la lista de departamentos únicos
+                    var departamentos = ubigeoes.Select(u => u.Departamento).Distinct().ToList();
+                    ViewBag.Departamentos = departamentos;
+
+                    // Pasar la lista completa a la vista también podría ser útil
+                    ViewBag.Ubigeo = ubigeoes;
+                }
+
+
                 HttpResponseMessage colorResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetColor_CrudCB");
                 if (colorResponse.IsSuccessStatusCode)
                 {
@@ -182,36 +201,36 @@ namespace MVCManager.Controllers
         {
 
             // Código antes de la espera
-            await Task.Delay(5000);
+            //await Task.Delay(5000);
 
 
-            return Ok(new { success = true });
-            //// Asegúrate de que ventaData no es nulo
-            //if (ventaData == null)
-            //{
-            //    ViewBag.ErrorMessage = "Los datos de la venta son inválidos o están incompletos.";
-            //    return View("Error"); // Cambia a una vista que maneje el error.
-            //}
+            //return Ok(new { success = true });
+            // Asegúrate de que ventaData no es nulo
+            if (ventaData == null)
+            {
+                ViewBag.ErrorMessage = "Los datos de la venta son inválidos o están incompletos.";
+                return View("Error"); // Cambia a una vista que maneje el error.
+            }
 
-            //ventaData.fechaVenta = DateTime.Now;
-            ////ventaData.idCliente = 1;
-            //ventaData.idUsuario = 1;
-            //ventaData.idEmpresa = 1;
-            //var json = JsonConvert.SerializeObject(ventaData);
-            //var content = new StringContent(json, Encoding.UTF8, "application/json");
-            //Console.WriteLine(json);
-            //var response = await _httpClient.PostAsync("http://localhost:5172/api/Ventas/PostVenta", content);
+            ventaData.fechaVenta = DateTime.Now;
+            //ventaData.idCliente = 1;
+            ventaData.idUsuario = 1;
+            ventaData.idEmpresa = 1;
+            var json = JsonConvert.SerializeObject(ventaData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            Console.WriteLine(json);
+            var response = await _httpClient.PostAsync("http://localhost:5172/api/Ventas/PostVenta", content);
 
-            //if (response.IsSuccessStatusCode)
-            //{
-            //    var printableContent = GeneratePrintableContent(ventaData);
-            //    return Json(new { success = true, content = printableContent });
-            //}
-            //else
-            //{
-            //    ViewBag.ErrorMessage = "Error al procesar la venta. Intente nuevamente.";
-            //    return View("Error");
-            //}
+            if (response.IsSuccessStatusCode)
+            {
+                var printableContent = GeneratePrintableContent(ventaData);
+                return Json(new { success = true, content = printableContent });
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Error al procesar la venta. Intente nuevamente.";
+                return View("Error");
+            }
 
         }
 
@@ -302,6 +321,19 @@ namespace MVCManager.Controllers
             public int id { get; set; }
             public string descripcion { get; set; }
         }
+        public class UbigeoModel
+        {
+            public int IdUbigeo { get; set; }
+            public string Departamento { get; set; }
+            public string Provincia { get; set; }
+            public string Distrito { get; set; }
+        }
+
+        public class ApiResponseUbigeo
+        {
+            public List<UbigeoModel> Result { get; set; }
+        }
+
 
         public class VentaData
         {
@@ -321,6 +353,13 @@ namespace MVCManager.Controllers
             public decimal precioUnitario { get; set; }
         }
 
+        public class Ubicacion
+        {
+            public string departamento { get; set; }
+            public string provincia { get; set; }
+            public string distrito { get; set; }
+        }
+
         public class ProductoVentaFinal
         {
             public int idProducto { get; set; }
@@ -335,9 +374,12 @@ namespace MVCManager.Controllers
             public int idUsuario { get; set; }
             public int idEmpresa { get; set; }
             public int idTipoPago { get; set; }
-            public decimal? totalDefinido { get; set; } 
+            public int idTransporteCombobox { get; set; }
+            public Ubicacion ubicacion { get; set; } 
+            public decimal? totalDefinido { get; set; }
             public List<ProductoVentaFinal> detallesVenta { get; set; }
         }
+
         public class TipoDocumento
         {
             public int id { get; set; }

@@ -81,5 +81,21 @@ namespace ProSalesManager.Controllers
             };
         }
 
+        [HttpGet]
+        [Route("GetUbigeo")]
+        public dynamic GetUbigeo()
+        {
+            //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            //var correo = _tokenService.GetCorreoFromToken(correoToken);
+            var result = _Ventas.ObtenerUbigeoVenta();
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos de ubigeo" });
+
+            return new
+            {
+                result = result
+            };
+        }
     }
 }

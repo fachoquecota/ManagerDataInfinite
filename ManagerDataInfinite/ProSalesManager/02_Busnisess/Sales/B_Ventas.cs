@@ -34,5 +34,11 @@ namespace ProSalesManager._02_Busnisess.Sales
             var venta = _sP_Ventas.ObtenerVentas();
             return venta;
         }
+
+        public List<UbigeoModel> ObtenerUbigeoVenta()
+        {
+            var venta = _sP_Ventas.ObtenerUbigeoVenta();
+            return venta;
+        }
     }
 }

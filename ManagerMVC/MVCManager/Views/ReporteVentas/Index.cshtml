@@ -4,75 +4,129 @@
     ViewBag.Title = "Reporte";
 }
 
-<div class="container mx-auto mt-10 p-5 max-w-4xl">
-    <div class="p-6 bg-white shadow-md rounded-md">
+<div class="container mx-auto p-5">
+    <div class="bg-white shadow-md rounded-md overflow-hidden">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold mb-5">Reporte de Ventas</h2>
 
-        <h2 class="text-2xl font-bold mb-5">Reporte de Ventas</h2>
+             <div class="flex flex-wrap -mx-2 mb-4">
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <!-- Combobox Cliente -->
+                    <label for="clienteCombobox" class="block text-sm font-medium text-gray-600">Cliente:</label>
+                     <select id="clienteCombobox" name="cliente" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                        <option value="0">Cliente Genérico</option>
+                        @foreach(var cliente in ViewBag.Cliente)
+                        {
+                            <option value="@cliente.Value">@cliente.Text</option>
+                        }                    
+                    </select>
+                </div>
+                
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <!-- Combobox Destino -->
+                    <label for="destinoCombobox" class="block text-sm font-medium text-gray-600">Destino:</label>
+                     <select id="departamentoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                            <option value="">Seleccione un Departamento</option>
+                            @foreach (var departamento in ViewBag.Departamentos)
+                            {
+                                <option value="@departamento">@departamento</option>
+                            }
+                        </select>
+                </div>
 
-        <!-- Filtros -->
-        <div class="mb-4">
-            <label for="fechaInicio">Fecha Inicio:</label>
-            <input type="date" id="fechaInicio" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm">
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <!-- Combobox Empresa Transporte -->
+                    <label for="transporteCombobox" class="block text-sm font-medium text-gray-600">Empresa Transporte:</label>
+                    <select id="transporteCombobox" name="transporte" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                        <option value="0">No transporte</option>
+                        @foreach(var transporte in ViewBag.TransDocumentos)
+                        {
+                            <option value="@transporte.Value">@transporte.Text</option>
+                        }                    
+                    </select>
+                </div>
 
-            <label for="fechaFin">Fecha Fin:</label>
-            <input type="date" id="fechaFin" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm">
+                <!-- Contenedor para Ubigeo -->
+                <div id="ubigeoContainer" class="flex flex-wrap -mx-2 mb-4 hidden">
+                    <!-- Departamento -->
+                    <div class="w-full md:w-1/3 px-2 mb-4">
+                        <label for="departamentoCombobox" class="block text-sm font-medium text-gray-600">Departamento:</label>
+                        <select id="departamentoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                            <option value="">Seleccione un Departamento</option>
+                            @foreach (var departamento in ViewBag.Departamentos)
+                            {
+                                <option value="@departamento">@departamento</option>
+                            }
+                        </select>
+                    </div>
+
+                    <!-- Provincia -->
+                    <div class="w-full md:w-1/3 px-2 mb-4">
+                        <label for="provinciaCombobox" class="block text-sm font-medium text-gray-600">Provincia:</label>
+                        <select id="provinciaCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full" disabled>
+                            <option value="">Seleccione una Provincia</option>
+                        </select>
+                    </div>
+
+                    <!-- Distrito -->
+                    <div class="w-full md:w-1/3 px-2 mb-4">
+                        <label for="distritoCombobox" class="block text-sm font-medium text-gray-600">Distrito:</label>
+                        <select id="distritoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full" disabled>
+                            <option value="">Seleccione un Distrito</option>
+                        </select>
+                    </div>
+                </div>
 
 
-            <!-- Categoría -->
-            <div class="relative mb-4 w-1/4 inline-block">
-                <label for="transporteCombobox" class="block text-sm font-medium text-gray-600">Empresa Transporte:</label>
-                <select id="transporteCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
-                    <option value="">Todas Emp. Transporte</option>
-                    @foreach (var transporte in ViewBag.Transporte)
-                    {
-                        <option value="@transporte.Value">@transporte.Text</option>
-                    }
-                </select>
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <!-- Botón Filtrar -->
+                    <button onclick="filtrarVentas()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6 md:mt-1">Filtrar</button>
+                </div>
             </div>
 
-            <button onclick="filtrarVentas()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Filtrar</button>
-        </div>
-
-        <!-- Tabla de Ventas -->
-        <table class="min-w-full bg-white" id="ventasTable">
-            <thead>
-                <tr>
-                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Venta</th>
-                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Cliente</th>
-                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Nombres</th>
-                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Tipo de Pago</th>
-                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Empresa Transporte</th>
-                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Total</th>
-                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Fecha de Venta</th>
-                    <th style="display: none;">ID Empresa</th>
-
-                    <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var venta in Model)
-                {
+            <!-- Tabla de Ventas -->
+            <div class="overflow-x-auto">
+                 <table class="min-w-full bg-white" id="ventasTable">
+                <thead>
                     <tr>
-                        <td class="border-b border-gray-200 px-4 py-2">@venta.idVenta</td>
-                        <td class="border-b border-gray-200 px-4 py-2">@venta.idCliente</td>
-                        <td class="border-b border-gray-200 px-4 py-2">@venta.nombres</td>
-                        <td class="border-b border-gray-200 px-4 py-2">@venta.tipoPago</td>
-                        <td class="border-b border-gray-200 px-4 py-2">@venta.empresaTransporte</td>
-                        <td class="border-b border-gray-200 px-4 py-2">@venta.total</td>
-                        <td class="border-b border-gray-200 px-4 py-2">@venta.fechaVenta</td>
-                        <td style="display: none;">@venta.idEmpresa</td>
-
-                        <td class="border-b border-gray-200 px-4 py-2">
-                            <!-- Botones o enlaces para acciones específicas (por ejemplo, editar, eliminar) -->
-                            <button onclick="abrirDetalleVenta(@venta.idVenta)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Ver Detalle</button>
-                        </td>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Venta</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Cliente</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Nombre Cliente</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Tipo de Pago</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Empresa Transporte</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Destino</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Total</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Fecha de Venta</th>
+                        <th style="display: none;">ID Empresa</th>
+                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Acciones</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-
+                </thead>
+                <tbody>
+                    @foreach (var venta in Model)
+                    {
+                        <tr>
+                            <td class="border-b border-gray-200 px-4 py-2">@venta.idVenta</td>
+                            <td class="border-b border-gray-200 px-4 py-2">@venta.idCliente</td>
+                            <td class="border-b border-gray-200 px-4 py-2">@venta.nombres</td>
+                            <td class="border-b border-gray-200 px-4 py-2">@venta.tipoPago</td>
+                            <td class="border-b border-gray-200 px-4 py-2">@venta.empresaTransporte</td>
+                            <td class="border-b border-gray-200 px-4 py-2">Lima - Lima - Ate</td>
+                            <td class="border-b border-gray-200 px-4 py-2">@venta.total</td>
+                            <td class="border-b border-gray-200 px-4 py-2">@venta.fechaVenta</td>
+                            <td style="display: none;">@venta.idEmpresa</td>
+                            <td class="border-b border-gray-200 px-4 py-2">
+                                <button onclick="abrirDetalleVenta(@venta.idVenta)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Ver Detalle</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 <!-- Modal para detalles de venta -->
 <div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-detalle-venta" role="dialog" aria-modal="true" id="detalleVentaModal">
@@ -178,8 +232,66 @@
             filas[i].style.display = mostrarFila ? "" : "none";
         }
     }
+</script>
+<script>
+    var ubigeoData = @Html.Raw(Json.Serialize(ViewBag.Ubigeo));
 
+    document.getElementById('departamentoCombobox').addEventListener('change', function() {
+        var departamentoSeleccionado = this.value;
+        actualizarProvincias(departamentoSeleccionado);
+    });
 
+    document.getElementById('provinciaCombobox').addEventListener('change', function() {
+        var provinciaSeleccionada = this.value;
+        var departamentoSeleccionado = document.getElementById('departamentoCombobox').value;
+        actualizarDistritos(departamentoSeleccionado, provinciaSeleccionada);
+    });
+
+    function actualizarProvincias(departamento) {
+        var provincias = ubigeoData.filter(function(ubigeo) {
+            return ubigeo.departamento === departamento; // Asegúrate de que las propiedades coincidan con las de tu objeto ubigeo
+        }).map(function(ubigeo) {
+            return ubigeo.provincia;
+        }).filter(function(value, index, self) {
+            return self.indexOf(value) === index; // Eliminar duplicados
+        });
+
+        console.log("Provincias Filtradas:", provincias); // Verificar las provincias filtradas
+
+        var provinciaSelect = document.getElementById('provinciaCombobox');
+        provinciaSelect.innerHTML = '<option value="">Seleccione una Provincia</option>';
+        provincias.forEach(function(provincia) {
+            provinciaSelect.innerHTML += '<option value="' + provincia + '">' + provincia + '</option>';
+        });
+        provinciaSelect.disabled = provincias.length === 0;
+    }
+
+    function actualizarDistritos(departamento, provincia) {
+        var distritos = ubigeoData.filter(function(ubigeo) {
+            return ubigeo.departamento === departamento && ubigeo.provincia === provincia;
+        }).map(function(ubigeo) {
+            return ubigeo.distrito;
+        });
+
+        var distritoSelect = document.getElementById('distritoCombobox');
+        distritoSelect.innerHTML = '<option value="">Seleccione un Distrito</option>';
+        distritos.forEach(function(distrito) {
+            distritoSelect.innerHTML += '<option value="' + distrito + '">' + distrito + '</option>';
+        });
+        distritoSelect.disabled = distritos.length === 0;
+    }
+</script>
+<script>
+    document.getElementById('transporteCombobox').addEventListener('change', function() {
+        var seleccion = this.value;
+        var contenedorUbigeo = document.getElementById('ubigeoContainer');
+
+        if (seleccion !== "0") {
+            contenedorUbigeo.classList.remove('hidden');
+        } else {
+            contenedorUbigeo.classList.add('hidden');
+        }
+    });
 
 
 </script>

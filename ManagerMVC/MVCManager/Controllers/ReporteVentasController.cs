@@ -31,7 +31,23 @@ namespace MVCManager.Controllers
                     }
                 }
             }
+            HttpResponseMessage ubigeoResponse = await _httpClient.GetAsync("http://localhost:5172/api/Ventas/GetUbigeo");
+            if (ubigeoResponse.IsSuccessStatusCode)
+            {
+                var ubigeoContent = await ubigeoResponse.Content.ReadAsStringAsync();
+                var ubigeoData = JsonConvert.DeserializeObject<ApiResponseUbigeo>(ubigeoContent);
 
+                // Aquí tienes la lista completa de Ubigeo
+                var ubigeoes = ubigeoData.Result;
+
+                // Puedes preparar los datos para los comboboxes aquí si es necesario
+                // Por ejemplo, obtener la lista de departamentos únicos
+                var departamentos = ubigeoes.Select(u => u.Departamento).Distinct().ToList();
+                ViewBag.Departamentos = departamentos;
+
+                // Pasar la lista completa a la vista también podría ser útil
+                ViewBag.Ubigeo = ubigeoes;
+            }
 
             HttpResponseMessage transporteResponse = await _httpClient.GetAsync("http://localhost:5172/api/EmpresaTransporte/GetAllTransporteCombobox");
             if (transporteResponse.IsSuccessStatusCode)
@@ -47,7 +63,33 @@ namespace MVCManager.Controllers
                 }).ToList();
             }
 
-           
+            HttpResponseMessage clienteResponse = await _httpClient.GetAsync("http://localhost:5172/api/Clientes/GetClientes");
+            if (clienteResponse.IsSuccessStatusCode)
+            {
+                var clienteContent = await clienteResponse.Content.ReadAsStringAsync();
+                var clienteData = JsonConvert.DeserializeObject<ApiResponseCliente>(clienteContent);
+
+                ViewBag.Cliente = clienteData.result.Select(c => new SelectListItem
+                {
+                    Value = c.idCliente.ToString(),
+                    Text = c.nombreContacto + " " + c.apellidoContacto + " - " + c.numeroDocumento,
+                }).ToList();
+            }
+
+            HttpResponseMessage transResponse = await _httpClient.GetAsync("http://localhost:5172/api/EmpresaTransporte/GetAllTransporteCombobox");
+            if (transResponse.IsSuccessStatusCode)
+            {
+                var transContent = await transResponse.Content.ReadAsStringAsync();
+                var transData = JsonConvert.DeserializeObject<Dictionary<string, List<TipoDocumento>>>(transContent);
+                var trans = transData["result"];
+
+                ViewBag.TransDocumentos = trans.Select(c => new SelectListItem
+                {
+                    Value = c.id.ToString(),
+                    Text = c.descripcion
+                }).ToList();
+            }
+
             return View(modelos);
         }
 
