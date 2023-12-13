@@ -303,11 +303,6 @@ $(document).ready(function () {
         $('#loadingSpinner').removeClass('hidden');
     });
 
-
-
-
- 
-
     $(document).ready(function () {
         $('#printReceipt').click(function () {
             if (datosVentaGlobal) {
@@ -355,4 +350,62 @@ $(document).ready(function () {
     //    printTicket(/* Aquí necesitas pasar el contenido adecuado para imprimir */);
     //});
 
+
+
+
 });
+
+$(document).ready(function () {
+    $('#categoriaCombobox, #calidadCombobox, #sizeCombobox, #colorCombobox, #marcaCombobox, #modeloCombobox').change(function () {
+        filtrarProductos();
+    });
+
+    $('#buscarProducto').keyup(function () {
+        var textoBusqueda = $(this).val().toLowerCase();
+        filtrarPorDescripcionProducto(textoBusqueda);
+    });
+});
+
+function filtrarProductos() {
+    var filtroCategoria = $('#categoriaCombobox').val();
+    var filtroCalidad = $('#calidadCombobox').val();
+    var filtroTalla = $('#sizeCombobox').val();
+    var filtroColor = $('#colorCombobox').val();
+    var filtroMarca = $('#marcaCombobox').val();
+    var filtroModelo = $('#modeloCombobox').val();
+
+    $('.producto').each(function () {
+        var cumpleCategoria = filtroCategoria === "" || filtroCategoria === $(this).data('idcategoria').toString();
+        var cumpleCalidad = filtroCalidad === "" || filtroCalidad === $(this).data('idcalidad').toString();
+        var cumpleTalla = filtroTalla === "" || filtroTalla === $(this).data('idsize').toString();
+        var cumpleColor = filtroColor === "" || filtroColor === $(this).data('idcolor').toString();
+        var cumpleMarca = filtroMarca === "" || filtroMarca === $(this).data('idmarca').toString();
+        var cumpleModelo = filtroModelo === "" || filtroModelo === $(this).data('idmodeloproducto').toString();
+
+        if (cumpleCategoria && cumpleCalidad && cumpleTalla && cumpleColor && cumpleMarca && cumpleModelo) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+}
+
+function filtrarPorDescripcionProducto(texto) {
+    // Reiniciar los combobox
+    $('#categoriaCombobox, #calidadCombobox, #sizeCombobox, #colorCombobox, #marcaCombobox, #modeloCombobox').val('');
+
+    if (texto.length === 0) {
+        // Si no hay texto, mostrar todos los productos
+        $('.producto').show();
+    } else {
+        // Filtrar por descripción
+        $('.producto').each(function () {
+            var descripcionProducto = $(this).find('h3').text().toLowerCase();
+            if (descripcionProducto.includes(texto)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+}

@@ -18,7 +18,11 @@
 
         public string fechaVenta { get; set; }
         public string empresaTransporte { get; set; }
+        public int idUbigeo { get; set; }
+        public string ubigeo { get; set; }
+
+
 
     }
-  
+
 }

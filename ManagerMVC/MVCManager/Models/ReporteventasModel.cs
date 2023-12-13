@@ -17,6 +17,9 @@
         public int idEmpresa { get; set; }
         public decimal total { get; set; }
         public string fechaVenta { get; set; }
+        public int idUbigeo { get; set; }
+        public string ubigeo { get; set; }
+
     }
 
     public class ApiResponseVentas

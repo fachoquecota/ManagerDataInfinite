@@ -23,15 +23,14 @@
                 </div>
                 
                 <div class="px-2 w-full md:w-1/6 mb-4">
-                    <!-- Combobox Destino -->
-                    <label for="destinoCombobox" class="block text-sm font-medium text-gray-600">Destino:</label>
-                     <select id="departamentoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
-                            <option value="">Seleccione un Departamento</option>
-                            @foreach (var departamento in ViewBag.Departamentos)
-                            {
-                                <option value="@departamento">@departamento</option>
-                            }
-                        </select>
+                    <label for="departamentoCombobox" class="block text-sm font-medium text-gray-600">Destino (Departamento):</label>
+                    <select id="departamentoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                        <option value="">Seleccione un Departamento</option>
+                        @foreach (var departamento in ViewBag.Departamentos)
+                        {
+                            <option value="@departamento">@departamento</option>
+                        }
+                    </select>
                 </div>
 
                 <div class="px-2 w-full md:w-1/6 mb-4">
@@ -76,6 +75,14 @@
                         </select>
                     </div>
                 </div>
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <label for="fechaInicio" class="block text-sm font-medium text-gray-600">Fecha Inicio:</label>
+                    <input type="date" id="fechaInicio" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                </div>
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <label for="fechaFin" class="block text-sm font-medium text-gray-600">Fecha Fin:</label>
+                    <input type="date" id="fechaFin" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                </div>
 
 
                 <div class="px-2 w-full md:w-1/6 mb-4">
@@ -86,42 +93,42 @@
 
             <!-- Tabla de Ventas -->
             <div class="overflow-x-auto">
-                 <table class="min-w-full bg-white" id="ventasTable">
-                <thead>
-                    <tr>
-                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Venta</th>
-                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Cliente</th>
-                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Nombre Cliente</th>
-                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Tipo de Pago</th>
-                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Empresa Transporte</th>
-                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Destino</th>
-                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Total</th>
-                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Fecha de Venta</th>
-                        <th style="display: none;">ID Empresa</th>
-                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var venta in Model)
-                    {
-                        <tr>
-                            <td class="border-b border-gray-200 px-4 py-2">@venta.idVenta</td>
-                            <td class="border-b border-gray-200 px-4 py-2">@venta.idCliente</td>
-                            <td class="border-b border-gray-200 px-4 py-2">@venta.nombres</td>
-                            <td class="border-b border-gray-200 px-4 py-2">@venta.tipoPago</td>
-                            <td class="border-b border-gray-200 px-4 py-2">@venta.empresaTransporte</td>
-                            <td class="border-b border-gray-200 px-4 py-2">Lima - Lima - Ate</td>
-                            <td class="border-b border-gray-200 px-4 py-2">@venta.total</td>
-                            <td class="border-b border-gray-200 px-4 py-2">@venta.fechaVenta</td>
-                            <td style="display: none;">@venta.idEmpresa</td>
-                            <td class="border-b border-gray-200 px-4 py-2">
-                                <button onclick="abrirDetalleVenta(@venta.idVenta)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Ver Detalle</button>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-            </div>
+    <table class="min-w-full bg-white" id="ventasTable">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Venta</th>
+                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Cliente</th>
+                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Nombre Cliente</th>
+                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Tipo de Pago</th>
+                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Empresa Transporte</th>
+                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Destino</th>
+                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Total</th>
+                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Fecha de Venta</th>
+                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var venta in Model)
+            {
+                <tr>
+                    <td class="border-b border-gray-200 px-4 py-2">@venta.idVenta</td>
+                    <td class="border-b border-gray-200 px-4 py-2 idCliente">@venta.idCliente</td>
+                    <td class="border-b border-gray-200 px-4 py-2">@venta.nombres</td>
+                    <td class="border-b border-gray-200 px-4 py-2">@venta.tipoPago</td>
+                    <td class="border-b border-gray-200 px-4 py-2">@venta.empresaTransporte</td>
+                    <td class="border-b border-gray-200 px-4 py-2 destino">@venta.ubigeo</td> <!-- Asegúrate de actualizar esto con datos reales -->
+                    <td class="border-b border-gray-200 px-4 py-2">@venta.total</td>
+                    <td class="border-b border-gray-200 px-4 py-2 fechaVenta">@venta.fechaVenta</td>
+                    <td style="display: none;">@venta.idEmpresa</td> <!-- Si necesitas esta información, asegúrate de que se corresponda con el dato correcto -->
+                    <td class="border-b border-gray-200 px-4 py-2">
+                        <button onclick="abrirDetalleVenta(@venta.idVenta)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Ver Detalle</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
         </div>
     </div>
 </div>
@@ -203,35 +210,58 @@
         document.getElementById("detalleVentaModal").classList.add("hidden");
     }
 
-    function filtrarVentas() {
-        var idEmpresaSeleccionada = document.getElementById("transporteCombobox").value;
-        var fechaInicio = document.getElementById("fechaInicio").value ? new Date(document.getElementById("fechaInicio").value) : null;
-        var fechaFin = document.getElementById("fechaFin").value ? new Date(document.getElementById("fechaFin").value) : null;
+function filtrarVentas() {
+    var idClienteSeleccionado = document.getElementById("clienteCombobox").value;
+    var idTransporteSeleccionado = document.getElementById("transporteCombobox").value;
+    var departamentoSeleccionado = document.getElementById("departamentoCombobox").value;
+    var provinciaSeleccionada = document.getElementById("provinciaCombobox").value;
+    var distritoSeleccionado = document.getElementById("distritoCombobox").value;
+    var fechaInicio = document.getElementById("fechaInicio").value ? new Date(document.getElementById("fechaInicio").value) : null;
+    var fechaFin = document.getElementById("fechaFin").value ? new Date(document.getElementById("fechaFin").value) : null;
 
-        var filas = document.getElementById("ventasTable").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    var filas = document.getElementById("ventasTable").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 
-        for (var i = 0; i < filas.length; i++) {
-            var idEmpresa = filas[i].querySelector("td:nth-child(8)").textContent.trim(); // Asumiendo que el ID de la empresa está en la columna oculta
-            var fechaVentaTexto = filas[i].querySelector("td:nth-child(6)").textContent.trim(); // Asumiendo que la fecha está en la sexta columna
-            var fechaVenta = fechaVentaTexto ? new Date(fechaVentaTexto.split(" ")[0]) : null; // Separando la hora si está presente
+    for (var i = 0; i < filas.length; i++) {
+        var fila = filas[i];
+        var idClienteFila = fila.querySelector(".idCliente").textContent.trim();
+        var idTransporteFila = fila.cells[4].textContent.trim();
+        var destinoFila = fila.querySelector(".destino").textContent.trim();
+        var fechaVentaFila = new Date(fila.querySelector(".fechaVenta").textContent);
 
-            var mostrarFila = true;
+        var mostrarFila = true;
 
-            if (idEmpresaSeleccionada && idEmpresaSeleccionada !== "" && idEmpresa !== idEmpresaSeleccionada) {
-                mostrarFila = false;
-            }
-
-            if (fechaInicio && (!fechaVenta || fechaVenta < fechaInicio)) {
-                mostrarFila = false;
-            }
-
-            if (fechaFin && (!fechaVenta || fechaVenta > fechaFin)) {
-                mostrarFila = false;
-            }
-
-            filas[i].style.display = mostrarFila ? "" : "none";
+        if (idClienteSeleccionado && idClienteSeleccionado !== "0" && idClienteFila !== idClienteSeleccionado) {
+            mostrarFila = false;
         }
+
+        if (idTransporteSeleccionado && idTransporteSeleccionado !== "0" && idTransporteFila !== idTransporteSeleccionado) {
+            mostrarFila = false;
+        }
+
+        if (departamentoSeleccionado && !destinoFila.includes(departamentoSeleccionado)) {
+            mostrarFila = false;
+        }
+
+        if (provinciaSeleccionada && !destinoFila.includes(provinciaSeleccionada)) {
+            mostrarFila = false;
+        }
+
+        if (distritoSeleccionado && !destinoFila.includes(distritoSeleccionado)) {
+            mostrarFila = false;
+        }
+
+        if (fechaInicio && (fechaVentaFila < fechaInicio)) {
+            mostrarFila = false;
+        }
+
+        if (fechaFin && (fechaVentaFila > fechaFin)) {
+            mostrarFila = false;
+        }
+
+        fila.style.display = mostrarFila ? "" : "none";
     }
+}
+
 </script>
 <script>
     var ubigeoData = @Html.Raw(Json.Serialize(ViewBag.Ubigeo));
@@ -292,6 +322,7 @@
             contenedorUbigeo.classList.add('hidden');
         }
     });
+
 
 
 </script>

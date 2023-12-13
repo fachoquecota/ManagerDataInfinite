@@ -81,6 +81,22 @@ namespace ProSalesManager.Controllers
             };
         }
 
+        [HttpPost]
+        [Route("GetVentasFiltro")]
+        public dynamic GetVentasFiltro([FromBody]  FiltroVentasModel filtro)
+        {
+
+            var result = _Ventas.ObtenerVentasFiltro(filtro);
+
+            if (result is null)
+                return BadRequest(new { message = "No se encontró datos" });
+
+            return new
+            {
+                result = result
+            };
+        }
+
         [HttpGet]
         [Route("GetUbigeo")]
         public dynamic GetUbigeo()

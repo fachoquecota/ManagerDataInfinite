@@ -173,7 +173,60 @@ namespace ProSalesManager._01_Data.Modules.Sales
                                 total = Convert.ToDecimal(dr["total"]),
                                 fechaVenta = dr["fechaVenta"].ToString(),
                                 empresaTransporte = dr["empresaTransporte"].ToString(),
+                                idUbigeo = Convert.ToInt32(dr["idUbigeo"]),
+                                ubigeo = dr["ubigeo"].ToString(),
 
+
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+        public List<VentasModel> ObtenerVentasFiltro(FiltroVentasModel filtro)
+        {
+            var oList = new List<VentasModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Ventas_byFilter", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Agregar parámetros al comando
+                    cmd.Parameters.Add(new SqlParameter("@idCliente", filtro.IdCliente ?? (object)DBNull.Value));
+                    cmd.Parameters.Add(new SqlParameter("@departamento", filtro.Departamento ?? (object)DBNull.Value));
+                    cmd.Parameters.Add(new SqlParameter("@provincia", filtro.Provincia ?? (object)DBNull.Value));
+                    cmd.Parameters.Add(new SqlParameter("@distrito", filtro.Distrito ?? (object)DBNull.Value));
+                    cmd.Parameters.Add(new SqlParameter("@horaInicio", filtro.FechaInicio.HasValue ? (object)filtro.FechaInicio.Value : DBNull.Value));
+                    cmd.Parameters.Add(new SqlParameter("@horaFin", filtro.FechaFin.HasValue ? (object)filtro.FechaFin.Value : DBNull.Value));
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new VentasModel()
+                            {
+                                idVenta = Convert.ToInt32(dr["idVenta"]),
+                                idCliente = Convert.ToInt32(dr["idCliente"]),
+                                nombres = dr["nombres"].ToString(),
+                                idTipoPago = Convert.ToInt32(dr["idTipoPago"]),
+                                tipoPago = dr["tipoPago"].ToString(),
+                                idEmpresa = Convert.ToInt32(dr["idEmpresa"]),
+                                total = Convert.ToDecimal(dr["total"]),
+                                fechaVenta = dr["fechaVenta"].ToString(),
+                                empresaTransporte = dr["empresaTransporte"].ToString(),
+                                idUbigeo = Convert.ToInt32(dr["idUbigeo"]),
+                                ubigeo = dr["ubigeo"].ToString(),
                             });
                         }
                     }

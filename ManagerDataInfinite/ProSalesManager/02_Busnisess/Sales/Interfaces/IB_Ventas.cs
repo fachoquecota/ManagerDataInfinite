@@ -10,5 +10,6 @@ namespace ProSalesManager._02_Busnisess.Sales.Interfaces
         bool InsertarVentaConDetalles(Venta venta);
         List<VentasModel> ObtenerVentas();
         List<UbigeoModel> ObtenerUbigeoVenta();
+        List<VentasModel> ObtenerVentasFiltro(FiltroVentasModel filtro);
     }
 }

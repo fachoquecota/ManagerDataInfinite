@@ -35,6 +35,12 @@ namespace ProSalesManager._02_Busnisess.Sales
             return venta;
         }
 
+        public List<VentasModel> ObtenerVentasFiltro(FiltroVentasModel filtro)
+        {
+            var venta = _sP_Ventas.ObtenerVentasFiltro(filtro);
+            return venta;
+        }
+
         public List<UbigeoModel> ObtenerUbigeoVenta()
         {
             var venta = _sP_Ventas.ObtenerUbigeoVenta();
