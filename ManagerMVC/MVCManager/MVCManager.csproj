@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.1" />
+    <PackageReference Include="EPPlus" Version="7.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Tailwind.Extensions.AspNetCore" Version="1.0.0" />
 	  <UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />

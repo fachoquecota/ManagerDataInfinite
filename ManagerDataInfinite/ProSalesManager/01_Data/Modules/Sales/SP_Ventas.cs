@@ -169,7 +169,7 @@ namespace ProSalesManager._01_Data.Modules.Sales
                                 nombres = dr["nombres"].ToString(),
                                 idTipoPago = Convert.ToInt32(dr["idTipoPago"]),
                                 tipoPago = dr["tipoPago"].ToString(),
-                                idEmpresa = Convert.ToInt32(dr["idEmpresa"]),
+                                idEmpresaTranspte = Convert.ToInt32(dr["idEmpresa"]),
                                 total = Convert.ToDecimal(dr["total"]),
                                 fechaVenta = dr["fechaVenta"].ToString(),
                                 empresaTransporte = dr["empresaTransporte"].ToString(),
@@ -204,6 +204,8 @@ namespace ProSalesManager._01_Data.Modules.Sales
 
                     // Agregar parámetros al comando
                     cmd.Parameters.Add(new SqlParameter("@idCliente", filtro.IdCliente ?? (object)DBNull.Value));
+                    cmd.Parameters.Add(new SqlParameter("@idEmpresaTranspte", filtro.idEmpresaTranspte ?? (object)DBNull.Value));
+
                     cmd.Parameters.Add(new SqlParameter("@departamento", filtro.Departamento ?? (object)DBNull.Value));
                     cmd.Parameters.Add(new SqlParameter("@provincia", filtro.Provincia ?? (object)DBNull.Value));
                     cmd.Parameters.Add(new SqlParameter("@distrito", filtro.Distrito ?? (object)DBNull.Value));
@@ -221,7 +223,7 @@ namespace ProSalesManager._01_Data.Modules.Sales
                                 nombres = dr["nombres"].ToString(),
                                 idTipoPago = Convert.ToInt32(dr["idTipoPago"]),
                                 tipoPago = dr["tipoPago"].ToString(),
-                                idEmpresa = Convert.ToInt32(dr["idEmpresa"]),
+                                idEmpresaTranspte = Convert.ToInt32(dr["idEmpresaTranspte"]),
                                 total = Convert.ToDecimal(dr["total"]),
                                 fechaVenta = dr["fechaVenta"].ToString(),
                                 empresaTransporte = dr["empresaTransporte"].ToString(),
@@ -276,5 +278,53 @@ namespace ProSalesManager._01_Data.Modules.Sales
                 return oList;
             }
         }
+
+        public List<ReporteDetalle> ObtenerRptDetalle(int idVenta)
+        {
+            var oList = new List<ReporteDetalle>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Select_Venta_Rpt_Detalle", conexion);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@idVenta", idVenta));
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ReporteDetalle()
+                            {
+                                idVenta = Convert.ToInt32(dr["idVenta"]),
+                                fechaVenta = dr["fechaVenta"].ToString(),
+                                totalDefinido = dr["totalDefinido"].ToString(),
+                                imagenCarpeta = dr["imagenCarpeta"].ToString(),
+                                imagenNombre = dr["imagenNombre"].ToString(),
+                                producto = dr["producto"].ToString(),
+                                calidad = dr["calidad"].ToString(),
+                                cantidad = dr["cantidad"].ToString(),
+                                talla = dr["talla"].ToString(),
+                                precioUnitario = dr["precioUnitario"].ToString(),
+                                subtotal = dr["subtotal"].ToString(),
+                                
+
+
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+
     }
 }

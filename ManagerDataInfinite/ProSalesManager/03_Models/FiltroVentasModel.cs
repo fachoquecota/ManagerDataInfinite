@@ -3,6 +3,8 @@
     public class FiltroVentasModel
     {
         public int? IdCliente { get; set; }
+        public int? idEmpresaTranspte { get; set; }
+
         public string Departamento { get; set; }
         public string Provincia { get; set; }
         public string Distrito { get; set; }

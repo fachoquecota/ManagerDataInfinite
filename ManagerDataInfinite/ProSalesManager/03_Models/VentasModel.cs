@@ -12,7 +12,7 @@
 
         public string tipoPago { get; set; }
 
-        public int idEmpresa { get; set; }
+        public int idEmpresaTranspte { get; set; }
 
         public decimal total { get; set; }
 

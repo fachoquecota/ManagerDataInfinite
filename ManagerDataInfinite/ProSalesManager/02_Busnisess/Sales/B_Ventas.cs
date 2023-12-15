@@ -46,5 +46,10 @@ namespace ProSalesManager._02_Busnisess.Sales
             var venta = _sP_Ventas.ObtenerUbigeoVenta();
             return venta;
         }
+        public List<ReporteDetalle> ObtenerRptDetalle(int idVenta)
+        {
+            var venta = _sP_Ventas.ObtenerRptDetalle(idVenta);
+            return venta;
+        }
     }
 }

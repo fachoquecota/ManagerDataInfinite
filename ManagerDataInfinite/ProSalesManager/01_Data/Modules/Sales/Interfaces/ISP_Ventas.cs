@@ -11,5 +11,6 @@ namespace ProSalesManager._01_Data.Modules.Sales.Interfaces
         List<VentasModel> ObtenerVentas();
         List<UbigeoModel> ObtenerUbigeoVenta();
         List<VentasModel> ObtenerVentasFiltro(FiltroVentasModel filtro);
+        List<ReporteDetalle> ObtenerRptDetalle(int idVenta);
     }
 }

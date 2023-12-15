@@ -113,5 +113,21 @@ namespace ProSalesManager.Controllers
                 result = result
             };
         }
+
+        [HttpGet]
+        [Route("GetReporteVentaDetalle")]
+        public dynamic GetReporteVentaDetalle(int idVenta)
+        {
+
+            var result = _Ventas.ObtenerRptDetalle(idVenta);
+
+            if (result is null)
+                return BadRequest(new { message = "Venta detalle" });
+
+            return new
+            {
+                result = result
+            };
+        }
     }
 }
