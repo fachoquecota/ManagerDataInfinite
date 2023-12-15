@@ -77,9 +77,10 @@
                     <!-- Botón Filtrar -->
                     <button onclick="filtrarVentas()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6 md:mt-1">Filtrar</button>
                 </div>
-                <button onclick="descargarExcel()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Descargar Excel
-                </button>
+            <button onclick="descargarExcel()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Descargar Excel
+            </button>
+
             <!-- Tabla de Ventas -->
             <div class="overflow-x-auto">
     <table class="min-w-full bg-white" id="ventasTable">
@@ -221,31 +222,50 @@
 
 
 <script>
-        async function descargarExcel() {
-            const filtro = {
-                idCliente: 123, // Ajusta estos valores según sea necesario
-                // Añadir otros campos del filtro...
-            };
+    async function descargarExcel() {
+        var idClienteSeleccionado = document.getElementById("clienteCombobox").value;
+        var idTransporteSeleccionado = document.getElementById("transporteCombobox").value;
+        var departamentoSeleccionado = document.getElementById("departamentoCombobox").value;
+        var provinciaSeleccionada = document.getElementById("provinciaCombobox").value;
+        var distritoSeleccionado = document.getElementById("distritoCombobox").value;
+        var fechaInicio = document.getElementById("fechaInicio").value || "1900-01-01";
+        var fechaFin = document.getElementById("fechaFin").value || "2050-12-31";
 
-            const response = await fetch('/Ventas/DescargarReporteVentas', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(filtro)
-            });
+        var filtro = {
+            idCliente: parseInt(idClienteSeleccionado) || 0,
+            idEmpresaTranspte: parseInt(idTransporteSeleccionado) || 0,
+            departamento: departamentoSeleccionado,
+            provincia: provinciaSeleccionada,
+            distrito: distritoSeleccionado,
+            fechaInicio: fechaInicio,
+            fechaFin: fechaFin
+        };
+        console.log(filtro);
+        const response = await fetch('/ReporteVentas/DescargarReporteVentas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(filtro)
+        });
 
-            if (response.ok) {
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'ReporteVentas.xlsx';
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-            }
+        if (response.ok) {
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            // Formato de la fecha y hora actual: YYYYMMDD_HHMM
+            const timestamp = new Date().toISOString().replace(/:\d+.\d+Z$/, '').replace(/T/, '_').replace(/:/g, '').replace(/-/g, '');
+            a.download = `ReporteVentas_${timestamp}.xlsx`;
+            a.href = url;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        } else {
+            alert("Error en la descarga del archivo");
         }
+    }
+
+
 
 
 

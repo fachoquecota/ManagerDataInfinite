@@ -127,6 +127,7 @@ namespace MVCManager.Controllers
             return Ok(responseObject.result);
         }
 
+        [HttpPost]
         public async Task<IActionResult> DescargarReporteVentas([FromBody] FiltroVentasModel filtro)
         {
             var content1 = JsonConvert.SerializeObject(filtro);
@@ -148,23 +149,57 @@ namespace MVCManager.Controllers
 
                 // Encabezados
                 worksheet.Cell(currentRow, 1).Value = "ID Venta";
-                // Añadir otros encabezados...
+                worksheet.Cell(currentRow, 2).Value = "ID Cliente";
+                worksheet.Cell(currentRow, 3).Value = "Nombres";
+                worksheet.Cell(currentRow, 4).Value = "ID Tipo Pago";
+                worksheet.Cell(currentRow, 5).Value = "Tipo Pago";
+                worksheet.Cell(currentRow, 6).Value = "Cantidad";
+                worksheet.Cell(currentRow, 7).Value = "Descripción de Color";
+                worksheet.Cell(currentRow, 8).Value = "Descripción del Modelo";
+                worksheet.Cell(currentRow, 9).Value = "Descripción de Calidad";
+                worksheet.Cell(currentRow, 10).Value = "Descripción de Marca";
+                worksheet.Cell(currentRow, 11).Value = "Descripción de Categoría";
+                worksheet.Cell(currentRow, 12).Value = "Empresa de Transporte";
+                worksheet.Cell(currentRow, 13).Value = "ID Empresa";
+                worksheet.Cell(currentRow, 14).Value = "Total";
+                worksheet.Cell(currentRow, 15).Value = "Fecha de Venta";
+                worksheet.Cell(currentRow, 16).Value = "ID Ubigeo";
+                worksheet.Cell(currentRow, 17).Value = "Ubigeo";
 
                 // Datos
                 foreach (var modelo in modelos)
                 {
                     currentRow++;
                     worksheet.Cell(currentRow, 1).Value = modelo.idVenta;
-                    // Añadir otros datos...
+                    worksheet.Cell(currentRow, 2).Value = modelo.idCliente;
+                    worksheet.Cell(currentRow, 3).Value = modelo.nombres;
+                    worksheet.Cell(currentRow, 4).Value = modelo.idTipoPago;
+                    worksheet.Cell(currentRow, 5).Value = modelo.tipoPago;
+                    worksheet.Cell(currentRow, 6).Value = modelo.cantidad;
+                    worksheet.Cell(currentRow, 7).Value = modelo.colorDescription;
+                    worksheet.Cell(currentRow, 8).Value = modelo.modeloDescripcion;
+                    worksheet.Cell(currentRow, 9).Value = modelo.calidadDescripcion;
+                    worksheet.Cell(currentRow, 10).Value = modelo.marcaDescripcion;
+                    worksheet.Cell(currentRow, 11).Value = modelo.categoriaDescripcion;
+                    worksheet.Cell(currentRow, 12).Value = modelo.empresaTransporte;
+                    worksheet.Cell(currentRow, 13).Value = modelo.idEmpresa;
+                    worksheet.Cell(currentRow, 14).Value = modelo.total;
+                    worksheet.Cell(currentRow, 15).Value = modelo.fechaVenta;
+                    worksheet.Cell(currentRow, 16).Value = modelo.idUbigeo;
+                    worksheet.Cell(currentRow, 17).Value = modelo.ubigeo;
                 }
 
+                // Guardar el archivo
                 using (var stream = new MemoryStream())
                 {
                     workbook.SaveAs(stream);
                     var content = stream.ToArray();
-                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ReporteVentas.xlsx");
+                    var timeStamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                    string nameExcel = $"ReporteVentas_{timeStamp}.xlsx";
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", nameExcel);
                 }
             }
+
         }
 
 
