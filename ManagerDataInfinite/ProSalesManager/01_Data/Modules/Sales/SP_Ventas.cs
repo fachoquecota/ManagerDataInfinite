@@ -229,6 +229,7 @@ namespace ProSalesManager._01_Data.Modules.Sales
                                 empresaTransporte = dr["empresaTransporte"].ToString(),
                                 idUbigeo = Convert.ToInt32(dr["idUbigeo"]),
                                 ubigeo = dr["ubigeo"].ToString(),
+                                direccion = dr["direccion"].ToString(),
                             });
                         }
                     }

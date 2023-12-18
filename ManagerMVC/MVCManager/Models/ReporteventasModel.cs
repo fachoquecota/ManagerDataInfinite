@@ -19,6 +19,7 @@
         public string fechaVenta { get; set; }
         public int idUbigeo { get; set; }
         public string ubigeo { get; set; }
+        public string direccion { get; set; }
 
     }
 

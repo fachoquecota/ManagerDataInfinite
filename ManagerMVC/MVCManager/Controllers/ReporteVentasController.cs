@@ -154,17 +154,18 @@ namespace MVCManager.Controllers
                 worksheet.Cell(currentRow, 4).Value = "ID Tipo Pago";
                 worksheet.Cell(currentRow, 5).Value = "Tipo Pago";
                 worksheet.Cell(currentRow, 6).Value = "Cantidad";
-                worksheet.Cell(currentRow, 7).Value = "Descripción de Color";
-                worksheet.Cell(currentRow, 8).Value = "Descripción del Modelo";
-                worksheet.Cell(currentRow, 9).Value = "Descripción de Calidad";
-                worksheet.Cell(currentRow, 10).Value = "Descripción de Marca";
-                worksheet.Cell(currentRow, 11).Value = "Descripción de Categoría";
+                worksheet.Cell(currentRow, 7).Value = "Color";
+                worksheet.Cell(currentRow, 8).Value = "Modelo";
+                worksheet.Cell(currentRow, 9).Value = "Calidad";
+                worksheet.Cell(currentRow, 10).Value = "Marca";
+                worksheet.Cell(currentRow, 11).Value = "Categoría";
                 worksheet.Cell(currentRow, 12).Value = "Empresa de Transporte";
                 worksheet.Cell(currentRow, 13).Value = "ID Empresa";
                 worksheet.Cell(currentRow, 14).Value = "Total";
                 worksheet.Cell(currentRow, 15).Value = "Fecha de Venta";
                 worksheet.Cell(currentRow, 16).Value = "ID Ubigeo";
                 worksheet.Cell(currentRow, 17).Value = "Ubigeo";
+                worksheet.Cell(currentRow, 18).Value = "Dirección";
 
                 // Datos
                 foreach (var modelo in modelos)
@@ -187,6 +188,8 @@ namespace MVCManager.Controllers
                     worksheet.Cell(currentRow, 15).Value = modelo.fechaVenta;
                     worksheet.Cell(currentRow, 16).Value = modelo.idUbigeo;
                     worksheet.Cell(currentRow, 17).Value = modelo.ubigeo;
+                    worksheet.Cell(currentRow, 18).Value = modelo.direccion;
+
                 }
 
                 // Guardar el archivo
