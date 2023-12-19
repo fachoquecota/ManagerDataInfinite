@@ -129,5 +129,37 @@ namespace ProSalesManager.Controllers
                 result = result
             };
         }
+
+        [HttpGet]
+        [Route("ReporteVentaGrafico")]
+        public dynamic ReporteVentaGrafico()
+        {
+
+            var result = _Ventas.ReporteVentaGrafico();
+
+            if (result is null)
+                return BadRequest(new { message = "Venta grafico " });
+
+            return new
+            {
+                result = result
+            };
+        }
+
+        [HttpGet]
+        [Route("ReporteVentaDetalleGrafico")]
+        public dynamic ObtenerRptDetalle()
+        {
+
+            var result = _Ventas.ReporteVentaDetalleGrafico();
+
+            if (result is null)
+                return BadRequest(new { message = "Venta detalle grafico" });
+
+            return new
+            {
+                result = result
+            };
+        }
     }
 }

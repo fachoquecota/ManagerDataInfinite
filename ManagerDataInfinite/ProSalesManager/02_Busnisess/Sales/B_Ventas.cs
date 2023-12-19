@@ -51,5 +51,16 @@ namespace ProSalesManager._02_Busnisess.Sales
             var venta = _sP_Ventas.ObtenerRptDetalle(idVenta);
             return venta;
         }
+
+        public List<ReporteVentaGraficoModel> ReporteVentaGrafico()
+        {
+            var venta = _sP_Ventas.ReporteVentaGrafico();
+            return venta;
+        }
+        public List<VentaDetalleModel> ReporteVentaDetalleGrafico()
+        {
+            var venta = _sP_Ventas.ReporteVentaDetalleGrafico();
+            return venta;
+        }
     }
 }

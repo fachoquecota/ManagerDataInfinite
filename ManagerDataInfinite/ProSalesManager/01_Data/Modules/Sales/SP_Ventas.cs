@@ -242,7 +242,6 @@ namespace ProSalesManager._01_Data.Modules.Sales
                 return oList;
             }
         }
-
         public List<UbigeoModel> ObtenerUbigeoVenta()
         {
             var oList = new List<UbigeoModel>();
@@ -279,7 +278,6 @@ namespace ProSalesManager._01_Data.Modules.Sales
                 return oList;
             }
         }
-
         public List<ReporteDetalle> ObtenerRptDetalle(int idVenta)
         {
             var oList = new List<ReporteDetalle>();
@@ -326,6 +324,97 @@ namespace ProSalesManager._01_Data.Modules.Sales
                 return oList;
             }
         }
+
+        public List<ReporteVentaGraficoModel> ReporteVentaGrafico()
+        {
+            var oList = new List<ReporteVentaGraficoModel>();
+            try
+            {
+                var cn = new DataConnection();
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Reporte_Venta", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oList.Add(new ReporteVentaGraficoModel()
+                            {
+                                idVenta = Convert.ToInt32(dr["idVenta"]),
+                                fechaVenta = Convert.ToDateTime(dr["fechaVenta"]),
+                                idCliente = Convert.ToInt32(dr["idCliente"]),
+                                NombreCliente = dr["NombreCliente"].ToString(),
+                                idUsuario = Convert.ToInt32(dr["idUsuario"]),
+                                idEmpresa = Convert.ToInt32(dr["idEmpresa"]),
+                                idTipoPago = Convert.ToInt32(dr["idTipoPago"]),
+                                TipoPago = dr["TipoPago"].ToString(),
+                                horaCreacion = Convert.ToDateTime(dr["horaCreacion"]),
+                                horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
+                                TotalDefinido = dr["TotalDefinido"].ToString(),
+                                idEmpresaTranspte = Convert.ToInt32(dr["idEmpresaTranspte"]),
+                                NombreEmpresaTransporte = dr["NombreEmpresaTransporte"].ToString(),
+                                idUbigeo = Convert.ToInt32(dr["idUbigeo"]),
+                                NombreDepartamento = dr["NombreDepartamento"].ToString(),
+                            });
+                        }
+                    }
+                }
+                return oList;
+            }
+            catch (Exception ex)
+            {
+                // Manejo del error (asegúrate de tener esta parte adecuadamente implementada)
+                ErrorResult.ErrorMessage = ex.Message;
+                return oList;
+            }
+        }
+        public List<VentaDetalleModel> ReporteVentaDetalleGrafico()
+        {
+            var detallesList = new List<VentaDetalleModel>();
+            try
+            {
+                var cn = new DataConnection(); // Asumiendo que DataConnection es una clase que provee la cadena de conexión
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Reporte_VentaDetalle", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            detallesList.Add(new VentaDetalleModel
+                            {
+                                IdVentaDetalle = Convert.ToInt32(dr["idVentaDetalle"]),
+                                IdProducto = Convert.ToInt32(dr["idProducto"]),
+                                Producto = dr["producto"].ToString(),
+                                IdCategoria = Convert.ToInt32(dr["idCategoria"]),
+                                NombreCategoria = dr["NombreCategoria"].ToString(),
+                                IdModeloProducto = Convert.ToInt32(dr["idModeloProducto"]),
+                                NombreModeloProducto = dr["NombreModeloProducto"].ToString(),
+                                IdCalidad = Convert.ToInt32(dr["idCalidad"]),
+                                NombreCalidad = dr["NombreCalidad"].ToString(),
+                                IdMarca = Convert.ToInt32(dr["idMarca"]),
+                                NombreMarca = dr["NombreMarca"].ToString(),
+                                Cantidad = Convert.ToInt32(dr["cantidad"])
+                            });
+                        }
+                    }
+                }
+                return detallesList;
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return detallesList;
+            }
+
+        }
+
 
     }
 }
