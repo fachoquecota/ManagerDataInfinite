@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DashboardViewModel
+@{
     ViewData["Title"] = "Dashboard";
 }
 <head>
@@ -38,23 +39,17 @@
                     <th class="border px-4 py-2 text-gray-700">Stock</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td class="border px-4 py-2 text-gray-900">Producto A</td>
-                    <td class="border px-4 py-2 text-gray-900">50</td>
-                    <td class="border px-4 py-2 text-gray-900">20</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 text-gray-900">Producto B</td>
-                    <td class="border px-4 py-2 text-gray-900">30</td>
-                    <td class="border px-4 py-2 text-gray-900">50</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 text-gray-900">Producto C</td>
-                    <td class="border px-4 py-2 text-gray-900">10</td>
-                    <td class="border px-4 py-2 text-gray-900">100</td>
-                </tr>
-            </tbody>
+                <tbody>
+                @foreach (var item in Model.VentasDetalleGrafico)
+                {
+                    <tr>
+                        <td class="border px-4 py-2 text-gray-900">@item.Producto</td>
+                        <td class="border px-4 py-2 text-gray-900">@item.Cantidad</td>
+                        <td class="border px-4 py-2 text-gray-900">[Stock]</td>
+                    </tr>
+                }
+                </tbody>
+
         </table>
     </div>
 </div>
@@ -62,53 +57,60 @@
 <!-- Incluir la biblioteca de gráficos (por ejemplo, Chart.js) -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<!-- Código para generar los gráficos -->
 <script>
-    // Datos ficticios para el gráfico de ventas por mes
-    const salesByMonthData = {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+$(document).ready(function() {
+    // Gráfico de Ventas por Mes
+    var ventasPorMesData = @Html.Raw(Json.Serialize(Model.VentasGrafico.Select(v => new { Mes = v.fechaVenta.ToString("MMMM"), Total = v.totalDefinido })));
+    var labelsVentasPorMes = ventasPorMesData.map(v => v.Mes);
+    var datosVentasPorMes = ventasPorMesData.map(v => parseFloat(v.Total));
+
+    var salesByMonthData = {
+        labels: labelsVentasPorMes,
         datasets: [{
             label: 'Ventas ($)',
-            data: [1200, 900, 1500, 1800, 2200],
+            data: datosVentasPorMes,
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1
         }]
     };
 
-    // Crear el gráfico de ventas por mes
-    const salesByMonthCtx = document.getElementById('salesByMonthChart').getContext('2d');
+    var salesByMonthCtx = document.getElementById('salesByMonthChart').getContext('2d');
     new Chart(salesByMonthCtx, {
         type: 'line',
         data: salesByMonthData
     });
 
-    // Datos ficticios para el gráfico de ventas por categoría
-    const salesByCategoryData = {
-        labels: ['Electrónicos', 'Ropa', 'Alimentos', 'Libros'],
+    // Gráfico de Ventas por Categoría
+    var ventasPorCategoriaData = @Html.Raw(Json.Serialize(Model.VentasDetalleGrafico.GroupBy(v => v.NombreCategoria).Select(g => new { Categoria = g.Key, Total = g.Sum(v => v.Cantidad) })));
+    console.log(ventasPorCategoriaData);
+    var labelsVentasPorCategoria = ventasPorCategoriaData.map(v => v.Categoria);
+    var datosVentasPorCategoria = ventasPorCategoriaData.map(v => v.Total);
+
+    var salesByCategoryData = {
+        labels: labelsVentasPorCategoria,
         datasets: [{
             label: 'Ventas ($)',
-            data: [500, 300, 200, 100],
+            data: datosVentasPorCategoria,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)'
+                // Agrega más colores para las categorías
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 205, 86, 1)',
-                'rgba(75, 192, 192, 1)'
+                // Agrega más colores para las categorías
             ],
             borderWidth: 1
         }]
     };
 
-    // Crear el gráfico de ventas por categoría
-    const salesByCategoryCtx = document.getElementById('salesByCategoryChart').getContext('2d');
+    var salesByCategoryCtx = document.getElementById('salesByCategoryChart').getContext('2d');
     new Chart(salesByCategoryCtx, {
         type: 'bar',
         data: salesByCategoryData
     });
+});
 </script>
+
+
+
