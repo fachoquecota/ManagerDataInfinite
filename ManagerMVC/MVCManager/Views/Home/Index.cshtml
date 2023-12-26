@@ -1,4 +1,168 @@
 ﻿@model DashboardViewModel
+
+<div class="container mx-auto p-4">
+    <h1 class="text-xl font-bold mb-4">Dashboard de Ventas</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <!-- KPI Total de Ventas -->
+        <div class="bg-blue-100 p-4 shadow-lg rounded-lg">
+            <div class="text-gray-600">Total de Ventas</div>
+            <div class="text-xl font-bold">@Model.Ventas.Count()</div>
+        </div>
+
+        <!-- KPI Total de Productos Vendidos -->
+        <div class="bg-green-100 p-4 shadow-lg rounded-lg">
+            <div class="text-gray-600">Total de Productos Vendidos</div>
+            <div class="text-xl font-bold">@Model.DetalleVentas.Sum(dv => dv.Cantidad)</div>
+        </div>
+
+        <!-- KPI Departamento con Más Ventas -->
+        <div class="bg-yellow-100 p-4 shadow-lg rounded-lg">
+            <div class="text-gray-600">Departamento con Más Ventas</div>
+            <div class="text-xl font-bold">@Model.DepartamentoConMasVentas</div>
+        </div>
+
+        <!-- KPI Modelo de Producto más Vendido -->
+        <div class="bg-red-100 p-4 shadow-lg rounded-lg">
+            <div class="text-gray-600">Modelo de Producto más Vendido</div>
+            <div class="text-xl font-bold">@Model.ModeloProductoMasVendido</div>
+        </div>
+
+        <!-- KPI Marca más Vendida -->
+        <div class="bg-purple-100 p-4 shadow-lg rounded-lg">
+            <div class="text-gray-600">Marca más Vendida</div>
+            <div class="text-xl font-bold">@Model.MarcaMasVendida</div>
+        </div>
+    </div>
+
+
+    <!-- Gráfico de Barras de Ventas por Departamento -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Gráfico de Barras de Ventas por Departamento -->
+        <div class="bg-white p-4 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-3">Ventas por Departamento</h2>
+            <div class="p-4 bg-gray-50 rounded-lg max-w-md max-h-64 mx-auto">
+                <canvas id="salesBarChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Gráfico de Línea de Ventas por Mes -->
+        <div class="bg-white p-4 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-3">Ventas por Mes</h2>
+            <div class="p-4 bg-gray-50 rounded-lg max-w-md max-h-64 mx-auto">
+                <canvas id="salesLineChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Gráfico de Donas de Ventas por Calidad de Producto -->
+        <div class="bg-white p-4 shadow-lg rounded-lg mt-4">
+            <h2 class="text-lg font-bold mb-3">Distribución de Ventas por Calidad de Producto</h2>
+            <div class="p-4 bg-gray-50 rounded-lg max-w-md max-h-64 mx-auto">
+                <canvas id="qualityDonutChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Gráfico de Barras Horizontales de Ventas por Modelo de Producto -->
+        <div class="bg-white p-4 shadow-lg rounded-lg mt-4">
+            <h2 class="text-lg font-bold mb-3">Ventas por Modelo de Producto</h2>
+            <div class="p-4 bg-gray-50 rounded-lg max-w-md max-h-64 mx-auto">
+                <canvas id="modelBarChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    var ctx = document.getElementById('salesBarChart').getContext('2d');
+    var salesBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.Ventas.GroupBy(v => v.NombreDepartamento).Select(g => g.Key))),
+            datasets: [{
+                label: 'Número de Ventas',
+                data: @Html.Raw(Json.Serialize(Model.Ventas.GroupBy(v => v.NombreDepartamento).Select(g => g.Count()))),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y', // Esto hace que el gráfico sea horizontal
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    var ctxLine = document.getElementById('salesLineChart').getContext('2d');
+    var salesLineChart = new Chart(ctxLine, {
+        type: 'line',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.VentasPorMes.Keys)),
+            datasets: [{
+                label: 'Total de Ventas',
+                data: @Html.Raw(Json.Serialize(Model.VentasPorMes.Values)),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    // Script para el Gráfico de Donas de Calidad de Producto
+    var ctxQuality = document.getElementById('qualityDonutChart').getContext('2d');
+    var qualityDonutChart = new Chart(ctxQuality, {
+        type: 'doughnut',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.VentasPorCalidad.Keys)),
+            datasets: [{
+                data: @Html.Raw(Json.Serialize(Model.VentasPorCalidad.Values)),
+                backgroundColor: ['red', 'blue', 'green', 'yellow', 'purple'] // Ajusta los colores
+            }]
+        }
+    });
+
+    // Script para el Gráfico de Barras Horizontales de Modelo de Producto
+    // Script para el Gráfico de Barras Horizontales de Modelo de Producto
+    var ctxModel = document.getElementById('modelBarChart').getContext('2d');
+    var modelBarChart = new Chart(ctxModel, {
+        type: 'bar',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.VentasPorModelo.Keys)),
+            datasets: [{
+                label: 'Ventas',
+                data: @Html.Raw(Json.Serialize(Model.VentasPorModelo.Values)),
+                backgroundColor: 'lightblue'
+            }]
+        },
+        options: {
+            indexAxis: 'y', // Esto hace que el gráfico sea horizontal
+            scales: {
+                x: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+</script>
+
+
+
+@*@model DashboardViewModel
 @{
     ViewData["Title"] = "Dashboard";
 }
@@ -114,3 +278,4 @@ $(document).ready(function() {
 
 
 
+*@

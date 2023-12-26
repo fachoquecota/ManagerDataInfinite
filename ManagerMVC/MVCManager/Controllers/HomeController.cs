@@ -16,51 +16,70 @@ namespace MVCManager.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var ventasGrafico = await ObtenerDatosDeApiAsync<ApiResponseReporteVentaGrafico>("http://localhost:5172/api/Ventas/ReporteVentaGrafico");
-            var ventasDetalleGrafico = await ObtenerDatosDeApiAsync<ApiResponseReporteVentaDetalleGrafico>("http://localhost:5172/api/Ventas/ReporteVentaDetalleGrafico");
+            var ventasResponse = await GetVentas();
+            var detallesVentasResponse = await GetDetalleVentas();
+
+            var modeloMasVendido = detallesVentasResponse.Result
+                .GroupBy(dv => dv.NombreModeloProducto)
+                .OrderByDescending(gp => gp.Count())
+                .Select(gp => gp.Key)
+                .FirstOrDefault();
+
+            var marcaMasVendida = detallesVentasResponse.Result
+                .GroupBy(dv => dv.NombreMarca)
+                .OrderByDescending(gp => gp.Count())
+                .Select(gp => gp.Key)
+                .FirstOrDefault();
+
+            var añoActual = DateTime.Now.Year;
+            var ventasPorMes = ventasResponse.Result
+                .Where(v => v.FechaVenta.Year == añoActual)
+                .GroupBy(v => v.FechaVenta.ToString("MMM"))
+                .ToDictionary(g => g.Key, g => g.Sum(v => decimal.Parse(v.TotalDefinido)));
+
+            var ventasPorCalidad = detallesVentasResponse.Result
+                .GroupBy(dv => dv.NombreCalidad)
+                .ToDictionary(g => g.Key, g => g.Count());
+
+            var ventasPorModelo = detallesVentasResponse.Result
+                .GroupBy(dv => dv.NombreModeloProducto)
+                .ToDictionary(g => g.Key, g => g.Count());
 
             var viewModel = new DashboardViewModel
             {
-                VentasGrafico = ventasGrafico.Result,
-                VentasDetalleGrafico = ventasDetalleGrafico.Result
+                Ventas = ventasResponse.Result,
+                DetalleVentas = detallesVentasResponse.Result,
+                DepartamentoConMasVentas = ventasResponse.Result
+                    .GroupBy(v => v.NombreDepartamento)
+                    .OrderByDescending(g => g.Count())
+                    .Select(g => g.Key)
+                    .FirstOrDefault(),
+                ModeloProductoMasVendido = modeloMasVendido,
+                MarcaMasVendida = marcaMasVendida,
+                VentasPorMes = ventasPorMes,
+                VentasPorCalidad = ventasPorCalidad,
+                VentasPorModelo = ventasPorModelo
+
             };
 
             return View(viewModel);
         }
-
-        private async Task<T> ObtenerDatosDeApiAsync<T>(string url) where T : new()
+        private async Task<VentaResponse> GetVentas()
         {
             var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync(url);
-            if (response.IsSuccessStatusCode)
-            {
-                var json = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<T>(json);
-            }
-
-            return new T();
+            var response = await client.GetAsync("http://localhost:5172/api/Ventas/ReporteVentaGrafico");
+            response.EnsureSuccessStatusCode();
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<VentaResponse>(jsonResponse);
         }
 
-        public IActionResult Privacy()
+        private async Task<DetalleVentaResponse> GetDetalleVentas()
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var client = _httpClientFactory.CreateClient();
+            var response = await client.GetAsync("http://localhost:5172/api/Ventas/ReporteVentaDetalleGrafico");
+            response.EnsureSuccessStatusCode();
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<DetalleVentaResponse>(jsonResponse);
         }
     }
-
-    public class ApiResponseReporteVentaGrafico
-    {
-        public List<ReporteVentaGraficoModel> Result { get; set; }
-    }
-    public class ApiResponseReporteVentaDetalleGrafico
-    {
-        public List<ReporteVentaDetalleGraficoModel> Result { get; set; }
-    }
-
-
 }
