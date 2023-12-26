@@ -36,7 +36,6 @@ namespace ProSalesManager._01_Data.Modules.Customers
                                 apellidoContacto = dr["apellidoContacto"].ToString(),
                                 telefono = dr["telefono"].ToString(),
                                 idTipoDocumento = Convert.ToInt32(dr["idTipoDocumento"]),
-                                desTipoDocumento = dr["desTipoDocumento"].ToString(),
                                 numeroDocumento = dr["numeroDocumento"].ToString(),
                                 razonSocial = dr["razonSocial"].ToString(),
                                 nombreComercial = dr["nombreComercial"].ToString(),
@@ -80,7 +79,6 @@ namespace ProSalesManager._01_Data.Modules.Customers
                                 apellidoContacto = dr["apellidoContacto"].ToString(),
                                 telefono = dr["telefono"].ToString(),
                                 idTipoDocumento = Convert.ToInt32(dr["idTipoDocumento"]),
-                                desTipoDocumento = dr["desTipoDocumento"].ToString(),
                                 numeroDocumento = dr["numeroDocumento"].ToString(),
                                 razonSocial = dr["razonSocial"].ToString(),
                                 nombreComercial = dr["nombreComercial"].ToString(),
@@ -132,9 +130,8 @@ namespace ProSalesManager._01_Data.Modules.Customers
             }
             return rpta;
         }
-        public bool InsertCliente(ClienteModel oClienteModel)
+        public int? InsertCliente(ClienteModel oClienteModel)
         {
-            bool rpta = false;
             try
             {
                 var cn = new DataConnection();
@@ -152,6 +149,42 @@ namespace ProSalesManager._01_Data.Modules.Customers
                     cmd.Parameters.AddWithValue("@vcNombreComercial", oClienteModel.nombreComercial);
                     cmd.Parameters.AddWithValue("@vcCorreo", oClienteModel.correo);
                     cmd.Parameters.AddWithValue("@vcDireccion", oClienteModel.direccion);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    // Ejecutar y obtener el ID del cliente insertado como decimal
+                    var result = cmd.ExecuteScalar();
+
+                    // Convertir el resultado a int
+                    if (result != null && result is decimal)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        return null; // O manejar el caso de nulo de otra manera
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorResult.ErrorMessage = ex.Message;
+                return null;
+
+            }
+        }
+
+        public bool DeleteCliente(int idCliente)
+        {
+            bool rpta = false;
+            try
+            {
+                var cn = new DataConnection();
+                DateTime datetime = DateTime.Now;
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SP_Delete_Cliente", conexion);
+                    cmd.Parameters.AddWithValue("@inIdCliente", idCliente);
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();

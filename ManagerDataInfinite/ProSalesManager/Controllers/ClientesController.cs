@@ -53,16 +53,23 @@ namespace ProSalesManager.Controllers
         }
         [HttpPut]
         [Route("PutClientes")]
-        public dynamic PutProducts([FromBody] ClienteModel oClienteModel)
+        public dynamic PutClientes([FromBody] ClienteModel oClienteModel)
         {
             bool result = _Clientes.UpdateCliente(oClienteModel);
             return Ok(result);
         }
         [HttpPost]
         [Route("PostClientes")]
-        public dynamic PostProducts([FromBody] ClienteModel oClienteModel)
+        public dynamic PostClientes([FromBody] ClienteModel oClienteModel)
         {
-            bool result = _Clientes.InsertCliente(oClienteModel);
+            int result = (int)_Clientes.InsertCliente(oClienteModel);
+            return Ok(result);
+        }
+        [HttpDelete]
+        [Route("DeleteClientes")]
+        public dynamic DeleteClientes(int idCliente)
+        {
+            bool result = _Clientes.DeleteCliente(idCliente);
             return Ok(result);
         }
         [HttpGet]

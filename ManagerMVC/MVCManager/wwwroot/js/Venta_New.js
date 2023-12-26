@@ -29,7 +29,9 @@ $(document).ready(function () {
             var nombreProducto = productoCard.find('h3').text().trim();
             var precioProducto = parseFloat(productoCard.find('.precio-producto').text().trim());
             var tallaProducto = productoCard.data('sizedescription');
-            var calidadProducto = productoCard.data('calidaddescripcion'); // Obtener calidad del producto
+            var calidadProducto = productoCard.data('calidaddescripcion');
+            var categoriaProducto = productoCard.data('categoriadescripcion');
+
 
             var nuevaFila = `
             <tr data-idproducto="${idProducto}">
@@ -44,7 +46,7 @@ $(document).ready(function () {
             </tr>`;
 
             $('#tablaProductosSeleccionados tbody').append(nuevaFila);
-            actualizarMatrizProductos(idProducto, 1, precioProducto, tallaProducto, calidadProducto);
+            actualizarMatrizProductos(idProducto, 1, precioProducto, tallaProducto, calidadProducto, categoriaProducto); 
 
         }
 
@@ -59,7 +61,7 @@ $(document).ready(function () {
         actualizarContadorProductos();
     });
 
-    function actualizarMatrizProductos(idProducto, cantidad, precio, talla, calidad) {
+    function actualizarMatrizProductos(idProducto, cantidad, precio, talla, calidad, categoria) {
         var productoExistente = productosSeleccionados.find(p => p.idProducto === idProducto);
         if (productoExistente) {
             productoExistente.cantidad = cantidad;
@@ -67,11 +69,9 @@ $(document).ready(function () {
             productoExistente.calidad = calidad;
             productoExistente.precioUnitario = precio;
         } else {
-            productosSeleccionados.push({ idProducto, cantidad, precio, talla, calidad });
+            productosSeleccionados.push({ idProducto, cantidad, precio, talla, calidad, categoria }); 
         }
     }
-
-
 
     function eliminarProductoDeMatriz(idProducto) {
         productosSeleccionados = productosSeleccionados.filter(p => p.idProducto !== idProducto);
@@ -85,7 +85,6 @@ $(document).ready(function () {
         $('#contadorProductos').text(contador);
         $('#cantidadTotal').val(contador); // Actualizar el campo de cantidad total
     }
-
 
     // Agregar evento 'change' a los campos de cantidad
     $(document).on('change', '.cantidadProducto', function () {
@@ -109,37 +108,34 @@ $(document).ready(function () {
         actualizarMatrizProductos(idProducto, cantidadIngresada, precio);
     });
 
-
     $('#confirmSaleButton').click(function () {
         openModal();
     });
+
     function actualizarTablaResumenTallas() {
         var resumenCalidad = {};
         productosSeleccionados.forEach(function (producto) {
-            var clave = producto.calidad; // Clave única para cada calidad
+            var clave = producto.categoria + '-' + producto.calidad; // Clave única para cada combinación de categoría y calidad
             if (!resumenCalidad[clave]) {
-                resumenCalidad[clave] = { cantidad: 0, calidad: producto.calidad, producto: producto.nombreProducto, talla: producto.talla };
+                resumenCalidad[clave] = { cantidad: 0, calidad: producto.calidad, categoria: producto.categoria, producto: producto.nombreProducto, talla: producto.talla };
             }
             resumenCalidad[clave].cantidad += producto.cantidad;
         });
 
+
         var filasResumen = '';
         Object.keys(resumenCalidad).forEach(function (clave) {
             var item = resumenCalidad[clave];
+            console.log(item);
             filasResumen += `<tr>
-                            <td class="productoColumn">${item.producto}</td>
-                            <td>${item.calidad}</td>
-                            <td>${item.cantidad}</td>
-                            <td class="tallaColumn">${item.talla}</td>
-                        </tr>`;
+                                <td class="categoriaColumn">${item.categoria}</td> 
+                                <td>${item.calidad}</td>
+                                <td>${item.cantidad}</td>
+                            </tr>`;
         });
 
         $('#tablaResumenTallas tbody').html(filasResumen);
     }
-
-
-
-
 
     // Función para abrir el modal
     function openModal() {
@@ -189,27 +185,6 @@ $(document).ready(function () {
         // Actualizar la tabla de resumen por talla, si es necesario
         actualizarTablaResumenTallas();
     }
-
-
-    $('#mostrarProductoCheckbox').change(function () {
-        if (this.checked) {
-            $('.productoColumn').show();
-        } else {
-            $('.productoColumn').hide();
-        }
-    });
-
-    $('#mostrarTallaCheckbox').change(function () {
-        if (this.checked) {
-            $('.tallaColumn').show();
-        } else {
-            $('.tallaColumn').hide();
-        }
-    });
-
-
-
-
 
 
     // Evento click del botón "Confirmar Venta"
@@ -345,13 +320,6 @@ $(document).ready(function () {
         }, 250);
     }
 
-    //$('#printReceipt').click(function () {
-    //    $('#successModal').hide();
-    //    printTicket(/* Aquí necesitas pasar el contenido adecuado para imprimir */);
-    //});
-
-
-
 
 });
 
@@ -366,6 +334,64 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('#addNewClientBtn').click(function () {
+        // Abre el modal para añadir un nuevo cliente
+        $('#closeModalCliente').removeClass('hidden');
+    });
+
+});
+function saveChanges() {
+    addNewCliente();
+}
+function closeModalCliente() {
+    $('#closeModalCliente').addClass('hidden');
+}
+function addNewCliente() {
+    // Crear un objeto cliente con los valores del formulario
+    var cliente = {
+        nombreContacto: $('#nombreContactoInput').val(),
+        apellidoContacto: $('#apellidoContactoInput').val(),
+        telefono: $('#telefonoInput').val(),
+        idTipoDocumento: parseInt($('#tipoDocumentoInput').val()), 
+        numeroDocumento: $('#numeroDocumentoInput').val(),
+        razonSocial: $('#razonSocialInput').val(),
+        nombreComercial: $('#nombreComercialInput').val(),
+        correo: $('#correoInput').val(),
+        direccion: $('#direccionInput').val(),
+    };
+
+    // Realizar la petición AJAX
+    $.ajax({
+        url: '/Cliente/InsertCliente',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(cliente),
+        success: function (newClientId) {
+            newClientId = parseInt(newClientId);
+            if (newClientId) {
+                var newOption = new Option(cliente.nombreContacto + ' ' + cliente.apellidoContacto + ' - ' + cliente.numeroDocumento, newClientId, true, true);
+                $(newOption).addClass('new-client-option'); 
+
+                // Añadir la nueva opción y seleccionarla
+                $('#clienteCombobox').append(newOption).trigger('change');
+
+                closeModalCliente(); // Cierra el modal
+                $('#clienteAddedMsg').removeClass('hidden');
+
+                // Ocultar mensaje después de 5 segundos
+                setTimeout(function () {
+                    $('#clienteAddedMsg').addClass('hidden');
+                }, 5000);
+            } else {
+                alert("Cliente insertado, pero no se pudo actualizar el combobox.");
+            }
+        },
+        error: function (error) {
+            alert("Error al insertar el cliente.");
+        }
+    });
+}
 function filtrarProductos() {
     var filtroCategoria = $('#categoriaCombobox').val();
     var filtroCalidad = $('#calidadCombobox').val();

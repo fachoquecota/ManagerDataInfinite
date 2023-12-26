@@ -5,95 +5,98 @@
 }
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="/js/Venta_New.js"></script>
 </head>
+
+<!-- INTERACCIÓN -->
 <div class="container mx-auto p-6">
     <h1 class="text-2xl font-semibold mb-4">Ventas</h1>
 
     <div class="flex flex-wrap -mx-2">
-        <!-- Tarjeta de Lista de Productos -->
+        <!-- LISTA DE PRODUCTOS Y FILTROS -->
         <div class="w-full md:w-1/2 px-2 mb-4">
             <div class="p-4 bg-white rounded-lg shadow-md">
                 <h2 class="text-xl font-semibold mb-4 text-blue-500">Lista de Productos</h2>
                 <div class="filtro-container">
-                  <!-- Búsqueda por nombre -->
-                  <div class="relative mb-4 w-full inline-block">
-                    <label for="buscarProducto" class="block text-sm font-medium text-gray-600">Buscar Producto:</label>
-                    <input type="text" id="buscarProducto" name="buscarProducto" placeholder="Ingrese nombre del producto" class="mt-1 p-2 w-full rounded-md border shadow-sm">
-                  </div>
+                    <!-- Búsqueda por nombre -->
+                    <div class="relative mb-4 w-full inline-block">
+                        <label for="buscarProducto" class="block text-sm font-medium text-gray-600">Buscar Producto:</label>
+                        <input type="text" id="buscarProducto" name="buscarProducto" placeholder="Ingrese nombre del producto" class="mt-1 p-2 w-full rounded-md border shadow-sm">
+                    </div>
 
-                  <!-- Categoría -->
-                  <div class="relative mb-4 w-1/4 inline-block">
-                      <label for="categoriaCombobox" class="block text-sm font-medium text-gray-600">Categoría:</label>
-                      <select id="categoriaCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
-                          <option value="">Todas las Categorías</option>
-                          @foreach(var categoria in ViewBag.Categoria)
-                          {
-                              <option value="@categoria.Value">@categoria.Text</option>
-                          }                    
-                      </select>
-                  </div>
+                    <!-- Categoría -->
+                    <div class="relative mb-4 w-1/4 inline-block">
+                        <label for="categoriaCombobox" class="block text-sm font-medium text-gray-600">Categoría:</label>
+                        <select id="categoriaCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                            <option value="">Todas las Categorías</option>
+                            @foreach (var categoria in ViewBag.Categoria)
+                            {
+                                <option value="@categoria.Value">@categoria.Text</option>
+                            }
+                        </select>
+                    </div>
 
-                  <!-- Calidad -->
-                  <div class="relative mb-4 w-1/4 inline-block">
-                    <label for="calidadCombobox" class="block text-sm font-medium text-gray-600">Calidad:</label>
-                    <select id="calidadCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
-                      <option value="">Todas las calidades</option>
-                        @foreach(var calidad in ViewBag.Calidad)
-                        {
-                            <option value="@calidad.Value">@calidad.Text</option>
-                        }                    </select>
-                  </div>
+                    <!-- Calidad -->
+                    <div class="relative mb-4 w-1/4 inline-block">
+                        <label for="calidadCombobox" class="block text-sm font-medium text-gray-600">Calidad:</label>
+                        <select id="calidadCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                            <option value="">Todas las calidades</option>
+                            @foreach (var calidad in ViewBag.Calidad)
+                            {
+                                <option value="@calidad.Value">@calidad.Text</option>
+                            }
+                        </select>
+                    </div>
 
-                  <!-- Talla -->
-                  <div class="relative mb-4 w-1/4 inline-block">
-                    <label for="sizeCombobox" class="block text-sm font-medium text-gray-600">Talla:</label>
-                    <select id="sizeCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
-                      <option value="">Todas las tallas</option>
-                       @foreach (var talla in ViewBag.Tallas as List<SelectListItem>)
-                       {
-                           <option value="@talla.Value">@talla.Text</option>
-                       }                    </select>
-                  </div>
-              
-                  <!-- Color -->
-                  <div class="relative mb-4 w-1/4 inline-block">
-                    <label for="colorCombobox" class="block text-sm font-medium text-gray-600">Color:</label>
-                    <select id="colorCombobox" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                      <option value="">Todos los colores</option>
-                        @foreach(var color in ViewBag.Colores)
-                        {
-                            <option value="@color.Value">@color.Text</option>
-                        }                    </select>
-                  </div>
-               
-                  <!-- Marca -->
-                  <div class="relative mb-4 w-1/4 inline-block">
-                    <label for="marcaCombobox" class="block text-sm font-medium text-gray-600">Marca:</label>
-                    <select id="marcaCombobox" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                      <option value="">Todas las marcas</option>
-                        @foreach(var marca in ViewBag.Marca)
-                        {
-                            <option value="@marca.Value">@marca.Text</option>
-                        }                    </select>
-                  </div>
+                    <!-- Talla -->
+                    <div class="relative mb-4 w-1/4 inline-block">
+                        <label for="sizeCombobox" class="block text-sm font-medium text-gray-600">Talla:</label>
+                        <select id="sizeCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                            <option value="">Todas las tallas</option>
+                            @foreach (var talla in ViewBag.Tallas as List<SelectListItem>)
+                            {
+                                <option value="@talla.Value">@talla.Text</option>
+                            }
+                        </select>
+                    </div>
 
-                  <!-- Modelo -->
-                  <div class="relative mb-4 inline-block w-1/4">
-                    <label for="modeloCombobox" class="block text-sm font-medium text-gray-600">Modelo:</label>
-                    <select id="modeloCombobox" name="modelo" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                      <option value="">Todos los modelos</option>
-                        @foreach(var modelo in ViewBag.Modelos)
-                        {
-                            <option value="@modelo.Value">@modelo.Text</option>
-                        }                    
-                    </select>
-                  </div>
+                    <!-- Color -->
+                    <div class="relative mb-4 w-1/4 inline-block">
+                        <label for="colorCombobox" class="block text-sm font-medium text-gray-600">Color:</label>
+                        <select id="colorCombobox" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                            <option value="">Todos los colores</option>
+                            @foreach (var color in ViewBag.Colores)
+                            {
+                                <option value="@color.Value">@color.Text</option>
+                            }
+                        </select>
+                    </div>
+
+                    <!-- Marca -->
+                    <div class="relative mb-4 w-1/4 inline-block">
+                        <label for="marcaCombobox" class="block text-sm font-medium text-gray-600">Marca:</label>
+                        <select id="marcaCombobox" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                            <option value="">Todas las marcas</option>
+                            @foreach (var marca in ViewBag.Marca)
+                            {
+                                <option value="@marca.Value">@marca.Text</option>
+                            }
+                        </select>
+                    </div>
+
+                    <!-- Modelo -->
+                    <div class="relative mb-4 inline-block w-1/4">
+                        <label for="modeloCombobox" class="block text-sm font-medium text-gray-600">Modelo:</label>
+                        <select id="modeloCombobox" name="modelo" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                            <option value="">Todos los modelos</option>
+                            @foreach (var modelo in ViewBag.Modelos)
+                            {
+                                <option value="@modelo.Value">@modelo.Text</option>
+                            }
+                        </select>
+                    </div>
                 </div>
 
                 <!-- Matriz de Productos -->
@@ -111,42 +114,42 @@
                              data-idMarca="@producto.IdMarca"
                              data-idCategoria="@producto.IdCategoria"
                              data-categoriaDescripcion="@producto.CategoriaDescripcion"
-                             data-sizeDescription = "@producto.SizeDescription"
+                             data-sizeDescription="@producto.SizeDescription"
                              data-calidadDescripcion="@producto.CalidadDescripcion"
                              data-colorDescription="@producto.ColorDescription"
-                             data-cantidad ="@producto.Cantidad">
+                             data-cantidad="@producto.Cantidad">
 
                             <div class="relative mb-3">
                                 <img src="@urlImagenCompleta" alt="@producto.Producto" class="w-24 h-24 object-cover rounded-md mx-auto">
                             </div>
                             <h3 class="text-center text-md mb-2">@producto.Producto</h3>
                             <!-- Inicio de la rejilla para detalles del producto -->
-                                <div class="grid grid-cols-2 gap-2">
-                                    <div>
-                                        <strong>Marca:</strong>
-                                        <p>@producto.Marca</p>
-                                    </div>
-                                    <div>
-                                        <strong>Precio:</strong>
-                                        <p class="precio-producto">@producto.Precio.ToString("0.00")</p>
-                                    </div>
-                                    <div>
-                                        <strong>Cantidad:</strong>
-                                        <p>@producto.Cantidad</p>
-                                    </div>
-                                    <div>
-                                        <strong>Tamaño:</strong>
-                                        <p>@producto.SizeDescription</p>
-                                    </div>
-                                    <div>
-                                        <strong>Color:</strong>
-                                        <p>@producto.ColorDescription</p>
-                                    </div>
-                                    <div>
-                                        <strong>Modelo:</strong>
-                                        <p>@producto.ModeloDescripcion</p>
-                                    </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <strong>Marca:</strong>
+                                    <p>@producto.Marca</p>
                                 </div>
+                                <div>
+                                    <strong>Precio:</strong>
+                                    <p class="precio-producto">@producto.Precio.ToString("0.00")</p>
+                                </div>
+                                <div>
+                                    <strong>Cantidad:</strong>
+                                    <p>@producto.Cantidad</p>
+                                </div>
+                                <div>
+                                    <strong>Tamaño:</strong>
+                                    <p>@producto.SizeDescription</p>
+                                </div>
+                                <div>
+                                    <strong>Color:</strong>
+                                    <p>@producto.ColorDescription</p>
+                                </div>
+                                <div>
+                                    <strong>Modelo:</strong>
+                                    <p>@producto.ModeloDescripcion</p>
+                                </div>
+                            </div>
                             <button class="btnSeleccionarProducto text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
                         </div>
                     }
@@ -159,7 +162,8 @@
                 </div>
             </div>
         </div>
-        <!-- Tarjeta de Formulario -->
+
+        <!-- PRODUCTOS SELECCIONADOS -->
         <div class="w-full md:w-1/2 px-2 mb-4">
             <div class="p-4 bg-white rounded-lg shadow-md">
                 <h2 class="text-xl font-semibold mb-4 text-blue-500">Detalles de la Venta</h2>
@@ -168,23 +172,29 @@
                 <div class="mb-4">
                     <label for="tipoVenta" class="block text-sm font-medium text-gray-600">Tipo de Venta:</label>
                     <select id="tipoVentaCombobox" name="tipoVenta" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                        @foreach(var tipoVenta in ViewBag.TipoVenta)
+                        @foreach (var tipoVenta in ViewBag.TipoVenta)
                         {
                             <option value="@tipoVenta.Value">@tipoVenta.Text</option>
-                        }                    
+                        }
                     </select>
                 </div>
 
                 <!-- Selección de Cliente -->
                 <div class="mb-4">
                     <label for="cliente" class="block text-sm font-medium text-gray-600">Seleccionar Cliente:</label>
-                    <select id="clienteCombobox" name="cliente" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                        <option value="0">Cliente Genérico</option>
-                        @foreach(var cliente in ViewBag.Cliente)
-                        {
-                            <option value="@cliente.Value">@cliente.Text</option>
-                        }                    
-                    </select>
+                    <div id="clienteAddedMsg" class="hidden text-green-500">Cliente añadido</div>
+                    <div class="flex items-center space-x-2">
+                        <select id="clienteCombobox" name="cliente" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <option value="0">Cliente Genérico</option>
+                            @foreach (var cliente in ViewBag.Cliente)
+                            {
+                                <option value="@cliente.Value">@cliente.Text</option>
+                            }
+                        </select>
+                        <button id="addNewClientBtn" class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-1 px-3 rounded text-sm">
+                            Añadir Cliente
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Selección de Transporte -->
@@ -192,10 +202,10 @@
                     <label for="transporte" class="block text-sm font-medium text-gray-600">Seleccionar Emp. Transporte:</label>
                     <select id="transporteCombobox" name="transporte" class="mt-1 p-2 rounded-md border shadow-sm w-full">
                         <option value="0">No transporte</option>
-                        @foreach(var transporte in ViewBag.TransDocumentos)
+                        @foreach (var transporte in ViewBag.TransDocumentos)
                         {
                             <option value="@transporte.Value">@transporte.Text</option>
-                        }                    
+                        }
                     </select>
                 </div>
                 <div id="ubigeoContainer" class="flex flex-wrap -mx-2 mb-4 hidden">
@@ -238,7 +248,7 @@
                                 <th class="px-2 py-2">Calidad</th>
                                 <th class="px-2 py-2">Cantidad</th>
                                 <th class="px-2 py-2">Talla</th>
-                                <th class="px-2 py-2">Precio</th> 
+                                <th class="px-2 py-2">Precio</th>
                                 <th class="px-2 py-2">Total</th>
                                 <th class="px-2 py-2">Acciones</th>
                             </tr>
@@ -253,12 +263,10 @@
                 <button id="confirmSaleButton" class="px-4 py-2 bg-blue-500 text-white rounded-md">Confirmar Venta</button>
             </div>
         </div>
-
-
-
     </div>
 </div>
 
+<!-- MODAL RESUMEN DE PRODUCTOS SELECCIONADOS -->
 <div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="resumenVentaModal">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -274,32 +282,25 @@
                     <table id="tablaCopiaProductos" class="min-w-full divide-y divide-gray-200 text-center">
                         <!-- Cabecera y cuerpo de la tabla -->
                     </table>
-                    <label>
+@*                     <label>
                         <input type="checkbox" id="mostrarProductoCheckbox"> Mostrar columna de Producto
-                    </label>
-                    <label>
+                    </label> *@
+@*                     <label>
                         <input type="checkbox" id="mostrarTallaCheckbox"> Mostrar columna de Talla
-                    </label>
-
-
+                    </label> *@
                     <!-- Tabla resumen por talla -->
                     <table id="tablaResumenTallas" class="min-w-full divide-y divide-gray-200 text-center">
                         <thead>
                             <tr>
-                                <th class="px-4 py-2 productoColumn">Producto</th> <!-- Columna Producto oculta inicialmente -->
+                                <th class="px-4 py-2">Categoría</th>
                                 <th class="px-4 py-2">Calidad</th>
                                 <th class="px-4 py-2">Cantidad</th>
-                                <th class="px-4 py-2 tallaColumn">Talla</th> <!-- Columna Talla oculta inicialmente -->
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Las filas se agregarán dinámicamente desde JavaScript -->
                         </tbody>
                     </table>
-
-
-
-
                     <!-- Campo de venta total -->
                     <div class="mt-4">
                         <div class="flex space-x-2">
@@ -328,12 +329,11 @@
     </div>
 </div>
 
-    <!-- MODAL SEGUNDO -->
-
+<!-- MODAL VENTA CONFIRMADA -->
 <div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="successModal">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-        
+
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border-4 border-green-500">
@@ -356,7 +356,9 @@
 
     </div>
 </div>
-<div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="editModal">
+
+<!-- MODAL AÑADIR NUEVO CLIENTE -->
+<div class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="closeModalCliente">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
@@ -380,13 +382,13 @@
                             <input type="text" id="telefonoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Teléfono">
                         </div>
                         <div class="mt-2">
-                                <select id="tipoDocumentoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline">
-                                    <option value="">Seleccione Tipo Doc.</option>
-                                    @foreach(var tipoDoc in ViewBag.TipoDocumentos)
-                                    {
-                                        <option value="@tipoDoc.Value">@tipoDoc.Text</option>
-                                    }   
-                                </select>
+                            <select id="tipoDocumentoInput" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline">
+                                <option value="">Seleccione Tipo Doc.</option>
+                                @foreach (var tipoDoc in ViewBag.TipoDocumentos)
+                                {
+                                    <option value="@tipoDoc.Value">@tipoDoc.Text</option>
+                                }
+                            </select>
 
                         </div>
                         <div class="mt-2">
@@ -411,7 +413,7 @@
                 <button onclick="saveChanges()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-4 rounded mt-2">
                     Guardar
                 </button>
-                <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="closeEditModal()">
+                <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="closeModalCliente()">
                     Cancelar
                 </button>
             </div>
@@ -419,26 +421,30 @@
     </div>
 </div>
 
+
+
+<!-- SPINNER-->
 <div id="loadingSpinner" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 z-50 flex justify-center items-center">
     <!-- Aquí el contenido del spinner, como un ícono giratorio o una imagen -->
-        <div class="loader"></div>
+    <div class="loader"></div>
 </div>
 
+<!-- TICKET -->
 <div id="ticketTemplate" style="display:none;">
     <div style="font-size: 12px; font-family: 'Courier New', Courier, monospace; text-align: center;">
         <h2 style="margin-bottom: 0;">Nombre de la Empresa</h2>
         <p style="margin-top: 5px;">Dirección de la Empresa</p>
-        <hr style="border-top: 1px dashed #000; margin: 10px 0;"/>
+        <hr style="border-top: 1px dashed #000; margin: 10px 0;" />
         <p>Fecha: <span id="ticketFecha">10/10/2023</span></p>
         <p>Cliente: <span id="ticketCliente">Nombre del Cliente</span></p>
         <p>Transporte: <span id="ticketTransporte">Nombre del Transporte</span></p>
         <p>Destino: <span id="ticketDestino">Destino</span></p>
-        <hr style="border-top: 1px dashed #000; margin: 10px 0;"/>
+        <hr style="border-top: 1px dashed #000; margin: 10px 0;" />
         <h3 style="margin-bottom: 5px;">Productos:</h3>
         <ul id="ticketProductos" style="list-style-type: none; padding: 0; margin: 0;">
             <!-- Productos añadidos dinámicamente -->
         </ul>
-        <hr style="border-top: 1px dashed #000; margin: 10px 0;"/>
+        <hr style="border-top: 1px dashed #000; margin: 10px 0;" />
         <p>Cantidad Total: <span id="ticketCantidadTotal">5</span></p>
         <p>Monto Total: <span id="ticketMontoTotal">$150.00</span></p>
         <p>¡Gracias por su compra!</p>
@@ -451,131 +457,128 @@
 
 <script>
 
-    function closeModalCliente() {
-        document.getElementById('modalCliente').classList.add('hidden');
-    }
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#clienteCombobox').select2({
             placeholder: "Buscar Cliente",
             allowClear: true,
             language: {
-                noResults: function() {
+                noResults: function () {
                     return `<div style="color: red;">No se encontraron resultados</div><button id="addClientBtn" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">Añadir Cliente</button>`;
                 }
             },
-            escapeMarkup: function(markup) {
+            escapeMarkup: function (markup) {
                 return markup;
             }
         });
 
-         // Evento para abrir el modal cuando se hace clic en "Añadir Cliente"
-        $(document).on('click', '#addClientBtn', function() {
-            $('#editModal').removeClass('hidden');
+        // Evento para abrir el modal cuando se hace clic en "Añadir Cliente"
+        $(document).on('click', '#addClientBtn', function () {
+            $('#closeModalCliente').removeClass('hidden');
         });
-
-      
-
     });
     function closeEditModal() {
-            $('#editModal').addClass('hidden');
+        $('#closeModalCliente').addClass('hidden');
     }
 
     function saveChanges() {
-            addNewCliente();
+        addNewCliente();
     }
 
 </script>
 <script>
     var ubigeoData = @Html.Raw(Json.Serialize(ViewBag.Ubigeo));
 
-    document.getElementById('departamentoCombobox').addEventListener('change', function() {
+    document.getElementById('departamentoCombobox').addEventListener('change', function () {
         var departamentoSeleccionado = this.value;
         actualizarProvincias(departamentoSeleccionado);
     });
 
-    document.getElementById('provinciaCombobox').addEventListener('change', function() {
+    document.getElementById('provinciaCombobox').addEventListener('change', function () {
         var provinciaSeleccionada = this.value;
         var departamentoSeleccionado = document.getElementById('departamentoCombobox').value;
         actualizarDistritos(departamentoSeleccionado, provinciaSeleccionada);
     });
 
     function actualizarProvincias(departamento) {
-        var provincias = ubigeoData.filter(function(ubigeo) {
-            return ubigeo.departamento === departamento; // Asegúrate de que las propiedades coincidan con las de tu objeto ubigeo
-        }).map(function(ubigeo) {
+        var provincias = ubigeoData.filter(function (ubigeo) {
+            return ubigeo.departamento === departamento;
+        }).map(function (ubigeo) {
             return ubigeo.provincia;
-        }).filter(function(value, index, self) {
-            return self.indexOf(value) === index; // Eliminar duplicados
+        }).filter(function (value, index, self) {
+            return self.indexOf(value) === index;
         });
 
-        console.log("Provincias Filtradas:", provincias); // Verificar las provincias filtradas
+        console.log("Provincias Filtradas:", provincias);
 
         var provinciaSelect = document.getElementById('provinciaCombobox');
         provinciaSelect.innerHTML = '<option value="">Seleccione una Provincia</option>';
-        provincias.forEach(function(provincia) {
+        provincias.forEach(function (provincia) {
             provinciaSelect.innerHTML += '<option value="' + provincia + '">' + provincia + '</option>';
         });
         provinciaSelect.disabled = provincias.length === 0;
-    }
 
+        // Restablecer el combobox de distritos
+        resetDistritoSelect();
+    }
+    function resetDistritoSelect() {
+        var distritoSelect = document.getElementById('distritoCombobox');
+        distritoSelect.innerHTML = '<option value="">Seleccione un Distrito</option>';
+        distritoSelect.disabled = true;
+    }
     function actualizarDistritos(departamento, provincia) {
-        var distritos = ubigeoData.filter(function(ubigeo) {
+        var distritos = ubigeoData.filter(function (ubigeo) {
             return ubigeo.departamento === departamento && ubigeo.provincia === provincia;
-        }).map(function(ubigeo) {
+        }).map(function (ubigeo) {
             return ubigeo.distrito;
         });
 
         var distritoSelect = document.getElementById('distritoCombobox');
         distritoSelect.innerHTML = '<option value="">Seleccione un Distrito</option>';
-        distritos.forEach(function(distrito) {
+        distritos.forEach(function (distrito) {
             distritoSelect.innerHTML += '<option value="' + distrito + '">' + distrito + '</option>';
         });
         distritoSelect.disabled = distritos.length === 0;
     }
 </script>
 <script>
-    document.getElementById('transporteCombobox').addEventListener('change', function() {
-    var seleccion = this.value;
-    var contenedorUbigeo = document.getElementById('ubigeoContainer');
+    document.getElementById('transporteCombobox').addEventListener('change', function () {
+        var seleccion = this.value;
+        var contenedorUbigeo = document.getElementById('ubigeoContainer');
 
-    if (seleccion !== "0") {
-        contenedorUbigeo.classList.remove('hidden');
-    } else {
-        contenedorUbigeo.classList.add('hidden');
-    }
-});
-
+        if (seleccion !== "0") {
+            contenedorUbigeo.classList.remove('hidden');
+        } else {
+            contenedorUbigeo.classList.add('hidden');
+        }
+    });
 </script>
-
-
-
-
 <style>
     .productoColumn, .tallaColumn {
         display: none;
     }
 
-
-
     .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
 
+    .new-client-option {
+        color: green;
+    }
 </style>

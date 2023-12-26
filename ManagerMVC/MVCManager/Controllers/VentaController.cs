@@ -7,6 +7,7 @@ using MVCManager.Models;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text;
+using static MVCManager.Controllers.ClienteController;
 
 namespace MVCManager.Controllers
 {
@@ -16,7 +17,7 @@ namespace MVCManager.Controllers
 
         public async Task<IActionResult> Index(int pagina = 1)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Ventas/GetProductosVenta");
+            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Ventas/GetProductosVenta");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -234,7 +235,6 @@ namespace MVCManager.Controllers
 
         }
 
-
         private string GeneratePrintableContent(VentaFinal ventaData)
         {
             // Create an HTML template for the ticket
@@ -297,25 +297,38 @@ namespace MVCManager.Controllers
             return Json(null);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> InsertCliente([FromBody] Cliente cliente)
+        {
+            var response = await _httpClient.PostAsJsonAsync("http://localhost:5172/api/Clientes/PostClientes", cliente);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Manejar la respuesta exitosa
+                return Ok();
+            }
+            else
+            {
+                // Manejar el error
+                return BadRequest();
+            }
+        }
 
         private class TiposVentaResponse
         {
             public TiposVentaItem[] result { get; set; }
         }
-
         private class TiposVentaItem
         {
             public int id { get; set; }
             public string descripcion { get; set; }
         }
-
         public class Talla
         {
             public int idSize { get; set; }
             public string descripcion { get; set; }
             public bool activo { get; set; }
         }
-
         public class Colores
         {
             public int id { get; set; }
@@ -328,13 +341,10 @@ namespace MVCManager.Controllers
             public string Provincia { get; set; }
             public string Distrito { get; set; }
         }
-
         public class ApiResponseUbigeo
         {
             public List<UbigeoModel> Result { get; set; }
         }
-
-
         public class VentaData
         {
             public DateTime fechaVenta { get; set; }
@@ -345,28 +355,24 @@ namespace MVCManager.Controllers
             public int? totalDefinido { get; set; }
             public List<DetalleVenta> detallesVenta { get; set; }
         }
-
         public class DetalleVenta
         {
             public int idProducto { get; set; }
             public int cantidad { get; set; }
             public decimal precioUnitario { get; set; }
         }
-
         public class Ubicacion
         {
             public string departamento { get; set; }
             public string provincia { get; set; }
             public string distrito { get; set; }
         }
-
         public class ProductoVentaFinal
         {
             public int idProducto { get; set; }
             public int cantidad { get; set; }
             public decimal precio { get; set; }
         }
-
         public class VentaFinal
         {
             public DateTime fechaVenta { get; set; }
@@ -379,14 +385,10 @@ namespace MVCManager.Controllers
             public decimal? totalDefinido { get; set; }
             public List<ProductoVentaFinal> detallesVenta { get; set; }
         }
-
         public class TipoDocumento
         {
             public int id { get; set; }
             public string descripcion { get; set; }
         }
-
     }
-
-
 }

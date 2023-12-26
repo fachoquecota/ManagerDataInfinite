@@ -8,8 +8,8 @@ namespace ProSalesManager._02_Busnisess.Customers.Interfaces
         List<ClienteModel> Clientes();
         List<ClienteModel> ClientesById(int idCliente);
         bool UpdateCliente(ClienteModel oProductoModel);
-        bool InsertCliente(ClienteModel oProductoModel);
-
+        int? InsertCliente(ClienteModel oProductoModel);
+        bool DeleteCliente(int idCliente);
         List<ComboBox> TipoDocumento();
     }
 }

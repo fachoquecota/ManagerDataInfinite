@@ -190,8 +190,6 @@
         modalMode = "edit";
     }
 
-
-
     function openAddModal() {
         // Limpia el ID del cliente y los demás campos
         document.getElementById("idClienteInput").value = "";
@@ -211,7 +209,6 @@
         document.getElementById("editModal").classList.remove("hidden");
         modalMode = "add";
     }
-
 
     function closeModal() {
         document.getElementById("editModal").classList.add("hidden");
@@ -272,30 +269,68 @@
         .catch(error => console.error('Error:', error));
     }
 
-
     function addNewCliente() {
-        // Aquí se recolectan los valores de los campos y se envían al servidor para agregar un nuevo cliente
-        // ... código para recolectar y enviar datos ...
+        // Crear un objeto cliente con los valores del formulario
+        var cliente = {
+            nombreContacto: $('#nombreContactoInput').val(),
+            apellidoContacto: $('#apellidoContactoInput').val(),
+            telefono: $('#telefonoInput').val(),
+            idTipoDocumento: parseInt($('#tipoDocumentoInput').val()), // Asegúrate de que este campo devuelva un entero
+            numeroDocumento: $('#numeroDocumentoInput').val(),
+            razonSocial: $('#razonSocialInput').val(),
+            nombreComercial: $('#nombreComercialInput').val(),
+            correo: $('#correoInput').val(),
+            direccion: $('#direccionInput').val(),
+        };
+
+        // Realizar la petición AJAX
+        $.ajax({
+            url: '/Cliente/InsertCliente', // Cambia esto por la URL real de tu controlador
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(cliente),
+            success: function (response) {
+               alert("Cliente insertado con éxito.");
+               location.reload(); 
+            },
+            error: function (error) {
+                // Manejar error (puedes mostrar un mensaje de error)
+                alert("Error al insertar el cliente.");
+            }
+        });
     }
 
+    let idToDelete;
+
     function openDeleteModal(idCliente) {
-        idToDelete = idCliente;
-        document.getElementById("deleteModal").classList.remove("hidden");
+        idToDelete = idCliente; // Guardar el ID del cliente en la variable global
+        // Código para abrir el modal (si es necesario)
+        $('#deleteModal').removeClass('hidden'); // Asumiendo que así se muestra el modal
     }
 
     function confirmDelete() {
-        fetch(`/Clientes/DeleteCliente?idCliente=${idToDelete}`, {
-            method: "DELETE"
-        })
-            .then(response => {
-                if (response.ok) {
-                    alert("Cliente eliminado exitosamente");
-                    location.reload();
-                } else {
-                    alert("Hubo un error al eliminar el cliente");
-                }
-            });
+        if (idToDelete) {
+            fetch(`/Cliente/DeleteCliente?idCliente=${idToDelete}`, {
+                method: "POST"
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Cliente eliminado exitosamente");
+                        location.reload();
+                    } else {
+                        alert("Hubo un error al eliminar el cliente");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Ocurrió un error al procesar la solicitud");
+                });
+        } else {
+            alert("No se ha seleccionado ningún cliente para eliminar");
+        }
     }
+
+
 
     function closeDeleteModal() {
         idToDelete = null;

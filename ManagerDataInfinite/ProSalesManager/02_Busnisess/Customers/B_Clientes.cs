@@ -27,13 +27,17 @@ namespace ProSalesManager._02_Busnisess.Customers
             bool result = _sP_Clientes.UpdateCliente(oProductoModel);
             return result;
         }
-        public bool InsertCliente(ClienteModel oProductoModel)
+        public int? InsertCliente(ClienteModel oProductoModel)
         {
-            bool result = _sP_Clientes.InsertCliente(oProductoModel);
+            int result = (int)_sP_Clientes.InsertCliente(oProductoModel);
             return result;
         }
+        public bool DeleteCliente(int idCliente)
 
-
+        {
+            bool result = _sP_Clientes.DeleteCliente(idCliente);
+            return result;
+        }
         public List<ComboBox> TipoDocumento()
         {
             var resultSP = _sP_Clientes.TipoDocumentoComboBox();

@@ -25,8 +25,6 @@ namespace MVCManager.Controllers
                 modelos = responseObject.result;
             }
 
-
-
             HttpResponseMessage tipoDocumentoResponse = await httpClient.GetAsync("http://localhost:5172/api/Clientes/GetTipoDocumento_ComboBox");
             if (tipoDocumentoResponse.IsSuccessStatusCode)
             {
@@ -64,12 +62,10 @@ namespace MVCManager.Controllers
             return cliente;
         }
 
-
         [HttpPut]
         public async Task<IActionResult> UpdateCliente([FromBody] Cliente cliente)
         {
             var httpClient = _httpClientFactory.CreateClient();
-            cliente.desTipoDocumento = "";
             var response = await httpClient.PutAsJsonAsync("http://localhost:5172/api/Clientes/PutClientes", cliente);
 
             if (response.IsSuccessStatusCode)
@@ -87,8 +83,27 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> InsertCliente([FromBody] Cliente cliente)
         {
             var httpClient = _httpClientFactory.CreateClient();
-            cliente.desTipoDocumento = "";
-            var response = await httpClient.PutAsJsonAsync("http://localhost:5172/api/Clientes/PutClientes", cliente);
+            var response = await httpClient.PostAsJsonAsync("http://localhost:5172/api/Clientes/PostClientes", cliente);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Leer el contenido de la respuesta (que asumimos que es el ID del cliente)
+                var newClienteId = await response.Content.ReadAsStringAsync();
+                return Ok(newClienteId);
+            }
+            else
+            {
+                // Manejar el error
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteCliente(int idCliente)
+        {
+            var httpClient = _httpClientFactory.CreateClient();
+            var response = await httpClient.DeleteAsync($"http://localhost:5172/api/Clientes/DeleteClientes?idCliente={idCliente}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -114,11 +129,7 @@ namespace MVCManager.Controllers
             public string nombreComercial { get; set; }
             public string correo { get; set; }
             public string direccion { get; set; }
-            public string desTipoDocumento { get; set; }
         }
-
-
-
         public class TipoDocumento
         {
             public int id { get; set; }
