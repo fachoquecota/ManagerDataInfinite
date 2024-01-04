@@ -5,6 +5,9 @@
         public int idVenta { get; set; }
         public int idCliente { get; set; }
         public string nombres { get; set; }
+        public string tipoDocumento { get; set; }
+        public string numeroDocumento { get; set; }
+        public string telefono { get; set; }
         public int idTipoPago { get; set; }
         public string tipoPago { get; set; }
         public int cantidad { get; set; }

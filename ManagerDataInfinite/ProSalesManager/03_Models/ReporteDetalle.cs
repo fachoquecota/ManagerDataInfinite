@@ -9,6 +9,7 @@
         public string imagenNombre { get; set; }
         public string producto { get; set; }
         public string calidad { get; set; }
+        public string categoria { get; set; }
         public string cantidad { get; set; }
         public string talla { get; set; }
         public string precioUnitario { get; set; }

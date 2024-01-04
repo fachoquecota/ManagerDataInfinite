@@ -9,117 +9,126 @@
         <div class="p-6">
             <h2 class="text-2xl font-bold mb-5">Reporte de Ventas</h2>
 
-        <div class="flex flex-wrap -mx-2 mb-4">
-            <!-- Combobox Cliente -->
-            <div class="px-2 w-full md:w-1/6 mb-4">
-                <label for="clienteCombobox" class="block text-sm font-medium text-gray-600">Cliente:</label>
-                <select id="clienteCombobox" name="cliente" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                    <option value="0">Cliente Genérico</option>
-                    @foreach(var cliente in ViewBag.Cliente) {
-                        <option value="@cliente.Value">@cliente.Text</option>
-                    }
-                </select>
+            <div class="flex flex-wrap -mx-2 mb-4">
+                <!-- Combobox Cliente -->
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <label for="clienteCombobox" class="block text-sm font-medium text-gray-600">Cliente:</label>
+                    <select id="clienteCombobox" name="cliente" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                        <option value="0">Cliente Genérico</option>
+                        @foreach (var cliente in ViewBag.Cliente)
+                        {
+                            <option value="@cliente.Value">@cliente.Text</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Combobox Empresa Transporte -->
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <label for="transporteCombobox" class="block text-sm font-medium text-gray-600">Empresa Transporte:</label>
+                    <select id="transporteCombobox" name="transporte" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                        <option value="0">No transporte</option>
+                        @foreach (var transporte in ViewBag.TransDocumentos)
+                        {
+                            <option value="@transporte.Value">@transporte.Text</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Fecha Inicio -->
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <label for="fechaInicio" class="block text-sm font-medium text-gray-600">Fecha Inicio:</label>
+                    <input type="date" id="fechaInicio" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                </div>
+
+                <!-- Fecha Fin -->
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <label for="fechaFin" class="block text-sm font-medium text-gray-600">Fecha Fin:</label>
+                    <input type="date" id="fechaFin" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-2 mb-4">
+                <!-- Departamento -->
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <label for="departamentoCombobox" class="block text-sm font-medium text-gray-600">Destino (Departamento):</label>
+                    <select id="departamentoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
+                        <option value="">Seleccione un Departamento</option>
+                        @foreach (var departamento in ViewBag.Departamentos)
+                        {
+                            <option value="@departamento">@departamento</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Provincia -->
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <label for="provinciaCombobox" class="block text-sm font-medium text-gray-600">Destino (Provincia):</label>
+                    <select id="provinciaCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full" disabled>
+                        <option value="">Seleccione una Provincia</option>
+                    </select>
+                </div>
+
+                <!-- Distrito -->
+                <div class="px-2 w-full md:w-1/6 mb-4">
+                    <label for="distritoCombobox" class="block text-sm font-medium text-gray-600">Destino (Distrito):</label>
+                    <select id="distritoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full" disabled>
+                        <option value="">Seleccione un Distrito</option>
+                    </select>
+                </div>
             </div>
 
-            <!-- Combobox Empresa Transporte -->
             <div class="px-2 w-full md:w-1/6 mb-4">
-                <label for="transporteCombobox" class="block text-sm font-medium text-gray-600">Empresa Transporte:</label>
-                <select id="transporteCombobox" name="transporte" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-                    <option value="0">No transporte</option>
-                    @foreach(var transporte in ViewBag.TransDocumentos) {
-                        <option value="@transporte.Value">@transporte.Text</option>
-                    }                    
-                </select>
+                <!-- Botón Filtrar -->
+                <button onclick="filtrarVentas()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6 md:mt-1">Filtrar</button>
             </div>
-
-            <!-- Fecha Inicio -->
             <div class="px-2 w-full md:w-1/6 mb-4">
-                <label for="fechaInicio" class="block text-sm font-medium text-gray-600">Fecha Inicio:</label>
-                <input type="date" id="fechaInicio" class="mt-1 p-2 rounded-md border shadow-sm w-full">
-            </div>
 
-            <!-- Fecha Fin -->
-            <div class="px-2 w-full md:w-1/6 mb-4">
-                <label for="fechaFin" class="block text-sm font-medium text-gray-600">Fecha Fin:</label>
-                <input type="date" id="fechaFin" class="mt-1 p-2 rounded-md border shadow-sm w-full">
+                <button onclick="descargarExcel()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Descargar Excel
+                </button>
             </div>
-        </div>
-        <div class="flex flex-wrap -mx-2 mb-4">
-            <!-- Departamento -->
-            <div class="px-2 w-full md:w-1/6 mb-4">
-                <label for="departamentoCombobox" class="block text-sm font-medium text-gray-600">Destino (Departamento):</label>
-                <select id="departamentoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full">
-                    <option value="">Seleccione un Departamento</option>
-                    @foreach (var departamento in ViewBag.Departamentos) {
-                        <option value="@departamento">@departamento</option>
-                    }
-                </select>
+            <!-- Tabla de Ventas -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white" id="ventasTable">
+                    <thead>
+                        <tr>
+                            @*              <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Venta</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Cliente</th>*@
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Nombre Cliente</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Tipo Documento</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Número Documento</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Telefono</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Tipo de Pago</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Empresa Transporte</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Destino</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Monto Total</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Fecha de Venta</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var venta in Model)
+                        {
+                            <tr>
+                                @*                  <td class="border-b border-gray-200 px-4 py-2">@venta.idVenta</td>
+                            <td class="border-b border-gray-200 px-4 py-2 idCliente">@venta.idCliente</td>*@
+                                <td class="border-b border-gray-200 px-4 py-2">@venta.nombres</td>
+                                <td class="border-b border-gray-200 px-4 py-2">@venta.tipoDocumento</td>
+                                <td class="border-b border-gray-200 px-4 py-2">@venta.numeroDocumento</td>
+                                <td class="border-b border-gray-200 px-4 py-2">@venta.telefono</td>
+                                <td class="border-b border-gray-200 px-4 py-2">@venta.tipoPago</td>
+                                <td class="border-b border-gray-200 px-4 py-2">@venta.empresaTransporte</td>
+                                <td class="border-b border-gray-200 px-4 py-2 destino">@venta.ubigeo</td> <!-- Asegúrate de actualizar esto con datos reales -->
+                                <td class="border-b border-gray-200 px-4 py-2">@venta.total</td>
+                                <td class="border-b border-gray-200 px-4 py-2 fechaVenta">@venta.fechaVenta</td>
+                                <td style="display: none;">@venta.idEmpresa</td> <!-- Si necesitas esta información, asegúrate de que se corresponda con el dato correcto -->
+                                <td class="border-b border-gray-200 px-4 py-2">
+                                    <button onclick="abrirDetalleVenta(@venta.idVenta)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Ver Detalle</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
-
-            <!-- Provincia -->
-            <div class="px-2 w-full md:w-1/6 mb-4">
-                <label for="provinciaCombobox" class="block text-sm font-medium text-gray-600">Destino (Provincia):</label>
-                <select id="provinciaCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full" disabled>
-                    <option value="">Seleccione una Provincia</option>
-                </select>
-            </div>
-
-            <!-- Distrito -->
-            <div class="px-2 w-full md:w-1/6 mb-4">
-                <label for="distritoCombobox" class="block text-sm font-medium text-gray-600">Destino (Distrito):</label>
-                <select id="distritoCombobox" class="mt-1 p-2 rounded-md border border-green-300 shadow-sm w-full" disabled>
-                    <option value="">Seleccione un Distrito</option>
-                </select>
-            </div>
-        </div>
-
-         <div class="px-2 w-full md:w-1/6 mb-4">
-             <!-- Botón Filtrar -->
-             <button onclick="filtrarVentas()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6 md:mt-1">Filtrar</button>
-         </div>
-         <div class="px-2 w-full md:w-1/6 mb-4">
-
-             <button onclick="descargarExcel()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-             Descargar Excel
-             </button>
-         </div>
-         <!-- Tabla de Ventas -->
-         <div class="overflow-x-auto">
-    <table class="min-w-full bg-white" id="ventasTable">
-        <thead>
-            <tr>
-                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Venta</th>
-                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">ID Cliente</th>
-                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Nombre Cliente</th>
-                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Tipo de Pago</th>
-                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Empresa Transporte</th>
-                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Destino</th>
-                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Total</th>
-                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Fecha de Venta</th>
-                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var venta in Model)
-            {
-                <tr>
-                    <td class="border-b border-gray-200 px-4 py-2">@venta.idVenta</td>
-                    <td class="border-b border-gray-200 px-4 py-2 idCliente">@venta.idCliente</td>
-                    <td class="border-b border-gray-200 px-4 py-2">@venta.nombres</td>
-                    <td class="border-b border-gray-200 px-4 py-2">@venta.tipoPago</td>
-                    <td class="border-b border-gray-200 px-4 py-2">@venta.empresaTransporte</td>
-                    <td class="border-b border-gray-200 px-4 py-2 destino">@venta.ubigeo</td> <!-- Asegúrate de actualizar esto con datos reales -->
-                    <td class="border-b border-gray-200 px-4 py-2">@venta.total</td>
-                    <td class="border-b border-gray-200 px-4 py-2 fechaVenta">@venta.fechaVenta</td>
-                    <td style="display: none;">@venta.idEmpresa</td> <!-- Si necesitas esta información, asegúrate de que se corresponda con el dato correcto -->
-                    <td class="border-b border-gray-200 px-4 py-2">
-                        <button onclick="abrirDetalleVenta(@venta.idVenta)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Ver Detalle</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
 
         </div>
     </div>
@@ -157,42 +166,24 @@
                                             <th class="border-b-2 border-gray-200 bg-gray-100 px-5 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Total</th>
                                         </tr>
                                     </thead>
-                                   <tbody id="detalleVentaProductos">
-                                        <!-- Fila de ejemplo 1 -->
-                                        <tr>
-                                            <td class="border-b border-gray-200 px-5 py-3">
-                                                <img src="http://localhost:7292/images/ProductoPrincipal/41//PO-A455.jpg" alt="Producto 1" class="h-10 w-10 rounded-full">
-                                            </td>
-                                            <td class="border-b border-gray-200 px-5 py-3">POLOS</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">JERSEY 30/1</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">1</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">XL</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">1.00</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">1.00</td>
-                                        </tr>
-                                        <!-- Fila de ejemplo 2 -->
-                                        <tr>
-                                            <td class="border-b border-gray-200 px-5 py-3">
-                                                <img src="http://localhost:7292/images/ProductoPrincipal/43//PO-A454.jpg" alt="Producto 2" class="h-10 w-10 rounded-full">
-                                            </td>
-                                            <td class="border-b border-gray-200 px-5 py-3">POLOS</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">JERSEY 30/1</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">4</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">M</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">30.00</td>
-                                            <td class="border-b border-gray-200 px-5 py-3">120.00</td>
-                                        </tr>
+                                    <tbody id="detalleVentaProductos">
                                     </tbody>
 
                                 </table>
                             </div>
                             <!-- Resumen de calidad y cantidad -->
-                           <!-- Primera tabla para Calidad y Cantidad Total con Tailwind CSS -->
+                            <!-- Primera tabla para Calidad y Cantidad Total con Tailwind CSS -->
                             <div class="mt-4">
                                 <table class="min-w-full border-collapse">
-                                    <tbody id="detallesCalidadCantidad ">
-
-                                        
+                                    <thead>
+                                        <tr>
+                                            <th class="border-b border-gray-200 bg-gray-100 px-5 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Categoría</th>
+                                            <th class="border-b border-gray-200 bg-gray-100 px-5 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Calidad</th>
+                                            <th class="border-b border-gray-200 bg-gray-100 px-5 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detallesCalidadCantidad">
+                                        <!-- Los detalles se llenarán aquí -->
                                     </tbody>
                                 </table>
                             </div>
@@ -201,12 +192,10 @@
                             <div class="mt-4">
                                 <table class="min-w-full border-collapse">
                                     <tbody id="resumenVentaTotal">
-
+                                        <!-- Los resúmenes se llenarán aquí -->
                                     </tbody>
                                 </table>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -272,76 +261,93 @@
 
 
     function abrirDetalleVenta(idVenta) {
-    document.getElementById("ventaId").textContent = idVenta;
+        document.getElementById("ventaId").textContent = idVenta;
 
-    // Realizar solicitud AJAX al controlador
-    fetch(`/ReporteVentas/GetDetalleVenta?idVenta=${idVenta}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        var tbodyDetalleProductos = document.getElementById("detalleVentaProductos");
-        var tbodyResumenVenta = document.getElementById("resumenVentaTotal");
-        tbodyDetalleProductos.innerHTML = ''; 
-        tbodyResumenVenta.innerHTML = ''; 
+        fetch(`/ReporteVentas/GetDetalleVenta?idVenta=${idVenta}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                var tbodyDetalleProductos = document.getElementById("detalleVentaProductos");
+                var tbodyDetallesCalidadCantidad = document.getElementById("detallesCalidadCantidad");
+                var tbodyResumenVenta = document.getElementById("resumenVentaTotal");
 
-        let cantidadTotal = 0;
-        let ventaTotal = 0;
-        let calidades = new Set();
+                console.log("tbodyDetalleProductos", tbodyDetalleProductos);
+                console.log("tbodyDetallesCalidadCantidad", tbodyDetallesCalidadCantidad);
+                console.log("tbodyResumenVenta", tbodyResumenVenta);
+                // Asegurarse de que los elementos existen
+                if (!tbodyDetalleProductos || !tbodyDetallesCalidadCantidad || !tbodyResumenVenta) {
+                    console.error("Algunos elementos del DOM no se encontraron");
+                    return;
+                }
 
-        data.forEach(producto => {
-            var row = `<tr>
-                <td class="border-b border-gray-200 px-5 py-3">
-                    <img src="${producto.imagenCarpeta}/${producto.imagenNombre}" alt="Producto" class="h-10 w-10 rounded-full">
-                </td>
-                <td class="border-b border-gray-200 px-5 py-3">${producto.producto}</td>
-                <td class="border-b border-gray-200 px-5 py-3">${producto.calidad}</td>
-                <td class="border-b border-gray-200 px-5 py-3">${producto.cantidad}</td>
-                <td class="border-b border-gray-200 px-5 py-3">${producto.talla}</td>
-                <td class="border-b border-gray-200 px-5 py-3">${producto.precioUnitario}</td>
-                <td class="border-b border-gray-200 px-5 py-3">${producto.subtotal}</td>
-            </tr>`;
-            tbodyDetalleProductos.innerHTML += row;
+                tbodyDetalleProductos.innerHTML = '';
+                tbodyDetallesCalidadCantidad.innerHTML = '';
+                tbodyResumenVenta.innerHTML = '';
 
-            cantidadTotal += parseInt(producto.cantidad);
-            ventaTotal += parseFloat(producto.subtotal);
-            calidades.add(producto.calidad);
-        });
+                let cantidadTotal = 0;
+                let ventaTotal = 0;
+                let agrupacionCalidadCantidad = {};
 
-        // Añadir fila para calidades en la tabla de resumen
-        calidades.forEach(calidad => {
-            var rowCalidad = `<tr>
-                <td class="border px-4 py-2"><strong>Calidad:</strong></td>
-                <td class="border px-4 py-2">${calidad}</td>
-            </tr>`;
-            tbodyResumenVenta.innerHTML += rowCalidad;
-        });
+                data.forEach(producto => {
+                    // Llenar tbodyDetalleProductos
+                    var row = `<tr>
+                            <td class="border-b border-gray-200 px-5 py-3">
+                                <img src="${producto.imagenCarpeta}/${producto.imagenNombre}" alt="Producto" class="h-10 w-10 rounded-full">
+                            </td>
+                            <td class="border-b border-gray-200 px-5 py-3">${producto.producto}</td>
+                            <td class="border-b border-gray-200 px-5 py-3">${producto.calidad}</td>
+                            <td class="border-b border-gray-200 px-5 py-3">${producto.cantidad}</td>
+                            <td class="border-b border-gray-200 px-5 py-3">${producto.talla}</td>
+                            <td class="border-b border-gray-200 px-5 py-3">${producto.precioUnitario}</td>
+                            <td class="border-b border-gray-200 px-5 py-3">${producto.subtotal}</td>
+                        </tr>`;
+                    tbodyDetalleProductos.innerHTML += row;
 
-        // Agregar fila de cantidad total y venta total en la tabla de resumen
-        tbodyResumenVenta.innerHTML += `<tr>
-            <td class="border px-4 py-2"><strong>Cantidad Total:</strong></td>
-            <td class="border px-4 py-2">${cantidadTotal}</td>
-        </tr>`;
-        tbodyResumenVenta.innerHTML += `<tr>
-            <td class="border px-4 py-2"><strong>Venta Total:</strong></td>
-            <td class="border px-4 py-2">${ventaTotal.toFixed(2)}</td>
-        </tr>`;
+                    cantidadTotal += parseInt(producto.cantidad);
+                    ventaTotal += parseFloat(producto.subtotal);
 
-        // Mostrar el modal
-        document.getElementById("detalleVentaModal").classList.remove("hidden");
-    })
-    .catch(error => {
-        console.error('There has been a problem with your fetch operation:', error);
-    });
-}
+                    // Agrupar por categoría y calidad
+                    let clave = producto.categoria + '-' + producto.calidad;
+                    if (!agrupacionCalidadCantidad[clave]) {
+                        agrupacionCalidadCantidad[clave] = { categoria: producto.categoria, calidad: producto.calidad, cantidad: 0 };
+                    }
+                    agrupacionCalidadCantidad[clave].cantidad += parseInt(producto.cantidad);
+                });
+
+                // Llenar tbodyDetallesCalidadCantidad
+                for (let clave in agrupacionCalidadCantidad) {
+                    let item = agrupacionCalidadCantidad[clave];
+                    var rowCalidadCantidad = `<tr>
+                            <td class="border px-4 py-2">${item.categoria}</td>
+                            <td class="border px-4 py-2">${item.calidad}</td>
+                            <td class="border px-4 py-2">${item.cantidad}</td>
+                        </tr>`;
+                    tbodyDetallesCalidadCantidad.innerHTML += rowCalidadCantidad;
+                }
+
+                // Llenar tbodyResumenVenta
+                tbodyResumenVenta.innerHTML += `<tr>
+                        <td class="border px-4 py-2"><strong>Venta Total:</strong></td>
+                        <td class="border px-4 py-2">${ventaTotal.toFixed(2)}</td>
+                    </tr>`;
+                tbodyResumenVenta.innerHTML += `<tr>
+                        <td class="border px-4 py-2"><strong>Cantidad Total:</strong></td>
+                        <td class="border px-4 py-2">${cantidadTotal}</td>
+                    </tr>`;
+
+                // Mostrar el modal
+                document.getElementById("detalleVentaModal").classList.remove("hidden");
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+    }
+
+
 
 
 
@@ -375,12 +381,12 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(datosFiltro)
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Filtro aplicado correctamente.", data);
-            actualizarTablaVentas(data);
-        })
-        .catch(error => console.error('Error:', error));
+            .then(response => response.json())
+            .then(data => {
+                console.log("Filtro aplicado correctamente.", data);
+                actualizarTablaVentas(data);
+            })
+            .catch(error => console.error('Error:', error));
     }
     function actualizarTablaVentas(datos) {
         var tabla = document.getElementById("ventasTable").getElementsByTagName("tbody")[0];
@@ -413,20 +419,20 @@
 <script>
     var ubigeoData = @Html.Raw(Json.Serialize(ViewBag.Ubigeo));
 
-document.getElementById('departamentoCombobox').addEventListener('change', function() {
-    var departamentoSeleccionado = this.value;
-    actualizarProvincias(departamentoSeleccionado);
-    // Limpiar y deshabilitar el combobox de distritos
-    var distritoSelect = document.getElementById('distritoCombobox');
-    distritoSelect.innerHTML = '<option value="">Seleccione un Distrito</option>';
-    distritoSelect.disabled = true;
-});
+    document.getElementById('departamentoCombobox').addEventListener('change', function() {
+        var departamentoSeleccionado = this.value;
+        actualizarProvincias(departamentoSeleccionado);
+        // Limpiar y deshabilitar el combobox de distritos
+        var distritoSelect = document.getElementById('distritoCombobox');
+        distritoSelect.innerHTML = '<option value="">Seleccione un Distrito</option>';
+        distritoSelect.disabled = true;
+    });
 
-document.getElementById('provinciaCombobox').addEventListener('change', function() {
-    var provinciaSeleccionada = this.value;
-    var departamentoSeleccionado = document.getElementById('departamentoCombobox').value;
-    actualizarDistritos(departamentoSeleccionado, provinciaSeleccionada);
-});
+    document.getElementById('provinciaCombobox').addEventListener('change', function() {
+        var provinciaSeleccionada = this.value;
+        var departamentoSeleccionado = document.getElementById('departamentoCombobox').value;
+        actualizarDistritos(departamentoSeleccionado, provinciaSeleccionada);
+    });
 
     function actualizarProvincias(departamento) {
         var provincias = ubigeoData.filter(function(ubigeo) {

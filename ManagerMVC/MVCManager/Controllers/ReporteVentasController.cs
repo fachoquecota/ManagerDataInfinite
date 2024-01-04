@@ -151,21 +151,18 @@ namespace MVCManager.Controllers
                 worksheet.Cell(currentRow, 1).Value = "ID Venta";
                 worksheet.Cell(currentRow, 2).Value = "ID Cliente";
                 worksheet.Cell(currentRow, 3).Value = "Nombres";
-                worksheet.Cell(currentRow, 4).Value = "ID Tipo Pago";
-                worksheet.Cell(currentRow, 5).Value = "Tipo Pago";
-                worksheet.Cell(currentRow, 6).Value = "Cantidad";
-                worksheet.Cell(currentRow, 7).Value = "Color";
-                worksheet.Cell(currentRow, 8).Value = "Modelo";
-                worksheet.Cell(currentRow, 9).Value = "Calidad";
-                worksheet.Cell(currentRow, 10).Value = "Marca";
-                worksheet.Cell(currentRow, 11).Value = "Categoría";
-                worksheet.Cell(currentRow, 12).Value = "Empresa de Transporte";
-                worksheet.Cell(currentRow, 13).Value = "ID Empresa";
-                worksheet.Cell(currentRow, 14).Value = "Total";
-                worksheet.Cell(currentRow, 15).Value = "Fecha de Venta";
-                worksheet.Cell(currentRow, 16).Value = "ID Ubigeo";
-                worksheet.Cell(currentRow, 17).Value = "Ubigeo";
-                worksheet.Cell(currentRow, 18).Value = "Dirección";
+                worksheet.Cell(currentRow, 4).Value = "Tipo Documento";
+                worksheet.Cell(currentRow, 5).Value = "Número Documento";
+                worksheet.Cell(currentRow, 6).Value = "Telefono";
+                worksheet.Cell(currentRow, 7).Value = "ID Tipo Pago";
+                worksheet.Cell(currentRow, 8).Value = "Tipo Pago";
+                worksheet.Cell(currentRow, 9).Value = "Cantidad";              
+                worksheet.Cell(currentRow, 10).Value = "Empresa de Transporte";
+                worksheet.Cell(currentRow, 11).Value = "Monto Total";
+                worksheet.Cell(currentRow, 12).Value = "Fecha de Venta";
+                worksheet.Cell(currentRow, 13).Value = "ID Ubigeo";
+                worksheet.Cell(currentRow, 14).Value = "Ubigeo";
+                worksheet.Cell(currentRow, 15).Value = "Dirección";
 
                 // Datos
                 foreach (var modelo in modelos)
@@ -174,21 +171,18 @@ namespace MVCManager.Controllers
                     worksheet.Cell(currentRow, 1).Value = modelo.idVenta;
                     worksheet.Cell(currentRow, 2).Value = modelo.idCliente;
                     worksheet.Cell(currentRow, 3).Value = modelo.nombres;
-                    worksheet.Cell(currentRow, 4).Value = modelo.idTipoPago;
-                    worksheet.Cell(currentRow, 5).Value = modelo.tipoPago;
-                    worksheet.Cell(currentRow, 6).Value = modelo.cantidad;
-                    worksheet.Cell(currentRow, 7).Value = modelo.colorDescription;
-                    worksheet.Cell(currentRow, 8).Value = modelo.modeloDescripcion;
-                    worksheet.Cell(currentRow, 9).Value = modelo.calidadDescripcion;
-                    worksheet.Cell(currentRow, 10).Value = modelo.marcaDescripcion;
-                    worksheet.Cell(currentRow, 11).Value = modelo.categoriaDescripcion;
-                    worksheet.Cell(currentRow, 12).Value = modelo.empresaTransporte;
-                    worksheet.Cell(currentRow, 13).Value = modelo.idEmpresa;
-                    worksheet.Cell(currentRow, 14).Value = modelo.total;
-                    worksheet.Cell(currentRow, 15).Value = modelo.fechaVenta;
-                    worksheet.Cell(currentRow, 16).Value = modelo.idUbigeo;
-                    worksheet.Cell(currentRow, 17).Value = modelo.ubigeo;
-                    worksheet.Cell(currentRow, 18).Value = modelo.direccion;
+                    worksheet.Cell(currentRow, 4).Value = modelo.tipoDocumento;
+                    worksheet.Cell(currentRow, 5).Value = modelo.numeroDocumento;
+                    worksheet.Cell(currentRow, 6).Value = modelo.telefono;
+                    worksheet.Cell(currentRow, 7).Value = modelo.idTipoPago;
+                    worksheet.Cell(currentRow, 8).Value = modelo.tipoPago;
+                    worksheet.Cell(currentRow, 9).Value = modelo.cantidad;                  
+                    worksheet.Cell(currentRow, 10).Value = modelo.empresaTransporte;
+                    worksheet.Cell(currentRow, 11).Value = modelo.total;
+                    worksheet.Cell(currentRow, 12).Value = modelo.fechaVenta;
+                    worksheet.Cell(currentRow, 13).Value = modelo.idUbigeo;
+                    worksheet.Cell(currentRow, 14).Value = modelo.ubigeo;
+                    worksheet.Cell(currentRow, 15).Value = modelo.direccion;
 
                 }
 
@@ -252,6 +246,7 @@ namespace MVCManager.Controllers
         public string imagenCarpeta { get; set; }
         public string imagenNombre { get; set; }
         public string producto { get; set; }
+        public string categoria { get; set; }
         public string calidad { get; set; }
         public string cantidad { get; set; }
         public string talla { get; set; }
