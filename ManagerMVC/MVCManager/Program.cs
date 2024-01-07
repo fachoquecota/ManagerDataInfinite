@@ -1,17 +1,25 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Añadir servicios al contenedor.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();  // Añadir HttpClient
 
+// Añadir y configurar el servicio de sesiones
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Establece el tiempo de expiración de la sesión
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurar el pipeline de solicitudes HTTP.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -22,6 +30,8 @@ if (!app.Environment.IsDevelopment())
 //app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession(); // Habilitar el uso de sesiones
+
 app.UseRouting();
 
 app.UseAuthorization();
@@ -31,6 +41,7 @@ app.MapControllerRoute(
     pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();
+
 
 //using Microsoft.AspNetCore.Builder;
 //using Microsoft.AspNetCore.Hosting;

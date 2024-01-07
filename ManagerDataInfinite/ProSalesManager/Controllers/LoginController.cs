@@ -20,32 +20,38 @@ namespace ProSalesManager.Controllers
         }
         [HttpPost]
         [Route("GetTokenLogin")]
-        public dynamic GetToken([FromBody] LoginModel loginModel)
+        public IActionResult GetToken([FromBody] LoginModel loginModel)
         {
+            if (loginModel == null)
+            {
+                return BadRequest(new { message = "El modelo de inicio de sesión es nulo" });
+            }
+
             var result = _login.LoginValitation(loginModel);
-            string response = "";
             if (result is null)
-                return BadRequest(new { message = result });
+            {
+                // Manejar el caso en que result es null
+                return BadRequest(new { message = "Error en la validación del inicio de sesión" });
+            }
+
             if (result.result == 1)
             {
-                if (loginModel == null)
+                var response = _tokenService.GenerateToken(loginModel);
+                return Ok(new
                 {
-                    return BadRequest(new { message = "El modelo de inicio de sesión es nulo" });
-                }
-                response = _tokenService.GenerateToken(loginModel);
-                return new
-                {
-                    result = result.value,
+                    result = "OK",
                     accessToken = response
-                };
+                });
             }
             else
             {
-                return new
+                // En caso de que result no sea 1
+                return BadRequest(new
                 {
-                    Result = result.value
-                };
+                    result = "NOOK"
+                });
             }
         }
+
     }
 }
