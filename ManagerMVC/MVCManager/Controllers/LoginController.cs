@@ -24,7 +24,11 @@ namespace MVCManager.Controllers
 
             return View();
         }
-
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear(); 
+            return RedirectToAction("Index", "Login");
+        }
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {

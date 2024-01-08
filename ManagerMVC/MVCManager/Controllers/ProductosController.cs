@@ -29,6 +29,14 @@ namespace MVCManager.Controllers
         //Obtener productos
         public async Task<IActionResult> Index(int pagina = 1)
         {
+            // Verificar si el usuario está autenticado (verificar la existencia del token)
+            var accessToken = HttpContext.Session.GetString("AccessToken");
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                // Si no hay token, redirigir al usuario a la página de inicio de sesión
+                return RedirectToAction("Index", "Login");
+            }
+
             HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudProductos");
             if (response.IsSuccessStatusCode)
             {

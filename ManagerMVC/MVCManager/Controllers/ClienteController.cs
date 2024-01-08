@@ -16,6 +16,14 @@ namespace MVCManager.Controllers
         
         public async Task<ActionResult> Index()
         {
+            // Verificar si el usuario está autenticado (verificar la existencia del token)
+            var accessToken = HttpContext.Session.GetString("AccessToken");
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                // Si no hay token, redirigir al usuario a la página de inicio de sesión
+                return RedirectToAction("Index", "Login");
+            }
+
             List<ClienteModel> modelos = new List<ClienteModel>();
             var httpClient = _httpClientFactory.CreateClient();
             using (var response = await httpClient.GetAsync("http://localhost:5172/api/Clientes/GetClientes"))

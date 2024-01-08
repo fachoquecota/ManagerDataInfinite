@@ -104,7 +104,9 @@
                     <h2 class="text-lg font-bold mb-4">Opciones de usuario</h2>
                     <ul>
                         <li class="mb-2"><a href="/Configuracion" class="text-blue-500 hover:text-blue-600">Ver perfil</a></li>
-                        <li><a href="/Login" class="text-blue-500 hover:text-blue-600">Cerrar sesión</a></li>
+                        <li>
+                            <a asp-controller="Login" asp-action="Logout" class="text-blue-500 hover:text-blue-600">Cerrar sesión</a>
+                        </li>
                     </ul>
                 </div>
             </div>
