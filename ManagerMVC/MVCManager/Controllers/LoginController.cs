@@ -8,10 +8,12 @@ namespace MVCManager.Controllers
     public class LoginController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public LoginController(IHttpClientFactory httpClientFactory)
+        public LoginController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
@@ -32,6 +34,7 @@ namespace MVCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
+            var baseUrl = _configuration["OriginPathApi"];
             var httpClient = _httpClientFactory.CreateClient();
             var loginModel = new
             {
@@ -39,7 +42,7 @@ namespace MVCManager.Controllers
                 password = password
             };
             var content = new StringContent(JsonConvert.SerializeObject(loginModel), Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("http://localhost:5172/api/Login/GetTokenLogin", content);
+            var response = await httpClient.PostAsync(baseUrl+"api/Login/GetTokenLogin", content);
 
             if (response.IsSuccessStatusCode)
             {

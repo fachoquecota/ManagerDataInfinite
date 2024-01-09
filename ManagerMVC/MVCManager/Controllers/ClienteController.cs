@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Configuration;
 using MVCManager.Models;
 using Newtonsoft.Json;
 
@@ -8,12 +9,14 @@ namespace MVCManager.Controllers
     public class ClienteController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public ClienteController(IHttpClientFactory httpClientFactory)
+        public ClienteController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
-        
+
         public async Task<ActionResult> Index()
         {
             // Verificar si el usuario está autenticado (verificar la existencia del token)
@@ -26,14 +29,20 @@ namespace MVCManager.Controllers
 
             List<ClienteModel> modelos = new List<ClienteModel>();
             var httpClient = _httpClientFactory.CreateClient();
-            using (var response = await httpClient.GetAsync("http://localhost:5172/api/Clientes/GetClientes"))
+
+            var baseUrl = _configuration["OriginPathApi"];
+
+
+            //using (var response = await httpClient.GetAsync("http://localhost:5172/api/Clientes/GetClientes"))
+            using (var response = await httpClient.GetAsync(baseUrl + "api/Clientes/GetClientes"))
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var responseObject = JsonConvert.DeserializeObject<ApiResponseCliente>(apiResponse);
                 modelos = responseObject.result;
             }
 
-            HttpResponseMessage tipoDocumentoResponse = await httpClient.GetAsync("http://localhost:5172/api/Clientes/GetTipoDocumento_ComboBox");
+            //HttpResponseMessage tipoDocumentoResponse = await httpClient.GetAsync("http://localhost:5172/api/Clientes/GetTipoDocumento_ComboBox");
+            HttpResponseMessage tipoDocumentoResponse = await httpClient.GetAsync(baseUrl + "api/Clientes/GetTipoDocumento_ComboBox");
             if (tipoDocumentoResponse.IsSuccessStatusCode)
             {
                 var tipoDocumentoContent = await tipoDocumentoResponse.Content.ReadAsStringAsync();
@@ -51,9 +60,11 @@ namespace MVCManager.Controllers
         public async Task<ClienteModel> GetClienteByID(int id)
         {
             ClienteModel cliente = new ClienteModel();
+            var baseUrl = _configuration["OriginPathApi"];
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"http://localhost:5172/api/Clientes/GetClientesByid?idCliente={id}"))
+                //using (var response = await httpClient.GetAsync($"http://localhost:5172/api/Clientes/GetClientesByid?idCliente={id}"))
+                using (var response = await httpClient.GetAsync(baseUrl + $"api/Clientes/GetClientesByid?idCliente={id}"))
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -73,8 +84,10 @@ namespace MVCManager.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateCliente([FromBody] Cliente cliente)
         {
+            var baseUrl = _configuration["OriginPathApi"];
             var httpClient = _httpClientFactory.CreateClient();
-            var response = await httpClient.PutAsJsonAsync("http://localhost:5172/api/Clientes/PutClientes", cliente);
+            //var response = await httpClient.PutAsJsonAsync("http://localhost:5172/api/Clientes/PutClientes", cliente);
+            var response = await httpClient.PutAsJsonAsync(baseUrl + "api/Clientes/PutClientes", cliente);
 
             if (response.IsSuccessStatusCode)
             {
@@ -90,8 +103,11 @@ namespace MVCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> InsertCliente([FromBody] Cliente cliente)
         {
+            var baseUrl = _configuration["OriginPathApi"];
+
             var httpClient = _httpClientFactory.CreateClient();
-            var response = await httpClient.PostAsJsonAsync("http://localhost:5172/api/Clientes/PostClientes", cliente);
+            //var response = await httpClient.PostAsJsonAsync("http://localhost:5172/api/Clientes/PostClientes", cliente);
+            var response = await httpClient.PostAsJsonAsync(baseUrl + "api/Clientes/PostClientes", cliente);
 
             if (response.IsSuccessStatusCode)
             {
@@ -105,13 +121,13 @@ namespace MVCManager.Controllers
                 return BadRequest();
             }
         }
-
-
         [HttpPost]
         public async Task<IActionResult> DeleteCliente(int idCliente)
         {
+            var baseUrl = _configuration["OriginPathApi"];
             var httpClient = _httpClientFactory.CreateClient();
-            var response = await httpClient.DeleteAsync($"http://localhost:5172/api/Clientes/DeleteClientes?idCliente={idCliente}");
+            //var response = await httpClient.DeleteAsync($"http://localhost:5172/api/Clientes/DeleteClientes?idCliente={idCliente}");
+            var response = await httpClient.DeleteAsync(baseUrl + $"api/Clientes/DeleteClientes?idCliente={idCliente}");
 
             if (response.IsSuccessStatusCode)
             {

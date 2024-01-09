@@ -12,10 +12,12 @@ namespace MVCManager.Controllers
     public class CalidadController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public CalidadController(IHttpClientFactory httpClientFactory)
+        public CalidadController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
 
         public async Task<ActionResult> Index()
@@ -30,7 +32,7 @@ namespace MVCManager.Controllers
 
             List<CalidadModel> modelos = new List<CalidadModel>();
             var httpClient = _httpClientFactory.CreateClient();
-            using (var response = await httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Calidad/GetAllCalidad"))
+            using (var response = await httpClient.GetAsync(_configuration["OriginPathApi"] + "api/Calidad/GetAllCalidad"))
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var responseObject = JsonConvert.DeserializeObject<ApiResponseCalidad>(apiResponse);
@@ -44,7 +46,11 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> InsertCalidad([FromQuery] string descripcion)
         {
             var httpClient = _httpClientFactory.CreateClient();
-            var response = await httpClient.PostAsync($"http://apiprosalesmanager.somee.com/api/Calidad/PostCalidad?descripcion={Uri.EscapeDataString(descripcion)}", null);
+            var baseUrl = _configuration["OriginPathApi"];
+            var resourceUrl = $"api/Calidad/PostCalidad?descripcion={Uri.EscapeDataString(descripcion)}";
+            var fullUrl = baseUrl + resourceUrl;
+
+            var response = await httpClient.PostAsync(fullUrl, null);
 
             if (response.IsSuccessStatusCode)
             {
@@ -61,8 +67,11 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> UpdateCalidad([FromQuery] int idCalidad, [FromQuery] string descripcion)
         {
             var httpClient = _httpClientFactory.CreateClient();
+            var baseUrl = _configuration["OriginPathApi"];
+            var resourceUrl = $"api/Calidad/PutCalidad?idCalidad={idCalidad}&descripcion={Uri.EscapeDataString(descripcion)}";
+            var url = baseUrl + resourceUrl;
+            //var url = $"http://localhost:5172/api/Calidad/PutCalidad?idCalidad={idCalidad}&descripcion={Uri.EscapeDataString(descripcion)}";
 
-            var url = $"http://localhost:5172/api/Calidad/PutCalidad?idCalidad={idCalidad}&descripcion={Uri.EscapeDataString(descripcion)}";
             var response = await httpClient.PutAsync(url, null);
 
             if (response.IsSuccessStatusCode)
@@ -81,7 +90,11 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> DeleteCalidad(int idCalidad)
         {
             var httpClient = _httpClientFactory.CreateClient();
-            var url = $"http://apiprosalesmanager.somee.com/api/Calidad/DeleteCalidad?idCalidad={idCalidad}";
+            var baseUrl = _configuration["OriginPathApi"];
+            var deleteUrl = $"api/Calidad/DeleteCalidad?idCalidad={idCalidad}";
+            var url = baseUrl + deleteUrl;
+
+            //var url = $"http://apiprosalesmanager.somee.com/api/Calidad/DeleteCalidad?idCalidad={idCalidad}";
             var response = await httpClient.DeleteAsync(url);
             if (response.IsSuccessStatusCode)
             {
@@ -97,7 +110,12 @@ namespace MVCManager.Controllers
             ModeloProducto modelo = new ModeloProducto();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GETModeloProductosByIDCrud?idProducto={id}"))
+                var baseUrl = _configuration["OriginPathApi"];
+                var getUrl = $"api/Productos/GETModeloProductosByIDCrud?idProducto={id}";
+                var fullGetUrl = baseUrl + getUrl;
+
+                //using (var response = await httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GETModeloProductosByIDCrud?idProducto={id}"))
+                using (var response = await httpClient.GetAsync(fullGetUrl))
                 {
                     if (response.IsSuccessStatusCode)
                     {

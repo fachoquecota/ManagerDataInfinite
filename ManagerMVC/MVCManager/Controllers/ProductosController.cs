@@ -19,11 +19,13 @@ namespace MVCManager.Controllers
     {
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly HttpClient _httpClient;
+        private readonly IConfiguration _configuration;
 
-        public ProductosController(HttpClient httpClient, IWebHostEnvironment hostingEnvironment)
+        public ProductosController(HttpClient httpClient, IWebHostEnvironment hostingEnvironment, IConfiguration configuration)
         {
-            _httpClient = httpClient;
+            _httpClient = httpClient; 
             _hostingEnvironment = hostingEnvironment;
+            _configuration = configuration;
         }
 
         //Obtener productos
@@ -36,8 +38,12 @@ namespace MVCManager.Controllers
                 // Si no hay token, redirigir al usuario a la página de inicio de sesión
                 return RedirectToAction("Index", "Login");
             }
+            var baseUrl = _configuration["OriginPathApi"];
+            //var httpClient = _httpClient.CreateClient();
 
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudProductos");
+            //HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudProductos");
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl + "api/Productos/GetCrudProductos");
+
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -58,7 +64,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProveedores()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudProveedorCrudCB");
+            var baseUrl = _configuration["OriginPathApi"];
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl + "api/Productos/GetCrudProveedorCrudCB");
+
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -67,10 +75,13 @@ namespace MVCManager.Controllers
             return NotFound();
         }
 
+
         [HttpGet]
         public async Task<IActionResult> GetGeneros()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudGeneroCrudCB");
+            var baseUrl = _configuration["OriginPathApi"];
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl + "api/Productos/GetCrudGeneroCrudCB");
+
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -82,7 +93,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCategorias()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudCategoriaCrudCB");
+            var baseUrl = _configuration["OriginPathApi"];
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl + "api/Productos/GetCrudCategoriaCrudCB");
+
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -94,7 +107,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetMarcas()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Marca/GetAllMarcaCombobox");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl+"api/Marca/GetAllMarcaCombobox");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -106,7 +121,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCalidades()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Calidad/GetAllCalidadCombobox");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl+"api/Calidad/GetAllCalidadCombobox");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -119,7 +136,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetModelos()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudModeloCrudCB");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl+"api/Productos/GetCrudModeloCrudCB");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -131,7 +150,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetModelosDetalle()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetModeloDetalle");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl+"api/Productos/GetModeloDetalle");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -143,7 +164,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProductoById(int idProducto)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GetCrudProductoById?idProducto={idProducto}");
+            var baseUrl = _configuration["OriginPathApi"];
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl + $"api/Productos/GetCrudProductoById?idProducto={idProducto}");
+
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -153,7 +176,9 @@ namespace MVCManager.Controllers
         }
         private async Task<ProductoModel> FetchProductoById(int idProducto)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GetCrudProductoById?idProducto={idProducto}");
+            var baseUrl = _configuration["OriginPathApi"];
+            HttpResponseMessage response = await _httpClient.GetAsync(baseUrl + $"api/Productos/GetCrudProductoById?idProducto={idProducto}");
+
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -295,6 +320,7 @@ namespace MVCManager.Controllers
             var colorsToUpdate = colorUpdateInfo.colorsToUpdate;
             var colorsToAdd = colorUpdateInfo.colorsToAdd;
             var colorsToDelete = colorUpdateInfo.colorsToDelete;
+            var baseUrl = _configuration["OriginPathApi"];
 
             //COLOR DETALLE
             using (var httpClient = new HttpClient())
@@ -311,7 +337,7 @@ namespace MVCManager.Controllers
                         activo = color.isActive
                     }), Encoding.UTF8, "application/json");
 
-                    var response = await httpClient.PutAsync("http://apiprosalesmanager.somee.com/api/Productos/PutCrudColorDetalle", content);
+                    var response = await httpClient.PutAsync(baseUrl+"api/Productos/PutCrudColorDetalle", content);
                     // Puedes manejar la respuesta si lo necesitas.
                 }
 
@@ -327,14 +353,14 @@ namespace MVCManager.Controllers
                         activo = color.isActive
                     }), Encoding.UTF8, "application/json");
 
-                    var response = await httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Productos/PostCrudColorDetalle", content);
+                    var response = await httpClient.PostAsync(baseUrl+"api/Productos/PostCrudColorDetalle", content);
                     // Puedes manejar la respuesta si lo necesitas.
                 }
 
                 // Eliminar colores
                 foreach (var color in colorsToDelete)
                 {
-                    var response = await httpClient.DeleteAsync($"http://apiprosalesmanager.somee.com/api/Productos/DeleteCrudColorDetalle?id={color.idColorDetalle}");
+                    var response = await httpClient.DeleteAsync($"{baseUrl}api/Productos/DeleteCrudColorDetalle?id={color.idColorDetalle}");
                     // Puedes manejar la respuesta si lo necesitas.
                 }
             }
@@ -360,7 +386,7 @@ namespace MVCManager.Controllers
                         activo = tag.isActive
                     }), Encoding.UTF8, "application/json");
 
-                    var response = await httpClient.PutAsync("http://apiprosalesmanager.somee.com/api/Productos/PutCrudTag", content);
+                    var response = await httpClient.PutAsync(baseUrl+"api/Productos/PutCrudTag", content);
                     // Puedes manejar la respuesta si lo necesitas.
                 }
             }
@@ -380,7 +406,7 @@ namespace MVCManager.Controllers
                         activo = tag.isActive
                     }), Encoding.UTF8, "application/json");
 
-                    var response = await httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Productos/PostCrudTag", content);
+                    var response = await httpClient.PostAsync(baseUrl+"api/Productos/PostCrudTag", content);
                     // Puedes manejar la respuesta si lo necesitas.
                 }
             }
@@ -389,7 +415,7 @@ namespace MVCManager.Controllers
             {
                 foreach (var tag in tagUpdateInfo.tagsToDelete)
                 {
-                    var response = await httpClient.DeleteAsync($"http://apiprosalesmanager.somee.com/api/Productos/DeleteCrudTag?id={tag.idTag}");
+                    var response = await httpClient.DeleteAsync($"{baseUrl}api/Productos/DeleteCrudTag?id={tag.idTag}");
                     // Puedes manejar la respuesta si lo necesitas.
                 }
             }
@@ -406,7 +432,7 @@ namespace MVCManager.Controllers
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var response = await httpClient.DeleteAsync($"http://apiprosalesmanager.somee.com/api/Productos/DeleteCrudSizeDetalle?idSizeDetalle={id}");
+                    var response = await httpClient.DeleteAsync($"{baseUrl}api/Productos/DeleteCrudSizeDetalle?idSizeDetalle={id}");
                     if (response.IsSuccessStatusCode)
                     {
                         Console.WriteLine($"Imagen con idSizeDetalle = {id} eliminada exitosamente.");
@@ -437,7 +463,7 @@ namespace MVCManager.Controllers
                     };
 
                     var content = new StringContent(JsonConvert.SerializeObject(updateData), Encoding.UTF8, "application/json");
-                    var response = await httpClient.PutAsync("http://apiprosalesmanager.somee.com/api/Productos/PutCrudSizeDetalle", content);
+                    var response = await httpClient.PutAsync(baseUrl+"api/Productos/PutCrudSizeDetalle", content);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -469,7 +495,7 @@ namespace MVCManager.Controllers
                     };
 
                     var content = new StringContent(JsonConvert.SerializeObject(newData), Encoding.UTF8, "application/json");
-                    var response = await httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Productos/PostCrudSizeDetalle", content);
+                    var response = await httpClient.PostAsync(baseUrl+"api/Productos/PostCrudSizeDetalle", content);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -494,7 +520,7 @@ namespace MVCManager.Controllers
                     Console.WriteLine(imageId);
 
                     // Eliminar la imagen usando la API
-                    var response = await _httpClient.DeleteAsync($"http://apiprosalesmanager.somee.com/api/Productos/DeleteImagen?oImagenModel={imageId}");
+                    var response = await _httpClient.DeleteAsync($"{baseUrl}api/Productos/DeleteImagen?oImagenModel={imageId}");
                     if (response.IsSuccessStatusCode)
                     {
                         Console.WriteLine($"Imagen con ID {imageId} eliminada con éxito a través de la API.");
@@ -550,7 +576,7 @@ namespace MVCManager.Controllers
 
                     var json = JsonConvert.SerializeObject(imageToPost);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
-                    var response = await _httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Productos/PostCrudImagen", content);
+                    var response = await _httpClient.PostAsync(baseUrl+"api/Productos/PostCrudImagen", content);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -606,7 +632,7 @@ namespace MVCManager.Controllers
             var readContent = await contentProducto.ReadAsStringAsync();
             Console.WriteLine(readContent);
 
-            var responseA = await _httpClient.PutAsync("http://apiprosalesmanager.somee.com/api/Productos/PutCrudProducto", contentProducto);
+            var responseA = await _httpClient.PutAsync(baseUrl+"api/Productos/PutCrudProducto", contentProducto);
 
             if (responseA.IsSuccessStatusCode)
             {
@@ -640,7 +666,8 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> CreateProducto(ProductoModel model, IFormFile nuevaImagen, string SizeUpdateorDelete, string TagUpdateInfo, string ColorUpdateInfoJson)
         {
             model.IdProducto = 0;
-            
+
+            var baseUrl = _configuration["OriginPathApi"];
 
             var fileName = ContentDispositionHeaderValue.Parse(nuevaImagen.ContentDisposition).FileName.Trim('"');
             if (nuevaImagen == null)
@@ -664,7 +691,7 @@ namespace MVCManager.Controllers
             var readContent = await contentProducto.ReadAsStringAsync();
             Console.WriteLine(readContent);
 
-            var responseA = await _httpClient.PutAsync("http://apiprosalesmanager.somee.com/api/Productos/PutCrudProducto", contentProducto);
+            var responseA = await _httpClient.PutAsync(baseUrl+"api/Productos/PutCrudProducto", contentProducto);
 
             if (responseA.IsSuccessStatusCode)
             {
@@ -709,7 +736,7 @@ namespace MVCManager.Controllers
                             activo = color.isActive
                         }), Encoding.UTF8, "application/json");
 
-                        var response = await httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Productos/PostCrudColorDetalle", content);
+                        var response = await httpClient.PostAsync(baseUrl+"api/Productos/PostCrudColorDetalle", content);
                         // Puedes manejar la respuesta si lo necesitas.
                     }
 
@@ -736,7 +763,7 @@ namespace MVCManager.Controllers
                             activo = tag.isActive
                         }), Encoding.UTF8, "application/json");
 
-                        var response = await httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Productos/PostCrudTag", content);
+                        var response = await httpClient.PostAsync(baseUrl+"api/Productos/PostCrudTag", content);
                         // Puedes manejar la respuesta si lo necesitas.
                     }
                 }
@@ -763,7 +790,7 @@ namespace MVCManager.Controllers
                         };
 
                         var content = new StringContent(JsonConvert.SerializeObject(newData), Encoding.UTF8, "application/json");
-                        var response = await httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Productos/PostCrudSizeDetalle", content);
+                        var response = await httpClient.PostAsync(baseUrl+"api/Productos/PostCrudSizeDetalle", content);
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -817,7 +844,7 @@ namespace MVCManager.Controllers
 
                         var json = JsonConvert.SerializeObject(imageToPost);
                         var content = new StringContent(json, Encoding.UTF8, "application/json");
-                        var response = await _httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Productos/PostCrudImagen", content);
+                        var response = await _httpClient.PostAsync(baseUrl+"api/Productos/PostCrudImagen", content);
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -857,7 +884,9 @@ namespace MVCManager.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteProducto(int idProducto)
         {
-            HttpResponseMessage response = await _httpClient.DeleteAsync($"http://apiprosalesmanager.somee.com/api/Productos/DeleteCrudProducto?idProducto={idProducto}");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            HttpResponseMessage response = await _httpClient.DeleteAsync($"{baseUrl}api/Productos/DeleteCrudProducto?idProducto={idProducto}");
             if (response.IsSuccessStatusCode)
             {
                 return Json(new { success = true });
@@ -868,7 +897,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCrudSizeDetalleById(int idProducto)
         {
-            var response = await _httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GetCrudSizeDetalleById?idProducto={idProducto}");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            var response = await _httpClient.GetAsync($"{baseUrl}api/Productos/GetCrudSizeDetalleById?idProducto={idProducto}");
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadAsStringAsync();
@@ -881,7 +912,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetSize_CrudCB()
         {
-            var response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetSize_CrudCB");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            var response = await _httpClient.GetAsync(baseUrl+"api/Productos/GetSize_CrudCB");
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadAsStringAsync();
@@ -893,7 +926,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetTagsById(int idProducto)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GetCrudTagById?idProducto={idProducto}");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            HttpResponseMessage response = await _httpClient.GetAsync($"{baseUrl}api/Productos/GetCrudTagById?idProducto={idProducto}");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -904,7 +939,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCrudColorDetalleById(int idProducto)
         {
-            var response = await _httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GetCrudColorDetalleById?idProducto={idProducto}");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            var response = await _httpClient.GetAsync($"{baseUrl}api/Productos/GetCrudColorDetalleById?idProducto={idProducto}");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -915,7 +952,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetColor_CrudCB()
         {
-            var response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetColor_CrudCB");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            var response = await _httpClient.GetAsync(baseUrl+"api/Productos/GetColor_CrudCB");
             if (response.IsSuccessStatusCode)
             {
 
@@ -954,7 +993,9 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCrudImagenById(int idProducto)
         {
-            var response = await _httpClient.GetAsync($"http://apiprosalesmanager.somee.com/api/Productos/GetCrudImagenById?idProducto={idProducto}");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            var response = await _httpClient.GetAsync($"{baseUrl}api/Productos/GetCrudImagenById?idProducto={idProducto}");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();

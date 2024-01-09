@@ -1,0 +1,16 @@
+{
+  "ContentRoots": [
+    "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\wwwroot\\"
+  ],
+  "Root": {
+    "Children": null,
+    "Asset": null,
+    "Patterns": [
+      {
+        "ContentRootIndex": 0,
+        "Pattern": "**",
+        "Depth": 0
+      }
+    ]
+  }
+}

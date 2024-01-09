@@ -8,10 +8,12 @@ namespace MVCManager.Controllers
     public class SizeController : Controller
     {
         private readonly HttpClient _httpClient;
+        private readonly IConfiguration _configuration;
 
-        public SizeController(HttpClient httpClient)
+        public SizeController(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
+            _configuration = configuration;
         }
         public async Task<IActionResult> Index()
         {
@@ -22,8 +24,9 @@ namespace MVCManager.Controllers
                 // Si no hay token, redirigir al usuario a la página de inicio de sesión
                 return RedirectToAction("Index", "Login");
             }
+            var baseUrl = _configuration["OriginPathApi"];
 
-            var response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Size/GetAllSizes");
+            var response = await _httpClient.GetAsync(baseUrl+"api/Size/GetAllSizes");
             response.EnsureSuccessStatusCode();
 
             using var responseStream = await response.Content.ReadAsStreamAsync();
@@ -40,8 +43,9 @@ namespace MVCManager.Controllers
         {
             var jsonContent = JsonSerializer.Serialize(size);
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            var baseUrl = _configuration["OriginPathApi"];
 
-            var response = await _httpClient.PostAsync("http://apiprosalesmanager.somee.com/api/Size/PostSize", httpContent);
+            var response = await _httpClient.PostAsync(baseUrl+"api/Size/PostSize", httpContent);
 
             if (response.IsSuccessStatusCode)
             {
@@ -59,8 +63,9 @@ namespace MVCManager.Controllers
         {
             var jsonContent = JsonSerializer.Serialize(size);
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            var baseUrl = _configuration["OriginPathApi"];
 
-            var response = await _httpClient.PutAsync("http://apiprosalesmanager.somee.com/api/Size/PutSize", httpContent);
+            var response = await _httpClient.PutAsync(baseUrl+"api/Size/PutSize", httpContent);
 
             if (response.IsSuccessStatusCode)
             {
@@ -76,7 +81,9 @@ namespace MVCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int idSize)
         {
-            var response = await _httpClient.DeleteAsync($"http://apiprosalesmanager.somee.com/api/Size/DeleteSize?idSize={idSize}");
+            var baseUrl = _configuration["OriginPathApi"];
+
+            var response = await _httpClient.DeleteAsync($"{baseUrl}api/Size/DeleteSize?idSize={idSize}");
 
             if (response.IsSuccessStatusCode)
             {

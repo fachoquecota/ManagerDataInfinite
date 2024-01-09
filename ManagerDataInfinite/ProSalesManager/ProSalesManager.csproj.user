@@ -6,4 +6,7 @@
     <NameOfLastUsedPublishProfile>C:\Users\fchoquecota\Documents\Proy\ManagerDataInfinite\ProSalesManager\Properties\PublishProfiles\FTPProfile.pubxml</NameOfLastUsedPublishProfile>
     <ActiveDebugProfile>Docker</ActiveDebugProfile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>

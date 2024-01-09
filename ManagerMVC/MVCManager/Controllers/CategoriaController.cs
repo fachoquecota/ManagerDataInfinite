@@ -7,10 +7,12 @@ namespace MVCManager.Controllers
     public class CategoriaController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public CategoriaController(IHttpClientFactory httpClientFactory)
+        public CategoriaController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
 
         public async Task<ActionResult> Index()
@@ -25,8 +27,10 @@ namespace MVCManager.Controllers
             }
 
             List<CategoriaModel> categorias = new List<CategoriaModel>();
+            var baseUrl = _configuration["OriginPathApi"];
             var httpClient = _httpClientFactory.CreateClient();
-            using (var response = await httpClient.GetAsync("http://localhost:5172/api/Categoria/GetAllCategoria"))
+            //using (var response = await httpClient.GetAsync("http://localhost:5172/api/Categoria/GetAllCategoria"))
+            using (var response = await httpClient.GetAsync(baseUrl + "api/Categoria/GetAllCategoria"))
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var responseObject = JsonConvert.DeserializeObject<ApiResponseCategoria>(apiResponse);
@@ -40,8 +44,11 @@ namespace MVCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> InsertCategoria([FromQuery] string descripcion)
         {
+            var baseUrl = _configuration["OriginPathApi"];
             var httpClient = _httpClientFactory.CreateClient();
-            var url = $"http://localhost:5172/api/Categoria/PostCategoria?descripcion={Uri.EscapeDataString(descripcion)}";
+            var url = baseUrl + $"api/Categoria/PostCategoria?descripcion={Uri.EscapeDataString(descripcion)}";
+
+            //var url = $"http://localhost:5172/api/Categoria/PostCategoria?descripcion={Uri.EscapeDataString(descripcion)}";
 
             var response = await httpClient.PostAsync(url, null);
 
@@ -58,8 +65,10 @@ namespace MVCManager.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateCategoria([FromQuery] int idCategoria, [FromQuery] string descripcion)
         {
+            var baseUrl = _configuration["OriginPathApi"];
             var httpClient = _httpClientFactory.CreateClient();
-            var url = $"http://localhost:5172/api/Categoria/PutCategoria?idCategoria={idCategoria}&descripcion={Uri.EscapeDataString(descripcion)}";
+            var url = baseUrl + $"api/Categoria/PutCategoria?idCategoria={idCategoria}&descripcion={Uri.EscapeDataString(descripcion)}";
+            //var url = $"http://localhost:5172/api/Categoria/PutCategoria?idCategoria={idCategoria}&descripcion={Uri.EscapeDataString(descripcion)}";
             var response = await httpClient.PutAsync(url, null);
 
             if (response.IsSuccessStatusCode)
@@ -75,8 +84,10 @@ namespace MVCManager.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteCategoria(int idCategoria)
         {
+            var baseUrl = _configuration["OriginPathApi"];
             var httpClient = _httpClientFactory.CreateClient();
-            var url = $"http://localhost:5172/api/Categoria/DeleteCategoria?idCategoria={idCategoria}";
+            var url = baseUrl + $"api/Categoria/DeleteCategoria?idCategoria={idCategoria}";
+            //var url = $"http://localhost:5172/api/Categoria/DeleteCategoria?idCategoria={idCategoria}";
             var response = await httpClient.DeleteAsync(url);
 
             if (response.IsSuccessStatusCode)

@@ -13,8 +13,13 @@ namespace MVCManager.Controllers
 {
     public class VentaController : Controller
     {
-        private readonly HttpClient _httpClient = new HttpClient();
-
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
+        public VentaController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        {
+            _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
+        }
         public async Task<IActionResult> Index(int pagina = 1)
         {
             // Verificar si el usuario está autenticado (verificar la existencia del token)
@@ -24,8 +29,10 @@ namespace MVCManager.Controllers
                 // Si no hay token, redirigir al usuario a la página de inicio de sesión
                 return RedirectToAction("Index", "Login");
             }
+            var baseUrl = _configuration["OriginPathApi"];
+            var httpClient = _httpClientFactory.CreateClient();
 
-            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5172/api/Ventas/GetProductosVenta");
+            HttpResponseMessage response = await httpClient.GetAsync(baseUrl+"api/Ventas/GetProductosVenta");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -34,7 +41,7 @@ namespace MVCManager.Controllers
 
                 var productos = productosList.OrderByDescending(p => p.IdProducto).ToList();
 
-                HttpResponseMessage ubigeoResponse = await _httpClient.GetAsync("http://localhost:5172/api/Ventas/GetUbigeo");
+                HttpResponseMessage ubigeoResponse = await httpClient.GetAsync(baseUrl+"api/Ventas/GetUbigeo");
                 if (ubigeoResponse.IsSuccessStatusCode)
                 {
                     var ubigeoContent = await ubigeoResponse.Content.ReadAsStringAsync();
@@ -53,7 +60,7 @@ namespace MVCManager.Controllers
                 }
 
 
-                HttpResponseMessage colorResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetColor_CrudCB");
+                HttpResponseMessage colorResponse = await httpClient.GetAsync(baseUrl+"api/Productos/GetColor_CrudCB");
                 if (colorResponse.IsSuccessStatusCode)
                 {
                     var colorContent = await colorResponse.Content.ReadAsStringAsync();
@@ -68,7 +75,7 @@ namespace MVCManager.Controllers
                 }
 
                 // Llamada a la API para obtener las tallas
-                HttpResponseMessage sizeResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Size/GetAllSizes");
+                HttpResponseMessage sizeResponse = await httpClient.GetAsync(baseUrl+"api/Size/GetAllSizes");
                 if (sizeResponse.IsSuccessStatusCode)
                 {
                     var sizeContent = await sizeResponse.Content.ReadAsStringAsync();
@@ -85,7 +92,7 @@ namespace MVCManager.Controllers
                         Text = t.descripcion
                     }).ToList();
                 }
-                HttpResponseMessage modeloResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudModeloCrudCB");
+                HttpResponseMessage modeloResponse = await httpClient.GetAsync(baseUrl+"api/Productos/GetCrudModeloCrudCB");
                 if (modeloResponse.IsSuccessStatusCode)
                 {
                     var modeloContent = await modeloResponse.Content.ReadAsStringAsync();
@@ -98,7 +105,7 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
-                HttpResponseMessage calidadResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Calidad/GetAllCalidadCombobox");
+                HttpResponseMessage calidadResponse = await httpClient.GetAsync(baseUrl+"api/Calidad/GetAllCalidadCombobox");
                 if (calidadResponse.IsSuccessStatusCode)
                 {
                     var calidadContent = await calidadResponse.Content.ReadAsStringAsync();
@@ -111,7 +118,7 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
-                HttpResponseMessage marcaResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Marca/GetAllMarcaCombobox");
+                HttpResponseMessage marcaResponse = await httpClient.GetAsync(baseUrl+"api/Marca/GetAllMarcaCombobox");
                 if (marcaResponse.IsSuccessStatusCode)
                 {
                     var marcaContent = await marcaResponse.Content.ReadAsStringAsync();
@@ -124,7 +131,7 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
-                HttpResponseMessage categoriaResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Productos/GetCrudCategoriaCrudCB");
+                HttpResponseMessage categoriaResponse = await httpClient.GetAsync(baseUrl+"api/Productos/GetCrudCategoriaCrudCB");
                 if (categoriaResponse.IsSuccessStatusCode)
                 {
                     var categoriaContent = await categoriaResponse.Content.ReadAsStringAsync();
@@ -137,7 +144,7 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
-                HttpResponseMessage clienteResponse = await _httpClient.GetAsync("http://localhost:5172/api/Clientes/GetClientes");
+                HttpResponseMessage clienteResponse = await httpClient.GetAsync(baseUrl+"api/Clientes/GetClientes");
                 if (clienteResponse.IsSuccessStatusCode)
                 {
                     var clienteContent = await clienteResponse.Content.ReadAsStringAsync();
@@ -151,7 +158,7 @@ namespace MVCManager.Controllers
                 }
 
 
-                HttpResponseMessage tipoResponse = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Ventas/GetVentaTipoVentaCB");
+                HttpResponseMessage tipoResponse = await httpClient.GetAsync(baseUrl+"api/Ventas/GetVentaTipoVentaCB");
                 if (tipoResponse.IsSuccessStatusCode)
                 {
                     var tipoContent = await tipoResponse.Content.ReadAsStringAsync();
@@ -165,7 +172,7 @@ namespace MVCManager.Controllers
                 }
 
 
-                HttpResponseMessage tipoDocumentoResponse = await _httpClient.GetAsync("http://localhost:5172/api/Clientes/GetTipoDocumento_ComboBox");
+                HttpResponseMessage tipoDocumentoResponse = await httpClient.GetAsync(baseUrl+"api/Clientes/GetTipoDocumento_ComboBox");
                 if (tipoDocumentoResponse.IsSuccessStatusCode)
                 {
                     var tipoDocumentoContent = await tipoDocumentoResponse.Content.ReadAsStringAsync();
@@ -179,7 +186,7 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
-                HttpResponseMessage transResponse = await _httpClient.GetAsync("http://localhost:5172/api/EmpresaTransporte/GetAllTransporteCombobox");
+                HttpResponseMessage transResponse = await httpClient.GetAsync(baseUrl+"api/EmpresaTransporte/GetAllTransporteCombobox");
                 if (transResponse.IsSuccessStatusCode)
                 {
                     var transContent = await transResponse.Content.ReadAsStringAsync();
@@ -208,7 +215,8 @@ namespace MVCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> ConfirmarVenta([FromBody] VentaFinal ventaData)
         {
-
+            var baseUrl = _configuration["OriginPathApi"];
+            var httpClient = _httpClientFactory.CreateClient();
             // Código antes de la espera
             //await Task.Delay(5000);
 
@@ -228,7 +236,7 @@ namespace MVCManager.Controllers
             var json = JsonConvert.SerializeObject(ventaData);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             Console.WriteLine(json);
-            var response = await _httpClient.PostAsync("http://localhost:5172/api/Ventas/PostVenta", content);
+            var response = await httpClient.PostAsync(baseUrl+"api/Ventas/PostVenta", content);
 
             if (response.IsSuccessStatusCode)
             {
@@ -295,7 +303,10 @@ namespace MVCManager.Controllers
         [HttpGet]
         public async Task<IActionResult> GetTiposVenta()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Ventas/GetVentaTipoVentaCB");
+            var baseUrl = _configuration["OriginPathApi"];
+            var httpClient = _httpClientFactory.CreateClient();
+
+            HttpResponseMessage response = await httpClient.GetAsync(baseUrl+"api/Ventas/GetVentaTipoVentaCB");
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -308,7 +319,10 @@ namespace MVCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> InsertCliente([FromBody] Cliente cliente)
         {
-            var response = await _httpClient.PostAsJsonAsync("http://localhost:5172/api/Clientes/PostClientes", cliente);
+            var baseUrl = _configuration["OriginPathApi"];
+            var httpClient = _httpClientFactory.CreateClient();
+
+            var response = await httpClient.PostAsJsonAsync(baseUrl+"api/Clientes/PostClientes", cliente);
 
             if (response.IsSuccessStatusCode)
             {

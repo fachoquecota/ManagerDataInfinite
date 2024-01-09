@@ -7,10 +7,12 @@ namespace MVCManager.Controllers
     public class MarcaController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public MarcaController(IHttpClientFactory httpClientFactory)
+        public MarcaController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
         public async Task<ActionResult> Index()
         {
@@ -24,8 +26,10 @@ namespace MVCManager.Controllers
 
             List<MarcaModel> modelos = new List<MarcaModel>();
             var httpClient = _httpClientFactory.CreateClient();
+            var baseUrl = _configuration["OriginPathApi"];
 
-            using (var response = await httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Marca/GetAllMarca"))
+            //using (var response = await httpClient.GetAsync("http://apiprosalesmanager.somee.com/api/Marca/GetAllMarca"))
+            using (var response = await httpClient.GetAsync(baseUrl + "api/Marca/GetAllMarca"))
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var responseObject = JsonConvert.DeserializeObject<ApiResponseCalidad>(apiResponse);
@@ -39,7 +43,10 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> InsertMarca([FromQuery] string descripcion)
         {
             var httpClient = _httpClientFactory.CreateClient();
-            var response = await httpClient.PostAsync($"http://apiprosalesmanager.somee.com/api/Marca/PostMarca?descripcion={Uri.EscapeDataString(descripcion)}", null);
+            var baseUrl = _configuration["OriginPathApi"];
+
+            //var response = await httpClient.PostAsync($"http://apiprosalesmanager.somee.com/api/Marca/PostMarca?descripcion={Uri.EscapeDataString(descripcion)}", null);
+            var response = await httpClient.PostAsync(baseUrl + $"api/Marca/PostMarca?descripcion={Uri.EscapeDataString(descripcion)}", null);
 
             if (response.IsSuccessStatusCode)
             {
@@ -56,8 +63,11 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> UpdateMarca([FromQuery] int idMarca, [FromQuery] string descripcion)
         {
             var httpClient = _httpClientFactory.CreateClient();
+            var baseUrl = _configuration["OriginPathApi"];
 
-            var url = $"http://localhost:5172/api/Marca/PutMarca?idMarca={idMarca}&descripcion={Uri.EscapeDataString(descripcion)}";
+            //var url = $"http://localhost:5172/api/Marca/PutMarca?idMarca={idMarca}&descripcion={Uri.EscapeDataString(descripcion)}";
+            var url = baseUrl + $"api/Marca/PutMarca?idMarca={idMarca}&descripcion={Uri.EscapeDataString(descripcion)}";
+
             var response = await httpClient.PutAsync(url, null);
 
             if (response.IsSuccessStatusCode)
@@ -74,8 +84,10 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> DeleteMarca([FromQuery] int idMarca) 
         {
             var httpClient = _httpClientFactory.CreateClient();
+            var baseUrl = _configuration["OriginPathApi"];
 
-            var url = $"http://localhost:5172/api/Marca/DeleteMarca?idMarca={idMarca}";
+            //var url = $"http://localhost:5172/api/Marca/DeleteMarca?idMarca={idMarca}";
+            var url = baseUrl + $"api/Marca/DeleteMarca?idMarca={idMarca}";
 
             var response = await httpClient.DeleteAsync(url);
 
@@ -94,5 +106,4 @@ namespace MVCManager.Controllers
             public List<MarcaModel> calidad { get; set; }
         }
     }
-
 }

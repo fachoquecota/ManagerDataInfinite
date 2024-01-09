@@ -8,10 +8,12 @@ namespace MVCManager.Controllers
     public class HomeController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(IHttpClientFactory httpClientFactory)
+        public HomeController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
 
         public async Task<IActionResult> Index()
@@ -74,8 +76,10 @@ namespace MVCManager.Controllers
         }
         private async Task<VentaResponse> GetVentas()
         {
+            var baseUrl = _configuration["OriginPathApi"];
             var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync("http://localhost:5172/api/Ventas/ReporteVentaGrafico");
+            //var response = await client.GetAsync("http://localhost:5172/api/Ventas/ReporteVentaGrafico");
+            var response = await client.GetAsync(baseUrl + "api/Ventas/ReporteVentaGrafico");
             response.EnsureSuccessStatusCode();
             var jsonResponse = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<VentaResponse>(jsonResponse);
@@ -83,8 +87,10 @@ namespace MVCManager.Controllers
 
         private async Task<DetalleVentaResponse> GetDetalleVentas()
         {
+            var baseUrl = _configuration["OriginPathApi"];
             var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync("http://localhost:5172/api/Ventas/ReporteVentaDetalleGrafico");
+            //var response = await client.GetAsync("http://localhost:5172/api/Ventas/ReporteVentaDetalleGrafico");
+            var response = await client.GetAsync(baseUrl + "api/Ventas/ReporteVentaDetalleGrafico");
             response.EnsureSuccessStatusCode();
             var jsonResponse = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<DetalleVentaResponse>(jsonResponse);

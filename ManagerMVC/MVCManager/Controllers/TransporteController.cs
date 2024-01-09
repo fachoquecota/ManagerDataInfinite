@@ -7,10 +7,13 @@ namespace MVCManager.Controllers
     public class TransporteController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public TransporteController(IHttpClientFactory httpClientFactory)
+
+        public TransporteController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
 
         public async Task<ActionResult> Index()
@@ -25,7 +28,9 @@ namespace MVCManager.Controllers
 
             List<TransporteModel> modelos = new List<TransporteModel>();
             var httpClient = _httpClientFactory.CreateClient();
-            using (var response = await httpClient.GetAsync("http://localhost:5172/api/EmpresaTransporte/GetAllEmpresaTransporte"))
+            var baseUrl = _configuration["OriginPathApi"];
+
+            using (var response = await httpClient.GetAsync(baseUrl+"api/EmpresaTransporte/GetAllEmpresaTransporte"))
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 var responseObject = JsonConvert.DeserializeObject<ApiResponse>(apiResponse);
@@ -39,7 +44,9 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> InsertTransporte([FromQuery] string descripcion, [FromQuery] string direccion)
         {
             var httpClient = _httpClientFactory.CreateClient();
-            var url = $"http://localhost:5172/api/EmpresaTransporte/PostTransporte?descripcion={Uri.EscapeDataString(descripcion)}&direccion={Uri.EscapeDataString(direccion)}";
+            var baseUrl = _configuration["OriginPathApi"];
+
+            var url = $"{baseUrl}api/EmpresaTransporte/PostTransporte?descripcion={Uri.EscapeDataString(descripcion)}&direccion={Uri.EscapeDataString(direccion)}";
 
             var response = await httpClient.PostAsync(url, null);
 
@@ -58,8 +65,9 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> UpdateTransporte([FromQuery] int idEmpresaTransporte, [FromQuery] string descripcion, [FromQuery] string direccion)
         {
             var httpClient = _httpClientFactory.CreateClient();
+            var baseUrl = _configuration["OriginPathApi"];
 
-            var url = $"http://localhost:5172/api/EmpresaTransporte/PutTransporte?idEmpresaTranspte={idEmpresaTransporte}&descripcion={Uri.EscapeDataString(descripcion)}&direccion={Uri.EscapeDataString(direccion)}";
+            var url = $"{baseUrl}api/EmpresaTransporte/PutTransporte?idEmpresaTranspte={idEmpresaTransporte}&descripcion={Uri.EscapeDataString(descripcion)}&direccion={Uri.EscapeDataString(direccion)}";
             var response = await httpClient.PutAsync(url, null);
 
             if (response.IsSuccessStatusCode)
@@ -78,7 +86,9 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> DeleteTransporte(int idEmpresaTransporte)
         {
             var httpClient = _httpClientFactory.CreateClient();
-            var url = $"http://localhost:5172/api/EmpresaTransporte/DeleteTransporte?idEmpresaTranspte={idEmpresaTransporte}";
+            var baseUrl = _configuration["OriginPathApi"];
+
+            var url = $"{baseUrl}api/EmpresaTransporte/DeleteTransporte?idEmpresaTranspte={idEmpresaTransporte}";
             var response = await httpClient.DeleteAsync(url);
 
             if (response.IsSuccessStatusCode)
