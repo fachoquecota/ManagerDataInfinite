@@ -85,3 +85,4 @@ C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Release\net6.0\run
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Release\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.sourcelink.json

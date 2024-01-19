@@ -32,8 +32,16 @@ namespace MVCManager.Controllers
             return RedirectToAction("Index", "Login");
         }
         [HttpPost]
-        public async Task<IActionResult> Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password, string recaptchaToken)
         {
+
+            var isCaptchaValid = await VerifyCaptchaToken(recaptchaToken);
+            if (!isCaptchaValid)
+            {
+                ViewBag.ErrorMessage = "Error de CAPTCHA. Por favor, inténtalo de nuevo.";
+                return View("Index");
+            }
+
             var baseUrl = _configuration["OriginPathApi"];
             var httpClient = _httpClientFactory.CreateClient();
             var loginModel = new
@@ -60,5 +68,20 @@ namespace MVCManager.Controllers
             return View("Index");
         }
 
+        private async Task<bool> VerifyCaptchaToken(string token)
+        {
+            var secret = _configuration["GoogleRecaptchaV3Config:SecretKey"];
+            var verifyUrl = _configuration["GoogleRecaptchaV3Config:VerifyURL"];
+
+            var client = _httpClientFactory.CreateClient();
+            var response = await client.PostAsync($"{verifyUrl}?secret={secret}&response={token}", null);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResult = await response.Content.ReadAsStringAsync();
+                dynamic result = JsonConvert.DeserializeObject(jsonResult);
+                return result.success;
+            }
+            return false;
+        }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1vR4T/xCYmQpeYmfsOp8vpmi/A7SbPpE8uQzQzgeUhf2uMUdWPAp41Ru8+h0fiEtCOBMCP2/ZMqGHGdt/z5asA==",
+  "dgSpecHash": "TwHbUxlW64ek6rfj2VOt1nRJs3/ICNgJ1SUfxT+O+AwlHxpuNazpzGKsm8pjdcXbmMrFZfNS1Vgs9jzrq2v3lw==",
   "success": true,
   "projectFilePath": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\MVCManager.csproj",
   "expectedPackageFiles": [
@@ -107,7 +107,11 @@
     "C:\\Users\\fchoquecota\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\fchoquecota\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\fchoquecota\\.nuget\\packages\\tailwind.extensions.aspnetcore\\1.0.0\\tailwind.extensions.aspnetcore.1.0.0.nupkg.sha512",
-    "C:\\Users\\fchoquecota\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512"
+    "C:\\Users\\fchoquecota\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512",
+    "C:\\Users\\fchoquecota\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\fchoquecota\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\fchoquecota\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\fchoquecota\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.26\\microsoft.netcore.app.host.win-x64.6.0.26.nupkg.sha512"
   ],
   "logs": []
 }
