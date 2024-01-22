@@ -1,35 +1,3 @@
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\appsettings.Development.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\appsettings.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\package-lock.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\package.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\MVCManager.staticwebassets.runtime.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\MVCManager.exe
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\MVCManager.deps.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\MVCManager.runtimeconfig.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\MVCManager.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\MVCManager.pdb
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\Newtonsoft.Json.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Release\net6.0\Tailwind.Extensions.AspNetCore.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.csproj.AssemblyReference.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.AssemblyInfoInputs.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.AssemblyInfo.cs
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.csproj.CoreCompileInputs.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.RazorAssemblyInfo.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.RazorAssemblyInfo.cs
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\staticwebassets.build.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\staticwebassets.development.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\scopedcss\bundle\MVCManager.styles.css
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\scopedcss\projectbundle\MVCManager.bundle.scp.css
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.csproj.CopyComplete
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\refint\MVCManager.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.pdb
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\MVCManager.genruntimeconfig.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Release\net6.0\ref\MVCManager.dll
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Release\net6.0\appsettings.Development.json
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Release\net6.0\appsettings.json
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Release\net6.0\package-lock.json

@@ -209,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
             endpoint = '/Productos/UpdateProducto';  // Endpoint para actualizar producto
         }
 
-
         //const idProducto = parseInt(document.getElementById('modalTitleId').innerText, 10);
         const idProducto = localStorage.getItem('currentIdProducto');
         console.log(idProducto);
@@ -278,17 +277,11 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append('TagUpdateInfo', JSON.stringify(tagData));
 
 
-
         console.log(formData);
 
-        // Fin de la nueva sección
         console.log("realizando post");
-        //const response = await fetch('/Productos/UpdateProducto', {
-        //    method: 'POST',
-        //    body: formData
-        //});
 
-        //Añadido
+        
         const response = await fetch(endpoint, {
             method: 'POST',
             body: formData
@@ -309,7 +302,6 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('Ocurrió un error al actualizar el producto.');
         }
     });
-
 
     document.addEventListener("DOMContentLoaded", function () {
         const showNotification = localStorage.getItem('showNotification');

@@ -43,8 +43,9 @@
             <tr class="bg-gray-100 text-left">       
                 <th class="py-2 px-4 border-b">ID</th>
                 <th class="py-2 px-4 border-b">Producto</th>
+                <th class="py-2 px-4 border-b">Calidad</th>
                 <th class="py-2 px-4 border-b">Marca</th>
-                <th class="py-2 px-4 border-b">Imagen</th> <!-- Nueva columna para la imagen -->
+                <th class="py-2 px-4 border-b">Imagen</th> 
                 <th class="py-2 px-4 border-b">Precio</th>
                 <th class="py-2 px-4 border-b">Cantidad</th>
                 <th class="py-2 px-4 border-b">Acciones</th>
@@ -57,6 +58,7 @@
                     
                     <td class="py-2 px-4 border-b">@producto.IdProducto</td>
                     <td class="py-2 px-4 border-b">@producto.Producto</td>
+                    <td class="py-2 px-4 border-b">@producto.Calidad</td>
                     <td class="py-2 px-4 border-b">@producto.Marca</td>
                     <td class="py-2 px-4 border-b">
                         <img src="@producto.ImagenCarpeta@producto.ImagenNombre" alt="@producto.Producto" width="50"> <!-- Vista previa de la imagen -->
