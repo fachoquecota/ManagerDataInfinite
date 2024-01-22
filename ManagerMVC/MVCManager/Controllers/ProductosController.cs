@@ -321,7 +321,7 @@ namespace MVCManager.Controllers
             var colorsToAdd = colorUpdateInfo.colorsToAdd;
             var colorsToDelete = colorUpdateInfo.colorsToDelete;
             var baseUrl = _configuration["OriginPathApi"];
-
+            model.Calidad = "";
             //COLOR DETALLE
             using (var httpClient = new HttpClient())
             {
@@ -334,7 +334,8 @@ namespace MVCManager.Controllers
                         idProducto = 0,
                         idColor = color.idColor,
                         codigo = string.Empty,
-                        activo = color.isActive
+                        activo = color.isActive,
+                        Calidad = ""
                     }), Encoding.UTF8, "application/json");
 
                     var response = await httpClient.PutAsync(baseUrl+"api/Productos/PutCrudColorDetalle", content);
@@ -666,7 +667,7 @@ namespace MVCManager.Controllers
         public async Task<IActionResult> CreateProducto(ProductoModel model, IFormFile nuevaImagen, string SizeUpdateorDelete, string TagUpdateInfo, string ColorUpdateInfoJson)
         {
             model.IdProducto = 0;
-
+            model.Calidad = "";
             var baseUrl = _configuration["OriginPathApi"];
 
             var fileName = ContentDispositionHeaderValue.Parse(nuevaImagen.ContentDisposition).FileName.Trim('"');
@@ -685,6 +686,7 @@ namespace MVCManager.Controllers
                 model.ImagenCarpeta = $"images\\ProductoPrincipal\\{model.IdProducto}\\";
                 model.ImagenNombre = fileName;
             }
+            model.Marca = "";
             var jsonProducto = JsonConvert.SerializeObject(model);
             Console.WriteLine(jsonProducto);
             var contentProducto = new StringContent(jsonProducto, Encoding.UTF8, "application/json");

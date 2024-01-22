@@ -9,6 +9,9 @@ public class ProductoModel
     [JsonProperty("producto")]
     public string Producto { get; set; }
 
+    [JsonProperty("calidad")]
+    public string Calidad { get; set; }
+
     [JsonProperty("marca")]
     public string Marca { get; set; }
 

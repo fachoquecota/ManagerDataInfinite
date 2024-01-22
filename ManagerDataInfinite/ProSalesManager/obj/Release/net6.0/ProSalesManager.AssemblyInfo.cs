@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProSalesManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a598ebb5781f9e21795fde7b98e71a4e4da69f8e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProSalesManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProSalesManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -128,3 +128,9 @@ C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProS
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ref\ProSalesManager.dll
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\ProSalesManager.staticwebassets.runtime.json
 C:\Users\fchoquecota\Documents\Proy\ManagerDataInfinite\ProSalesManager\bin\Debug\net6.0\ProSalesManager.staticwebassets.runtime.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\ProSalesManager.sourcelink.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\staticwebassets\msbuild.ProSalesManager.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\staticwebassets\msbuild.build.ProSalesManager.props
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ProSalesManager.props
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ProSalesManager.props
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Debug\net6.0\staticwebassets.pack.json

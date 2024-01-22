@@ -4,6 +4,7 @@
     {
         public int idProducto { get; set; }
         public string producto { get; set; }
+        public string calidad { get; set; }
         public string marca { get; set; }
         public decimal costo { get; set; }
         public decimal precio { get; set; }

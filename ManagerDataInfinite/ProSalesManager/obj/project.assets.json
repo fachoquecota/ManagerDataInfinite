@@ -1516,23 +1516,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fchoquecota\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
       "projectName": "ProSalesManager",
-      "projectPath": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
-      "packagesPath": "C:\\Users\\fchoquecota\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\obj\\",
+      "projectPath": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerDataInfinite\\ProSalesManager\\ProSalesManager.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerDataInfinite\\ProSalesManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\fchoquecota\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1541,7 +1541,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1604,8 +1603,30 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"System.IdentityModel.Tokens.Jwt\" 6.31.0 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "libraryId": "System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"System.IdentityModel.Tokens.Jwt\" 6.31.0 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-8g9c-28fc-mcx2",
+      "libraryId": "System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
