@@ -10,8 +10,7 @@
     <title>Bienvenidos a Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ldsd1YpAAAAAJVAVQKzEM_KC9veKtUcJU0m689_"></script>
 </head>
 <body class="bg-gray-100">
     <div class="min-h-screen flex items-center justify-center">
@@ -23,31 +22,34 @@
                     <span class="block sm:inline">@ViewBag.ErrorMessage</span>
                 </div>
             }
-            <form asp-controller="Login" asp-action="Login" method="post">
+            <form asp-controller="Login" asp-action="Login" method="post" id="login-form">
                 <div class="mb-4">
                     <label for="username" class="block text-gray-600 text-sm mb-2">Usuario:</label>
-                    <input type="text" id="username" name="username" class="w-full p-2 border rounded-md" placeholder="Ingrese su usuario">
+                    <input type="text" id="username" name="username" class="w-full p-2 border rounded-md" placeholder="Ingrese su usuario" required>
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block text-gray-600 text-sm mb-2">Contraseña:</label>
-                    <input type="password" id="password" name="password" class="w-full p-2 border rounded-md" placeholder="Ingrese su contraseña">
+                    <input type="password" id="password" name="password" class="w-full p-2 border rounded-md" placeholder="Ingrese su contraseña" required>
                 </div>
 
-                <input type="hidden" name="recaptchaToken" id="recaptchaToken" />
-
-                <div class="g-recaptcha" data-sitekey="TU_CLAVE_DEL_SITIO_AQUÍ" data-callback="onSubmitCallback"></div>
+                <input type="hidden" name="recaptchaToken" id="recaptchaToken">
 
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
                     Iniciar Sesión
                 </button>
             </form>
             <script>
-                function onSubmitCallback(token) {
-                    document.getElementById('recaptchaToken').value = token;
-                }
+                grecaptcha.ready(function() {
+                    document.getElementById('login-form').addEventListener('submit', function(event) {
+                        event.preventDefault();
+                        grecaptcha.execute('6Ldsd1YpAAAAAJVAVQKzEM_KC9veKtUcJU0m689_', {action: 'login'}).then(function(token) {
+                            document.getElementById('recaptchaToken').value = token;
+                            document.getElementById('login-form').submit();
+                        });
+                    });
+                });
             </script>
         </div>
     </div>
 </body>
-
 </html>

@@ -134,3 +134,4 @@ C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProS
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Release\net6.0\staticwebassets\msbuild.buildMultiTargeting.ProSalesManager.props
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.ProSalesManager.props
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerDataInfinite\ProSalesManager\obj\Release\net6.0\staticwebassets.pack.json
+C:\Users\fchoquecota\Documents\Proy\ManagerDataInfinite\ProSalesManager\obj\Release\net6.0\ProSalesManager.sourcelink.json

@@ -109,3 +109,4 @@ C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\ob
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MVCManager.props
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MVCManager.props
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.sourcelink.json

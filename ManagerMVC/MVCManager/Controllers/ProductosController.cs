@@ -542,7 +542,7 @@ namespace MVCManager.Controllers
             // 2. Manejar y mostrar la ruta de las imágenes nuevas
             if (_tempImages.Count > 0)
             {
-                var folderPath = Path.Combine("wwwroot", "Images", "ProductoDetalle", model.IdProducto.ToString());
+                var folderPath = Path.Combine("wwwroot", "images", "ProductoDetalle", model.IdProducto.ToString());
                 if (!Directory.Exists(folderPath))
                 {
                     Directory.CreateDirectory(folderPath);
@@ -703,7 +703,7 @@ namespace MVCManager.Controllers
                 Console.WriteLine(responseBody);
                 int newIdProducto = int.Parse(await responseA.Content.ReadAsStringAsync()); // ID DE PRODUCTO 
                 var folderPath = Path.Combine("wwwroot", "images", "ProductoPrincipal", newIdProducto.ToString());
-                folderPath = folderPath.Replace(Path.DirectorySeparatorChar, '\\') + "\\";
+                //folderPath = folderPath.Replace(Path.DirectorySeparatorChar, '\\') + "\\";
                 if (!Directory.Exists(folderPath))
                 {
                     Directory.CreateDirectory(folderPath);
@@ -811,7 +811,7 @@ namespace MVCManager.Controllers
                 // 2. Manejar y mostrar la ruta de las imágenes nuevas
                 if (_tempImages.Count > 0)
                 {
-                    var folderPathImagenes = Path.Combine("wwwroot", "Images", "ProductoDetalle", newIdProducto.ToString());
+                    var folderPathImagenes = Path.Combine("wwwroot", "images", "ProductoDetalle", newIdProducto.ToString());
                     if (!Directory.Exists(folderPathImagenes))
                     {
                         Directory.CreateDirectory(folderPathImagenes);
@@ -970,7 +970,7 @@ namespace MVCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadImages(int idProducto, List<IFormFile> files)
         {
-            var path = Path.Combine(_hostingEnvironment.WebRootPath, $"Images/ProductoDetalle/{idProducto}");
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, $"images/ProductoDetalle/{idProducto}");
 
             if (!Directory.Exists(path))
             {
