@@ -1,639 +1,679 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MVCManager.bundle.scp.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MVCManager.bundle.scp.css",
       "PackagePath": "staticwebassets\\MVCManager.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\Configuration\\logo.jfif",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\Configuration\\logo.jfif",
       "PackagePath": "staticwebassets\\Images\\Configuration\\logo.jfif"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\Configuration\\user.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\Configuration\\user.png",
       "PackagePath": "staticwebassets\\Images\\Configuration\\user.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\0\\fcb1c712-cb1b-499d-af0d-744f140ea1a9.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\0\\fcb1c712-cb1b-499d-af0d-744f140ea1a9.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\0\\fcb1c712-cb1b-499d-af0d-744f140ea1a9.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\10\\7b3ec7ce-1058-44df-a602-7da0b6d28953.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\10\\7b3ec7ce-1058-44df-a602-7da0b6d28953.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\10\\7b3ec7ce-1058-44df-a602-7da0b6d28953.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\088bc768-939f-419d-9a22-ec6b62c20498.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\088bc768-939f-419d-9a22-ec6b62c20498.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\11\\088bc768-939f-419d-9a22-ec6b62c20498.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\1a904a0e-0e03-4f35-a323-fcf0ee0e0c55.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\1a904a0e-0e03-4f35-a323-fcf0ee0e0c55.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\11\\1a904a0e-0e03-4f35-a323-fcf0ee0e0c55.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\2775f868-10c2-404b-91af-630afc87360f.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\2775f868-10c2-404b-91af-630afc87360f.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\11\\2775f868-10c2-404b-91af-630afc87360f.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\6ac6c41d-808c-4991-91d3-7a922ce22599.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\6ac6c41d-808c-4991-91d3-7a922ce22599.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\11\\6ac6c41d-808c-4991-91d3-7a922ce22599.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\f8ba72dc-bd2a-4d9c-9b9a-c4d17d749331.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\11\\f8ba72dc-bd2a-4d9c-9b9a-c4d17d749331.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\11\\f8ba72dc-bd2a-4d9c-9b9a-c4d17d749331.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\0513b17c-9893-4e1b-ae65-df1fe3d94ced.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\0513b17c-9893-4e1b-ae65-df1fe3d94ced.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\23\\0513b17c-9893-4e1b-ae65-df1fe3d94ced.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\41025de7-fe0f-4a1a-b17e-668051ab1b1c.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\41025de7-fe0f-4a1a-b17e-668051ab1b1c.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\23\\41025de7-fe0f-4a1a-b17e-668051ab1b1c.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\75baadfd-9916-4894-a889-f561d28fa0f5.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\75baadfd-9916-4894-a889-f561d28fa0f5.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\23\\75baadfd-9916-4894-a889-f561d28fa0f5.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\85cd7dc0-1e0e-4b08-9302-4fbe49102a9b.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\85cd7dc0-1e0e-4b08-9302-4fbe49102a9b.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\23\\85cd7dc0-1e0e-4b08-9302-4fbe49102a9b.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\c5b94f70-8600-4ca9-88c5-86c6139cc56c.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\23\\c5b94f70-8600-4ca9-88c5-86c6139cc56c.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\23\\c5b94f70-8600-4ca9-88c5-86c6139cc56c.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\31\\633ee42a-cf44-42de-b578-d755c7022bc9.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\31\\633ee42a-cf44-42de-b578-d755c7022bc9.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\31\\633ee42a-cf44-42de-b578-d755c7022bc9.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\36\\2054584f-be9f-410b-9929-7ad7dae8336f.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\36\\2054584f-be9f-410b-9929-7ad7dae8336f.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\36\\2054584f-be9f-410b-9929-7ad7dae8336f.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\10413e0f-ae25-4676-9fb1-0954d57f517b.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\10413e0f-ae25-4676-9fb1-0954d57f517b.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\37\\10413e0f-ae25-4676-9fb1-0954d57f517b.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\3766143a-2015-4acf-8f67-eaeb820a25ea.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\3766143a-2015-4acf-8f67-eaeb820a25ea.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\37\\3766143a-2015-4acf-8f67-eaeb820a25ea.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\64379b7f-31ca-47c5-b800-896dc23d0fee.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\64379b7f-31ca-47c5-b800-896dc23d0fee.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\37\\64379b7f-31ca-47c5-b800-896dc23d0fee.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\736a12ec-e118-4c7c-bbbe-4a6fe35d03f2.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\736a12ec-e118-4c7c-bbbe-4a6fe35d03f2.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\37\\736a12ec-e118-4c7c-bbbe-4a6fe35d03f2.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\82226155-60a3-4c9d-bd22-81e288f1da2e.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\37\\82226155-60a3-4c9d-bd22-81e288f1da2e.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\37\\82226155-60a3-4c9d-bd22-81e288f1da2e.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\1e0b64c0-931f-4d95-84e1-a6f2c30dfd3e.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\1e0b64c0-931f-4d95-84e1-a6f2c30dfd3e.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\3\\1e0b64c0-931f-4d95-84e1-a6f2c30dfd3e.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\3024c5c1-dfd5-45e6-97cd-52ab66dd4152.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\3024c5c1-dfd5-45e6-97cd-52ab66dd4152.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\3\\3024c5c1-dfd5-45e6-97cd-52ab66dd4152.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\4fb2e201-3815-4468-a292-96a830dbacc5.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\4fb2e201-3815-4468-a292-96a830dbacc5.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\3\\4fb2e201-3815-4468-a292-96a830dbacc5.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\75c42ba5-a026-458b-b469-507a8aa1c2d1.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\75c42ba5-a026-458b-b469-507a8aa1c2d1.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\3\\75c42ba5-a026-458b-b469-507a8aa1c2d1.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\b1a5ede9-3b94-4a3f-a5b6-eceb0bbc5b15.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\b1a5ede9-3b94-4a3f-a5b6-eceb0bbc5b15.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\3\\b1a5ede9-3b94-4a3f-a5b6-eceb0bbc5b15.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\dfbc8a1a-b737-41f8-afd7-4810f4118aac.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\dfbc8a1a-b737-41f8-afd7-4810f4118aac.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\3\\dfbc8a1a-b737-41f8-afd7-4810f4118aac.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\ffb8ec1c-b112-406e-997d-911b7d6822ad.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\3\\ffb8ec1c-b112-406e-997d-911b7d6822ad.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\3\\ffb8ec1c-b112-406e-997d-911b7d6822ad.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\44\\29575e3c-95f1-47e3-addc-bbb57e5c6284.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\44\\29575e3c-95f1-47e3-addc-bbb57e5c6284.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\44\\29575e3c-95f1-47e3-addc-bbb57e5c6284.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\45\\98875009-3909-40a0-b446-d0dd1e68cbcb.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\45\\98875009-3909-40a0-b446-d0dd1e68cbcb.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\45\\98875009-3909-40a0-b446-d0dd1e68cbcb.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\45\\fecadf26-4ecd-421d-8310-3dc80121ae53.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\45\\fecadf26-4ecd-421d-8310-3dc80121ae53.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\45\\fecadf26-4ecd-421d-8310-3dc80121ae53.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\4\\02fd2d5e-9682-4b1f-a0ee-fe5ea5f22cd7.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\4\\02fd2d5e-9682-4b1f-a0ee-fe5ea5f22cd7.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\4\\02fd2d5e-9682-4b1f-a0ee-fe5ea5f22cd7.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\58\\72e94585-2392-4616-8fd9-75a7dc24f0c2.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\58\\72e94585-2392-4616-8fd9-75a7dc24f0c2.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\58\\72e94585-2392-4616-8fd9-75a7dc24f0c2.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\Croquis de domicilio.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\60\\52d25cd7-d56c-42b2-a652-10fe68582aa4.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\60\\52d25cd7-d56c-42b2-a652-10fe68582aa4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\60\\6407fd18-0507-42dc-a007-8de98692e814.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\60\\6407fd18-0507-42dc-a007-8de98692e814.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\60\\7635342e-9582-4d00-950b-03ac9f3d15a6.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\60\\7635342e-9582-4d00-950b-03ac9f3d15a6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\60\\82b755ab-2db3-4b60-9d16-a9ffeffa27de.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\60\\82b755ab-2db3-4b60-9d16-a9ffeffa27de.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\65\\2aaffb91-37fb-439c-8e17-0bceb85d8b5d.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\65\\2aaffb91-37fb-439c-8e17-0bceb85d8b5d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\65\\51fc35c0-cf1a-46b1-9d14-003dfaf8a8d2.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\65\\51fc35c0-cf1a-46b1-9d14-003dfaf8a8d2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\65\\a830c8ca-4866-4c96-9006-973d3f076e8d.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\65\\a830c8ca-4866-4c96-9006-973d3f076e8d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoDetalle\\65\\d907a8a1-853e-4397-b8d3-bc1c5bf57fb5.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoDetalle\\65\\d907a8a1-853e-4397-b8d3-bc1c5bf57fb5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\Croquis de domicilio.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\0\\Croquis de domicilio.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\0\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\0\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\0\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\10\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\10\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\10\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\11\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\11\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\11\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\11\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\11\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\11\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\1\\Croquis de domicilio.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\1\\Foto Digital.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\1\\Foto Digital__2.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Tramite de Solicitud por Renovación 1.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\1\\Tramite de Solicitud por Renovación 1.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\1\\Tramite de Solicitud por Renovación 1.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\23\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A453.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A453.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\23\\PO-A453.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\23\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\23\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\23\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\28\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\28\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\28\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\29\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\29\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\29\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\2\\Croquis de domicilio.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\30\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\30\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\30\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\31\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\31\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\31\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\32\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\32\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\32\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\33\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\33\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\33\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\34\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\34\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\34\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\35\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\35\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\35\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\36\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\36\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\36\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\37\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\37\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\37\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\38\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\38\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\38\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\39\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\39\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\39\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A453.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A453.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\PO-A453.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled_1.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled_1.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\3\\overwatch-2-HD-scaled_1.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\40\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\40\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\40\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\41\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\41\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\41\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\42\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\42\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\42\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\43\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\43\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\43\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A453.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A453.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\44\\PO-A453.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\44\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\44\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\45\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\45\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\45\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\49\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\49\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\49\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\49\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\49\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\49\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\4\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\4\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\4\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\50\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\50\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\50\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\53\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\53\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\53\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\58\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\55\\PO-A455.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\55\\PO-A455.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\58\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\58\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\59\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\59\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\59\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\5\\PO-A455.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\5\\PO-A455.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\5\\PO-A455.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\61\\Captura de pantalla 2023-08-01 162720.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\61\\Captura de pantalla 2023-08-01 162720.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\61\\Captura de pantalla 2023-08-01 162720.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\61\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\61\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\61\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\62\\Captura de pantalla 2023-07-13 084224.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\62\\Captura de pantalla 2023-07-13 084224.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\62\\Captura de pantalla 2023-07-13 084224.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\6\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\64\\Captura de pantalla 2023-07-13 084224.png",
+      "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\64\\Captura de pantalla 2023-07-13 084224.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\6\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\6\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\7\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\7\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\7\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\PO-A454.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\PO-A454.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\8\\PO-A454.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\8\\Tramite de Solicitud por Renovación 1.png"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\9\\PO-A452.jpg",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\Images\\ProductoPrincipal\\9\\PO-A452.jpg",
       "PackagePath": "staticwebassets\\Images\\ProductoPrincipal\\9\\PO-A452.jpg"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\css\\Spiner.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\css\\Spiner.css",
       "PackagePath": "staticwebassets\\css\\Spiner.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\css\\styles.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\css\\styles.css",
       "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Color.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Color.js",
       "PackagePath": "staticwebassets\\js\\Color.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Imagen.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Imagen.js",
       "PackagePath": "staticwebassets\\js\\Imagen.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Producto.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Producto.js",
       "PackagePath": "staticwebassets\\js\\Producto.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Size.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Size.js",
       "PackagePath": "staticwebassets\\js\\Size.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Tags.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Tags.js",
       "PackagePath": "staticwebassets\\js\\Tags.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Venta.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Venta.js",
       "PackagePath": "staticwebassets\\js\\Venta.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\Venta_New.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\Venta_New.js",
       "PackagePath": "staticwebassets\\js\\Venta_New.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\user\\Documents\\3 .Net Core\\ManagerDataInfinite\\ManagerMVC\\MVCManager\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

@@ -59,7 +59,6 @@ namespace MVCManager.Controllers
                     ViewBag.Ubigeo = ubigeoes;
                 }
 
-
                 HttpResponseMessage colorResponse = await httpClient.GetAsync(baseUrl+"api/Productos/GetColor_CrudCB");
                 if (colorResponse.IsSuccessStatusCode)
                 {
@@ -74,7 +73,6 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
-                // Llamada a la API para obtener las tallas
                 HttpResponseMessage sizeResponse = await httpClient.GetAsync(baseUrl+"api/Size/GetAllSizes");
                 if (sizeResponse.IsSuccessStatusCode)
                 {
@@ -92,6 +90,7 @@ namespace MVCManager.Controllers
                         Text = t.descripcion
                     }).ToList();
                 }
+
                 HttpResponseMessage modeloResponse = await httpClient.GetAsync(baseUrl+"api/Productos/GetCrudModeloCrudCB");
                 if (modeloResponse.IsSuccessStatusCode)
                 {
@@ -157,7 +156,6 @@ namespace MVCManager.Controllers
                     }).ToList();
                 }
 
-
                 HttpResponseMessage tipoResponse = await httpClient.GetAsync(baseUrl+"api/Ventas/GetVentaTipoVentaCB");
                 if (tipoResponse.IsSuccessStatusCode)
                 {
@@ -170,7 +168,6 @@ namespace MVCManager.Controllers
                         Text = c.Descripcion
                     }).ToList();
                 }
-
 
                 HttpResponseMessage tipoDocumentoResponse = await httpClient.GetAsync(baseUrl+"api/Clientes/GetTipoDocumento_ComboBox");
                 if (tipoDocumentoResponse.IsSuccessStatusCode)
@@ -201,12 +198,12 @@ namespace MVCManager.Controllers
                 }
 
                 //return View();  // Devuelve la vista correspondiente.
-                int registrosPorPagina = 10;
-                var productosPaginados = productos.Skip((pagina - 1) * registrosPorPagina).Take(registrosPorPagina).ToList();
-                ViewBag.PaginaActual = pagina;
-                ViewBag.TotalPaginas = Math.Ceiling((double)productos.Count / registrosPorPagina);
+                //int registrosPorPagina = 10;
+                //var productosPaginados = productos.Skip((pagina - 1) * registrosPorPagina).Take(registrosPorPagina).ToList();
+                //ViewBag.PaginaActual = pagina;
+                //ViewBag.TotalPaginas = Math.Ceiling((double)productos.Count / registrosPorPagina);
 
-                return View(productosPaginados);
+                return View(productos);
             }
 
             return View("Error");

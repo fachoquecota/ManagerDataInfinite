@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MVCManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24fe2a47da569c6e397ba8a1d67b571a9a8aa47a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3700f4a48dc3496d3d6d961c8542c2c08773ce30")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVCManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVCManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
