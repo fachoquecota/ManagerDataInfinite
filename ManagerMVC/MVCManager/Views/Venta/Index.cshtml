@@ -98,67 +98,74 @@
                         </select>
                     </div>
                 </div>
-
-                <!-- Matriz de Productos -->
-                <div id="productosGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
-                    @foreach (var producto in Model)
-                    {
-                        var urlImagenCompleta = $"{producto.ImagenCarpeta}/{producto.ImagenNombre}"; // Combina imagenCarpeta e imagenNombre
-
-                        <div class="producto bg-white p-3 rounded-lg shadow-md transition-transform transform hover:scale-105"
-                             data-idproducto="@producto.IdProducto"
-                             data-idsize="@producto.IdSize"
-                             data-idcolor="@producto.IdColor"
-                             data-idmodeloproducto="@producto.IdModeloProducto"
-                             data-idCalidad="@producto.IdCalidad"
-                             data-idMarca="@producto.IdMarca"
-                             data-idCategoria="@producto.IdCategoria"
-                             data-categoriaDescripcion="@producto.CategoriaDescripcion"
-                             data-sizeDescription="@producto.SizeDescription"
-                             data-calidadDescripcion="@producto.CalidadDescripcion"
-                             data-colorDescription="@producto.ColorDescription"
-                             data-cantidad="@producto.Cantidad">
-
-                            <div class="relative mb-3">
-                                <img src="@urlImagenCompleta" alt="@producto.Producto" class="w-24 h-24 object-cover rounded-md mx-auto">
-                            </div>
-                            <h3 class="text-center text-md mb-2">@producto.Producto</h3>
-                            <!-- Inicio de la rejilla para detalles del producto -->
-                            <div class="grid grid-cols-2 gap-2">
-                                <div>
-                                    <strong>Marca:</strong>
-                                    <p>@producto.Marca</p>
-                                </div>
-                                <div>
-                                    <strong>Precio:</strong>
-                                    <p class="precio-producto">@producto.Precio.ToString("0.00")</p>
-                                </div>
-                                <div>
-                                    <strong>Cantidad:</strong>
-                                    <p>@producto.Cantidad</p>
-                                </div>
-                                <div>
-                                    <strong>Tamaño:</strong>
-                                    <p>@producto.SizeDescription</p>
-                                </div>
-                                <div>
-                                    <strong>Color:</strong>
-                                    <p>@producto.ColorDescription</p>
-                                </div>
-                                <div>
-                                    <strong>Modelo:</strong>
-                                    <p>@producto.ModeloDescripcion</p>
-                                </div>
-                            </div>
-                            <button class="btnSeleccionarProducto text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
-                        </div>
+                <style>
+                    #productosContainer {
+                        max-height: 600px; /* Altura máxima del contenedor */
+                        overflow-y: auto; /* Habilita el scrollbar vertical si el contenido excede la altura máxima */
                     }
+                </style>
+                <div id="productosContainer">
+                    <div id="productosGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+                        @foreach (var producto in Model)
+                        {
+                            var urlImagenCompleta = $"{producto.ImagenCarpeta}/{producto.ImagenNombre}"; // Combina imagenCarpeta e imagenNombre
+
+                            <div class="producto bg-white p-3 rounded-lg shadow-md transition-transform transform hover:scale-105"
+                                 data-idproducto="@producto.IdProducto"
+                                 data-idsize="@producto.IdSize"
+                                 data-idcolor="@producto.IdColor"
+                                 data-idmodeloproducto="@producto.IdModeloProducto"
+                                 data-idCalidad="@producto.IdCalidad"
+                                 data-idMarca="@producto.IdMarca"
+                                 data-idCategoria="@producto.IdCategoria"
+                                 data-categoriaDescripcion="@producto.CategoriaDescripcion"
+                                 data-sizeDescription="@producto.SizeDescription"
+                                 data-calidadDescripcion="@producto.CalidadDescripcion"
+                                 data-colorDescription="@producto.ColorDescription"
+                                 data-cantidad="@producto.Cantidad">
+
+                                <div class="relative mb-3">
+                                    <img src="@urlImagenCompleta" alt="@producto.Producto" class="w-24 h-24 object-cover rounded-md mx-auto">
+                                </div>
+                                <h3 class="text-center text-md mb-2">@producto.Producto</h3>
+                                <!-- Inicio de la rejilla para detalles del producto -->
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <strong>Marca:</strong>
+                                        <p>@producto.Marca</p>
+                                    </div>
+                                    <div>
+                                        <strong>Precio:</strong>
+                                        <p class="precio-producto">@producto.Precio.ToString("0.00")</p>
+                                    </div>
+                                    <div>
+                                        <strong>Cantidad:</strong>
+                                        <p>@producto.Cantidad</p>
+                                    </div>
+                                    <div>
+                                        <strong>Tamaño:</strong>
+                                        <p>@producto.SizeDescription</p>
+                                    </div>
+                                    <div>
+                                        <strong>Color:</strong>
+                                        <p>@producto.ColorDescription</p>
+                                    </div>
+                                    <div>
+                                        <strong>Modelo:</strong>
+                                        <p>@producto.ModeloDescripcion</p>
+                                    </div>
+                                </div>
+                                <button class="btnSeleccionarProducto text-blue-500 hover:text-blue-700 block w-full py-1 px-3 border border-blue-500 rounded-md transition-colors hover:bg-blue-500 hover:text-white">Seleccionar</button>
+                            </div>
+                        }
+                    </div>
                 </div>
+                <!-- Matriz de Productos -->
+                
 
                 <!-- Paginación -->
-                <div class="flex justify-center mt-4">
-                    <button id="prevPage" class="bg-blue-500 text-white px-4 py-2 rounded-l-md">Anterior</button>
-                    <button id="nextPage" class="bg-blue-500 text-white px-4 py-2 rounded-r-md">Siguiente</button>
+                <div id="paginacionContenedor" class="flex justify-center mt-4">
+                    <!-- Los botones de paginación se generarán aquí -->
                 </div>
             </div>
         </div>
@@ -452,8 +459,42 @@
 </div>
 
 
+@* <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const productosPorPagina = 10;
+        const productosGrid = document.getElementById("productosGrid");
+        const paginacionContenedor = document.getElementById("paginacionContenedor");
+        const productos = Array.from(productosGrid.children);
+        const totalPaginas = Math.ceil(productos.length / productosPorPagina);
 
+        function mostrarProductos(pagina) {
+            const inicio = (pagina - 1) * productosPorPagina;
+            const fin = inicio + productosPorPagina;
+            productos.forEach((producto, index) => {
+                producto.style.display = index >= inicio && index < fin ? "" : "none";
+            });
+        }
 
+        function crearBotonPagina(numeroPagina) {
+            const boton = document.createElement("button");
+            boton.innerText = numeroPagina;
+            boton.className = "bg-blue-500 text-white px-4 py-2 rounded-md mx-1";
+            boton.addEventListener("click", () => mostrarProductos(numeroPagina));
+            return boton;
+        }
+
+        function generarBotonesPaginacion() {
+            for (let i = 1; i <= totalPaginas; i++) {
+                const boton = crearBotonPagina(i);
+                paginacionContenedor.appendChild(boton);
+            }
+        }
+
+        generarBotonesPaginacion();
+        mostrarProductos(1); 
+    });
+</script>
+ *@
 
 <script>
 

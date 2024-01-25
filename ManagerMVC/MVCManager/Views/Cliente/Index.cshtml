@@ -10,7 +10,7 @@
         <h2 class="text-2xl font-bold mb-5">Mantenimiento de Clientes</h2>
 
         <div class="mb-4 w-1/2">
-            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" id="searchTerm" placeholder="Buscar por nombre, documento o correo" onkeyup="searchFunction()" />
+            <input type="text" id="searchInput" placeholder="Buscar..." class="p-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="mb-4">
@@ -152,25 +152,33 @@
     let modalMode = ""; // Puede ser "add" o "edit"
     let idClienteEditando = 0; // Variable para almacenar el ID del cliente en edición
 
-    function searchFunction() {
-        let input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchTerm");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("clientesTable");
-        tr = table.getElementsByTagName("tr");
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        let filter = this.value.toUpperCase();
+        let rows = document.querySelector("table tbody").rows;
 
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1]; // Selecciona la columna de nombre
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
+        for (let i = 0; i < rows.length; i++) {
+            let cells = rows[i].querySelectorAll("td");
+            let foundInRow = false;
+
+            // Columnas para buscar: nombres (1), apellidos (2), numeroDocumento (4), razon social (5), correo (7)
+            let searchColumns = [1, 2, 4, 5, 7];
+
+            for (let j = 0; j < searchColumns.length; j++) {
+                let colIndex = searchColumns[j];
+                let col = cells[colIndex];
+                if (col) {
+                    let txtValue = col.textContent || col.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        foundInRow = true;
+                        break; // Si encuentra coincidencia, no necesita buscar en las demás columnas
+                    }
                 }
             }
+
+            rows[i].style.display = foundInRow ? "" : "none";
         }
-    }
+    });
+
 
     function openEditModal(idCliente, nombreContacto, apellidoContacto, telefono, idTipoDocumento, numeroDocumento, razonSocial, nombreComercial, correo, direccion) {
         idClienteEditando = idCliente;

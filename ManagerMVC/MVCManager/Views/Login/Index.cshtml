@@ -25,11 +25,11 @@
             <form asp-controller="Login" asp-action="Login" method="post" id="login-form">
                 <div class="mb-4">
                     <label for="username" class="block text-gray-600 text-sm mb-2">Usuario:</label>
-                    <input type="text" id="username" name="username" class="w-full p-2 border rounded-md" placeholder="Ingrese su usuario" required>
+                    <input type="text" id="username" name="username" class="w-full p-2 border rounded-md" placeholder="Ingrese su usuario" autocomplete="username" required>
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block text-gray-600 text-sm mb-2">Contraseña:</label>
-                    <input type="password" id="password" name="password" class="w-full p-2 border rounded-md" placeholder="Ingrese su contraseña" required>
+                    <input type="password" id="password" name="password" class="w-full p-2 border rounded-md" placeholder="Ingrese su contraseña" autocomplete="current-password" required>
                 </div>
 
                 <input type="hidden" name="recaptchaToken" id="recaptchaToken">
