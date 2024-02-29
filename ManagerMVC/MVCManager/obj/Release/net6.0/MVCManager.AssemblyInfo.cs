@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MVCManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24fe2a47da569c6e397ba8a1d67b571a9a8aa47a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+669649fb377ab631932be3303541a1a516958d14")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVCManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVCManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

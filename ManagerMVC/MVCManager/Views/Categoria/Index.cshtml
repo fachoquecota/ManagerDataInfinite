@@ -9,7 +9,7 @@
         <h2 class="text-2xl font-bold mb-5">Mantenimiento de Categorías</h2>
 
         <div class="mb-4 w-1/2">
-            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" id="searchTerm" placeholder="Buscar por descripción" onkeyup="searchFunction()" />
+            <input type="text" id="searchInput" placeholder="Buscar..." class="p-2 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
         </div>
 
         <div class="mb-4">
@@ -141,9 +141,31 @@ function handleResponse(response) {
     }
 }
 
-// Función para filtrar la tabla basada en la entrada de búsqueda
-function searchFunction() {
-    // Tu código para la función de búsqueda...
-}
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        let filter = this.value.toUpperCase();
+        let rows = document.querySelector("table tbody").rows;
+
+        for (let i = 0; i < rows.length; i++) {
+            let cells = rows[i].querySelectorAll("td");
+            let foundInRow = false;
+
+            // Columnas para buscar: nombres (1), apellidos (2), numeroDocumento (4), razon social (5), correo (7)
+            let searchColumns = [1];
+
+            for (let j = 0; j < searchColumns.length; j++) {
+                let colIndex = searchColumns[j];
+                let col = cells[colIndex];
+                if (col) {
+                    let txtValue = col.textContent || col.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        foundInRow = true;
+                        break; // Si encuentra coincidencia, no necesita buscar en las demás columnas
+                    }
+                }
+            }
+
+            rows[i].style.display = foundInRow ? "" : "none";
+        }
+    });
 
 </script>
