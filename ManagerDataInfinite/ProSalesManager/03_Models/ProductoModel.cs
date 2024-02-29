@@ -12,7 +12,7 @@
         public int idEmpresa { get; set; }
         public string imagenCarpeta { get; set; }
         public string imagenNombre { get; set; }
-        public DateTime horaCreacion { get; set; }
+        public DateTime createdAt { get; set; }
         public DateTime horaActualizacion { get; set; }
         public bool Activo { get; set; }
         public List<string> Images { get; set; } = new List<string>();

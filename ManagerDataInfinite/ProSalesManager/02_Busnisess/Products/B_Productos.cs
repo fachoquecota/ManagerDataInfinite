@@ -9,47 +9,72 @@ namespace ProSalesManager._02_Busnisess.Products
     public class B_Productos : IB_Productos
     {
         private readonly ISP_Productos _sP_Products;
-        public B_Productos(ISP_Productos sP_Products)
+        private readonly IConfiguration _configuration;
+
+        public B_Productos(IConfiguration configuration, ISP_Productos sP_Products)
         {
             _sP_Products = sP_Products;
+            _configuration = configuration;
+
         }
 
-        public List<ProductResponse> GetAllProductsDetails(bool Activo)
+        public ProductResponse GetProductDetails(bool Activo, int idProducto)
         {
-            var productsList = _sP_Products.ProductosLista(Activo);
-            var responseList = new List<ProductResponse>();
+            var product = _sP_Products.ProductoUnico(Activo, idProducto);
 
-            foreach (var product in productsList)
+            if (product != null) 
             {
+                var baseUrl = _configuration.GetValue<string>("ApplicationSettings:BaseImageUrl");
+
                 var productResponse = new ProductResponse
                 {
-                    Id = product.idProducto,
-                    Genero = product.Genero,
-                    Producto = product.producto,
+                    id = product.idProducto,
+                    gender = product.Genero,
+                    publish = "publish",
+                    category = "",
+                    
                     Marca = product.marca,
-                    Precio = product.precio,
-                    Cantidad = product.cantidad,
-                    Sizes = product.Sizes,
-                    Images = product.Images,
-                    Colores = product.Colores,
-                    Tags = product.Tags,
-                    Descripcion = product.Descripcion,
-                    NewLabel = new LabelModel
+                    
+                    available = product.cantidad,
+                    priceSale = null,
+                    taxes = 10,
+                    quantity = 0,
+                    sizes = product.Sizes,
+                    inventoryType = "low stock",
+                    images = product.Images,
+                    tags = product.Tags,
+                    code = "asd",
+                    descripcion = product.Descripcion,
+                    newLabel = new LabelModel
                     {
-                        Enabled = product.NewLabelEnabled,
-                        Content = product.NewLabelContent
+                        enabled = product.NewLabelEnabled,
+                        content = product.NewLabelContent
                     },
-                    SaleLabel = new LabelModel
+                    sku = "asd",
+                    createdAt = product.createdAt,
+                    saleLabel = new LabelModel
                     {
-                        Enabled = product.SaleLabelEnabled,
-                        Content = product.SaleLabelContent
+                        enabled = product.SaleLabelEnabled,
+                        content = product.SaleLabelContent
                     },
-                    Activo = product.Activo
+                    name = product.producto,
+                    price = product.precio,
+                    Activo = product.Activo,
+                    //coverUrl = product.imagenCarpeta + product.imagenNombre,
+                    coverUrl = $"{baseUrl}images/ProductoPrincipal/{product.idProducto}/{product.imagenNombre}".Replace("\\", "/"),
+
+                    totalRatings = 0.5,
+                    totalSold = 0,
+                    totalReviews = 0,
+                    subDescription= product.Descripcion,
+                    colors = product.Colores,
+
                 };
-                responseList.Add(productResponse);
+                return productResponse;
             }
-            return responseList;
+            return null;
         }
+
 
         public List<ModeloProductoModel> ModeloProductosListaCrud()
         {

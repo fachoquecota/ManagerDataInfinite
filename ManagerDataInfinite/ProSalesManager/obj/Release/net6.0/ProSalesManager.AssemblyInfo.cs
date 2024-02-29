@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("736f402e-f7ab-4c83-8ef8-df659f09c18e")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProSalesManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3700f4a48dc3496d3d6d961c8542c2c08773ce30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+669649fb377ab631932be3303541a1a516958d14")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProSalesManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProSalesManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

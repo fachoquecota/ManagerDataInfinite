@@ -1,0 +1,1220 @@
+[
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_2",
+    "RelativePath": "",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.CalidadController",
+    "Method": "DeleteCalidad",
+    "RelativePath": "api/Calidad/DeleteCalidad",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idCalidad",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.CalidadController",
+    "Method": "GetAllCalidad",
+    "RelativePath": "api/Calidad/GetAllCalidad",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.CalidadController",
+    "Method": "GetAllCalidadCombobox",
+    "RelativePath": "api/Calidad/GetAllCalidadCombobox",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.CalidadController",
+    "Method": "InsertCalidad",
+    "RelativePath": "api/Calidad/PostCalidad",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.CalidadController",
+    "Method": "UpdateCalidad",
+    "RelativePath": "api/Calidad/PutCalidad",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idCalidad",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.CategoriaController",
+    "Method": "EliminarCategoria",
+    "RelativePath": "api/Categoria/DeleteCategoria",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idCategoria",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.CategoriaController",
+    "Method": "GetAllCategoria",
+    "RelativePath": "api/Categoria/GetAllCategoria",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.CategoriaController",
+    "Method": "InsertarCategoria",
+    "RelativePath": "api/Categoria/PostCategoria",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.CategoriaController",
+    "Method": "ActualizarCategoria",
+    "RelativePath": "api/Categoria/PutCategoria",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idCategoria",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ClientesController",
+    "Method": "DeleteClientes",
+    "RelativePath": "api/Clientes/DeleteClientes",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idCliente",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ClientesController",
+    "Method": "GetProducts",
+    "RelativePath": "api/Clientes/GetClientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ClientesController",
+    "Method": "GetProductsById",
+    "RelativePath": "api/Clientes/GetClientesByid",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idCliente",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ClientesController",
+    "Method": "GetTipoDocumento_ComboBox",
+    "RelativePath": "api/Clientes/GetTipoDocumento_ComboBox",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ClientesController",
+    "Method": "PostClientes",
+    "RelativePath": "api/Clientes/PostClientes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oClienteModel",
+        "Type": "ProSalesManager._03_Models.ClienteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ClientesController",
+    "Method": "PutClientes",
+    "RelativePath": "api/Clientes/PutClientes",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oClienteModel",
+        "Type": "ProSalesManager._03_Models.ClienteModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ColorController",
+    "Method": "DeleteColor",
+    "RelativePath": "api/Color/DeleteColor",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idColor",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ColorController",
+    "Method": "GetAllColors",
+    "RelativePath": "api/Color/GetAllColors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ColorController",
+    "Method": "InsertColor",
+    "RelativePath": "api/Color/PostColor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oColorModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.ColorModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ColorController",
+    "Method": "UpdateColor",
+    "RelativePath": "api/Color/PutColor",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oColorModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.ColorModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.EmpresaTransporteController",
+    "Method": "DeleteTransporte",
+    "RelativePath": "api/EmpresaTransporte/DeleteTransporte",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEmpresaTranspte",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.EmpresaTransporteController",
+    "Method": "GetAllEmpresaTransporte",
+    "RelativePath": "api/EmpresaTransporte/GetAllEmpresaTransporte",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.EmpresaTransporteController",
+    "Method": "GetAllTransporteCombobox",
+    "RelativePath": "api/EmpresaTransporte/GetAllTransporteCombobox",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.EmpresaTransporteController",
+    "Method": "InsertTransporte",
+    "RelativePath": "api/EmpresaTransporte/PostTransporte",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "direccion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.EmpresaTransporteController",
+    "Method": "UpdateTransporte",
+    "RelativePath": "api/EmpresaTransporte/PutTransporte",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEmpresaTranspte",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "direccion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.InicioController",
+    "Method": "GetProducts",
+    "RelativePath": "api/Inicio/GetUsuarioInicio",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.LoginController",
+    "Method": "GetToken",
+    "RelativePath": "api/Login/GetTokenLogin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginModel",
+        "Type": "ProSalesManager._03_Models.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.MarcaController",
+    "Method": "EliminarMarca",
+    "RelativePath": "api/Marca/DeleteMarca",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idMarca",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.MarcaController",
+    "Method": "GetAllMarca",
+    "RelativePath": "api/Marca/GetAllMarca",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.MarcaController",
+    "Method": "GetAllMarcaCombobox",
+    "RelativePath": "api/Marca/GetAllMarcaCombobox",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.MarcaController",
+    "Method": "InsertarMarca",
+    "RelativePath": "api/Marca/PostMarca",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.MarcaController",
+    "Method": "ActualizarMarca",
+    "RelativePath": "api/Marca/PutMarca",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idMarca",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "DeleteCrudColorDetalle",
+    "RelativePath": "api/Productos/DeleteCrudColorDetalle",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "DeleteCrudProducto",
+    "RelativePath": "api/Productos/DeleteCrudProducto",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "DeleteCrudSizeDetalle",
+    "RelativePath": "api/Productos/DeleteCrudSizeDetalle",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idSizeDetalle",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "DeleteCrudTag",
+    "RelativePath": "api/Productos/DeleteCrudTag",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "DeleteModeloProducto",
+    "RelativePath": "api/Productos/DELETEDeleteModeloProducto",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idModeloProducto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "DeleteCrudImagen",
+    "RelativePath": "api/Productos/DeleteImagen",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oImagenModel",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetProducts",
+    "RelativePath": "api/Productos/details",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetColor_CrudCB",
+    "RelativePath": "api/Productos/GetColor_CrudCB",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudCategoriaCrudCB",
+    "RelativePath": "api/Productos/GetCrudCategoriaCrudCB",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudColorDetalleById",
+    "RelativePath": "api/Productos/GetCrudColorDetalleById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudGeneroCrudCB",
+    "RelativePath": "api/Productos/GetCrudGeneroCrudCB",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudImagenById",
+    "RelativePath": "api/Productos/GetCrudImagenById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudModeloCrudCB",
+    "RelativePath": "api/Productos/GetCrudModeloCrudCB",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudProductoById",
+    "RelativePath": "api/Productos/GetCrudProductoById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudProductos",
+    "RelativePath": "api/Productos/GetCrudProductos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudProveedorCrudCB",
+    "RelativePath": "api/Productos/GetCrudProveedorCrudCB",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudSizeDetalleById",
+    "RelativePath": "api/Productos/GetCrudSizeDetalleById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetCrudTagById",
+    "RelativePath": "api/Productos/GetCrudTagById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetModeloDetalle",
+    "RelativePath": "api/Productos/GetModeloDetalle",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "ModeloProductosByIDCrud",
+    "RelativePath": "api/Productos/GETModeloProductosByIDCrud",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "ModeloProductosListaCrud",
+    "RelativePath": "api/Productos/GETModeloProductosListaCrud",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "GetSize_CrudCB",
+    "RelativePath": "api/Productos/GetSize_CrudCB",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "PostCrudColorDetalle",
+    "RelativePath": "api/Productos/PostCrudColorDetalle",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "crudColorDetalleModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.CrudColorDetalleModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "PostCrudImagen",
+    "RelativePath": "api/Productos/PostCrudImagen",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oImagenModel",
+        "Type": "ProSalesManager._03_Models.ImagenModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "PostCrudSizeDetalle",
+    "RelativePath": "api/Productos/PostCrudSizeDetalle",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oCrudSizeDetalleModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.CrudSizeDetalleModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "PostCrudTag",
+    "RelativePath": "api/Productos/PostCrudTag",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oCrudTagDetalleModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.CrudTagDetalleModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "InsertModeloProducto",
+    "RelativePath": "api/Productos/POSTInsertModeloProducto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oModeloProductoModel",
+        "Type": "ProSalesManager._03_Models.ModeloProductoModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "PutCrudColorDetalle",
+    "RelativePath": "api/Productos/PutCrudColorDetalle",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "crudColorDetalleModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.CrudColorDetalleModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "PutCrudProducto",
+    "RelativePath": "api/Productos/PutCrudProducto",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oCrudProductoModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.CrudProductoModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "PutCrudProducto",
+    "RelativePath": "api/Productos/PutCrudSizeDetalle",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oCrudSizeDetalleModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.CrudSizeDetalleModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "PutCrudTag",
+    "RelativePath": "api/Productos/PutCrudTag",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oCrudTagDetalleModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.CrudTagDetalleModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProductosController",
+    "Method": "UpdateModeloProducto",
+    "RelativePath": "api/Productos/PUTUpdateModeloProducto",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oModeloProductoModel",
+        "Type": "ProSalesManager._03_Models.ModeloProductoModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProveedorCrudController",
+    "Method": "DeleteProveedor",
+    "RelativePath": "api/ProveedorCrud/DeleteProveedor",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProveedor",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProveedorCrudController",
+    "Method": "GetAllProveedores",
+    "RelativePath": "api/ProveedorCrud/GetAllProveedores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProveedorCrudController",
+    "Method": "InsertProveedor",
+    "RelativePath": "api/ProveedorCrud/PostProveedor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "proveedorModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.ProveedoresModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProveedorCrudController",
+    "Method": "UpdateProveedor",
+    "RelativePath": "api/ProveedorCrud/PutProveedor",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "proveedorModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.ProveedoresModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProveedoresController",
+    "Method": "GetProducts",
+    "RelativePath": "api/Proveedores/GetProveedores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProveedoresController",
+    "Method": "PostProducts",
+    "RelativePath": "api/Proveedores/PostProveedores",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oProveedoresModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.ProveedoresModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.ProveedoresController",
+    "Method": "PutProducts",
+    "RelativePath": "api/Proveedores/PutProveedores",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oProveedoresModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.ProveedoresModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.PublicProductsController",
+    "Method": "GetProducts",
+    "RelativePath": "api/PublicProducts/GetProductos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.SizeController",
+    "Method": "DeleteSize",
+    "RelativePath": "api/Size/DeleteSize",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.SizeController",
+    "Method": "GetAllSizes",
+    "RelativePath": "api/Size/GetAllSizes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.SizeController",
+    "Method": "InsertSize",
+    "RelativePath": "api/Size/PostSize",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oSizeModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.SizeModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.SizeController",
+    "Method": "UpdateSize",
+    "RelativePath": "api/Size/PutSize",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "oSizeModel",
+        "Type": "ProSalesManager._03_Models.ModelsCrud.SizeModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.VentasController",
+    "Method": "GetProductosVenta",
+    "RelativePath": "api/Ventas/GetProductosVenta",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.VentasController",
+    "Method": "GetReporteVentaDetalle",
+    "RelativePath": "api/Ventas/GetReporteVentaDetalle",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idVenta",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.VentasController",
+    "Method": "GetUbigeo",
+    "RelativePath": "api/Ventas/GetUbigeo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.VentasController",
+    "Method": "GetVentas",
+    "RelativePath": "api/Ventas/GetVentas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.VentasController",
+    "Method": "GetVentasFiltro",
+    "RelativePath": "api/Ventas/GetVentasFiltro",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filtro",
+        "Type": "ProSalesManager._03_Models.FiltroVentasModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.VentasController",
+    "Method": "GetVentaTipoVentaCB",
+    "RelativePath": "api/Ventas/GetVentaTipoVentaCB",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.VentasController",
+    "Method": "InsertSize",
+    "RelativePath": "api/Ventas/PostVenta",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "venta",
+        "Type": "ProSalesManager._03_Models.Venta",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.VentasController",
+    "Method": "ObtenerRptDetalle",
+    "RelativePath": "api/Ventas/ReporteVentaDetalleGrafico",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSalesManager.Controllers.VentasController",
+    "Method": "ReporteVentaGrafico",
+    "RelativePath": "api/Ventas/ReporteVentaGrafico",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

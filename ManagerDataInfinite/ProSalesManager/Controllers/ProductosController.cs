@@ -22,22 +22,22 @@ namespace ProSalesManager.Controllers
 
         }
         [HttpGet]
-        [Route("GetProductos")]
-        public dynamic GetProducts()
+        [Route("details")]
+        public IActionResult GetProducts(int productId) // Cambié el tipo de retorno a IActionResult para seguir las mejores prácticas de ASP.NET Core.
         {
             //var correoToken = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
             //var correo = _tokenService.GetCorreoFromToken(correoToken);
-            var result = _Products.GetAllProductsDetails(true);
+
+            var result = _Products.GetProductDetails(true, productId);
 
             if (result is null)
-                return BadRequest(new { message = "No se encontró datos de Productos" });
-
-            return new
             {
-                //message = jwtToken
-                products = result
-            };
+                return BadRequest(new { message = "No se encontró datos de Productos" });
+            }
+
+            return Ok(new { product = result }); // Cambié 'products' a 'product' y quité los corchetes.
         }
+
         [HttpGet]
         [Route("GetCrudProductos")]
         public dynamic GetCrudProductos()

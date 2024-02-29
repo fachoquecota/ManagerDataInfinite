@@ -1,12 +1,4 @@
 {
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:24782",
-      "sslPort": 0
-    }
-  },
   "profiles": {
     "MVCManager": {
       "commandName": "Project",
@@ -14,7 +6,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:7292;http://localhost:5201",
+      "applicationUrl": "https://localhost:7292;https://localhost:5201",
       "dotnetRunMessages": true
     },
     "IIS Express": {
@@ -29,6 +21,14 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
       "publishAllPorts": true
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "https://localhost:24782",
+      "sslPort": 0
     }
   }
 }

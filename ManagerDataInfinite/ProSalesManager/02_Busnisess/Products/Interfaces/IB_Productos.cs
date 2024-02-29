@@ -5,7 +5,7 @@ namespace ProSalesManager._02_Busnisess.Products.Interfaces
 {
     public interface IB_Productos
     {
-        List<ProductResponse> GetAllProductsDetails(bool Activo);
+        public ProductResponse GetProductDetails(bool Activo, int idProducto);
 
         //MODELOPRODUCTO
         List<ModeloProductoModel> ModeloProductosListaCrud();

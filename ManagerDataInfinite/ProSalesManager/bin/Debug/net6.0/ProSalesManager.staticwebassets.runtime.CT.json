@@ -1,6 +1,6 @@
 {
   "ContentRoots": [
-    "C:\\Users\\fchoquecota\\Documents\\Proy\\ManagerDataInfinite\\ProSalesManager\\wwwroot\\"
+    "/app/wwwroot/"
   ],
   "Root": {
     "Children": null,

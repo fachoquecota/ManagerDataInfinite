@@ -13,9 +13,9 @@ namespace ProSalesManager._01_Data.Modules.Products
     public class SP_Productos : ISP_Productos
     {
         // Public Page
-        public List<ProductoModel> ProductosLista(bool Activo)
+        public ProductoModel ProductoUnico(bool Activo, int idProducto)
         {
-            var oList = new List<ProductoModel>();
+            ProductoModel producto = null; // Inicializamos como null para el caso de que no haya registros
             try
             {
                 var cn = new DataConnection();
@@ -24,12 +24,13 @@ namespace ProSalesManager._01_Data.Modules.Products
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Select_Productos", conexion);
                     cmd.Parameters.AddWithValue("@btActivo", Activo);
+                    cmd.Parameters.AddWithValue("@intIdProducto", idProducto);
                     cmd.CommandType = CommandType.StoredProcedure;
                     using (var dr = cmd.ExecuteReader())
                     {
-                        while (dr.Read())
+                        if (dr.Read()) // Usamos if en lugar de while ya que esperamos un solo registro
                         {
-                            oList.Add(new ProductoModel()
+                            producto = new ProductoModel()
                             {
                                 idProducto = Convert.ToInt32(dr["idProducto"]),
                                 producto = dr["producto"].ToString(),
@@ -43,7 +44,7 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 Images = dr["Images"].ToString().Split(',').ToList(),
                                 Sizes = dr["Sizes"].ToString().Split(',').ToList(),
                                 Tags = dr["Tags"].ToString().Split(',').ToList(),
-                                horaCreacion = Convert.ToDateTime(dr["horaCreacion"]),
+                                createdAt = Convert.ToDateTime(dr["horaCreacion"]),
                                 horaActualizacion = Convert.ToDateTime(dr["horaActualizacion"]),
                                 Activo = Convert.ToBoolean(dr["Activo"]),
                                 Genero = dr["Genero"].ToString(),
@@ -52,17 +53,18 @@ namespace ProSalesManager._01_Data.Modules.Products
                                 NewLabelEnabled = Convert.ToBoolean(dr["NewLabelEnabled"]),
                                 SaleLabelContent = dr["SaleLabelContent"].ToString(),
                                 SaleLabelEnabled = Convert.ToBoolean(dr["SaleLabelEnabled"])
-                            });
+                            };
                         }
                     }
                 }
-                return oList;
             }
             catch (Exception ex)
             {
                 ErrorResult.ErrorMessage = ex.Message;
-                return oList;
+                // Aquí podrías manejar el error como consideres más apropiado
+                // Por ejemplo, podrías loguear el error o asignar un valor específico a 'producto'
             }
+            return producto; // Devolvemos el producto, que será null si no se encontró ningún registro
         }
 
         //CrudModeloProducto

@@ -35,56 +35,6 @@ C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\Micro
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\Tailwind.Extensions.AspNetCore.dll
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.csproj.CopyComplete
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\appsettings.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\package-lock.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\package.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.staticwebassets.runtime.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.exe
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.deps.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.runtimeconfig.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.pdb
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Tailwind.Extensions.AspNetCore.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.csproj.AssemblyReference.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.AssemblyInfoInputs.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.AssemblyInfo.cs
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.csproj.CoreCompileInputs.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.RazorAssemblyInfo.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.RazorAssemblyInfo.cs
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\scopedcss\bundle\MVCManager.styles.css
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\scopedcss\projectbundle\MVCManager.bundle.scp.css
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.csproj.CopyComplete
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\refint\MVCManager.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.pdb
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.genruntimeconfig.cache
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\ref\MVCManager.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\ClosedXML.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\EPPlus.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\EPPlus.Interfaces.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\EPPlus.System.Drawing.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\ExcelNumberFormat.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Irony.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\SixLabors.Fonts.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\System.Drawing.Common.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\System.IO.Packaging.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\XLParser.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\ClosedXML.dll
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\EPPlus.dll
@@ -103,10 +53,60 @@ C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\runti
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.sourcelink.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\appsettings.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\package-lock.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\package.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.staticwebassets.runtime.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.exe
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.deps.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.runtimeconfig.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\MVCManager.pdb
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\ClosedXML.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\EPPlus.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\EPPlus.Interfaces.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\EPPlus.System.Drawing.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\ExcelNumberFormat.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Irony.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\SixLabors.Fonts.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\Tailwind.Extensions.AspNetCore.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\XLParser.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.csproj.AssemblyReference.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.AssemblyInfoInputs.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.AssemblyInfo.cs
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.RazorAssemblyInfo.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.RazorAssemblyInfo.cs
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.sourcelink.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets\msbuild.MVCManager.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets\msbuild.build.MVCManager.props
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MVCManager.props
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MVCManager.props
 C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\fchoquecota\Documents\Proy\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.sourcelink.json
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\scopedcss\bundle\MVCManager.styles.css
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\scopedcss\projectbundle\MVCManager.bundle.scp.css
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.csproj.Up2Date
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\refint\MVCManager.dll
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.pdb
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\MVCManager.genruntimeconfig.cache
+C:\Users\user\Documents\3 .Net Core\ManagerDataInfinite\ManagerMVC\MVCManager\obj\Debug\net6.0\ref\MVCManager.dll

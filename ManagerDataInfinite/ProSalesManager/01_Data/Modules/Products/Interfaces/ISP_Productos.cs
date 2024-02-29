@@ -5,7 +5,7 @@ namespace ProSalesManager._01_Data.Modules.Products.Interfaces
 {
     public interface ISP_Productos
     {
-        List<ProductoModel> ProductosLista(bool Activo);
+        public ProductoModel ProductoUnico(bool Activo, int idProducto);
         List<ImagenModel> ImagenesLista(int idProducto);
         List<TagModel> TagsLista(int idProducto);
         //List<SizeModel> SizesLista(int idProducto);
